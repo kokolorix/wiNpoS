@@ -15,9 +15,4 @@ void Hooks::attach()
 void Hooks::detach()
 {
 	assert(FreeLibrary(_hModule));
-//#ifdef Win32
-//	LoadLibrary(L"wiNpoS-Hook32.dll");
-//#else
-//	LoadLibrary(L"wiNpoS-Hook64.dll");
-//#endif // Win32
 }
