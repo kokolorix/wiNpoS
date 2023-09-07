@@ -1,11 +1,11 @@
 
-# Documentation
+# wiNpoS
 
-## Short description
+[Source code on GitHub](https://github.com/kokolorix/wiNpoS#wiNpoS)
+
+## Description
 
 App that displays a configurable positioning window starting from the title bar to move the window to specific positions and sizes.
-
-[Source code on GitHub](https://github.com/kokolorix/wiNpoS)
 
 ## Entrance points
 
@@ -28,7 +28,7 @@ App that displays a configurable positioning window starting from the title bar 
 ## Overviews
 
 - [Go to the class list](annotated.html)
-- [Go to the graphical class hierarchy](inherits.html)
+<!-- - [Go to the graphical class hierarchy](inherits.html) -->
 - [Go to the files list](files.html)
 
 ## External documentations
@@ -39,6 +39,6 @@ App that displays a configurable positioning window starting from the title bar 
 - [graphviz documentation](https://graphviz.org/documentation/)
 - [markdown help](https://commonmark.org/help/)
 
-## The App
+## In Action
 ![image](wiNpoS.gif)
 
