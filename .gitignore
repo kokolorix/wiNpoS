@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+/.vs
+/.vs/wiNpoS/v17/*.suo
+/bin
+/wiNpoS-App/Win32/Debug/*.log
+/wiNpoS-App/Win32/Release
+/wiNpoS-App/Win32/Debug
+/wiNpoS-App/x64/Debug
+/wiNpoS-App/x64/Release
+/wiNpoS-Hook/Win32/Debug
+/wiNpoS-Hook/Win32/Release
+/wiNpoS-Hook/x64/Debug
+/wiNpoS-Hook/x64/Release
+/wiNpoS-Hook/*.user
+/wiNpoS-App/*.user
