@@ -61,7 +61,7 @@ PROJECT_BRIEF          =
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           =
+PROJECT_LOGO           = D:/Projects/wiNpoS/wiNpoS.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
@@ -1053,7 +1053,9 @@ RECURSIVE              = YES
 EXCLUDE                = x64 \
                          bin \
                          .vs \
-                         .git
+                         .git \
+                         rapidjson \
+                         pages
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

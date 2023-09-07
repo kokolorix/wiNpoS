@@ -32,12 +32,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="wiNpoS-App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="wiNpoS-App.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="wiNpoS-App.rc">

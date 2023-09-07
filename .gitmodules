@@ -2,3 +2,6 @@
 	path = pages
 	url = https://github.com/kokolorix/wiNpoS.git
 	branch = doc/pages
+[submodule "rapidjson"]
+	path = rapidjson
+	url = https://github.com/Tencent/rapidjson.git
