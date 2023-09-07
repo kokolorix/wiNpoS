@@ -1,0 +1,7 @@
+<map id="rapidjson::Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;" name="rapidjson::Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;">
+<area shape="rect" id="Node000001" title="JSON writer." alt="" coords="5,55,219,129"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_pretty_writer.html" title=" " alt="" coords="267,5,539,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,69,266,63,267,68,234,74"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_pretty_writer.html" title="Writer with indentation and spacing." alt="" coords="292,104,514,179"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,110,292,120,292,125,233,115"/>
+</map>

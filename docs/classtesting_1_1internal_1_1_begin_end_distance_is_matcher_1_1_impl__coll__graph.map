@@ -1,0 +1,19 @@
+<map id="testing::internal::BeginEndDistanceIsMatcher&lt; DistanceMatcher &gt;::Impl&lt; Container &gt;" name="testing::internal::BeginEndDistanceIsMatcher&lt; DistanceMatcher &gt;::Impl&lt; Container &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1532,19,1717,93"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_matcher_interface.html" title=" " alt="" coords="516,5,681,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="696,24,970,24,1282,24,1413,30,1532,41,1531,46,1413,35,1282,29,970,29,696,29"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1_matcher_describer_interface.html" title=" " alt="" coords="5,35,176,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="190,48,516,29,516,34,190,53"/>
+<area shape="rect" id="Node000007" href="$classtesting_1_1_matcher_interface.html" title=" " alt="" coords="225,64,492,107"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="191,64,225,68,224,73,190,70"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1_matcher.html" title=" " alt="" coords="1192,64,1370,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1384,74,1532,61,1532,67,1385,79"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1internal_1_1_matcher_base.html" title=" " alt="" coords="1013,68,1142,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1157,85,1191,84,1191,90,1157,90"/>
+<area shape="rect" id="Node000006" href="$classtesting_1_1internal_1_1linked__ptr.html" title=" " alt="" coords="705,64,930,139"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="945,93,1012,90,1012,95,945,98"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="507,88,704,95,704,100,507,93"/>
+<area shape="rect" id="Node000008" href="$classtesting_1_1internal_1_1linked__ptr__internal.html" title=" " alt="" coords="296,171,422,213"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="436,174,704,121,705,126,437,179"/>
+<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="330,153,341,147,359,144,375,146,386,152,391,161,390,170,384,170,386,162,382,156,373,151,359,149,343,152,333,158"/>
+</map>

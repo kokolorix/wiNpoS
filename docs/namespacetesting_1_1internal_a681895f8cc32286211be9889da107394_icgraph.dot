@@ -1,0 +1,18 @@
+digraph "testing::internal::IsUtf16SurrogatePair"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="testing::internal::\lIsUtf16SurrogatePair",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="testing::internal::\lWideStringToUtf8",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$namespacetesting_1_1internal.html#a05b8c86ff38243f34d8f839a0eadefb1",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="testing::internal::\lString::ShowWideCString",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classtesting_1_1internal_1_1_string.html#aaf7e376ff580677ea4954d5913d5b917",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="testing::Message::operator\<\<",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classtesting_1_1_message.html#ac0db9c22535b28bc863bfd0a1fdf7e14",tooltip=" "];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="testing::Message::operator\<\<",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classtesting_1_1_message.html#ac1d3a041ac4bb9c929ee746b31a13d6a",tooltip=" "];
+  Node2 -> Node2 [id="edge5_Node000002_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+}

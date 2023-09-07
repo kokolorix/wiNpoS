@@ -1,0 +1,10 @@
+<map id="foo::StreamableTemplateInFoo::value" name="foo::StreamableTemplateInFoo::value">
+<area shape="rect" id="Node000001" title=" " alt="" coords="193,72,368,115"/>
+<area shape="rect" id="Node000002" href="$classpump_1_1_token.html#a1a3dc1ee7b0d66e90f4ab7228b37fc0d" title=" " alt="" coords="5,5,145,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,69,113,35,115,30,207,64"/>
+<area shape="rect" id="Node000003" href="$classpump_1_1_token.html#a808876dd5a7b1bf6c43a3855dc4a8868" title=" " alt="" coords="10,80,140,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,96,140,96,140,91,178,91"/>
+<area shape="rect" id="Node000004" href="$namespacefoo.html#a4a4d839c73d5476881324336467fdfd3" title=" " alt="" coords="20,131,130,157"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="179,121,130,133,129,128,178,116"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="111,68,99,61,75,59,54,61,42,65,39,71,45,78,40,81,34,71,38,62,52,55,75,53,101,56,113,63"/>
+</map>

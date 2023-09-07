@@ -1,0 +1,10 @@
+<map id="rapidjson::Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;" name="rapidjson::Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;">
+<area shape="rect" id="Node000001" title="JSON writer." alt="" coords="5,219,219,293"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="108,5,164,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,115,78,106,112,103,167,108,218,103,218,98,168,101,112,110,76,122,45"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1internal_1_1_stack.html" title=" " alt="" coords="229,112,384,155"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="159,41,183,64,211,86,254,109,252,114,208,90,179,68,155,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,165,173,220,170,216,259,161"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_crt_allocator.html" title="C&#45;runtime library allocator." alt="" coords="232,5,381,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="309,47,309,112,304,112,304,47"/>
+</map>

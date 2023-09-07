@@ -1,0 +1,7 @@
+<map id="rapidjson::internal::Stack&lt; Allocator &gt;" name="rapidjson::internal::Stack&lt; Allocator &gt;">
+<area shape="rect" id="Node000001" title="A type&#45;unsafe stack for storing different types of data." alt="" coords="28,112,167,155"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_allocator.html" title="Concept for allocating, resizing and freeing memory block." alt="" coords="5,5,78,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="40,47,40,67,46,87,65,110,61,113,41,89,35,68,34,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="125,5,182,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,47,127,89,113,113,108,110,122,87,141,45"/>
+</map>

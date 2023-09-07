@@ -1,0 +1,10 @@
+<map id="testing::internal::BeginEndDistanceIsMatcher::Impl::Impl" name="testing::internal::BeginEndDistanceIsMatcher::Impl::Impl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,191,72"/>
+<area shape="rect" id="Node000002" href="$namespacetesting.html#ad2f5a342c05fd6806066682c234ca0bc" title=" " alt="" coords="239,29,381,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,40,224,40,224,45,191,45"/>
+<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="276,30,270,21,275,11,288,5,310,3,334,6,347,13,344,17,333,11,310,8,289,10,278,15,276,20,281,27"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_matcher_cast_impl.html#a3060220a0ff6b449dcc0be874e0a7dc0" title=" " alt="" coords="429,21,583,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,40,414,40,414,45,382,45"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1internal_1_1_matcher_cast_impl.html#a101ee9660c93b4d48dd79c2c16d48379" title=" " alt="" coords="631,21,810,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="584,40,617,40,617,45,584,45"/>
+</map>

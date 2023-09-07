@@ -1,0 +1,14 @@
+<map id="testing::internal::DoBothAction&lt; Action1, Action2 &gt;::Impl&lt; F &gt;" name="testing::internal::DoBothAction&lt; Action1, Action2 &gt;::Impl&lt; F &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="82,325,243,384"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_action_interface.html" title=" " alt="" coords="5,235,192,261"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,272,147,324,143,326,111,275"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1_action.html" title=" " alt="" coords="216,235,408,261"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="284,272,205,327,202,323,281,268"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1internal_1_1linked__ptr.html" title=" " alt="" coords="205,112,419,171"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="315,185,315,234,309,234,309,185"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1_action_interface.html" title=" " alt="" coords="176,5,330,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="273,60,299,110,295,113,268,62"/>
+<area shape="rect" id="Node000006" href="$classtesting_1_1internal_1_1linked__ptr__internal.html" title=" " alt="" coords="354,5,480,48"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="390,61,341,113,337,110,386,57"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="497,17,507,27,499,36,481,39,480,34,496,31,502,27,493,21"/>
+</map>

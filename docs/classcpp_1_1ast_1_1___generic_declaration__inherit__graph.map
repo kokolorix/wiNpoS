@@ -1,0 +1,27 @@
+<map id="cpp.ast._GenericDeclaration" name="cpp.ast._GenericDeclaration">
+<area shape="rect" id="Node000001" title=" " alt="" coords="256,132,441,159"/>
+<area shape="rect" id="Node000004" href="$classcpp_1_1ast_1_1_class.html" title=" " alt="" coords="529,5,630,32"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,120,425,80,488,42,528,27,530,32,490,46,428,84,378,124"/>
+<area shape="rect" id="Node000006" href="$classcpp_1_1ast_1_1_function.html" title=" " alt="" coords="520,56,639,83"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="399,124,489,92,526,81,528,86,490,97,400,129"/>
+<area shape="rect" id="Node000008" href="$classcpp_1_1ast_1_1_type.html" title=" " alt="" coords="531,107,628,133"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="456,131,531,123,531,128,456,136"/>
+<area shape="rect" id="Node000009" href="$classcpp_1_1ast_1_1_typedef.html" title=" " alt="" coords="523,157,636,184"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="456,154,523,162,522,167,456,160"/>
+<area shape="rect" id="Node000010" href="$classcpp_1_1ast_1_1_variable_declaration.html" title=" " alt="" coords="489,208,670,235"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="400,162,490,193,528,205,526,210,489,199,399,167"/>
+<area shape="rect" id="Node000011" href="$classcpp_1_1ast_1_1___nested_type.html" title=" " alt="" coords="507,259,652,285"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="378,167,428,206,491,244,519,256,517,261,488,249,425,211,375,171"/>
+<area shape="rect" id="Node000002" href="$classcpp_1_1ast_1_1_node.html" title=" " alt="" coords="110,132,208,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="223,143,256,143,256,148,223,148"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,132,62,159"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,143,109,143,109,148,77,148"/>
+<area shape="rect" id="Node000005" href="$classcpp_1_1ast_1_1_struct.html" title=" " alt="" coords="722,5,825,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="645,16,721,16,721,21,645,21"/>
+<area shape="rect" id="Node000007" href="$classcpp_1_1ast_1_1_method.html" title=" " alt="" coords="718,56,829,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="654,67,717,67,717,72,654,72"/>
+<area shape="rect" id="Node000012" href="$classcpp_1_1ast_1_1_enum.html" title=" " alt="" coords="722,233,825,260"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="666,258,721,251,722,256,667,263"/>
+<area shape="rect" id="Node000013" href="$classcpp_1_1ast_1_1_union.html" title=" " alt="" coords="723,284,824,311"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="667,281,723,288,722,293,666,286"/>
+</map>

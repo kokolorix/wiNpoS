@@ -1,0 +1,29 @@
+<map id="rapidjson::GenericValue&lt; Encoding, Allocator &gt;" name="rapidjson::GenericValue&lt; Encoding, Allocator &gt;">
+<area shape="rect" id="Node000001" title="Represents a JSON value. Use Value for UTF8 encoding and default allocator." alt="" coords="692,5,852,48"/>
+<area shape="rect" id="Node000002" href="$unionrapidjson_1_1_generic_value_1_1_data.html" title=" " alt="" coords="449,139,608,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="580,128,633,92,691,58,715,46,717,51,694,62,636,97,583,132"/>
+<area shape="rect" id="Node000010" href="$classrapidjson_1_1_generic_value.html" title=" " alt="" coords="692,72,852,131"/>
+<area shape="poly" id="edge10_Node000010_Node000002" title=" " alt="" coords="622,140,691,121,692,126,623,145"/>
+<area shape="rect" id="Node000012" href="$classrapidjson_1_1_generic_value.html" title="Represents a JSON value. Use Value for UTF8 encoding and default allocator." alt="" coords="692,269,852,312"/>
+<area shape="poly" id="edge13_Node000012_Node000002" title=" " alt="" coords="569,206,599,231,634,254,662,266,693,275,691,280,661,271,631,258,596,236,566,210"/>
+<area shape="rect" id="Node000003" href="$structrapidjson_1_1_generic_value_1_1_string.html" title=" " alt="" coords="224,32,383,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,95,466,136,464,140,379,100"/>
+<area shape="rect" id="Node000004" href="$structrapidjson_1_1_generic_value_1_1_short_string.html" title=" " alt="" coords="224,115,383,173"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="398,151,449,157,448,162,397,157"/>
+<area shape="rect" id="Node000005" href="$unionrapidjson_1_1_generic_value_1_1_number.html" title=" " alt="" coords="224,197,383,256"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="397,200,448,186,449,191,398,205"/>
+<area shape="rect" id="Node000006" href="$structrapidjson_1_1_generic_value_1_1_number_1_1_i.html" title=" " alt="" coords="5,156,165,215"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="179,200,224,209,223,214,178,206"/>
+<area shape="rect" id="Node000007" href="$structrapidjson_1_1_generic_value_1_1_number_1_1_u.html" title=" " alt="" coords="5,239,165,297"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="178,248,223,239,224,244,179,253"/>
+<area shape="rect" id="Node000008" href="$structrapidjson_1_1_generic_value_1_1_object_data.html" title=" " alt="" coords="1236,117,1395,176"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="1221,152,609,169,609,163,1221,147"/>
+<area shape="rect" id="Node000009" href="$classrapidjson_1_1_generic_member.html" title="Name&#45;value pair in a JSON object value." alt="" coords="957,87,1130,129"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1145,120,1236,133,1235,138,1144,125"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="867,101,956,103,956,109,867,106"/>
+<area shape="rect" id="Node000011" href="$structrapidjson_1_1_generic_value_1_1_array_data.html" title=" " alt="" coords="964,216,1123,275"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="949,239,826,225,692,205,608,189,610,184,693,200,827,219,949,234"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="866,272,963,256,964,261,867,278"/>
+<area shape="rect" id="Node000013" href="$structrapidjson_1_1_generic_value_1_1_flag.html" title=" " alt="" coords="224,280,383,339"/>
+<area shape="poly" id="edge14_Node000002_Node000013" title=" " alt="" coords="374,270,382,266,486,196,489,200,384,270,377,275"/>
+</map>

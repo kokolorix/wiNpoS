@@ -1,0 +1,10 @@
+<map id="rapidjson::GenericStringBuffer&lt; Encoding, Allocator &gt;" name="rapidjson::GenericStringBuffer&lt; Encoding, Allocator &gt;">
+<area shape="rect" id="Node000001" title="Represents an in&#45;memory output stream." alt="" coords="5,235,197,277"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="86,5,143,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,94,112,92,141,94,170,101,234,95,234,88,171,87,141,88,112,103,45"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1internal_1_1_stack.html" title=" " alt="" coords="205,112,341,171"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="134,42,154,64,177,86,213,109,210,114,174,90,150,68,130,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,181,134,237,131,232,216,177"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_allocator.html" title="Concept for allocating, resizing and freeing memory block." alt="" coords="237,5,309,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="276,47,276,112,270,112,270,47"/>
+</map>

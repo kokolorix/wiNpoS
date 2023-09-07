@@ -1,0 +1,11 @@
+<map id="GMockOutputTest" name="GMockOutputTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="105,235,233,261"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_test.html" title=" " alt="" coords="53,136,146,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,174,162,233,158,236,115,177"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="5,5,186,64"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,78,102,136,96,136,94,79"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1_naggy_mock.html" title=" " alt="" coords="176,128,314,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="222,184,181,236,177,233,218,180"/>
+<area shape="rect" id="Node000005" href="$class_mock_foo.html" title=" " alt="" coords="210,21,285,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="250,63,248,128,243,128,244,63"/>
+</map>

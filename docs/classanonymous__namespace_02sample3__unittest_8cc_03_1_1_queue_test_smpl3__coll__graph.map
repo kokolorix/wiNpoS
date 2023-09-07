@@ -1,0 +1,16 @@
+<map id="anonymous_namespace{sample3_unittest.cc}::QueueTestSmpl3" name="anonymous_namespace{sample3_unittest.cc}::QueueTestSmpl3">
+<area shape="rect" id="Node000001" title=" " alt="" coords="102,357,265,416"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_test.html" title=" " alt="" coords="78,235,172,261"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,274,174,356,169,358,133,276"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="5,96,186,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,168,124,234,119,235,103,170"/>
+<area shape="rect" id="Node000004" href="$class_queue.html" title=" " alt="" coords="224,235,322,261"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="259,276,204,358,200,355,254,273"/>
+<area shape="rect" id="Node000005" href="$class_queue_node.html" title=" " alt="" coords="209,112,337,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="276,154,276,234,270,234,270,154"/>
+<area shape="rect" id="Node000006" href="$class_queue_node.html" title=" " alt="" coords="212,5,334,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="276,47,276,112,270,112,270,47"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="350,10,361,19,352,27,335,30,334,24,350,22,355,19,347,15"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="361,112,417,139"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="372,152,319,213,291,236,288,232,315,209,368,149"/>
+</map>

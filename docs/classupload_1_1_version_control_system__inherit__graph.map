@@ -1,0 +1,15 @@
+<map id="upload.VersionControlSystem" name="upload.VersionControlSystem">
+<area shape="rect" id="Node000001" title=" " alt="" coords="112,80,305,107"/>
+<area shape="rect" id="Node000003" href="$classupload_1_1_git_v_c_s.html" title=" " alt="" coords="5,155,113,181"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="163,116,79,156,77,152,161,111"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="178,116,93,156,91,152,175,111"/>
+<area shape="rect" id="Node000004" href="$classupload_1_1_mercurial_v_c_s.html" title=" " alt="" coords="137,155,280,181"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="202,122,204,154,199,154,197,122"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="220,122,218,154,213,154,214,122"/>
+<area shape="rect" id="Node000005" href="$classupload_1_1_subversion_v_c_s.html" title=" " alt="" coords="304,155,457,181"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="246,111,344,152,342,156,243,116"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="260,110,358,152,356,156,258,115"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="180,5,237,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,47,204,79,199,80,197,47"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="220,47,218,80,213,79,214,47"/>
+</map>

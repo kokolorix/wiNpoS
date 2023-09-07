@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classrapidjson_1_1_generic_stream_wrapper.html" title="A Stream Wrapper." alt="" coords="5,5,174,64"/>
+<area shape="rect" id="Node000001" href="$classrapidjson_1_1_cursor_stream_wrapper.html" title="Cursor stream wrapper for counting line and column number if error exists." alt="" coords="222,13,432,56"/>
+<area shape="poly" id="edge103_Node000000_Node000001" title=" " alt="" coords="189,32,221,32,221,37,189,37"/>
+</map>

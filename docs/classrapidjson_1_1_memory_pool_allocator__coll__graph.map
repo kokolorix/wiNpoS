@@ -1,0 +1,14 @@
+<map id="rapidjson::MemoryPoolAllocator&lt; BaseAllocator &gt;" name="rapidjson::MemoryPoolAllocator&lt; BaseAllocator &gt;">
+<area shape="rect" id="Node000001" title="Default memory allocator used by the parser and DOM." alt="" coords="929,87,1135,129"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,89,62,116"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,85,85,83,124,79,163,80,477,68,615,66,792,72,929,87,929,93,791,77,615,71,477,73,163,85,124,85,86,88,76,90"/>
+<area shape="rect" id="Node000004" href="$structrapidjson_1_1_memory_pool_allocator_1_1_shared_data.html" title=" " alt="" coords="586,87,791,129"/>
+<area shape="poly" id="edge7_Node000004_Node000002" title=" " alt="" coords="76,100,586,105,586,110,76,106"/>
+<area shape="rect" id="Node000005" href="$structrapidjson_1_1_memory_pool_allocator_1_1_chunk_header.html" title="Chunk header for perpending to each chunk." alt="" coords="163,191,375,233"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="57,125,87,151,128,172,172,188,170,193,126,177,84,156,54,130"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_crt_allocator.html" title="C&#45;runtime library allocator." alt="" coords="614,153,763,180"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="777,149,929,123,930,128,778,154"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="806,105,929,105,929,111,806,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="372,184,598,127,600,133,373,189"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="241,173,251,167,269,164,285,166,296,172,301,181,299,190,294,190,295,182,292,176,283,171,269,169,253,172,244,178"/>
+</map>

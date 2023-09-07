@@ -1,0 +1,6 @@
+var classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01true_01_4 =
+[
+    [ "Base", "classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01true_01_4.html#a89b0156a52630717c29ec039d5d96ee6", null ],
+    [ "NumberStream", "classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01true_01_4.html#a5f4d6f3fd1b1b4d149f4f9d9e72b313a", null ],
+    [ "Take", "classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01true_01_4.html#a1cc57943935c43d18a72b43b3f2cf2b8", null ]
+];

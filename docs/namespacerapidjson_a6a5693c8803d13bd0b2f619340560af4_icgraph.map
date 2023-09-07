@@ -1,0 +1,8 @@
+<map id="rapidjson::Malloc" name="rapidjson::Malloc">
+<area shape="rect" id="Node000001" title=" " alt="" coords="259,47,378,73"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="355,35,343,28,318,25,296,27,284,32,282,37,287,45,283,48,276,38,281,28,295,22,318,20,344,23,358,30"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_memory_pool_allocator.html#a59d783f4feba17dcd35d9f25fcbc09f4" title="Constructor with chunkSize." alt="" coords="5,5,211,48"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="243,51,211,46,212,40,244,46"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_memory_pool_allocator.html#a81ecf9da77551177fcbec63bb91ee237" title="Resizes a memory block (concept Allocator)" alt="" coords="5,72,211,115"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="244,74,212,80,211,74,243,69"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="rapidjson::GenericReader&lt; SourceEncoding, TargetEncoding, StackAllocator &gt;" name="rapidjson::GenericReader&lt; SourceEncoding, TargetEncoding, StackAllocator &gt;">
+<area shape="rect" id="Node000001" title="SAX&#45;style JSON parser. Use Reader for UTF8 encoding and default allocator." alt="" coords="170,219,401,277"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="287,5,343,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="343,40,354,54,376,91,389,124,389,158,373,196,350,220,347,216,368,193,384,157,384,125,372,93,350,58,339,44"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1internal_1_1_stack.html" title=" " alt="" coords="30,112,186,155"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="273,32,238,43,203,58,183,73,164,90,135,114,132,109,161,86,179,69,200,54,236,38,272,27"/>
+<area shape="rect" id="Node000005" href="$structrapidjson_1_1_parse_result.html" title="Result of parsing (wraps ParseErrorCode)" alt="" coords="209,120,362,147"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="310,47,291,120,286,119,305,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,161,241,216,239,220,151,165"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_crt_allocator.html" title="C&#45;runtime library allocator." alt="" coords="5,5,155,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="80,46,84,87,95,110,90,113,79,89,75,47"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="288,162,288,218,283,218,283,162"/>
+</map>

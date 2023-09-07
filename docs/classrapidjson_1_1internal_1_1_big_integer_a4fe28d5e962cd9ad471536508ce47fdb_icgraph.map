@@ -1,0 +1,16 @@
+<map id="rapidjson::internal::BigInteger::Compare" name="rapidjson::internal::BigInteger::Compare">
+<area shape="rect" id="Node000001" title=" " alt="" coords="562,88,710,131"/>
+<area shape="rect" id="Node000002" href="$namespacerapidjson_1_1internal.html#a1c9faaa8ff1461a84ee35c04c7b926c5" title=" " alt="" coords="364,29,514,72"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,86,512,75,514,70,549,81"/>
+<area shape="rect" id="Node000005" href="$bigintegertest_8cpp.html#acc87e5f0c34e0c395cecdb2f3b2a00bd" title=" " alt="" coords="413,96,466,123"/>
+<area shape="poly" id="edge7_Node000001_Node000005" title=" " alt="" coords="547,112,466,112,466,107,547,107"/>
+<area shape="rect" id="Node000006" href="$strtodtest_8cpp.html#af9b928c452759c06619b92264055bf48" title=" " alt="" coords="413,147,466,173"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="549,135,467,156,466,151,547,129"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="469,17,458,10,439,8,422,10,412,15,407,21,409,28,404,29,402,19,408,10,421,5,439,3,460,5,472,12"/>
+<area shape="rect" id="Node000003" href="$namespacerapidjson_1_1internal.html#ac9c56fdb7c465ce81c43e7efdd9cdfa7" title=" " alt="" coords="193,29,316,72"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="349,53,316,53,316,48,349,48"/>
+<area shape="poly" id="edge4_Node000003_Node000003" title=" " alt="" coords="284,17,273,10,254,8,238,10,228,14,224,21,225,28,220,29,218,19,224,10,236,5,254,3,275,5,286,12"/>
+<area shape="rect" id="Node000004" href="$namespacerapidjson_1_1internal.html#a3b17825bcd2e913ccab1c5978a4ef35a" title=" " alt="" coords="5,29,145,72"/>
+<area shape="poly" id="edge5_Node000003_Node000004" title=" " alt="" coords="178,53,145,53,145,48,178,48"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="104,17,94,10,75,8,58,10,48,14,44,21,46,28,40,29,39,19,45,10,57,5,75,3,95,5,107,12"/>
+</map>

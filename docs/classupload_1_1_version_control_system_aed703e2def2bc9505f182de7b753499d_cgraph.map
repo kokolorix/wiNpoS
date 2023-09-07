@@ -1,0 +1,20 @@
+<map id="upload.VersionControlSystem.CheckForUnknownFiles" name="upload.VersionControlSystem.CheckForUnknownFiles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,203,150"/>
+<area shape="rect" id="Node000002" href="$namespaceupload.html#aded00b2430ea094be3da97c21c1ec61f" title=" " alt="" coords="731,61,846,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,105,179,62,213,41,250,26,315,11,383,4,451,4,518,9,639,29,733,53,731,58,638,34,517,14,451,9,384,9,316,16,251,31,216,46,182,66,129,109"/>
+<area shape="rect" id="Node000003" href="$classupload_1_1_version_control_system.html#a500344e5ca80b8fb29773ebe8aac4844" title=" " alt="" coords="263,41,460,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,104,262,85,263,90,190,109"/>
+<area shape="rect" id="Node000004" href="$classupload_1_1_subversion_v_c_s.html#a463e488be353b009fcc9a9ba04c1fa2a" title=" " alt="" coords="272,107,451,150"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="203,126,257,126,257,131,203,131"/>
+<area shape="rect" id="Node000007" href="$classupload_1_1_git_v_c_s.html#a435002a80c0afb73fe388af93db1a7b1" title=" " alt="" coords="269,174,454,217"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="190,148,263,167,262,172,188,153"/>
+<area shape="rect" id="Node000008" href="$classupload_1_1_mercurial_v_c_s.html#a453e37400923d6fdc6dbbe1203a097a1" title=" " alt="" coords="251,241,472,283"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="133,148,186,188,252,226,266,232,264,237,249,231,183,192,130,153"/>
+<area shape="rect" id="Node000005" href="$namespaceupload.html#adc4aea7c4a79d29dfab04f650c274fdb" title=" " alt="" coords="520,149,635,175"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="451,140,506,148,505,153,450,145"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="611,145,740,91,742,96,613,150"/>
+<area shape="rect" id="Node000006" href="$namespaceupload.html#aaf7f85c895770c6aba543e1bf57533ae" title=" " alt="" coords="683,149,894,175"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="636,159,668,159,668,165,636,165"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="454,178,505,170,506,176,455,184"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="443,237,471,226,510,205,545,182,548,186,513,209,473,231,445,242"/>
+</map>

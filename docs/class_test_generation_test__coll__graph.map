@@ -1,0 +1,13 @@
+<map id="TestGenerationTest" name="TestGenerationTest">
+<area shape="rect" id="Node000001" title=" " alt="" coords="238,311,372,337"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_test_with_param.html" title=" " alt="" coords="104,204,263,247"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,254,291,308,287,312,219,258"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1_test.html" title=" " alt="" coords="49,128,142,155"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,163,163,202,160,206,118,167"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="5,5,186,64"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,79,98,128,93,128,93,79"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1_with_param_interface.html" title=" " alt="" coords="166,128,380,155"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="250,167,208,206,204,202,247,163"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="287,212,406,239"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="338,253,313,311,308,309,333,251"/>
+</map>

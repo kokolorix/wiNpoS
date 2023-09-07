@@ -1,0 +1,13 @@
+<map id="testing::gmock_matchers_test::TEST" name="testing::gmock_matchers_test::TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,51,174,93"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_matcher_base.html#abc0dbefa4daff0a49943ca8740e987a6" title=" " alt="" coords="222,8,378,51"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,52,206,46,208,51,175,58"/>
+<area shape="rect" id="Node000004" href="$namespacetesting.html#afe49d0c09c2555ca4b23d4184aa8a508" title=" " alt="" coords="249,100,351,127"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,86,235,98,234,103,174,91"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_matcher_base.html#aab88b1d23b6b94a8495ce6a0e0c576ce" title=" " alt="" coords="426,5,634,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="378,26,411,25,411,31,378,31"/>
+<area shape="poly" id="edge6_Node000004_Node000004" title=" " alt="" coords="264,101,258,91,262,82,277,75,300,73,326,76,339,83,336,88,324,81,300,79,278,81,266,85,263,91,269,98"/>
+<area shape="rect" id="Node000005" href="$namespacetesting.html#aaa8bcc7acc2fa7874690a79d6df0f263" title=" " alt="" coords="444,96,616,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="351,112,429,113,429,118,351,117"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="486,96,485,86,492,77,507,71,530,69,556,72,571,79,568,84,555,77,530,75,508,77,495,81,490,87,492,95"/>
+</map>

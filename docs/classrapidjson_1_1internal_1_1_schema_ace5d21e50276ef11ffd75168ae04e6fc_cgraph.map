@@ -1,0 +1,29 @@
+<map id="rapidjson::internal::Schema::Schema" name="rapidjson::internal::Schema::Schema">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,247,139,289"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_string_buffer.html#a138330b64d530a2c35f702d4e207ac2f" title=" " alt="" coords="187,188,347,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,245,179,233,181,238,140,251"/>
+<area shape="rect" id="Node000003" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="229,255,305,281"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,265,214,265,214,271,139,271"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_uri.html#a9a91f109254beb16d3cda1c8bb3a55be" title="Resolve this URI against another (base) URI in accordance with URI resolution rules." alt="" coords="196,305,338,348"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,285,183,299,181,304,138,291"/>
+<area shape="rect" id="Node000005" href="$classrapidjson_1_1_generic_uri.html#ab7d451325d1717627b6d92a21128e096" title=" " alt="" coords="410,5,552,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="333,303,345,292,363,262,371,233,371,205,368,177,365,148,366,119,374,89,393,58,396,55,400,58,397,62,379,91,371,120,370,148,373,176,376,205,376,234,368,264,349,295,336,307"/>
+<area shape="rect" id="Node000006" href="$classrapidjson_1_1_generic_uri.html#ab0a48f2e6cfb7033e9702dda91615c57" title=" " alt="" coords="406,72,556,115"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="332,303,345,292,359,271,366,250,368,210,370,168,378,147,393,125,395,122,399,126,397,128,383,149,375,169,373,210,371,251,364,273,349,295,336,307"/>
+<area shape="rect" id="Node000007" href="$classrapidjson_1_1_generic_uri.html#ab34b9d143c6bd9f6603de06c854880ee" title=" " alt="" coords="404,139,557,181"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="330,303,345,291,362,267,368,243,375,217,393,192,397,188,400,192,397,195,380,219,373,244,367,269,349,295,333,307"/>
+<area shape="rect" id="Node000008" href="$classrapidjson_1_1_generic_uri.html#ad463e568d8f01eb474ebf711092fd48e" title=" " alt="" coords="406,205,556,248"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="323,302,346,291,369,274,394,258,405,252,407,257,396,262,372,279,348,296,325,307"/>
+<area shape="rect" id="Node000009" href="$classrapidjson_1_1_generic_uri.html#a0c7b85990f3dded2680487bcccad04f9" title=" " alt="" coords="402,272,560,315"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="338,313,386,305,387,311,339,318"/>
+<area shape="rect" id="Node000010" href="$classrapidjson_1_1_generic_uri.html#a3667d7793b3e4982d684cdac5507e80d" title=" " alt="" coords="395,339,566,381"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="339,335,381,342,380,347,338,340"/>
+<area shape="rect" id="Node000011" href="$classrapidjson_1_1_generic_uri.html#a8cd5e73527aec4b23ec52d1c9fe990d1" title=" " alt="" coords="410,405,552,448"/>
+<area shape="poly" id="edge10_Node000004_Node000011" title=" " alt="" coords="308,346,396,391,409,397,407,402,394,396,306,351"/>
+<area shape="rect" id="Node000012" href="$classrapidjson_1_1_generic_uri.html#a401fc538560c650393f08267f9392481" title=" " alt="" coords="404,472,558,515"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="286,347,332,401,363,431,397,458,404,462,401,467,393,462,359,435,328,405,282,350"/>
+<area shape="rect" id="Node000013" href="$classrapidjson_1_1_generic_uri.html#a877d062f9f7d50c34b628f583830e871" title=" " alt="" coords="410,539,552,581"/>
+<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="279,347,296,385,322,433,355,482,397,525,402,528,398,533,393,529,351,485,317,435,291,388,274,350"/>
+<area shape="rect" id="Node000014" href="$classrapidjson_1_1_generic_uri.html#ac4fac50363bbcdd12da3f93d1f09500a" title=" " alt="" coords="410,605,552,648"/>
+<area shape="poly" id="edge13_Node000004_Node000014" title=" " alt="" coords="275,348,289,397,312,462,348,531,371,563,397,591,400,594,397,598,393,595,367,566,344,534,308,464,284,399,270,349"/>
+</map>

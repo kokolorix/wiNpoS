@@ -13,6 +13,7 @@ var searchData=
   ['idm_5ffile_5fdetach_10',['IDM_FILE_DETACH',['../resource_8h.html#a34bd11903b9eb28e3742cb6754472ec0',1,'resource.h']]],
   ['idr_5fmainframe_11',['IDR_MAINFRAME',['../resource_8h.html#a9772c84d39896ad00b9aeb34b15d324d',1,'resource.h']]],
   ['ids_5fapp_5ftitle_12',['IDS_APP_TITLE',['../resource_8h.html#a636c9aea2a8d16b73e43df39b3e0e7bd',1,'resource.h']]],
-  ['initinstance_13',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
-  ['interfaces_14',['Interfaces',['../index.html#autotoc_md4',1,'']]]
+  ['in_20action_13',['in action',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'In Action'],['../index.html#autotoc_md10',1,'In Action']]],
+  ['initinstance_14',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
+  ['interfaces_15',['Interfaces',['../index.html#autotoc_md6',1,'']]]
 ];

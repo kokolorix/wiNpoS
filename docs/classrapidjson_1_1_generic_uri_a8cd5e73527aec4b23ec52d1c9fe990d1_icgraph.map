@@ -1,0 +1,14 @@
+<map id="rapidjson::GenericUri::GetStringLength" name="rapidjson::GenericUri::GetStringLength">
+<area shape="rect" id="Node000001" title=" " alt="" coords="439,35,581,77"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_schema_document.html#a090125064f1ebe489f04b7c41bf947dc" title=" " alt="" coords="5,5,201,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,33,391,25,293,19,201,21,201,15,293,13,391,20,430,28"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_uri.html#abb9f1e1d6d3cb85ec9fcafa28c5d59ef" title="Assignment operator." alt="" coords="249,35,391,77"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="424,59,391,59,391,53,424,53"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_uri.html#a9a91f109254beb16d3cda1c8bb3a55be" title="Resolve this URI against another (base) URI in accordance with URI resolution rules." alt="" coords="249,101,391,144"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="435,85,384,103,382,98,433,80"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="256,97,152,51,154,46,258,93"/>
+<area shape="rect" id="Node000005" href="$classrapidjson_1_1_generic_schema_document.html#a10d885295e03a610a560e6d255611f65" title="Find the first subschema with a resolved &#39;id&#39; that matches the specified URI." alt="" coords="16,87,190,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,120,191,117,191,111,234,114"/>
+<area shape="rect" id="Node000006" href="$classrapidjson_1_1internal_1_1_schema.html#ace5d21e50276ef11ffd75168ae04e6fc" title=" " alt="" coords="36,153,170,196"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="235,146,171,161,170,156,234,140"/>
+</map>

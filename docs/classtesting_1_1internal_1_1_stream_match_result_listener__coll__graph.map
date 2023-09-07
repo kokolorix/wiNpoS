@@ -1,0 +1,13 @@
+<map id="testing::internal::StreamMatchResultListener" name="testing::internal::StreamMatchResultListener">
+<area shape="rect" id="Node000001" title=" " alt="" coords="8,416,190,459"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_match_result_listener.html" title=" " alt="" coords="5,340,193,367"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,381,102,416,96,416,96,381"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="52,249,146,276"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,291,102,339,96,339,96,291"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="33,157,165,200"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="102,215,102,249,96,249,96,215"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="22,81,176,108"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="102,123,102,157,96,157,96,123"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="49,5,149,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="102,47,102,81,96,81,96,47"/>
+</map>

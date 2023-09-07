@@ -1,0 +1,12 @@
+<map id="cpp.ast.AstBuilder.handle_typedef" name="cpp.ast.AstBuilder.handle_typedef">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,176,48"/>
+<area shape="rect" id="Node000002" href="$classcpp_1_1ast_1_1_ast_builder.html#a8a5869468f959d0f1e6c92e6230125a4" title=" " alt="" coords="593,5,726,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,21,224,20,545,20,579,21,579,26,545,25,224,25,176,26"/>
+<area shape="rect" id="Node000004" href="$classcpp_1_1ast_1_1_ast_builder.html#a2df721efdd936c47995eca8ac2695537" title=" " alt="" coords="224,35,356,77"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,37,209,42,209,47,175,42"/>
+<area shape="rect" id="Node000003" href="$namespacecpp_1_1ast.html#a25b104cfd21fb8487a07063b6ce62062" title=" " alt="" coords="774,13,867,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="726,24,759,24,759,29,726,29"/>
+<area shape="rect" id="Node000005" href="$classcpp_1_1ast_1_1_ast_builder.html#aeb96eb1d71797d32d7c067b64b0e2cfe" title=" " alt="" coords="404,35,545,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="356,53,389,53,389,59,356,59"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="545,42,578,37,579,42,546,47"/>
+</map>

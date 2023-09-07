@@ -1,0 +1,21 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,205,59,232"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_string_buffer.html#a9d830ec37a4ba0fba3b523c90aaf8b42" title="Get the size of string in bytes in the string buffer." alt="" coords="119,5,280,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,204,41,175,55,136,75,94,105,58,109,55,112,59,109,62,80,97,59,138,46,176,38,206"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_string_buffer.html#a138330b64d530a2c35f702d4e207ac2f" title=" " alt="" coords="119,72,280,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="39,203,65,165,84,143,105,125,112,120,115,124,108,129,87,147,69,168,43,206"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_document.html#a7607bb42b51547e44bfd4cab35d8f20e" title="Whether a parse error has occurred in the last parsing." alt="" coords="107,139,292,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="58,207,122,184,124,189,60,212"/>
+<area shape="rect" id="Node000005" href="$documenttest_8cpp.html#a8b807621876c83801badfb33e02ea883" title=" " alt="" coords="137,205,262,232"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="59,216,123,216,123,221,59,221"/>
+<area shape="rect" id="Node000006" href="$classrapidjson_1_1_generic_reader.html#ac9c540b77de19661f6f45e04b9b0937b" title="Parse JSON text." alt="" coords="116,256,283,299"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="60,225,124,248,122,253,58,230"/>
+<area shape="rect" id="Node000007" href="$classrapidjson_1_1_generic_document.html#a56e6dcd7d47377877de9f67a43757974" title="Parse JSON text from an input stream (with Encoding conversion)" alt="" coords="107,323,292,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="43,231,69,269,87,290,108,309,115,313,112,318,105,313,84,294,65,273,39,234"/>
+<area shape="rect" id="Node000010" href="$unittest_8h.html#a8d8e3cf93e9b811c207711d0b353de02" title=" " alt="" coords="167,389,232,416"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="38,232,45,262,59,301,79,341,108,375,129,388,153,395,151,400,127,393,105,379,75,344,54,303,40,263,33,233"/>
+<area shape="rect" id="Node000008" href="$classrapidjson_1_1_generic_value.html#a37fa30cf48e0a0724a8e7323fc2fef41" title="Assignment with move semantics." alt="" coords="340,323,499,365"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="292,341,325,341,325,347,292,347"/>
+<area shape="rect" id="Node000009" href="$classrapidjson_1_1_generic_value.html#a00efe429e27f95dca17b19519b3cea9e" title="Assignment without calling destructor." alt="" coords="547,323,707,365"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="500,341,533,341,533,347,500,347"/>
+</map>

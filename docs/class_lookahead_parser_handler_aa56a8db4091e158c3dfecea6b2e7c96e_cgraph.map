@@ -1,0 +1,21 @@
+<map id="LookaheadParserHandler::LookaheadParserHandler" name="LookaheadParserHandler::LookaheadParserHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,180,81"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_reader.html#a90403a2c55dadf82fd2bb9d4c66b3280" title="Initialize JSON text token&#45;by&#45;token parsing." alt="" coords="228,5,395,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,44,212,39,213,44,180,49"/>
+<area shape="rect" id="Node000003" href="$class_lookahead_parser_handler.html#a7d0cc7887e9e0c37e645e27744a5b356" title=" " alt="" coords="228,72,395,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,71,214,76,213,81,179,76"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_reader.html#ac42370c3497a0e2b6973110f298e3a59" title="Whether a parse error has occurred in the last parsing." alt="" coords="443,39,610,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="394,78,428,73,429,78,395,83"/>
+<area shape="rect" id="Node000005" href="$classrapidjson_1_1_generic_reader.html#abac6611bec17167de50fede5cd5194ca" title="Parse one token from JSON text." alt="" coords="443,105,610,148"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="395,104,429,109,428,114,394,109"/>
+<area shape="rect" id="Node000006" href="$schemavalidator_8cpp.html#a805c9aa864a618f2a4b081de6d8e1d26" title=" " alt="" coords="658,113,748,140"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="611,124,643,124,643,129,611,129"/>
+<area shape="rect" id="Node000007" href="$schemavalidator_8cpp.html#ad8bb4b09146b36d5a029b71f37b87308" title=" " alt="" coords="822,88,970,115"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="748,126,834,115,835,120,748,131"/>
+<area shape="rect" id="Node000008" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="858,139,934,165"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="748,130,843,143,843,148,748,135"/>
+<area shape="rect" id="Node000009" href="$group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s.html#gadcb4ddc98c018b81cd8a22a0c3ef9db0" title="Maps error code of validation into error message." alt="" coords="796,213,996,240"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="730,138,797,175,854,204,852,209,794,180,727,143"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="822,105,763,113,762,108,821,100"/>
+<area shape="poly" id="edge10_Node000009_Node000009" title=" " alt="" coords="863,214,857,205,861,195,874,189,896,187,920,190,932,197,929,201,918,195,896,192,876,194,865,199,862,204,867,211"/>
+</map>

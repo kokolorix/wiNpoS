@@ -1,0 +1,5 @@
+var namespacetesting_1_1internal_1_1edit__distance_1_1anonymous__namespace_02gtest_8cc_03 =
+[
+    [ "Hunk", "classtesting_1_1internal_1_1edit__distance_1_1anonymous__namespace_02gtest_8cc_03_1_1_hunk.html", "classtesting_1_1internal_1_1edit__distance_1_1anonymous__namespace_02gtest_8cc_03_1_1_hunk" ],
+    [ "InternalStrings", "classtesting_1_1internal_1_1edit__distance_1_1anonymous__namespace_02gtest_8cc_03_1_1_internal_strings.html", "classtesting_1_1internal_1_1edit__distance_1_1anonymous__namespace_02gtest_8cc_03_1_1_internal_strings" ]
+];

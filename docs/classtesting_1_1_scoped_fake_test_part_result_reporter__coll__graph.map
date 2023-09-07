@@ -1,0 +1,16 @@
+<map id="testing::ScopedFakeTestPartResultReporter" name="testing::ScopedFakeTestPartResultReporter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="56,524,246,567"/>
+<area shape="rect" id="Node000002" href="$classtesting_1_1_test_part_result_reporter_interface.html" title=" " alt="" coords="5,417,209,460"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,473,128,499,140,522,136,525,123,501,114,475"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="124,473,145,522,140,525,119,475"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1_test_part_result_array.html" title=" " alt="" coords="233,425,418,452"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="293,462,187,526,184,521,291,458"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="260,311,392,353"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="328,368,328,425,323,425,323,368"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1_test_part_result.html" title=" " alt="" coords="249,220,403,247"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="328,262,328,310,323,310,323,262"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="286,97,365,124"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="328,139,328,219,323,219,323,139"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="263,5,388,48"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="328,63,328,97,323,97,323,63"/>
+</map>

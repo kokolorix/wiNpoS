@@ -1,0 +1,19 @@
+<map id="JsonxWriter::Double" name="JsonxWriter::Double">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,60,144,87"/>
+<area shape="rect" id="Node000002" href="$class_jsonx_writer.html#ad16a90fd01f2b5bb76dfae14f342cdee" title=" " alt="" coords="192,52,366,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,71,177,71,177,76,144,76"/>
+<area shape="rect" id="Node000003" href="$class_jsonx_writer.html#a99f6be14aedb5d3e2a3a1d75b9ffd328" title=" " alt="" coords="417,5,617,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="366,51,441,33,442,38,367,56"/>
+<area shape="rect" id="Node000005" href="$class_jsonx_writer.html#abb82d97a891b7145fa52d4a034468717" title=" " alt="" coords="414,85,619,112"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="367,80,399,83,399,89,366,85"/>
+<area shape="rect" id="Node000004" href="$class_jsonx_writer.html#a0ed1289f022d9242cb3a3068b77a241c" title=" " alt="" coords="896,27,1059,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="617,13,728,13,848,19,881,22,880,27,847,24,728,19,617,19"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="571,82,667,63,777,50,881,42,881,47,778,55,668,68,572,87"/>
+<area shape="rect" id="Node000006" href="$classrapidjson_1_1_generic_string_buffer.html#a9d830ec37a4ba0fba3b523c90aaf8b42" title="Get the size of string in bytes in the string buffer." alt="" coords="677,77,838,120"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="620,96,662,96,662,101,620,101"/>
+<area shape="rect" id="Node000007" href="$classrapidjson_1_1_generic_string_buffer.html#a138330b64d530a2c35f702d4e207ac2f" title=" " alt="" coords="677,144,838,187"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="569,110,665,137,663,142,567,115"/>
+<area shape="rect" id="Node000008" href="$class_jsonx_writer.html#aa0ad0351bd24c3dbb5dcf649bd298a71" title=" " alt="" coords="667,211,848,253"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="537,110,594,151,669,196,680,202,678,207,666,201,591,156,534,115"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="827,208,846,197,882,166,913,130,959,65,963,68,917,134,886,169,849,201,830,212"/>
+</map>

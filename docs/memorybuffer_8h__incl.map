@@ -1,0 +1,33 @@
+<map id="rapidjson/include/rapidjson/memorybuffer.h" name="rapidjson/include/rapidjson/memorybuffer.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="175,5,350,48"/>
+<area shape="rect" id="Node000002" href="$stream_8h.html" title=" " alt="" coords="32,171,104,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,51,96,163,93,159,235,46"/>
+<area shape="rect" id="Node000008" href="$stack_8h.html" title=" " alt="" coords="294,96,404,123"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="286,47,327,84,323,88,283,51"/>
+<area shape="rect" id="Node000003" href="$rapidjson_8h.html" title="common definitions and configuration" alt="" coords="108,320,193,347"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="51,200,33,215,17,233,8,252,9,261,13,271,29,289,49,303,95,321,93,326,46,307,25,293,8,273,3,263,3,251,12,230,29,211,47,196"/>
+<area shape="rect" id="Node000007" href="$encodings_8h.html" title=" " alt="" coords="22,245,113,272"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="70,198,70,230,65,230,65,198"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="37,395,96,421"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="137,349,93,387,90,383,134,345"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="120,395,181,421"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="153,347,153,380,148,380,148,347"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="205,395,269,421"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="167,345,213,383,209,387,164,349"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="84,271,127,308,123,312,80,275"/>
+<area shape="rect" id="Node000009" href="$allocators_8h.html" title=" " alt="" coords="247,171,347,197"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="342,125,317,160,312,157,338,122"/>
+<area shape="rect" id="Node000013" href="$swap_8h.html" title=" " alt="" coords="371,171,434,197"/>
+<area shape="poly" id="edge15_Node000008_Node000013" title=" " alt="" coords="360,122,387,157,383,160,356,125"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="457,171,521,197"/>
+<area shape="poly" id="edge17_Node000008_Node000014" title=" " alt="" coords="375,121,453,161,450,166,372,126"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="253,200,213,219,194,231,178,247,162,275,155,305,150,304,157,273,174,244,190,227,210,214,250,195"/>
+<area shape="rect" id="Node000010" href="$meta_8h.html" title=" " alt="" coords="187,245,295,272"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="289,200,262,235,257,232,285,196"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="319,245,387,272"/>
+<area shape="poly" id="edge13_Node000009_Node000011" title=" " alt="" coords="309,196,337,232,332,235,305,200"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="411,245,463,272"/>
+<area shape="poly" id="edge14_Node000009_Node000012" title=" " alt="" coords="323,196,401,236,398,240,320,200"/>
+<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="227,275,179,313,175,309,224,270"/>
+<area shape="poly" id="edge16_Node000013_Node000003" title=" " alt="" coords="428,196,451,211,472,230,484,251,484,263,478,274,459,288,432,300,361,317,280,327,207,333,207,327,279,322,360,312,431,295,457,284,474,270,479,261,479,252,468,233,448,215,425,200"/>
+</map>

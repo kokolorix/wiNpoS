@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hooks_0',['Hooks',['../class_hooks.html',1,'']]]
+  ['config_0',['Config',['../class_config.html',1,'']]]
 ];

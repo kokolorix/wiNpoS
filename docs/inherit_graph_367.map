@@ -1,0 +1,25 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classtesting_1_1_action_interface.html" title=" " alt="" coords="5,403,192,429"/>
+<area shape="rect" id="Node000001" href="$classanonymous__namespace_02gmock-actions__test_8cc_03_1_1_is_not_zero.html" title=" " alt="" coords="264,5,427,64"/>
+<area shape="poly" id="edge139_Node000000_Node000001" title=" " alt="" coords="101,388,114,324,139,241,157,196,179,152,206,111,238,74,262,56,265,61,241,78,210,114,184,155,162,199,144,243,119,326,106,389"/>
+<area shape="rect" id="Node000002" href="$classanonymous__namespace_02gmock-actions__test_8cc_03_1_1_my_action_impl.html" title=" " alt="" coords="264,88,427,147"/>
+<area shape="poly" id="edge140_Node000000_Node000002" title=" " alt="" coords="105,388,122,339,150,277,188,213,212,183,238,157,262,140,265,144,241,161,216,187,193,216,155,280,127,341,110,390"/>
+<area shape="rect" id="Node000003" href="$classtesting_1_1_polymorphic_action_1_1_monomorphic_impl.html" title=" " alt="" coords="240,171,451,213"/>
+<area shape="poly" id="edge141_Node000000_Node000003" title=" " alt="" coords="110,388,130,351,159,307,195,262,238,223,258,212,261,216,241,227,199,266,163,310,135,354,115,391"/>
+<area shape="rect" id="Node000004" href="$classtesting_1_1gmock__generated__actions__test_1_1_substract_action.html" title=" " alt="" coords="245,237,446,280"/>
+<area shape="poly" id="edge142_Node000000_Node000004" title=" " alt="" coords="120,389,171,339,203,313,238,290,262,278,265,283,241,294,207,317,174,343,124,393"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1internal_1_1_do_both_action_1_1_impl.html" title=" " alt="" coords="265,304,426,363"/>
+<area shape="poly" id="edge143_Node000000_Node000005" title=" " alt="" coords="154,395,264,358,265,363,155,400"/>
+<area shape="rect" id="Node000006" href="$classtesting_1_1internal_1_1_ignore_result_action_1_1_impl.html" title=" " alt="" coords="276,387,415,445"/>
+<area shape="poly" id="edge144_Node000000_Node000006" title=" " alt="" coords="207,413,276,413,276,419,207,419"/>
+<area shape="rect" id="Node000007" href="$classtesting_1_1internal_1_1_return_action_1_1_impl.html" title=" " alt="" coords="265,469,426,528"/>
+<area shape="poly" id="edge145_Node000000_Node000007" title=" " alt="" coords="155,432,265,469,264,474,154,437"/>
+<area shape="rect" id="Node000008" href="$classtesting_1_1internal_1_1_return_action_1_1_impl_3_01_by_move_wrapper_3_01_r___01_4_00_01_f_01_4.html" title=" " alt="" coords="247,552,444,611"/>
+<area shape="poly" id="edge146_Node000000_Node000008" title=" " alt="" coords="124,438,175,488,241,538,262,549,259,554,238,542,172,492,120,442"/>
+<area shape="rect" id="Node000009" href="$classtesting_1_1internal_1_1_return_ref_action_1_1_impl.html" title=" " alt="" coords="272,635,419,693"/>
+<area shape="poly" id="edge147_Node000000_Node000009" title=" " alt="" coords="114,441,133,481,162,529,198,578,241,621,273,640,270,644,238,625,194,581,157,531,129,483,109,444"/>
+<area shape="rect" id="Node000010" href="$classtesting_1_1internal_1_1_return_ref_of_copy_action_1_1_impl.html" title=" " alt="" coords="266,717,425,776"/>
+<area shape="poly" id="edge148_Node000000_Node000010" title=" " alt="" coords="109,443,124,497,151,567,189,640,214,673,241,703,268,721,265,726,238,707,209,677,185,642,146,569,119,499,103,445"/>
+<area shape="rect" id="Node000011" href="$classtesting_1_1internal_1_1_with_args_action_1_1_impl.html" title=" " alt="" coords="249,800,442,875"/>
+<area shape="poly" id="edge149_Node000000_Node000011" title=" " alt="" coords="106,444,118,511,142,602,160,651,182,699,209,745,242,786,254,797,250,801,238,790,205,748,177,702,155,653,137,604,113,513,101,445"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="rapidjson::GenericReader::IterativeParseNext" name="rapidjson::GenericReader::IterativeParseNext">
+<area shape="rect" id="Node000001" title="Parse one token from JSON text." alt="" coords="5,23,173,65"/>
+<area shape="rect" id="Node000002" href="$schemavalidator_8cpp.html#a805c9aa864a618f2a4b081de6d8e1d26" title=" " alt="" coords="221,31,310,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,41,206,41,206,47,173,47"/>
+<area shape="rect" id="Node000003" href="$schemavalidator_8cpp.html#ad8bb4b09146b36d5a029b71f37b87308" title=" " alt="" coords="385,5,532,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="310,43,396,32,397,38,311,49"/>
+<area shape="rect" id="Node000004" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="420,56,496,83"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="311,47,406,60,405,65,310,52"/>
+<area shape="rect" id="Node000005" href="$group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s.html#gadcb4ddc98c018b81cd8a22a0c3ef9db0" title="Maps error code of validation into error message." alt="" coords="358,131,558,157"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="292,56,359,92,416,121,414,126,357,97,290,60"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="384,22,325,31,324,25,384,17"/>
+<area shape="poly" id="edge6_Node000005_Node000005" title=" " alt="" coords="425,132,419,122,423,112,437,106,458,104,482,107,494,114,492,119,481,112,458,109,438,111,427,116,425,121,430,129"/>
+</map>

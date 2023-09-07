@@ -1,0 +1,17 @@
+<map id="LookaheadParserHandler::ParseNext" name="LookaheadParserHandler::ParseNext">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,172,81"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_reader.html#ac42370c3497a0e2b6973110f298e3a59" title="Whether a parse error has occurred in the last parsing." alt="" coords="220,5,387,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,44,204,39,205,45,172,50"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_reader.html#abac6611bec17167de50fede5cd5194ca" title="Parse one token from JSON text." alt="" coords="220,72,387,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,70,205,75,204,81,171,76"/>
+<area shape="rect" id="Node000004" href="$schemavalidator_8cpp.html#a805c9aa864a618f2a4b081de6d8e1d26" title=" " alt="" coords="435,80,524,107"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="387,91,420,91,420,96,387,96"/>
+<area shape="rect" id="Node000005" href="$schemavalidator_8cpp.html#ad8bb4b09146b36d5a029b71f37b87308" title=" " alt="" coords="599,55,746,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="524,93,611,82,611,87,525,98"/>
+<area shape="rect" id="Node000006" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="634,105,711,132"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="525,97,620,109,619,114,524,102"/>
+<area shape="rect" id="Node000007" href="$group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s.html#gadcb4ddc98c018b81cd8a22a0c3ef9db0" title="Maps error code of validation into error message." alt="" coords="572,180,773,207"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="507,105,574,142,631,171,628,175,571,146,504,110"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="599,72,539,80,539,75,598,66"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="640,181,634,171,638,162,651,155,673,153,697,156,709,163,706,168,695,161,672,159,652,161,642,165,639,171,644,178"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="LookaheadParser::GetBool" name="LookaheadParser::GetBool">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,183,73"/>
+<area shape="rect" id="Node000002" href="$class_lookahead_parser_handler.html#a7d0cc7887e9e0c37e645e27744a5b356" title=" " alt="" coords="231,39,397,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,57,215,57,215,63,183,63"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_reader.html#ac42370c3497a0e2b6973110f298e3a59" title="Whether a parse error has occurred in the last parsing." alt="" coords="445,5,612,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,44,430,39,431,45,398,50"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_reader.html#abac6611bec17167de50fede5cd5194ca" title="Parse one token from JSON text." alt="" coords="445,72,612,115"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="398,70,431,75,430,81,397,76"/>
+<area shape="rect" id="Node000005" href="$schemavalidator_8cpp.html#a805c9aa864a618f2a4b081de6d8e1d26" title=" " alt="" coords="660,80,750,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="613,91,645,91,645,96,613,96"/>
+<area shape="rect" id="Node000006" href="$schemavalidator_8cpp.html#ad8bb4b09146b36d5a029b71f37b87308" title=" " alt="" coords="824,55,972,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="750,93,836,82,837,87,750,98"/>
+<area shape="rect" id="Node000007" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="860,105,936,132"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="750,97,845,109,845,114,750,102"/>
+<area shape="rect" id="Node000008" href="$group___r_a_p_i_d_j_s_o_n___e_r_r_o_r_s.html#gadcb4ddc98c018b81cd8a22a0c3ef9db0" title="Maps error code of validation into error message." alt="" coords="798,180,998,207"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="732,105,799,142,856,171,854,175,796,146,729,110"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="824,72,765,80,764,75,823,66"/>
+<area shape="poly" id="edge9_Node000008_Node000008" title=" " alt="" coords="865,181,859,171,863,162,876,155,898,153,922,156,934,163,931,168,920,161,898,159,878,161,867,165,864,171,869,178"/>
+</map>

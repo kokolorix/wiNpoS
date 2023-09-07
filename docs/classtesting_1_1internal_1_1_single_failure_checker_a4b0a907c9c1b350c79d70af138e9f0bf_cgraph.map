@@ -1,0 +1,20 @@
+<map id="testing::internal::SingleFailureChecker::~SingleFailureChecker" name="testing::internal::SingleFailureChecker::~SingleFailureChecker">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,128,166,187"/>
+<area shape="rect" id="Node000002" href="$namespacetesting_1_1internal.html#a4b5402183b934804ccaf61a4708f8e62" title=" " alt="" coords="214,136,332,179"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,155,199,155,199,160,166,160"/>
+<area shape="rect" id="Node000003" href="$namespacetesting.html#a75cb789614cb1c28c34627a4a3c053df" title=" " alt="" coords="392,5,554,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="287,134,325,87,350,63,379,42,390,36,392,40,381,46,354,67,329,91,291,137"/>
+<area shape="rect" id="Node000004" href="$namespacetesting.html#ac1d0baedb17286c5c6c87bd1a45da8ac" title=" " alt="" coords="386,56,560,83"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="305,133,340,112,379,92,397,85,399,90,381,97,342,117,307,138"/>
+<area shape="rect" id="Node000005" href="$classtesting_1_1_test_part_result_array.html#aa44d02a01c87f47393b07951bab6e025" title=" " alt="" coords="380,107,565,149"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="332,146,365,141,366,146,333,151"/>
+<area shape="rect" id="Node000007" href="$classtesting_1_1_test_part_result_array.html#a31555f11ba42b81ddad0a26a87710d0a" title=" " alt="" coords="613,165,799,208"/>
+<area shape="poly" id="edge8_Node000002_Node000007" title=" " alt="" coords="332,159,599,177,599,182,332,164"/>
+<area shape="rect" id="Node000008" href="$classtesting_1_1_test_part_result.html#a1c522b89938fd685797adcafa357b771" title=" " alt="" coords="396,224,550,267"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="323,177,381,203,409,215,407,220,379,208,321,182"/>
+<area shape="rect" id="Node000009" href="$classtesting_1_1_test_part_result.html#aab92b225e8a472e78bd3889ca6df0d2a" title=" " alt="" coords="396,291,550,333"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="290,178,328,227,353,253,382,277,389,281,386,286,378,281,350,257,324,231,286,181"/>
+<area shape="rect" id="Node000006" href="$namespacetesting_1_1internal_1_1posix.html#a69b8278c59359dd6a6f941b4643db9fb" title=" " alt="" coords="647,99,765,141"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="566,122,632,120,632,125,566,127"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="561,147,605,159,604,164,559,152"/>
+</map>

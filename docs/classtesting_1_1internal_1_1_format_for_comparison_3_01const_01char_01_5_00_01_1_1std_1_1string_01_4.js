@@ -1,0 +1,4 @@
+var classtesting_1_1internal_1_1_format_for_comparison_3_01const_01char_01_5_00_01_1_1std_1_1string_01_4 =
+[
+    [ "Format", "classtesting_1_1internal_1_1_format_for_comparison_3_01const_01char_01_5_00_01_1_1std_1_1string_01_4.html#ae96e29fd92b7a5cb0fb34a7c4e9a6fcf", null ]
+];

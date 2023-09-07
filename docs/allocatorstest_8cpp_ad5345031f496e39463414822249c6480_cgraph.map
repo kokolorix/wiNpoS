@@ -1,0 +1,27 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,213,59,240"/>
+<area shape="rect" id="Node000002" href="$classrapidjson_1_1_memory_pool_allocator.html#acf80d2330d6ae72643674a95ac62c0bd" title="Computes the total capacity of allocated memory chunks." alt="" coords="107,5,312,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,212,40,181,53,140,74,96,105,58,109,54,113,58,109,62,79,99,58,142,45,182,38,213"/>
+<area shape="rect" id="Node000003" href="$classrapidjson_1_1_memory_pool_allocator.html#a199ce203dde7f2b364b6b844a8af04ec" title="Frees a memory block (concept Allocator)" alt="" coords="107,72,312,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="38,212,63,169,82,145,105,125,112,120,115,124,108,129,86,149,68,172,42,214"/>
+<area shape="rect" id="Node000004" href="$classrapidjson_1_1_memory_pool_allocator.html#a4b63701ff61e8a10adcb1439cf34c59c" title="Allocates a memory block. (concept Allocator)" alt="" coords="107,139,312,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="58,212,106,191,123,184,125,189,108,196,60,217"/>
+<area shape="rect" id="Node000005" href="$classrapidjson_1_1_memory_pool_allocator.html#af1a56b28d5e0d75b628d448ceacd41fc" title="Whether the allocator is shared." alt="" coords="107,205,312,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="59,224,92,224,92,229,59,229"/>
+<area shape="rect" id="Node000006" href="$classrapidjson_1_1_memory_pool_allocator.html#ab7368f377dafc0ecad2c59814cdfe265" title="Computes the memory blocks allocated." alt="" coords="107,272,312,315"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="60,237,108,258,125,264,123,269,106,262,58,242"/>
+<area shape="rect" id="Node000007" href="$allocatorstest_8cpp.html#a438d0a702f529087fc1c6254d54bb651" title=" " alt="" coords="161,339,258,365"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="42,239,67,282,86,305,108,324,147,341,145,346,105,329,82,309,62,285,37,242"/>
+<area shape="rect" id="Node000008" href="$allocatorstest_8cpp.html#a918bc5c386d2f6f650de1ff547dfb0ce" title=" " alt="" coords="151,389,268,416"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="39,240,46,268,59,305,80,343,108,375,138,391,135,396,105,379,75,346,54,307,41,270,33,241"/>
+<area shape="rect" id="Node000009" href="$classrapidjson_1_1_std_allocator.html#a8815c378a89820d42b366976f2485eb2" title=" " alt="" coords="360,248,512,291"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="268,393,290,386,310,375,327,358,334,340,342,321,358,301,363,297,366,301,362,305,347,323,339,342,331,361,314,379,292,391,269,399"/>
+<area shape="rect" id="Node000010" href="$classrapidjson_1_1_std_allocator.html#a8c3099e9ab61ff8b260a1dfc4ce8daff" title=" " alt="" coords="360,315,512,357"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="268,387,311,375,358,360,360,365,313,380,269,392"/>
+<area shape="rect" id="Node000011" href="$classrapidjson_1_1_std_allocator.html#a7be8561fed9214af6c9e862749fcbc57" title=" " alt="" coords="360,381,512,424"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="268,400,345,400,345,405,268,405"/>
+<area shape="rect" id="Node000012" href="$classrapidjson_1_1_std_allocator.html#a9efde196d7d77b54d80978d831e4364d" title=" " alt="" coords="360,448,512,491"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="258,414,348,441,346,446,257,419"/>
+<area shape="rect" id="Node000013" href="$classrapidjson_1_1_std_allocator.html#abe8814da25a22965ef7c1e447a46b97c" title=" " alt="" coords="360,515,512,557"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="230,414,288,455,361,500,371,505,369,510,359,505,285,459,227,419"/>
+</map>
