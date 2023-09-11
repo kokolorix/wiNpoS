@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hooks_0',['Hooks',['../class_hooks.html#add6fb7001da9793ef3b2fec2ecf2866f',1,'Hooks']]]
+  ['detach_0',['detach',['../class_hooks_mgr.html#ae9a9a4faaa208c86a71cc564ea70840d',1,'HooksMgr']]],
+  ['dllmain_1',['DllMain',['../dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9',1,'dllmain.cpp']]]
 ];

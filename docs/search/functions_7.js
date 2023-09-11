@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ehooks_0',['~Hooks',['../class_hooks.html#a5633fe21bf29f33d76d982d3e66cd4ae',1,'Hooks']]]
+  ['load_0',['load',['../class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f',1,'HooksMgr']]]
 ];

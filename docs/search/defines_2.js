@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['win32_5flean_5fand_5fmean_0',['win32_lean_and_mean',['../wi_npo_s-_app_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_hook_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h']]]
+  ['max_5floadstring_0',['MAX_LOADSTRING',['../wi_npo_s-_app_8cpp.html#a2b68559d692760680c326428841254d1',1,'wiNpoS-App.cpp']]],
+  ['mt_5fhook_5fmsg_5fcreate_5ftask_5ftoolbar_1',['MT_HOOK_MSG_CREATE_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fdestroy_5ftask_5ftoolbar_2',['MT_HOOK_MSG_DESTROY_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a1a3ab8b0e24a0d40f9eaaa0f8e008d51',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5funload_3',['MT_HOOK_MSG_UNLOAD',['../_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635',1,'HooksMgr.h']]]
 ];

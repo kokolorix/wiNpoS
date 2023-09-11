@@ -209,7 +209,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   65</span>    <span class="keywordtype">wchar_t</span> filePath[MAX_PATH];</div>
 <div class="line"><span class="lineno">   66</span>    GetModuleFileName(NULL, filePath, MAX_PATH);</div>
 <div class="line"><span class="lineno">   67</span>    <span class="keywordtype">wchar_t</span>* name = PathFindFileName(filePath);</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordtype">wchar_t</span> buffer[4096] = { 0 };</div>
+<div class="line"><span class="lineno">   68</span>    <span class="comment">//wchar_t buffer[4096] = { 0 };</span></div>
 <div class="line"><span class="lineno">   69</span>    <span class="keywordtype">wchar_t</span> path[MAX_PATH];</div>
 <div class="line"><span class="lineno">   70</span>    ExpandEnvironmentStrings(std::format(LR<span class="stringliteral">&quot;(%APPDATA%\wiNpoS\{}.jsonc)&quot;, name).c_str(), path, MAX_PATH);</span></div>
 <div class="line"><span class="lineno">   71</span><span class="stringliteral"></span> </div>

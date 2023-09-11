@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hooks_0',['Hooks',['../class_hooks.html',1,'']]]
+  ['getmainwndres_0',['GetMainWndRes',['../struct_get_main_wnd_res.html',1,'']]]
 ];

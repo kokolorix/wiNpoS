@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['sztitle_0',['szTitle',['../wi_npo_s-_app_8cpp.html#a815735149cf5d17f00ca5d3ec375b45a',1,'wiNpoS-App.cpp']]],
-  ['szwindowclass_1',['szWindowClass',['../wi_npo_s-_app_8cpp.html#a5e86ffb38748684a80032d4371771443',1,'wiNpoS-App.cpp']]]
+  ['pch_2ecpp_0',['pch.cpp',['../wi_npo_s-_app_2pch_8cpp.html',1,'(Global Namespace)'],['../wi_npo_s-_hook_2pch_8cpp.html',1,'(Global Namespace)']]],
+  ['pch_2eh_1',['pch.h',['../wi_npo_s-_app_2pch_8h.html',1,'(Global Namespace)'],['../wi_npo_s-_hook_2pch_8h.html',1,'(Global Namespace)']]],
+  ['points_2',['Entrance points',['../index.html#autotoc_md5',1,'']]]
 ];

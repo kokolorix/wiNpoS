@@ -1,0 +1,14 @@
+<map id="HooksMgr::load" name="HooksMgr::load">
+<area shape="rect" id="Node000001" title=" " alt="" coords="769,31,881,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="597,31,721,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="754,47,721,47,721,41,754,41"/>
+<area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="582,35,549,30,550,25,582,30"/>
+<area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,31,378,57"/>
+<area shape="poly" id="edge6_Node000002_Node000004" title=" " alt="" coords="582,47,379,47,379,41,582,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="412,34,379,40,378,35,411,29"/>
+<area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="288,47,255,47,255,41,288,41"/>
+<area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,31,87,57"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
+</map>

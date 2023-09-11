@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['hinst_0',['hInst',['../wi_npo_s-_app_8cpp.html#a44f41244c97693b2fbd5244bcb1e86ec',1,'wiNpoS-App.cpp']]],
-  ['hook_2ecpp_1',['Hook.cpp',['../_hook_8cpp.html',1,'']]],
-  ['hook_2eh_2',['Hook.h',['../_hook_8h.html',1,'']]],
-  ['hooks_3',['hooks',['../class_hooks.html',1,'Hooks'],['../class_hooks.html#add6fb7001da9793ef3b2fec2ecf2866f',1,'Hooks::Hooks()'],['../wi_npo_s-_app_8cpp.html#ab8be85386ba5b5dc4029a7a837912d66',1,'hooks:&#160;wiNpoS-App.cpp']]],
-  ['hooks_2ecpp_4',['Hooks.cpp',['../_hooks_8cpp.html',1,'']]],
-  ['hooks_2eh_5',['Hooks.h',['../_hooks_8h.html',1,'']]]
+  ['getdesktopwnds_0',['GetDesktopWnds',['../dllmain_8cpp.html#ac888e0fdd3a7f2a3e6c0566e63889ec1',1,'dllmain.cpp']]],
+  ['getmainwnd_1',['GetMainWnd',['../dllmain_8cpp.html#a5149acf9e5b009dfd14fd7d7083f74a7',1,'dllmain.cpp']]],
+  ['getmainwndres_2',['GetMainWndRes',['../struct_get_main_wnd_res.html',1,'']]],
+  ['getmessagehookproc_3',['GetMessageHookProc',['../dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441',1,'dllmain.cpp']]],
+  ['getmsgproc_4',['getmsgproc',['../class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de',1,'HooksImpl::getMsgProc()'],['../_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957',1,'GetMsgProc():&#160;HooksImpl.cpp']]]
 ];

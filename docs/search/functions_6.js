@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['wndproc_0',['WndProc',['../wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f',1,'wiNpoS-App.cpp']]],
-  ['writeconfig_1',['writeConfig',['../class_config.html#aab0ab085dc15e32882dcb6c96c88f56f',1,'Config']]],
-  ['wwinmain_2',['wWinMain',['../wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339',1,'wiNpoS-App.cpp']]]
+  ['initinstance_0',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
+  ['install_1',['install',['../class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3',1,'HooksMgr']]]
 ];

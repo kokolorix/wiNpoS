@@ -1,19 +1,16 @@
 var searchData=
 [
-  ['idc_5fmyicon_0',['IDC_MYICON',['../resource_8h.html#abb326bd165140b31acf04b893ef655ca',1,'resource.h']]],
-  ['idc_5fstatic_1',['IDC_STATIC',['../resource_8h.html#ac93033490bc8943cfc82ec3b40e5cd74',1,'resource.h']]],
-  ['idc_5fwinposapp_2',['IDC_WINPOSAPP',['../resource_8h.html#add8ec82d095d3928503572c9896754cc',1,'resource.h']]],
-  ['idd_5faboutbox_3',['IDD_ABOUTBOX',['../resource_8h.html#a77a06326b569136edbb6c766bc98c33c',1,'resource.h']]],
-  ['idd_5fwinposapp_5fdialog_4',['IDD_WINPOSAPP_DIALOG',['../resource_8h.html#a487566d9d6b784c0e4744d26b8b5fbc9',1,'resource.h']]],
-  ['idi_5fsmall_5',['IDI_SMALL',['../resource_8h.html#a861a8cb71616b4615a5823bcf4bff6e3',1,'resource.h']]],
-  ['idi_5fwinposapp_6',['IDI_WINPOSAPP',['../resource_8h.html#ae1ce6d63333359b6fcff724db6397e18',1,'resource.h']]],
-  ['idm_5fabout_7',['IDM_ABOUT',['../resource_8h.html#a589e0105bc3e8681893dbf51210ceeec',1,'resource.h']]],
-  ['idm_5fexit_8',['IDM_EXIT',['../resource_8h.html#a79aeed168a959b22b32169e25f8c1f4d',1,'resource.h']]],
-  ['idm_5ffile_5fattach_9',['IDM_FILE_ATTACH',['../resource_8h.html#a93a6659942a4bd409eb8c827f3af8d50',1,'resource.h']]],
-  ['idm_5ffile_5fdetach_10',['IDM_FILE_DETACH',['../resource_8h.html#a34bd11903b9eb28e3742cb6754472ec0',1,'resource.h']]],
-  ['idr_5fmainframe_11',['IDR_MAINFRAME',['../resource_8h.html#a9772c84d39896ad00b9aeb34b15d324d',1,'resource.h']]],
-  ['ids_5fapp_5ftitle_12',['IDS_APP_TITLE',['../resource_8h.html#a636c9aea2a8d16b73e43df39b3e0e7bd',1,'resource.h']]],
-  ['in_20action_13',['in action',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'In Action'],['../index.html#autotoc_md10',1,'In Action']]],
-  ['initinstance_14',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
-  ['interfaces_15',['Interfaces',['../index.html#autotoc_md6',1,'']]]
+  ['hhgetmessagehookproc_0',['hhGetMessageHookProc',['../dllmain_8cpp.html#abee09a07c08390f9a2bfc091ac30a0e1',1,'dllmain.cpp']]],
+  ['hinst_1',['hInst',['../wi_npo_s-_app_8cpp.html#a44f41244c97693b2fbd5244bcb1e86ec',1,'wiNpoS-App.cpp']]],
+  ['hinstance_2',['hinstance',['../dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;dllmain.cpp'],['../_hooks_impl_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;dllmain.cpp']]],
+  ['hmainwnd_3',['hMainWnd',['../struct_get_main_wnd_res.html#a39433ce1c17dc5d9ab21837ad21af650',1,'GetMainWndRes']]],
+  ['hook_2ecpp_4',['Hook.cpp',['../_hook_8cpp.html',1,'']]],
+  ['hook_2eh_5',['Hook.h',['../_hook_8h.html',1,'']]],
+  ['hooks_6',['hooks',['../wi_npo_s-_app_8cpp.html#a94024fae4c55a7f2268b1748b1a815e2',1,'wiNpoS-App.cpp']]],
+  ['hooksimpl_7',['HooksImpl',['../class_hooks_impl.html',1,'']]],
+  ['hooksimpl_2ecpp_8',['HooksImpl.cpp',['../_hooks_impl_8cpp.html',1,'']]],
+  ['hooksimpl_2eh_9',['HooksImpl.h',['../_hooks_impl_8h.html',1,'']]],
+  ['hooksmgr_10',['hooksmgr',['../class_hooks_mgr.html',1,'HooksMgr'],['../class_hooks_mgr.html#a7b3c91d9aff8e533a71fe593393dfd2d',1,'HooksMgr::HooksMgr()']]],
+  ['hooksmgr_2ecpp_11',['HooksMgr.cpp',['../_hooks_mgr_8cpp.html',1,'']]],
+  ['hooksmgr_2eh_12',['HooksMgr.h',['../_hooks_mgr_8h.html',1,'']]]
 ];

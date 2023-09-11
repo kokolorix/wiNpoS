@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['pch_2ecpp_0',['pch.cpp',['../wi_npo_s-_app_2pch_8cpp.html',1,'(Global Namespace)'],['../wi_npo_s-_hook_2pch_8cpp.html',1,'(Global Namespace)']]],
-  ['pch_2eh_1',['pch.h',['../wi_npo_s-_app_2pch_8h.html',1,'(Global Namespace)'],['../wi_npo_s-_hook_2pch_8h.html',1,'(Global Namespace)']]],
-  ['points_2',['Entrance points',['../index.html#autotoc_md5',1,'']]]
+  ['max_5floadstring_0',['MAX_LOADSTRING',['../wi_npo_s-_app_8cpp.html#a2b68559d692760680c326428841254d1',1,'wiNpoS-App.cpp']]],
+  ['mt_5fhook_5fmsg_5fcreate_5ftask_5ftoolbar_1',['MT_HOOK_MSG_CREATE_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fdestroy_5ftask_5ftoolbar_2',['MT_HOOK_MSG_DESTROY_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a1a3ab8b0e24a0d40f9eaaa0f8e008d51',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5funload_3',['MT_HOOK_MSG_UNLOAD',['../_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635',1,'HooksMgr.h']]],
+  ['myregisterclass_4',['MyRegisterClass',['../wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375',1,'wiNpoS-App.cpp']]]
 ];

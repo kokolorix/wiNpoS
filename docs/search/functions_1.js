@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['detach_0',['detach',['../class_hooks.html#a2356802eb73afbe970d6f050180326ac',1,'Hooks']]],
-  ['dllmain_1',['DllMain',['../dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9',1,'dllmain.cpp']]]
+  ['callwndproc_0',['callwndproc',['../class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0',1,'HooksImpl::callWndProc()'],['../_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58',1,'CallWndProc():&#160;HooksImpl.cpp']]]
 ];
