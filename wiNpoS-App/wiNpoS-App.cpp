@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "wiNpoS-App.h"
-#include "Hooks.h"
+#include "HooksMgr.h"
 #include "Config.h"
 
 #define MAX_LOADSTRING 100
@@ -13,7 +13,7 @@
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-Hooks hooks;                                    // the hooks manager
+HooksMgr hooks;                                    // the hooks manager
 Config config;                                  // the config manager
 
 // Forward declarations of functions included in this code module:
@@ -161,6 +161,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 break;
             case IDM_FILE_DETACH:
                hooks.detach();
+                break;
+            case IDM_FILE_INSTALL:
+               hooks.install();
+                break;
+            case IDM_FILE_UNINSTALL:
+               hooks.uninstall();
                 break;
             default:
                 return DefWindowProc(hWnd, message, wParam, lParam);

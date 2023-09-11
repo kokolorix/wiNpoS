@@ -65,7 +65,7 @@ void Config::writeConfig()
 	wchar_t filePath[MAX_PATH];
 	GetModuleFileName(NULL, filePath, MAX_PATH);
 	wchar_t* name = PathFindFileName(filePath);
-	wchar_t buffer[4096] = { 0 };
+	//wchar_t buffer[4096] = { 0 };
 	wchar_t path[MAX_PATH];
 	ExpandEnvironmentStrings(std::format(LR"(%APPDATA%\wiNpoS\{}.jsonc)", name).c_str(), path, MAX_PATH);
 

@@ -1,0 +1,4 @@
+LIBRARY wiNpoS-Hook32
+EXPORTS
+	CallWndProc 
+	GetMsgProc 
