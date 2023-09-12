@@ -13,11 +13,16 @@ var searchData=
   ['idm_5ffile_5fattach_10',['IDM_FILE_ATTACH',['../wi_npo_s-_app_2resource_8h.html#a93a6659942a4bd409eb8c827f3af8d50',1,'resource.h']]],
   ['idm_5ffile_5fdetach_11',['IDM_FILE_DETACH',['../wi_npo_s-_app_2resource_8h.html#a34bd11903b9eb28e3742cb6754472ec0',1,'resource.h']]],
   ['idm_5ffile_5finstall_12',['IDM_FILE_INSTALL',['../wi_npo_s-_app_2resource_8h.html#a05c3b790f73740307f1d28b473a9d965',1,'resource.h']]],
-  ['idm_5ffile_5funinstall_13',['IDM_FILE_UNINSTALL',['../wi_npo_s-_app_2resource_8h.html#a9d416e3e80d189e388fd5407ed16c097',1,'resource.h']]],
-  ['idr_5fmainframe_14',['IDR_MAINFRAME',['../wi_npo_s-_app_2resource_8h.html#a9772c84d39896ad00b9aeb34b15d324d',1,'resource.h']]],
-  ['ids_5fapp_5ftitle_15',['IDS_APP_TITLE',['../wi_npo_s-_app_2resource_8h.html#a636c9aea2a8d16b73e43df39b3e0e7bd',1,'resource.h']]],
-  ['in_20action_16',['in action',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'In Action'],['../index.html#autotoc_md10',1,'In Action']]],
-  ['initinstance_17',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
-  ['install_18',['install',['../class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3',1,'HooksMgr']]],
-  ['interfaces_19',['Interfaces',['../index.html#autotoc_md6',1,'']]]
+  ['idm_5ffile_5fopen_5fcinfig_5fdir_13',['IDM_FILE_OPEN_CINFIG_DIR',['../wi_npo_s-_app_2resource_8h.html#a095eb953e913a8f7ad0ccb14c27e212d',1,'resource.h']]],
+  ['idm_5ffile_5fsend_5funload_14',['IDM_FILE_SEND_UNLOAD',['../wi_npo_s-_app_2resource_8h.html#af812dd1556602fb3a684a3b5ceee11ec',1,'resource.h']]],
+  ['idm_5ffile_5funinstall_15',['IDM_FILE_UNINSTALL',['../wi_npo_s-_app_2resource_8h.html#a9d416e3e80d189e388fd5407ed16c097',1,'resource.h']]],
+  ['idr_5fmainframe_16',['IDR_MAINFRAME',['../wi_npo_s-_app_2resource_8h.html#a9772c84d39896ad00b9aeb34b15d324d',1,'resource.h']]],
+  ['ids_5fapp_5ftitle_17',['IDS_APP_TITLE',['../wi_npo_s-_app_2resource_8h.html#a636c9aea2a8d16b73e43df39b3e0e7bd',1,'resource.h']]],
+  ['ids_5fapp_5ftitle_5f32_18',['IDS_APP_TITLE_32',['../wi_npo_s-_app_2resource_8h.html#a1c6294ed93da7bfc2ee51546656ecd77',1,'resource.h']]],
+  ['ids_5fapp_5ftitle_5f64_19',['IDS_APP_TITLE_64',['../wi_npo_s-_app_2resource_8h.html#afa99e5290e21c36e1140c200f13b3635',1,'resource.h']]],
+  ['in_20action_20',['in action',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'In Action'],['../index.html#autotoc_md10',1,'In Action']]],
+  ['initinstance_21',['InitInstance',['../wi_npo_s-_app_8cpp.html#a5f77d4e3e5569ff9d236463fd80ebe28',1,'wiNpoS-App.cpp']]],
+  ['initlogfile_22',['initLogFile',['../namespaceanonymous__namespace_02_utils_8cpp_03.html#a3e36aa8018bd7df30929d3af45d069a2',1,'anonymous_namespace{Utils.cpp}']]],
+  ['install_23',['install',['../class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3',1,'HooksMgr']]],
+  ['interfaces_24',['Interfaces',['../index.html#autotoc_md6',1,'']]]
 ];

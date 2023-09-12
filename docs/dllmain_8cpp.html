@@ -507,13 +507,14 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  132</span>                    GetModuleFileNameA(NULL, filePath, MAX_PATH);</div>
 <div class="line"><span class="lineno">  133</span>                    <span class="keywordtype">string</span> exeName = PathFindFileNameA(filePath);</div>
 <div class="line"><span class="lineno">  134</span>                    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Unload {} from {}&quot;</span>, dllName, exeName));</div>
-<div class="line"><span class="lineno">  135</span>                }</div>
-<div class="line"><span class="lineno">  136</span>            }</div>
-<div class="line"><span class="lineno">  137</span>        }</div>
-<div class="line"><span class="lineno">  138</span>    }</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">  141</span>}</div>
+<div class="line"><span class="lineno">  135</span>                    FreeLibrary(<a class="code hl_variable" href="dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>);</div>
+<div class="line"><span class="lineno">  136</span>                }</div>
+<div class="line"><span class="lineno">  137</span>            }</div>
+<div class="line"><span class="lineno">  138</span>        }</div>
+<div class="line"><span class="lineno">  139</span>    }</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">  142</span>}</div>
 <div class="ttc" id="a_hooks_mgr_8h_html_aa60c78354a7425a01d05430dbf274635"><div class="ttname"><a href="_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635">MT_HOOK_MSG_UNLOAD</a></div><div class="ttdeci">#define MT_HOOK_MSG_UNLOAD</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00005">HooksMgr.h:5</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="dllmain_8cpp_source.html#l00009">hInstance</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00005">MT_HOOK_MSG_UNLOAD</a>, and <a class="el" href="_utils_8h_source.html#l00044">WRITE_DEBUG_LOG</a>.</p>

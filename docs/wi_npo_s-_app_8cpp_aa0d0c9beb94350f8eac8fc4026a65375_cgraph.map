@@ -1,26 +1,30 @@
 <map id="MyRegisterClass" name="MyRegisterClass">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,126,133"/>
-<area shape="rect" id="Node000002" href="$wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="174,107,249,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,117,159,117,159,123,126,123"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,132,126,159"/>
+<area shape="rect" id="Node000002" href="$wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="174,132,249,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,143,159,143,159,148,126,148"/>
 <area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a5873af2ee357a48c39cdd824f51c1c9c" title=" " alt="" coords="338,5,393,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,104,257,77,296,48,323,33,325,38,298,53,260,81,229,108"/>
-<area shape="rect" id="Node000004" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="481,69,606,96"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="249,104,297,92,384,82,466,79,466,84,385,87,297,97,250,109"/>
-<area shape="rect" id="Node000006" href="$class_hooks_mgr.html#ae9a9a4faaa208c86a71cc564ea70840d" title=" " alt="" coords="302,107,429,133"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="250,117,287,117,287,123,250,123"/>
-<area shape="rect" id="Node000007" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="304,157,426,184"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="250,130,309,150,308,155,249,135"/>
-<area shape="rect" id="Node000012" href="$class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5" title=" " alt="" coords="297,208,433,235"/>
-<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="226,132,257,162,298,194,308,199,305,204,296,198,254,166,223,135"/>
-<area shape="rect" id="Node000005" href="$class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f" title=" " alt="" coords="680,69,792,96"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="606,80,665,80,665,85,606,85"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="405,154,432,143,507,102,510,106,434,148,408,159"/>
-<area shape="rect" id="Node000008" href="$_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title=" " alt="" coords="495,132,592,159"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="427,159,480,152,481,157,427,165"/>
-<area shape="rect" id="Node000010" href="$_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title=" " alt="" coords="496,183,591,209"/>
-<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="427,177,482,185,481,190,427,182"/>
-<area shape="rect" id="Node000009" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title=" " alt="" coords="654,132,818,159"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="593,143,639,143,639,148,593,148"/>
-<area shape="rect" id="Node000011" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title=" " alt="" coords="656,183,816,209"/>
-<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="591,193,641,193,641,199,591,199"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,130,249,87,271,63,296,42,322,28,325,32,298,46,274,67,253,91,223,133"/>
+<area shape="rect" id="Node000004" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="482,107,607,133"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="249,140,468,123,468,128,250,145"/>
+<area shape="rect" id="Node000006" href="$class_hooks_mgr.html#ae9a9a4faaa208c86a71cc564ea70840d" title=" " alt="" coords="302,56,429,83"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="238,129,296,99,320,87,322,92,298,104,240,134"/>
+<area shape="rect" id="Node000008" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="304,157,426,184"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="250,149,290,156,289,161,249,154"/>
+<area shape="rect" id="Node000013" href="$class_config.html#a56441193def0f70c9e3ab086f6d357a2" title=" " alt="" coords="301,208,430,235"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="235,157,298,194,311,199,309,204,296,198,232,162"/>
+<area shape="rect" id="Node000014" href="$class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5" title=" " alt="" coords="297,259,433,285"/>
+<area shape="poly" id="edge14_Node000002_Node000014" title=" " alt="" coords="223,158,253,200,274,224,299,245,306,250,304,254,295,249,271,228,249,203,219,161"/>
+<area shape="rect" id="Node000005" href="$class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f" title=" " alt="" coords="682,107,794,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="607,117,667,117,667,123,607,123"/>
+<area shape="rect" id="Node000007" href="$class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98" title=" " alt="" coords="481,56,608,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="429,67,467,67,467,72,429,72"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="415,154,480,135,482,140,416,159"/>
+<area shape="rect" id="Node000009" href="$_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title=" " alt="" coords="496,157,593,184"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="427,168,481,168,481,173,427,173"/>
+<area shape="rect" id="Node000011" href="$_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title=" " alt="" coords="497,208,592,235"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="416,182,484,202,482,207,415,187"/>
+<area shape="rect" id="Node000010" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title=" " alt="" coords="656,157,820,184"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="593,168,641,168,641,173,593,173"/>
+<area shape="rect" id="Node000012" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title=" " alt="" coords="658,208,818,235"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="592,219,643,219,643,224,592,224"/>
 </map>
