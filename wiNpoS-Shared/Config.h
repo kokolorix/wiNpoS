@@ -11,6 +11,8 @@ public:
 	void readConfig();
 	void writeConfig();
 
+	void openFolder();
+
 private:
 };
 

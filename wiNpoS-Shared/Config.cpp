@@ -15,6 +15,7 @@
 #include <filewritestream.h>
 #include <document.h>
 #include <writer.h>
+#include <shellapi.h>
 
 
 void Config::readConfig()
@@ -91,5 +92,22 @@ Rect.bottom) << std::endl;
 		}
 	}
 }
+
+void Config::openFolder()
+{
+	wchar_t dir[MAX_PATH];
+	ExpandEnvironmentStrings(LR"(%APPDATA%\wiNpoS)", dir, MAX_PATH);
+
+	HINSTANCE hFolder = ShellExecute(
+		NULL,
+		L"open",
+		dir,
+		NULL,
+		dir,
+		SW_SHOW
+	);
+
+}
+
 #pragma warning(pop)
 

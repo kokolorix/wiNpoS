@@ -132,6 +132,7 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 					GetModuleFileNameA(NULL, filePath, MAX_PATH);
 					string exeName = PathFindFileNameA(filePath);
 					WRITE_DEBUG_LOG(format("Unload {} from {}", dllName, exeName));
+					FreeLibrary(hInstance);
 				}
 			}
 		}

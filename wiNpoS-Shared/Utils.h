@@ -52,6 +52,4 @@ namespace Utils
 	}
 
 #endif // !_DEBUG
-/*
-*/
 }

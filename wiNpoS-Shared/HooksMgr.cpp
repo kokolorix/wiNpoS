@@ -9,11 +9,11 @@
 HMODULE HooksMgr::load()
 {
 	HMODULE hModule = NULL;
-#ifdef WIN32
-	hModule = LoadLibrary(L"wiNpoS-Hook32.dll");
-#else
+#ifdef _WIN64
 	hModule = LoadLibrary(L"wiNpoS-Hook64.dll");
-#endif // Win32
+#else
+	hModule = LoadLibrary(L"wiNpoS-Hook32.dll");
+#endif // _WIN64
 	return hModule;
 }
 /**
@@ -37,9 +37,7 @@ void HooksMgr::attach()
 */
 void HooksMgr::detach()
 {
-	WRITE_DEBUG_LOG(format("Send message {} to all Windows" , MT_HOOK_MSG_UNLOAD));
-	assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL));
-	//unload(_hModule);
+	unload(_hModule);
 }
 /**
  * @brief 
@@ -65,8 +63,6 @@ void HooksMgr::install()
 */
 void HooksMgr::uninstall()
 {
-	PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);
-
 	if (UnhookWindowsHookEx(_hhkCallWndProc))
 		_hhkCallWndProc = NULL;
 	assert(_hhkCallWndProc == NULL);
@@ -75,5 +71,6 @@ void HooksMgr::uninstall()
 		_hhkGetMessage = NULL;
 	assert(_hhkGetMessage == NULL);
 
+	//PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);
 	//detach();
 }

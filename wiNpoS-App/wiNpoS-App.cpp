@@ -6,6 +6,8 @@
 #include "wiNpoS-App.h"
 #include "HooksMgr.h"
 #include "Config.h"
+#include "Utils.h"
+#include <assert.h>
 
 #define MAX_LOADSTRING 100
 
@@ -33,7 +35,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // TODO: Place code here.
 
     // Initialize global strings
-    LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
+#ifdef _WIN64
+	 LoadStringW(hInstance, IDS_APP_TITLE_64, szTitle, MAX_LOADSTRING);
+#else
+	 LoadStringW(hInstance, IDS_APP_TITLE_32, szTitle, MAX_LOADSTRING);
+#endif // _WIN64
+
     LoadStringW(hInstance, IDC_WINPOSAPP, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
@@ -144,35 +151,42 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // Parse the menu selections:
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-               DestroyWindow(hWnd);
-                break;
-            case IDM_FILE_ATTACH:
-               hooks.attach();
-                break;
-            case IDM_FILE_DETACH:
-               hooks.detach();
-                break;
-            case IDM_FILE_INSTALL:
-               hooks.install();
-                break;
-            case IDM_FILE_UNINSTALL:
-               hooks.uninstall();
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
+		 case WM_COMMAND:
+		 {
+			 int wmId = LOWORD(wParam);
+			 // Parse the menu selections:
+			 switch (wmId)
+			 {
+				 case IDM_ABOUT:
+					 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+					 break;
+				 case IDM_EXIT:
+					 DestroyWindow(hWnd);
+					 break;
+				 case IDM_FILE_ATTACH:
+					 hooks.attach();
+					 break;
+				 case IDM_FILE_DETACH:
+					 hooks.detach();
+					 break;
+				 case IDM_FILE_INSTALL:
+					 hooks.install();
+					 break;
+				 case IDM_FILE_UNINSTALL:
+					 hooks.uninstall();
+					 break;
+				 case IDM_FILE_SEND_UNLOAD:
+					 WRITE_DEBUG_LOG(format("Send message {} to all Windows", MT_HOOK_MSG_UNLOAD));
+					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL));
+					 break;
+				 case IDM_FILE_OPEN_CINFIG_DIR:
+                config.openFolder();
+					 break;
+				 default:
+					 return DefWindowProc(hWnd, message, wParam, lParam);
+			 }
+		 }
+		 break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
