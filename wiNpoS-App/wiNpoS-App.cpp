@@ -176,8 +176,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 hooks.uninstall();
 					 break;
 				 case IDM_FILE_SEND_UNLOAD:
-					 WRITE_DEBUG_LOG(format("Send message {} to all Windows", MT_HOOK_MSG_UNLOAD));
-					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL));
+					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
+					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
 					 break;
 				 case IDM_FILE_OPEN_CINFIG_DIR:
                 config.openFolder();

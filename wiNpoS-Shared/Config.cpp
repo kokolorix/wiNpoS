@@ -16,6 +16,7 @@
 #include <document.h>
 #include <writer.h>
 #include <shellapi.h>
+#include <Utils.h>
 
 
 void Config::readConfig()
@@ -35,13 +36,14 @@ void Config::readConfig()
 
 	char filePath[MAX_PATH];
 	GetModuleFileNameA(NULL, filePath, MAX_PATH);
-	char* name = PathFindFileNameA(filePath);
+	string exeName = PathFindFileNameA(filePath);
 	char buffer[4096] = { 0 };
-	char path[MAX_PATH];
-	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonc)", name).c_str(), path, MAX_PATH);
+	char configPath[MAX_PATH];
+	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonc)", exeName).c_str(), configPath, MAX_PATH);
+	WRITE_DEBUG_LOG(format("Read config for {} from {}", exeName, configPath));
 
 	FILE* fp = nullptr;
-	errno_t res = fopen_s(&fp, path, "rb"); // non-Windows use "r"
+	errno_t res = fopen_s(&fp, configPath, "rb"); // non-Windows use "r"
 	if (fp)
 	{
 		FileReadStream is(fp, buffer, sizeof(buffer));
@@ -63,19 +65,20 @@ void Config::readConfig()
 
 void Config::writeConfig()
 {
-	wchar_t filePath[MAX_PATH];
-	GetModuleFileName(NULL, filePath, MAX_PATH);
-	wchar_t* name = PathFindFileName(filePath);
+	char filePath[MAX_PATH];
+	GetModuleFileNameA(NULL, filePath, MAX_PATH);
+	string exeName = PathFindFileNameA(filePath);
 	//wchar_t buffer[4096] = { 0 };
-	wchar_t path[MAX_PATH];
-	ExpandEnvironmentStrings(std::format(LR"(%APPDATA%\wiNpoS\{}.jsonc)", name).c_str(), path, MAX_PATH);
+	char configPath[MAX_PATH];
+	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonc)", exeName).c_str(), configPath, MAX_PATH);
+	WRITE_DEBUG_LOG(format("Write config for {} to {}", exeName, configPath));
 
 	{
 		wchar_t dir[MAX_PATH];
 		ExpandEnvironmentStrings(LR"(%APPDATA%\wiNpoS)", dir, MAX_PATH);
 		CreateDirectory(dir, NULL);
 		{
-			std::ofstream os(path);
+			std::ofstream os(configPath);
 			os << std::format(R"(
 {{
 	"left" :{},

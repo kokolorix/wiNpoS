@@ -35,7 +35,7 @@ namespace
 		ExpandEnvironmentStringsA(format(R"(%APPDATA%\wiNpoS\{}-debug1.log)", moduleName).c_str(), logPath, MAX_PATH);
 
 		ofstream fs(logPath);
-		fs << "Zeit\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail" << std::endl;
+		fs << "Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail" << std::endl;
 
 		return logPath;
 	}
@@ -60,9 +60,13 @@ void Utils::WriteDebugLog(std::string msg)
 	os << std::setfill('0') << std::setw(3) << currentTime.wMilliseconds;
 	string timestamp = os.str();
 
-	string logEntry = format("{}\t{}\t{}\t{}", timestamp, ::GetCurrentProcessId(), ::GetCurrentThreadId(), msg);
+	char filePath[MAX_PATH] = { 0 };
+	GetModuleFileNameA(NULL, filePath, MAX_PATH);
+	string exeName = PathFindFileNameA(filePath);
 
-	string logPath = initLogFile();
+	string logEntry = format("{}\t{}\t{}\t{}\t{}", timestamp, exeName, GetCurrentProcessId(), GetCurrentThreadId(), msg);
+
+	static string logPath = initLogFile();
 	ofstream fs(logPath, std::ios::app);
 	fs << logEntry << std::endl;
 }

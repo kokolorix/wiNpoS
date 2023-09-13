@@ -1,9 +1,10 @@
-// dllmain.cpp : Defines the entry point for the DLL application.
+/ dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
 #include <vector>
 #include <Utils.h>
 #include "HooksMgr.h"
 #include <Shlwapi.h>
+#include <assert.h>
 #pragma comment(lib, "Shlwapi.lib")
 
 HINSTANCE hInstance = NULL;   // current instance
@@ -16,63 +17,101 @@ struct GetMainWndRes
 	operator HWND () const { return hMainWnd; }
 	operator bool() const { return hMainWnd != NULL; }
 };
+using WndVector = std::vector<HWND>;
+
 GetMainWndRes GetMainWnd(DWORD currentThreadId = 0);
 LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
-
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-                     )
+BOOL APIENTRY DllMain(HMODULE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved
+)
 {
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-	 {
-		 hInstance = hModule;
-		 GetMainWndRes mw = GetMainWnd(0);
-		 if (mw)
-		 {
-			 hhGetMessageHookProc =
-				 SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
+	switch (ul_reason_for_call)
+	{
+		case DLL_PROCESS_ATTACH:
+		{
+			hInstance = hModule;
+			GetMainWndRes mw = GetMainWnd(0);
+			if (mw)
+			{
+				hhGetMessageHookProc =
+					SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
 
-			 char filePath[MAX_PATH] = { 0 };
-			 GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-			 string dllName = PathFindFileNameA(filePath);
-			 GetModuleFileNameA(NULL, filePath, MAX_PATH);
-			 string exeName = PathFindFileNameA(filePath);
-			 WRITE_DEBUG_LOG(format("Attach {} to {}", dllName, exeName));
-		 }
-		 //else
-		 //{
-			// FreeLibrary(hModule);
-		 //}
+				char filePath[MAX_PATH] = { 0 };
+				GetModuleFileNameA(hInstance, filePath, MAX_PATH);
+				string dllName = PathFindFileNameA(filePath);
+				GetModuleFileNameA(NULL, filePath, MAX_PATH);
+				string exeName = PathFindFileNameA(filePath);
+				WRITE_DEBUG_LOG(format("Attach {} to {}", dllName, exeName));
+			}
+			//else
+			//{
+			  // FreeLibrary(hModule);
+			//}
 
-		 break;
-	 }
+			break;
+		}
 
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-        break;
+		case DLL_THREAD_ATTACH:
+		case DLL_THREAD_DETACH:
+			break;
 
-    case DLL_PROCESS_DETACH:
-	 {		
-		 if (hhGetMessageHookProc)
-			 UnhookWindowsHookEx(hhGetMessageHookProc);
+		case DLL_PROCESS_DETACH:
+		{
+			if (UnhookWindowsHookEx(hhGetMessageHookProc))
+				hhGetMessageHookProc = NULL;
+			assert(hhGetMessageHookProc == NULL);
 
-		 char filePath[MAX_PATH] = { 0 };
-		 GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-		 string dllName = PathFindFileNameA(filePath);
-		 GetModuleFileNameA(NULL, filePath, MAX_PATH);
-		 string exeName = PathFindFileNameA(filePath);
-		 WRITE_DEBUG_LOG(format("Detach {} from {}", dllName, exeName));
-		 break;
-	 }
-    }
-    return TRUE;
+			char filePath[MAX_PATH] = { 0 };
+			GetModuleFileNameA(hInstance, filePath, MAX_PATH);
+			string dllName = PathFindFileNameA(filePath);
+			GetModuleFileNameA(NULL, filePath, MAX_PATH);
+			string exeName = PathFindFileNameA(filePath);
+			WRITE_DEBUG_LOG(format("Detach {} from {}", dllName, exeName));
+			break;
+		}
+	}
+	return TRUE;
 }
 
-using WndVector = std::vector<HWND>;
+LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+	switch (nCode)
+	{
+		case HC_ACTION:
+		{
+			if (wParam == PM_REMOVE)
+			{
+				MSG* pMsg = (MSG*)lParam;
+				//WRITE_DEBUG_LOG(format("Msg: {}", pMsg->message));
+				if (pMsg->message == MT_HOOK_MSG_UNLOAD)
+				{
+					char filePath[MAX_PATH] = { 0 };
+					GetModuleFileNameA(hInstance, filePath, MAX_PATH);
+					string dllName = PathFindFileNameA(filePath);
+					GetModuleFileNameA(NULL, filePath, MAX_PATH);
+					string exeName = PathFindFileNameA(filePath);
+
+					WRITE_DEBUG_LOG(format("Msg: {}(MT_HOOK_MSG_UNLOAD) in {}", pMsg->message, exeName));
+
+					if(pMsg->wParam != GetCurrentProcessId())
+					{
+						std::thread t([dllName, exeName]() {
+							WRITE_DEBUG_LOG(format("Unload {} from {}", dllName, exeName));
+							FreeLibrary(hInstance);
+							});
+
+						t.detach(); // because the end of control is reached here
+					}
+				}
+			}
+		}
+	}
+
+	return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+
 WndVector GetDesktopWnds();
 
 GetMainWndRes GetMainWnd(DWORD currentThreadId /*= 0*/)
@@ -112,31 +151,4 @@ WndVector GetDesktopWnds()
 	auto res = EnumDesktopWindows(hDesktop, EnumWindowsProc, (LPARAM)&hWnds);
 
 	return hWnds;	//EnumDesktopWindows()
-}
-
-LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
-{
-	switch (nCode)
-	{
-		case HC_ACTION:
-		{
-			if (wParam == PM_REMOVE)
-			{
-				MSG* pMsg = (MSG*)lParam;
-				//WRITE_DEBUG_LOG(format("Msg: {}", pMsg->message));
-				if (pMsg->message == MT_HOOK_MSG_UNLOAD)
-				{
-					char filePath[MAX_PATH] = { 0 };
-					GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-					string dllName = PathFindFileNameA(filePath);
-					GetModuleFileNameA(NULL, filePath, MAX_PATH);
-					string exeName = PathFindFileNameA(filePath);
-					WRITE_DEBUG_LOG(format("Unload {} from {}", dllName, exeName));
-					FreeLibrary(hInstance);
-				}
-			}
-		}
-	}
-
-	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
