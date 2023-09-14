@@ -10,6 +10,13 @@ using std::format;
 */
 namespace Utils
 {
+	extern string ExeName;
+#ifdef _USRDLL
+	extern string DllName;
+#endif // _USRDLL
+
+
+
 #define STRINGIZE(x) #x
 #define STR(x) STRINGIZE(x)
 #define __FILE_LINE__ __FILE__ "(" STR(__LINE__) ")"

@@ -25,10 +25,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 		{
 			CWPSTRUCT* sMsg = (CWPSTRUCT*)lParam;
 
-			char filePath[MAX_PATH] = { 0 };
-			GetModuleFileNameA(NULL, filePath, MAX_PATH);
-			string exeName = PathFindFileNameA(filePath);
-			WRITE_DEBUG_LOG(format("Msg: {} in {}", sMsg->message, exeName));
+			WRITE_DEBUG_LOG(format("Msg: {} in {}", sMsg->message, Utils::ExeName));
 		}
 	}
 
@@ -45,10 +42,34 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 			{
 				MSG* pMsg = (MSG*)lParam;
 
-				char filePath[MAX_PATH] = { 0 };
-				GetModuleFileNameA(NULL, filePath, MAX_PATH);
-				string exeName = PathFindFileNameA(filePath);
-				WRITE_DEBUG_LOG(format("Msg: {} in {}", pMsg->message, exeName));
+				switch ( pMsg->message)
+				{
+				//case WM_MOUSEMOVE:
+				//	WRITE_DEBUG_LOG(format("WM_MOUSEMOVE: {:#010x} ", pMsg->message));
+				//	break;
+				case WM_LBUTTONDBLCLK:
+					WRITE_DEBUG_LOG(format("WM_LBUTTONDBLCLK: {:#010x} ", pMsg->message));
+					break;
+				case WM_NCRBUTTONDOWN:
+					WRITE_DEBUG_LOG(format("WM_NCRBUTTONDOWN: {:#010x} ", pMsg->message));
+					break;
+				case WM_NCRBUTTONUP:
+					WRITE_DEBUG_LOG(format("WM_NCRBUTTONUP: {:#010x} ", pMsg->message));
+					break;
+				case WM_NCLBUTTONDOWN:
+					WRITE_DEBUG_LOG(format("WM_NCLBUTTONDOWN: {:#010x} ", pMsg->message));
+					break;
+				case WM_NCLBUTTONUP:
+					WRITE_DEBUG_LOG(format("WM_NCLBUTTONUP: {:#010x} ", pMsg->message));
+					break;
+				case WM_NCLBUTTONDBLCLK:
+					WRITE_DEBUG_LOG(format("WM_NCLBUTTONDBLCLK: {:#010x} ", pMsg->message));
+					break;
+				default:
+					break;
+				}
+
+				//WRITE_DEBUG_LOG(format("Msg: {} in {}", pMsg->message, Utils::ExeName));
 			}
 		}
 	}

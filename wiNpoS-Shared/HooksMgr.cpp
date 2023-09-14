@@ -46,14 +46,14 @@ void HooksMgr::install()
 {
 	attach();
 
-	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(CallWndProc));
-	assert(hkCallWndProc);
+	//HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(CallWndProc));
+	//assert(hkCallWndProc);
 
 	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(GetMsgProc));
 	assert(hkGetMsgProc);
 
-	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, _hModule, NULL);
-	assert(_hhkCallWndProc);
+	//_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, _hModule, NULL);
+	//assert(_hhkCallWndProc);
 
 	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, _hModule, NULL);
 	assert(_hhkGetMessage);
@@ -63,9 +63,9 @@ void HooksMgr::install()
 */
 void HooksMgr::uninstall()
 {
-	if (UnhookWindowsHookEx(_hhkCallWndProc))
-		_hhkCallWndProc = NULL;
-	assert(_hhkCallWndProc == NULL);
+	//if (UnhookWindowsHookEx(_hhkCallWndProc))
+	//	_hhkCallWndProc = NULL;
+	//assert(_hhkCallWndProc == NULL);
 
 	if (UnhookWindowsHookEx(_hhkGetMessage))
 		_hhkGetMessage = NULL;

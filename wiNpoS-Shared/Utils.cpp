@@ -39,7 +39,32 @@ namespace
 
 		return logPath;
 	}
+
+
+	string initExeName()
+	{
+		char buffer[MAX_PATH] = { 0 };
+		GetModuleFileNameA(NULL, buffer, MAX_PATH);
+		string  exeName = PathFindFileNameA(buffer);
+		return exeName;
+	}
+
+#ifdef _USRDLL
+	string initDllName()
+	{
+		char buffer[MAX_PATH] = { 0 };
+		GetModuleFileNameA(hInstance, buffer, MAX_PATH);
+
+		string  dllName = PathFindFileNameA(buffer);
+		return dllName;
 }
+#endif // _USRDLL
+}
+string Utils::ExeName = initExeName();
+ 
+#ifdef _USRDLL
+string Utils::DllName = initDllName();
+#endif // _USRDLL
 
 #ifdef _DEBUG
 
