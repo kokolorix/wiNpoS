@@ -49,23 +49,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 				//	break;
 				case WM_WINDOWPOSCHANGED:
 					WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
-					{
-						if (hasCaptionDblClicked())
-						{
-							cd = { 0 };
-
-							if (hasLastRect())
-							{
-								if (IsZoomed(pMsg->hwnd))
-								{
-									WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
-									ShowWindow(pMsg->hwnd, SW_NORMAL);
-									SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
-									lr = { 0 };
-								}
-							}
-						}
-					}
+					onWindowPosChanged(pMsg);
 					break;
 
 				default:
@@ -119,69 +103,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDBLCLK: {:#010x} ", pMsg->message));
-						{
-							POINT pt = { 0 };
-							GetCursorPos(&pt);
-							LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0,  MAKELPARAM(pt.x, pt.y));
-							//int x = LOWORD(lParam);
-							//int y = HIWORD(lParam);
-							int x = GET_X_LPARAM(lParam);
-							int y = GET_Y_LPARAM(lParam);
-
-							// Get the window's client rectangle
-							RECT cr;
-							GetClientRect(pMsg->hwnd, &cr);
-
-							RECT wr;
-							GetWindowRect(pMsg->hwnd, &wr);
-
-							// Adjust the client rectangle to screen coordinates
-							MapWindowPoints(pMsg->hwnd, HWND_DESKTOP, (LPPOINT)&cr, 2);
-
-							// Check if the double-click occurred in the border area
-							if (pt.x < cr.left || pt.x >= cr.right)
-							{
-								if (hasLastRect())
-								{
-									WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
-									SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
-									lr = { 0 };
-								}
-								else
-								{
-									// Get the handle to the primary monitor
-									HMONITOR hMonitor = MonitorFromWindow(pMsg->hwnd, MONITOR_DEFAULTTOPRIMARY);
-
-									// Get the monitor information
-									MONITORINFOEX mi;
-									mi.cbSize = sizeof(MONITORINFOEX);
-									GetMonitorInfo(hMonitor, &mi);
-
-									// Calculate the width of the monitor
-									int ml = mi.rcMonitor.left;
-									int mw = mi.rcMonitor.right - mi.rcMonitor.left;
-									lr = wr;
-									//WINUSERAPI BOOL WINAPI SetWindowPos(_In_ HWND hWnd, _In_opt_ HWND hWndInsertAfter, _In_ int X, _In_ int Y, _In_ int cx, _In_ int cy, _In_ UINT uFlags)
-									WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
-									SetWindowPos(pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER);
-								}
-							}
-							// Check if the double-click occurred in the caption area
-							int lowerCaption = wr.top + GetSystemMetrics(SM_CYCAPTION);
-							if (pt.y < lowerCaption)
-							{
-								bool isRelevant =
-									hitTest != HTMINBUTTON &&
-									hitTest != HTMAXBUTTON &&
-									hitTest != HTCLOSE &&
-									hitTest != HTSYSMENU ;
-
-								if (hasLastRect() && isRelevant)
-								{
-									cd = pt;
-								}
-							}
-						}
+						onNcButtonDblClick(pMsg);
 						break;
 					default:
 						break;
@@ -193,4 +115,89 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 	}
 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+
+void HooksImpl::onNcButtonDblClick(MSG* pMsg)
+{
+	//int x = LOWORD(pMsg->lParam);
+	//int y = HIWORD(pMsg->lParam);
+	int x = GET_X_LPARAM(pMsg->lParam);
+	int y = GET_Y_LPARAM(pMsg->lParam);
+
+	POINT pt = { 0 };
+	GetCursorPos(&pt);
+	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+
+	// Get the window's client rectangle
+	RECT cr;
+	GetClientRect(pMsg->hwnd, &cr);
+
+	RECT wr;
+	GetWindowRect(pMsg->hwnd, &wr);
+
+	// Adjust the client rectangle to screen coordinates
+	MapWindowPoints(pMsg->hwnd, HWND_DESKTOP, (LPPOINT)&cr, 2);
+
+	// Check if the double-click occurred in the border area
+	if (pt.x < cr.left || pt.x >= cr.right)
+	{
+		if (hasLastRect())
+		{
+			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+			SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
+			lr = { 0 };
+		}
+		else
+		{
+			// Get the handle to the primary monitor
+			HMONITOR hMonitor = MonitorFromWindow(pMsg->hwnd, MONITOR_DEFAULTTOPRIMARY);
+
+			// Get the monitor information
+			MONITORINFOEX mi;
+			mi.cbSize = sizeof(MONITORINFOEX);
+			GetMonitorInfo(hMonitor, &mi);
+
+			// Calculate the width of the monitor
+			int ml = mi.rcMonitor.left;
+			int mw = mi.rcMonitor.right - mi.rcMonitor.left;
+			lr = wr;
+			//WINUSERAPI BOOL WINAPI SetWindowPos(_In_ HWND hWnd, _In_opt_ HWND hWndInsertAfter, _In_ int X, _In_ int Y, _In_ int cx, _In_ int cy, _In_ UINT uFlags)
+			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
+			SetWindowPos(pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER);
+		}
+	}
+	// Check if the double-click occurred in the caption area
+	int lowerCaption = wr.top + GetSystemMetrics(SM_CYCAPTION);
+	if (pt.y < lowerCaption)
+	{
+		bool isRelevant =
+			hitTest != HTMINBUTTON &&
+			hitTest != HTMAXBUTTON &&
+			hitTest != HTCLOSE &&
+			hitTest != HTSYSMENU;
+
+		if (hasLastRect() && isRelevant)
+		{
+			cd = pt;
+		}
+	}
+}
+
+void HooksImpl::onWindowPosChanged(CWPSTRUCT* pMsg)
+{
+	if (hasCaptionDblClicked())
+	{
+		cd = { 0 };
+
+		if (hasLastRect())
+		{
+			if (IsZoomed(pMsg->hwnd))
+			{
+				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+				ShowWindow(pMsg->hwnd, SW_NORMAL);
+				SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
+				lr = { 0 };
+			}
+		}
+	}
 }
