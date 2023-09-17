@@ -18,8 +18,9 @@
 #define IDM_FILE_DETACH                 32772
 #define IDM_FILE_INSTALL                32773
 #define IDM_FILE_UNINSTALL              32774
-#define IDM_FILE_SEND_UNLOAD            32775
-#define IDM_FILE_OPEN_CINFIG_DIR        32776
+#define IDM_FILE_OPEN_NEW_WND		       32775
+#define IDM_FILE_SEND_UNLOAD            32776
+#define IDM_FILE_OPEN_CINFIG_DIR        32777
 #define IDC_STATIC                      -1
 
 // Next default values for new objects
@@ -28,7 +29,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
 #define _APS_NEXT_RESOURCE_VALUE        129
-#define _APS_NEXT_COMMAND_VALUE         32777
+#define _APS_NEXT_COMMAND_VALUE         32778
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           112
 #endif

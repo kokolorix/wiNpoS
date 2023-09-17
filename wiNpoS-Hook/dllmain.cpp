@@ -5,15 +5,19 @@
 #include "HooksMgr.h"
 #include <Shlwapi.h>
 #include <assert.h>
+#include "ThumbnailToolbar.h"
 #pragma comment(lib, "Shlwapi.lib")
 
 HINSTANCE hInstance = NULL;   // current instance
 HHOOK hhGetMessageHookProc = NULL;
+ThumbnailToolbar thumbnailToolbar;
+thread_local HHOOK hhShellHookProc = NULL;
 
 struct GetMainWndRes
 {
 	HWND hMainWnd;
 	DWORD wndThreadId;
+
 	operator HWND () const { return hMainWnd; }
 	operator bool() const { return hMainWnd != NULL; }
 };
@@ -21,13 +25,14 @@ using WndVector = std::vector<HWND>;
 
 GetMainWndRes GetMainWnd(DWORD currentThreadId = 0);
 LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
 BOOL APIENTRY DllMain(HMODULE hModule,
 	DWORD  ul_reason_for_call,
 	LPVOID lpReserved
 )
 {
-	switch (ul_reason_for_call)
+	switch ((int)ul_reason_for_call)
 	{
 		case DLL_PROCESS_ATTACH:
 		{
@@ -37,6 +42,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 			{
 				hhGetMessageHookProc =
 					SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
+
+				thumbnailToolbar.initialize(hInstance, mw);
 
 				char filePath[MAX_PATH] = { 0 };
 				GetModuleFileNameA(hInstance, filePath, MAX_PATH);
@@ -54,7 +61,14 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 		}
 
 		case DLL_THREAD_ATTACH:
+			CoInitialize(NULL);
+			hhShellHookProc = SetWindowsHookEx(WH_SHELL, ShellHookProc, NULL, GetCurrentThreadId());
+			break;
 		case DLL_THREAD_DETACH:
+			if (UnhookWindowsHookEx(hhShellHookProc))
+				hhShellHookProc = NULL;
+			assert(hhShellHookProc == NULL);
+			CoUninitialize();
 			break;
 
 		case DLL_PROCESS_DETACH:
@@ -120,7 +134,8 @@ GetMainWndRes GetMainWnd(DWORD currentThreadId /*= 0*/)
 
 	auto currentProcessId = GetCurrentProcessId();
 
-	for (HWND hWnd : wnds) {
+	for (HWND hWnd : wnds) 
+	{
 		DWORD wndProcessId = NULL;
 		auto wndThreadId = GetWindowThreadProcessId(hWnd, &wndProcessId);
 		if (currentProcessId == wndProcessId && (currentThreadId == 0 || wndThreadId == currentThreadId))
@@ -135,11 +150,14 @@ GetMainWndRes GetMainWnd(DWORD currentThreadId /*= 0*/)
 	return res;
 }
 
-BOOL CALLBACK EnumWindowsProc(HWND   hWnd, LPARAM lParam)
+namespace
 {
-	WndVector& hWnds = *reinterpret_cast<WndVector*>(lParam);
-	hWnds.push_back(hWnd);
-	return TRUE;
+	BOOL CALLBACK EnumWindowsProc(HWND   hWnd, LPARAM lParam)
+	{
+		WndVector& hWnds = *reinterpret_cast<WndVector*>(lParam);
+		hWnds.push_back(hWnd);
+		return TRUE;
+	}
 }
 
 WndVector GetDesktopWnds()
@@ -152,3 +170,16 @@ WndVector GetDesktopWnds()
 
 	return hWnds;	//EnumDesktopWindows()
 }
+
+LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+	DWORD currentThreadId = GetCurrentThreadId();
+
+	if (nCode == HSHELL_WINDOWCREATED)
+	{
+		HWND hNewWindow = (HWND)wParam;
+		thumbnailToolbar.initialize(hInstance, hNewWindow);
+	}
+	return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+

@@ -23,6 +23,8 @@ ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+DWORD WINAPI		  NewWindowProc(_In_ LPVOID lpParameter);
+HWND                CreateNewWindow();
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -113,19 +115,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Store instance handle in our global variable
 
-	HWND hWnd = CreateWindow(
-		szWindowClass,
-		szTitle,
-		WS_OVERLAPPEDWINDOW,
-		config.Rect.left,
-		config.Rect.top,
-		config.Rect.right - config.Rect.left,
-		config.Rect.bottom - config.Rect.top,
-		nullptr,
-		nullptr,
-		hInst,
-		nullptr);
-
+	HWND hWnd = CreateNewWindow();
    if (!hWnd)
    {
       return FALSE;
@@ -195,6 +185,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_DISABLED);
 					 DrawMenuBar(hWnd);
 					 break;
+				 case IDM_FILE_OPEN_NEW_WND:
+					 CreateThread(NULL, 0, NewWindowProc, NULL, 0, NULL);
+					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
 					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
@@ -220,35 +213,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			GetWindowRect(hWnd, &config.Rect);
         PostQuitMessage(0);
         break;
-
-	 case WM_GETMINMAXINFO:
-		 //WRITE_DEBUG_LOG(format("WM_GETMINMAXINFO: {:#010x} ", pMsg->message));
-	 //{
-		// MINMAXINFO* mmi = (MINMAXINFO*)lParam;
-
-		// //	//typedef struct tagMINMAXINFO {
-		// //	//	POINT ptReserved;
-		// //	//	POINT ptMaxSize;
-		// //	//	POINT ptMaxPosition;
-		// //	//	POINT ptMinTrackSize;
-		// //	//	POINT ptMaxTrackSize;
-		// //	//} MINMAXINFO, * PMINMAXINFO, * LPMINMAXINFO;
-		// //	MINMAXINFO* pMinMax = (MINMAXINFO*)lParam;
-		// //if (hasLastRect())
-		// {
-		//	 RECT wr;
-		//	 GetWindowRect(hWnd, &wr);
-  //        //mmi->ptMaxPosition.x = wr.left;
-  //        //mmi->ptMaxPosition.y = wr.top;
-		//	 mmi->ptMaxSize.x = mmi->ptMaxTrackSize.x = wr.right - wr.left;
-		//	 mmi->ptMaxSize.y = mmi->ptMaxTrackSize.y = wr.bottom - wr.top;
-		//	 //pMinMax->ptMaxPosition = { lr.left, lr.top };
-		//		 //pMinMax->ptMaxSize = { ,  };
-		//	 return 0;
-		// }
-	 //}
-	 break;
-
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
@@ -274,3 +238,38 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return (INT_PTR)FALSE;
 }
+
+DWORD WINAPI NewWindowProc(_In_ LPVOID lpParameter)
+{
+	HWND hNewOne = CreateNewWindow();
+	ShowWindow(hNewOne, SW_SHOW);
+	UpdateWindow(hNewOne);
+
+	MSG msg;
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
+	return 0;
+}
+
+HWND CreateNewWindow()
+{
+	HWND hWnd = CreateWindow(
+		szWindowClass,
+		szTitle,
+		WS_OVERLAPPEDWINDOW,
+		config.Rect.left,
+		config.Rect.top,
+		config.Rect.right - config.Rect.left,
+		config.Rect.bottom - config.Rect.top,
+		nullptr,
+		nullptr,
+		hInst,
+		nullptr);
+
+	return hWnd;
+}
+

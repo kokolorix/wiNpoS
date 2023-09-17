@@ -27,6 +27,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThumbnailToolbar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -34,6 +37,7 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="HooksImpl.cpp" />
+    <ClCompile Include="ThumbnailToolbar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="wiNpoS-Hook.rc">
@@ -42,6 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\folder.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Win.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="WinDec.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="WinInc.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

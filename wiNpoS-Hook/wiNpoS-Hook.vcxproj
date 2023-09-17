@@ -198,6 +198,7 @@
     <ClInclude Include="HooksImpl.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ThumbnailToolbar.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
@@ -208,12 +209,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ThumbnailToolbar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="wiNpoS-Hook.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\folder.ico" />
+    <Image Include="Win.ico" />
+    <Image Include="WinDec.ico" />
+    <Image Include="WinInc.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wiNpoS-Hook32.def" />

@@ -51,7 +51,6 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 					WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
 					onWindowPosChanged(pMsg);
 					break;
-
 				default:
 					break;
 			}
@@ -104,6 +103,9 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDBLCLK: {:#010x} ", pMsg->message));
 						onNcButtonDblClick(pMsg);
+						break;
+					case WM_COMMAND:
+						WRITE_DEBUG_LOG(format("WM_COMMAND: {:#010x} ", pMsg->message));
 						break;
 					default:
 						break;
