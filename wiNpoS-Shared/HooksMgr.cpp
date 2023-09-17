@@ -31,12 +31,22 @@ void HooksMgr::unload(HMODULE hModule)
 void HooksMgr::attach()
 {
 	_hModule = load();
+
+	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(GetMsgProc));
+	assert(hkGetMsgProc);
+
+	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());
+	assert(_hhkGetMessage);
 }
 /**
  * @brief 
 */
 void HooksMgr::detach()
 {
+	if (UnhookWindowsHookEx(_hhkGetMessage))
+		_hhkGetMessage = NULL;
+	assert(_hhkGetMessage == NULL);
+
 	unload(_hModule);
 }
 /**
