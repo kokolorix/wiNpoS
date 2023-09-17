@@ -165,15 +165,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 break;
 				 case IDM_FILE_ATTACH:
 					 hooks.attach();
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_ENABLED);
+					 DrawMenuBar(hWnd); 
 					 break;
 				 case IDM_FILE_DETACH:
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_ENABLED);
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_DISABLED);
+					 DrawMenuBar(hWnd);
 					 hooks.detach();
 					 break;
 				 case IDM_FILE_INSTALL:
 					 hooks.install();
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_CHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_DISABLED);
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_ENABLED);
+					 DrawMenuBar(hWnd); 
 					 break;
 				 case IDM_FILE_UNINSTALL:
 					 hooks.uninstall();
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
+					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
+					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_DISABLED);
+					 DrawMenuBar(hWnd);
 					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
@@ -182,6 +202,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				 case IDM_FILE_OPEN_CINFIG_DIR:
                 config.openFolder();
 					 break;
+
 				 default:
 					 return DefWindowProc(hWnd, message, wParam, lParam);
 			 }
@@ -199,6 +220,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			GetWindowRect(hWnd, &config.Rect);
         PostQuitMessage(0);
         break;
+
+	 case WM_GETMINMAXINFO:
+		 //WRITE_DEBUG_LOG(format("WM_GETMINMAXINFO: {:#010x} ", pMsg->message));
+	 //{
+		// MINMAXINFO* mmi = (MINMAXINFO*)lParam;
+
+		// //	//typedef struct tagMINMAXINFO {
+		// //	//	POINT ptReserved;
+		// //	//	POINT ptMaxSize;
+		// //	//	POINT ptMaxPosition;
+		// //	//	POINT ptMinTrackSize;
+		// //	//	POINT ptMaxTrackSize;
+		// //	//} MINMAXINFO, * PMINMAXINFO, * LPMINMAXINFO;
+		// //	MINMAXINFO* pMinMax = (MINMAXINFO*)lParam;
+		// //if (hasLastRect())
+		// {
+		//	 RECT wr;
+		//	 GetWindowRect(hWnd, &wr);
+  //        //mmi->ptMaxPosition.x = wr.left;
+  //        //mmi->ptMaxPosition.y = wr.top;
+		//	 mmi->ptMaxSize.x = mmi->ptMaxTrackSize.x = wr.right - wr.left;
+		//	 mmi->ptMaxSize.y = mmi->ptMaxTrackSize.y = wr.bottom - wr.top;
+		//	 //pMinMax->ptMaxPosition = { lr.left, lr.top };
+		//		 //pMinMax->ptMaxSize = { ,  };
+		//	 return 0;
+		// }
+	 //}
+	 break;
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
