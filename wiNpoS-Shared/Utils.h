@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <xstring>
 #include <format>
 #include <debugapi.h>
 
@@ -59,4 +60,30 @@ namespace Utils
 	}
 
 #endif // !_DEBUG
+	/**
+	 * dynamic format
+	 */
+	template <typename... Args>
+	string dformat(std::string_view rt_fmt_str, Args&&... args) 
+	{
+		return std::vformat(rt_fmt_str, std::make_format_args(args...));
+	}
+
+	inline void ShowLastError(const string fmtStr)
+	{
+		LPSTR errorText = NULL;
+		FormatMessageA(
+			FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			GetLastError(),
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPSTR)&errorText,
+			0,
+			NULL);
+		const string errorStr = errorText;
+
+		string msg = dformat(fmtStr, errorStr);
+		MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
+		LocalFree(errorText);
+	}
 }

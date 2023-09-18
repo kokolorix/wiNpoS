@@ -4,10 +4,13 @@
 #include "pch.h"
 #include "framework.h"
 #include "wiNpoS-App.h"
+#include "Utils.h"
 #include "HooksMgr.h"
 #include "Config.h"
 #include "Utils.h"
 #include <assert.h>
+#include <Shlwapi.h>
+#pragma comment(lib, "Shlwapi.lib")
 
 #define MAX_LOADSTRING 100
 
@@ -25,6 +28,7 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI		  NewWindowProc(_In_ LPVOID lpParameter);
 HWND                CreateNewWindow();
+void					  AttachToProcess(ULONG processId);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -127,6 +131,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    return TRUE;
 }
 
+
 //
 //  FUNCTION: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -137,6 +142,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - post a quit message and return
 //
 //
+namespace
+{
+
+	bool targetingWindow = false;
+	HWND targetingCurrentWindow = NULL;
+}
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -188,6 +199,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				 case IDM_FILE_OPEN_NEW_WND:
 					 CreateThread(NULL, 0, NewWindowProc, NULL, 0, NULL);
 					 break;
+				 case IDM_FILE_ATTACH_TO_WND:
+					 {
+						 SetCapture(hWnd);
+						 SetCursor(LoadCursor(NULL, IDC_CROSS));
+						 targetingWindow = true;
+						 targetingCurrentWindow = NULL;
+					 }
+					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
 					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
@@ -201,21 +220,85 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 }
 		 }
 		 break;
-    case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: Add any drawing code that uses hdc here...
-            EndPaint(hWnd, &ps);
-        }
-        break;
-    case WM_DESTROY:
-			GetWindowRect(hWnd, &config.Rect);
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
+		 case WM_LBUTTONDOWN:
+			 {
+				 if (targetingWindow)
+				 {
+					 // Send the window to the bottom.
+					 SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+					 SendMessage(hWnd, WM_MOUSEMOVE, 0, 0);
+				 }
+			 }
+			 break;
+		 case WM_MOUSEMOVE:
+			 {
+				 if (targetingWindow)
+				 {
+					 POINT cursorPos;
+					 HWND windowUnderMouse;
+
+					 GetCursorPos(&cursorPos);
+					 windowUnderMouse = WindowFromPoint(cursorPos);
+					 ULONG processId = 0;
+					 ULONG threadId = GetWindowThreadProcessId(targetingCurrentWindow, &processId);
+					 threadId = threadId;
+					 if(windowUnderMouse != hWnd)
+					 {
+						 FlashWindow(windowUnderMouse, true);
+						 targetingCurrentWindow = windowUnderMouse;
+					 }
+				 }
+			 }
+			 break;
+		 case WM_LBUTTONUP:
+			 {
+				 if (targetingWindow && targetingCurrentWindow != hWnd)
+				 {
+					 SetCursor(LoadCursor(NULL, IDC_ARROW));
+
+					 // Bring the window back to the top, and preserve the Always on Top setting.
+					 SetWindowPos(targetingCurrentWindow, HWND_TOP, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+
+					 ULONG processId = 0;
+					 ULONG threadId = GetWindowThreadProcessId(targetingCurrentWindow, &processId);
+
+					 targetingWindow = false;
+					 targetingCurrentWindow = NULL;
+					 ReleaseCapture();
+
+					 AttachToProcess(processId);
+				 }
+			 }
+			 break;
+		 case WM_KEYDOWN :
+			 {
+				 if (targetingWindow)
+				 {
+					 if (wParam == VK_ESCAPE)
+					 {
+						 SetCursor(LoadCursor(NULL, IDC_ARROW));
+						 ReleaseCapture();
+						 targetingWindow = false;
+						 targetingCurrentWindow = NULL;
+					 }
+				 }
+			 }
+			 break;
+		 case WM_PAINT:
+			 {
+				 PAINTSTRUCT ps;
+				 HDC hdc = BeginPaint(hWnd, &ps);
+				 // TODO: Add any drawing code that uses hdc here...
+				 EndPaint(hWnd, &ps);
+			 }
+			 break;
+		 case WM_DESTROY:
+			 GetWindowRect(hWnd, &config.Rect);
+			 PostQuitMessage(0);
+			 break;
+		 default:
+			 return DefWindowProc(hWnd, message, wParam, lParam);
+	 }
     return 0;
 }
 
@@ -274,3 +357,65 @@ HWND CreateNewWindow()
 	return hWnd;
 }
 
+void AttachToProcess(ULONG targetPid)
+{
+	// Open the target process with read/write access
+	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetPid);
+	if (hProcess == NULL)
+		return Utils::ShowLastError("Failed to open process, error {}");
+
+	// Get the address of the LoadLibrary function in the kernel32.dll module
+	HMODULE hKernel32 = GetModuleHandle(_T("kernel32.dll"));
+	if (hKernel32 == NULL)
+		return Utils::ShowLastError("Failed to obtain kernel32.dll handle, error {}");
+
+	FARPROC pLoadLibrary = GetProcAddress(hKernel32, "LoadLibraryW");
+	if (pLoadLibrary == nullptr)
+		return Utils::ShowLastError("Failed to obtain LoadLibraryW adress, error {}");
+
+	WCHAR path[MAX_PATH];
+	DWORD pathLength = GetModuleFileName(NULL, path, MAX_PATH);
+	PathRemoveFileSpec(path);
+#ifdef _WIN64
+	PathAppend(path, L"wiNpoS-Hook64.dll");
+#else
+	PathAppend(path, L"wiNpoS-Hook32.dll");
+#endif // _WIN64
+
+	// Allocate memory in the target process to hold the path to the DLL
+	SIZE_T pathSize = (_tcslen(path) * sizeof(_TCHAR));
+	LPVOID remotePath = VirtualAllocEx(hProcess, NULL, pathSize, MEM_COMMIT, PAGE_READWRITE);
+	if (remotePath == NULL)
+	{
+		Utils::ShowLastError("Failed to allocate memory in process, error {}");
+		CloseHandle(hProcess);
+		return;
+	}
+
+	// Write the path to the DLL to the allocated memory in the target process
+	if (!WriteProcessMemory(hProcess, remotePath, path, pathSize, NULL))
+	{
+		Utils::ShowLastError("Failed to write to process memory, error {}");
+		VirtualFreeEx(hProcess, remotePath, 0, MEM_RELEASE);
+		CloseHandle(hProcess);
+		return;
+	}
+
+	// Create a remote thread in the target process to call LoadLibrary with the path to the DLL
+	HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)pLoadLibrary, remotePath, 0, NULL);
+	if (hThread == NULL)
+	{
+		Utils::ShowLastError("Failed to create remote thread, error {}");
+		VirtualFreeEx(hProcess, remotePath, 0, MEM_RELEASE);
+		CloseHandle(hProcess);
+		return;
+	}
+
+	// Wait for the remote thread to finish executing
+	WaitForSingleObject(hThread, INFINITE);
+
+	// Free the memory and close the handles
+	VirtualFreeEx(hProcess, remotePath, 0, MEM_RELEASE);
+	CloseHandle(hThread);
+	CloseHandle(hProcess);
+}

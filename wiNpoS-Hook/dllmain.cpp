@@ -1,4 +1,4 @@
-/ dllmain.cpp : Defines the entry point for the DLL application.
+// dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
 #include <vector>
 #include <Utils.h>
@@ -18,7 +18,7 @@ thread_local HRESULT coInit = S_FALSE;
 struct GetMainWndRes
 {
 	HWND hMainWnd;
-	DWORD wndThreadId;
+	uint32_t wndThreadId;
 
 	operator HWND () const { return hMainWnd; }
 	operator bool() const { return hMainWnd != NULL; }
@@ -52,12 +52,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 					hr = thumbnailToolbar.initialize(hInstance, mw);
 				}
 
-				char filePath[MAX_PATH] = { 0 };
-				GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-				string dllName = PathFindFileNameA(filePath);
-				GetModuleFileNameA(NULL, filePath, MAX_PATH);
-				string exeName = PathFindFileNameA(filePath);
-				WRITE_DEBUG_LOG(format("Attach {} to {}", dllName, exeName));
+				WRITE_DEBUG_LOG(format("Attach {} to {}", Utils::DllName, Utils::ExeName));
 			}
 
 			break;
@@ -86,12 +81,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 				hhGetMessageHookProc = NULL;
 			assert(hhGetMessageHookProc == NULL);
 
-			char filePath[MAX_PATH] = { 0 };
-			GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-			string dllName = PathFindFileNameA(filePath);
-			GetModuleFileNameA(NULL, filePath, MAX_PATH);
-			string exeName = PathFindFileNameA(filePath);
-			WRITE_DEBUG_LOG(format("Detach {} from {}", dllName, exeName));
+			WRITE_DEBUG_LOG(format("Detach {} from {}", Utils::DllName, Utils::ExeName));
 			break;
 		}
 	}
