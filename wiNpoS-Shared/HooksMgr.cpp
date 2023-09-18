@@ -31,11 +31,15 @@ void HooksMgr::unload(HMODULE hModule)
 void HooksMgr::attach()
 {
 	_hModule = load();
+	setHooks(_hModule);
+}
 
-	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(CallWndProc));
+void HooksMgr::setHooks(HMODULE hModule)
+{
+	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(CallWndProc));
 	assert(hkCallWndProc);
 
-	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(GetMsgProc));
+	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(GetMsgProc));
 	assert(hkGetMsgProc);
 
 	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, GetCurrentThreadId());
@@ -44,10 +48,18 @@ void HooksMgr::attach()
 	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());
 	assert(_hhkGetMessage);
 }
+
 /**
  * @brief 
 */
 void HooksMgr::detach()
+{
+	unhookHooks();
+
+	unload(_hModule);
+}
+
+void HooksMgr::unhookHooks()
 {
 	if (UnhookWindowsHookEx(_hhkCallWndProc))
 		_hhkCallWndProc = NULL;
@@ -56,9 +68,8 @@ void HooksMgr::detach()
 	if (UnhookWindowsHookEx(_hhkGetMessage))
 		_hhkGetMessage = NULL;
 	assert(_hhkGetMessage == NULL);
-
-	unload(_hModule);
 }
+
 /**
  * @brief 
 */

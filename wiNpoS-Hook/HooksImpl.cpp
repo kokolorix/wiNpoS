@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include <Shlwapi.h>
 #include <windowsx.h>
+#include <resource.h>
 
 extern HINSTANCE hInstance;
 
@@ -48,7 +49,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 				//	WRITE_DEBUG_LOG(format("WM_SHOWWINDOW: {:#010x} ", pMsg->message));
 				//	break;
 				case WM_WINDOWPOSCHANGED:
-					WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
+					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
 					onWindowPosChanged(pMsg);
 					break;
 				default:
@@ -105,7 +106,25 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						onNcButtonDblClick(pMsg);
 						break;
 					case WM_COMMAND:
-						WRITE_DEBUG_LOG(format("WM_COMMAND: {:#010x} ", pMsg->message));
+					{
+						uint16_t type = HIWORD(pMsg->wParam);
+						uint16_t wmId = LOWORD(pMsg->wParam);
+						WRITE_DEBUG_LOG(format("WM_COMMAND: {:#010x} ID: {}", pMsg->message, wmId));
+						//if (type == Type::Menu)
+						//{
+							switch (wmId)
+							{
+								case ID_SYSMENU_INCREMENTWINDOWSIZE:
+									onIncrementWindow(pMsg, 10);
+									break;
+								case ID_SYSMENU_DECREMENTWINDOWSIZE:
+									onIncrementWindow(pMsg, -10);
+									break;
+								default:
+									break;
+							}
+						//}
+					}
 						break;
 					default:
 						break;
@@ -145,7 +164,7 @@ void HooksImpl::onNcButtonDblClick(MSG* pMsg)
 	{
 		if (hasLastRect())
 		{
-			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
 			SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
 			lr = { 0 };
 		}
@@ -164,7 +183,7 @@ void HooksImpl::onNcButtonDblClick(MSG* pMsg)
 			int mw = mi.rcMonitor.right - mi.rcMonitor.left;
 			lr = wr;
 			//WINUSERAPI BOOL WINAPI SetWindowPos(_In_ HWND hWnd, _In_opt_ HWND hWndInsertAfter, _In_ int X, _In_ int Y, _In_ int cx, _In_ int cy, _In_ UINT uFlags)
-			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
+			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
 			SetWindowPos(pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER);
 		}
 	}
@@ -195,11 +214,59 @@ void HooksImpl::onWindowPosChanged(CWPSTRUCT* pMsg)
 		{
 			if (IsZoomed(pMsg->hwnd))
 			{
-				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
 				ShowWindow(pMsg->hwnd, SW_NORMAL);
 				SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
 				lr = { 0 };
 			}
 		}
 	}
+}
+
+void HooksImpl::onIncrementWindow(MSG* pMsg, int diff)
+{
+	HWND hWnd = pMsg->hwnd;
+
+	WINDOWPLACEMENT wp = { sizeof(WINDOWPLACEMENT) };
+	GetWindowPlacement(hWnd, &wp);
+	if (wp.showCmd == SW_MAXIMIZE && diff > 0)
+		return;
+
+	RECT wr = { 0 };
+	GetWindowRect(hWnd, &wr);
+	InflateRect(&wr, diff, diff);
+
+	//auto width = r.right - r.left;
+	auto height = wr.bottom - wr.top;
+
+	auto captionHeight = GetSystemMetrics(SM_CYCAPTION);
+	if (height <= captionHeight)
+		return;
+
+	HMONITOR hMon = MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST);
+	MONITORINFO mi = { sizeof(MONITORINFO) };
+	GetMonitorInfo(hMon, &mi);
+	auto mr = mi.rcWork;
+	if (height >= (mr.bottom - mr.top))
+	{
+		wp.showCmd = SW_MAXIMIZE;
+		SetWindowPlacement(hWnd, &wp);
+		return;
+	}
+
+	if (HIBYTE(GetAsyncKeyState(VK_CONTROL)) || HIBYTE(GetAsyncKeyState(VK_SHIFT)))
+	{
+		POINT pt = { 0 };
+		GetCursorPos(&pt);
+		//ScreenToClient(hWnd, &pt);
+		SetCursorPos(pt.x, pt.y - diff);
+	}
+
+	wp.rcNormalPosition = wr;
+	wp.showCmd = SW_NORMAL;
+	SetWindowPlacement(hWnd, &wp);
+	//if(wp.showCmd == SW_MAXIMIZE)
+	//ShowWindow(hWnd, SW_NORMAL);
+	//int l = 
+	//SetWindowPos(hWnd, HWND_NOTOPMOST, r.left, r.top, r.right - r.left, r.bottom - r.top, SWP_SHOWWINDOW);
 }

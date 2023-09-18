@@ -17,7 +17,7 @@ ThumbnailToolbar::~ThumbnailToolbar()
 
 }
 
-void ThumbnailToolbar::initialize(HINSTANCE hInst, HWND hWnd)
+HRESULT ThumbnailToolbar::initialize(HINSTANCE hInst, HWND hWnd)
 {
 	ITaskbarList3* pTaskbarList;
 	HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&pTaskbarList));
@@ -63,7 +63,8 @@ void ThumbnailToolbar::initialize(HINSTANCE hInst, HWND hWnd)
 		// It's OK to release ITaskbarList3 here; the thumbnail toolbar will remain.
 		pTaskbarList->Release();
 	}
-	assert(SUCCEEDED(hr));
+	return hr;
+	//assert(SUCCEEDED(hr));
 }
 
 void ThumbnailToolbar::uninitialize()

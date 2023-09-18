@@ -10,5 +10,6 @@ private:
 	static void onNcButtonDblClick(MSG* pMsg);
 	static void onWindowPosChanged(CWPSTRUCT* pMsg);
 
+	static void onIncrementWindow(MSG* pMsg, int diff);
 };
 

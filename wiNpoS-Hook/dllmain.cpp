@@ -9,9 +9,11 @@
 #pragma comment(lib, "Shlwapi.lib")
 
 HINSTANCE hInstance = NULL;   // current instance
-HHOOK hhGetMessageHookProc = NULL;
 ThumbnailToolbar thumbnailToolbar;
+thread_local HooksMgr hooks;
+thread_local HHOOK hhGetMessageHookProc = NULL;
 thread_local HHOOK hhShellHookProc = NULL;
+thread_local HRESULT coInit = S_FALSE;
 
 struct GetMainWndRes
 {
@@ -43,7 +45,12 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 				hhGetMessageHookProc =
 					SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
 
-				thumbnailToolbar.initialize(hInstance, mw);
+				HRESULT hr = thumbnailToolbar.initialize(hInstance, mw);
+				if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
+				{
+					coInit = CoInitialize(NULL);
+					hr = thumbnailToolbar.initialize(hInstance, mw);
+				}
 
 				char filePath[MAX_PATH] = { 0 };
 				GetModuleFileNameA(hInstance, filePath, MAX_PATH);
@@ -52,23 +59,25 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 				string exeName = PathFindFileNameA(filePath);
 				WRITE_DEBUG_LOG(format("Attach {} to {}", dllName, exeName));
 			}
-			//else
-			//{
-			  // FreeLibrary(hModule);
-			//}
 
 			break;
 		}
 
 		case DLL_THREAD_ATTACH:
-			CoInitialize(NULL);
-			hhShellHookProc = SetWindowsHookEx(WH_SHELL, ShellHookProc, NULL, GetCurrentThreadId());
+			hhShellHookProc = 
+				SetWindowsHookEx(WH_SHELL, ShellHookProc, NULL, GetCurrentThreadId());
 			break;
+
 		case DLL_THREAD_DETACH:
 			if (UnhookWindowsHookEx(hhShellHookProc))
 				hhShellHookProc = NULL;
 			assert(hhShellHookProc == NULL);
-			CoUninitialize();
+
+			hooks.unhookHooks();
+
+			if(coInit == S_OK)
+				CoUninitialize();
+
 			break;
 
 		case DLL_PROCESS_DETACH:
@@ -99,7 +108,11 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 			{
 				MSG* pMsg = (MSG*)lParam;
 				//WRITE_DEBUG_LOG(format("Msg: {}", pMsg->message));
-				if (pMsg->message == MT_HOOK_MSG_UNLOAD)
+				if (pMsg->message == MT_HOOK_MSG_REGISTER_THREAD_HOOK)
+				{
+					hooks.setHooks(hInstance);
+				}
+				else if (pMsg->message == MT_HOOK_MSG_UNLOAD)
 				{
 					char filePath[MAX_PATH] = { 0 };
 					GetModuleFileNameA(hInstance, filePath, MAX_PATH);
@@ -178,7 +191,15 @@ LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	if (nCode == HSHELL_WINDOWCREATED)
 	{
 		HWND hNewWindow = (HWND)wParam;
-		thumbnailToolbar.initialize(hInstance, hNewWindow);
+		hhGetMessageHookProc =
+			SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, GetCurrentThreadId());
+
+		HRESULT hr = thumbnailToolbar.initialize(hInstance, hNewWindow);
+		if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
+		{
+			coInit = CoInitialize(NULL);
+			hr = thumbnailToolbar.initialize(hInstance, hNewWindow);
+		}
 	}
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }

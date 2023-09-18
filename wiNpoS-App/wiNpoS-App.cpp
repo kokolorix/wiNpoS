@@ -242,6 +242,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 DWORD WINAPI NewWindowProc(_In_ LPVOID lpParameter)
 {
 	HWND hNewOne = CreateNewWindow();
+	assert(PostMessage(hNewOne, MT_HOOK_MSG_REGISTER_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
 	ShowWindow(hNewOne, SW_SHOW);
 	UpdateWindow(hNewOne);
 

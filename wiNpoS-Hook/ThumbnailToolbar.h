@@ -5,7 +5,7 @@ public:
 	ThumbnailToolbar();
 	~ThumbnailToolbar();
 
-	void initialize(HINSTANCE hInst, HWND hWnd);
+	HRESULT initialize(HINSTANCE hInst, HWND hWnd);
 	void uninitialize();
 };
 
