@@ -38,18 +38,41 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 		case DLL_PROCESS_ATTACH:
 		{
+			//while (true) {
+			//	Sleep(500);
+			//}
 			hInstance = hModule;
 			GetMainWndRes mw = GetMainWnd(0);
-			if (mw)
+			if (mw) // only apps with main window 
 			{
-				hhGetMessageHookProc =
-					SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
 
-				HRESULT hr = thumbnailToolbar.initialize(hInstance, mw);
-				if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
+				if (mw.wndThreadId == GetCurrentThreadId()) // its a regular attach from global hook
 				{
-					coInit = CoInitialize(NULL);
-					hr = thumbnailToolbar.initialize(hInstance, mw);
+					hhGetMessageHookProc =
+						SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
+
+					PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
+				}
+				else	// otherweise its a attach by infiltrated thread
+				{		// here we must start a new thread, to release the calling process
+
+					std::thread t([mw]()
+						{	// this hook allows the continuation in the main thread of the application
+							hhGetMessageHookProc =
+								SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
+
+							PostMessage(mw.hMainWnd, MT_HOOK_MSG_REGISTER_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+							PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
+
+							MSG msg;
+							while (GetMessage(&msg, NULL, 0, 0))
+							{
+								TranslateMessage(&msg);
+								DispatchMessage(&msg);
+							}
+						});
+
+					t.detach(); // because the end of control is reached here
 				}
 
 				WRITE_DEBUG_LOG(format("Attach {} to {}", Utils::DllName, Utils::ExeName));
@@ -97,25 +120,40 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 			if (wParam == PM_REMOVE)
 			{
 				MSG* pMsg = (MSG*)lParam;
+
 				//WRITE_DEBUG_LOG(format("Msg: {}", pMsg->message));
+
 				if (pMsg->message == MT_HOOK_MSG_REGISTER_THREAD_HOOK)
 				{
 					hooks.setHooks(hInstance);
 				}
+
+				else if (pMsg->message == MT_HOOK_MSG_CREATE_TASK_TOOLBAR)
+				{
+					HRESULT hr = thumbnailToolbar.initialize(hInstance, pMsg->hwnd);
+					if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
+					{
+						coInit = CoInitialize(NULL);
+						hr = thumbnailToolbar.initialize(hInstance, pMsg->hwnd);
+					}
+					if (FAILED(hr))
+						WRITE_DEBUG_LOG(format("Initialize of task toolbar failed with {:#010x} for {}", hr, Utils::ExeName));
+					else
+						WRITE_DEBUG_LOG(format("Initialize of task toolbar succede with {:#010x} for {}", hr, Utils::ExeName));
+
+					uint32_t sourceThreadId = pMsg->wParam;
+					if(sourceThreadId != GetCurrentThreadId())
+						PostThreadMessage(sourceThreadId, WM_QUIT, 0, 0);
+				}
+
 				else if (pMsg->message == MT_HOOK_MSG_UNLOAD)
 				{
-					char filePath[MAX_PATH] = { 0 };
-					GetModuleFileNameA(hInstance, filePath, MAX_PATH);
-					string dllName = PathFindFileNameA(filePath);
-					GetModuleFileNameA(NULL, filePath, MAX_PATH);
-					string exeName = PathFindFileNameA(filePath);
-
-					WRITE_DEBUG_LOG(format("Msg: {}(MT_HOOK_MSG_UNLOAD) in {}", pMsg->message, exeName));
+					WRITE_DEBUG_LOG(format("Msg: {}(MT_HOOK_MSG_UNLOAD) in {}", pMsg->message, Utils::ExeName));
 
 					if(pMsg->wParam != GetCurrentProcessId())
 					{
-						std::thread t([dllName, exeName]() {
-							WRITE_DEBUG_LOG(format("Unload {} from {}", dllName, exeName));
+						std::thread t([]() {
+							WRITE_DEBUG_LOG(format("Unload {} from {}", Utils::DllName, Utils::ExeName));
 							FreeLibrary(hInstance);
 							});
 
@@ -184,12 +222,7 @@ LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 		hhGetMessageHookProc =
 			SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, GetCurrentThreadId());
 
-		HRESULT hr = thumbnailToolbar.initialize(hInstance, hNewWindow);
-		if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
-		{
-			coInit = CoInitialize(NULL);
-			hr = thumbnailToolbar.initialize(hInstance, hNewWindow);
-		}
+		PostMessage(hNewWindow, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
 	}
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }

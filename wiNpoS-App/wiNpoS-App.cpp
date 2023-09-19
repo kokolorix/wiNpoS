@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include "framework.h"
+#include <windowsx.h>
 #include "wiNpoS-App.h"
 #include "Utils.h"
 #include "HooksMgr.h"
@@ -22,13 +23,14 @@ HooksMgr hooks;                                    // the hooks manager
 Config config;                                  // the config manager
 
 // Forward declarations of functions included in this code module:
-ATOM                MyRegisterClass(HINSTANCE hInstance);
-BOOL                InitInstance(HINSTANCE, int);
-LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
-DWORD WINAPI		  NewWindowProc(_In_ LPVOID lpParameter);
-HWND                CreateNewWindow();
-void					  AttachToProcess(ULONG processId);
+ATOM						MyRegisterClass(HINSTANCE hInstance);
+BOOL						InitInstance(HINSTANCE, int);
+LRESULT CALLBACK		WndProc(HWND, UINT, WPARAM, LPARAM);
+INT_PTR CALLBACK		About(HWND, UINT, WPARAM, LPARAM);
+DWORD WINAPI			NewWindowProc(_In_ LPVOID lpParameter);
+HWND						CreateNewWindow();
+void						AttachToProcess(ULONG processId);
+void						DrawWindowBorderForTargeting(_In_ HWND hWnd);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -244,7 +246,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 threadId = threadId;
 					 if(windowUnderMouse != hWnd)
 					 {
-						 FlashWindow(windowUnderMouse, true);
+						 //FlashWindow(windowUnderMouse, true);
+						 DrawWindowBorderForTargeting(windowUnderMouse);
 						 targetingCurrentWindow = windowUnderMouse;
 					 }
 				 }
@@ -261,6 +264,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 					 ULONG processId = 0;
 					 ULONG threadId = GetWindowThreadProcessId(targetingCurrentWindow, &processId);
+
+					 RECT rect;
+					 GetWindowRect(hWnd, &rect);
+					 InvalidateRect(hWnd, &rect, TRUE);
 
 					 targetingWindow = false;
 					 targetingCurrentWindow = NULL;
@@ -418,4 +425,44 @@ void AttachToProcess(ULONG targetPid)
 	VirtualFreeEx(hProcess, remotePath, 0, MEM_RELEASE);
 	CloseHandle(hThread);
 	CloseHandle(hProcess);
+}
+
+void DrawWindowBorderForTargeting(_In_ HWND hWnd)
+{
+	RECT rect;
+	HDC hdc;
+	LONG dpiValue;
+
+	GetWindowRect(hWnd, &rect);
+	hdc = GetWindowDC(hWnd);
+
+	if (hdc)
+	{
+		INT penWidth;
+		INT oldDc;
+		HPEN pen;
+		HBRUSH brush;
+
+		penWidth = GetSystemMetrics(SM_CXBORDER) * 3;
+
+		oldDc = SaveDC(hdc);
+
+		// Get an inversion effect.
+		SetROP2(hdc, R2_NOT);
+
+		pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0x00, 0x00, 0x00));
+		SelectPen(hdc, pen);
+
+		brush = GetStockBrush(NULL_BRUSH);
+		SelectBrush(hdc, brush);
+
+		// Draw the rectangle.
+		Rectangle(hdc, 0, 0, rect.right - rect.left, rect.bottom - rect.top);
+
+		// Cleanup.
+		DeletePen(pen);
+
+		RestoreDC(hdc, oldDc);
+		ReleaseDC(hWnd, hdc);
+	}
 }
