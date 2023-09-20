@@ -86,4 +86,41 @@ namespace Utils
 		MessageBoxA(NULL, msg.c_str(), "Error", MB_ICONERROR | MB_OK);
 		LocalFree(errorText);
 	}
+
+	template<typename T, typename Tx>
+	bool is_one_of(T t, Tx&& p1)
+	{
+		return t == p1;
+	}
+
+	template<typename T, typename T1, typename... Tx>
+	bool is_one_of(T t, T1&& p1, Tx&&... px) {
+		return is_one_of(t, p1) || is_one_of(t, px...);
+	}
+
+	template<typename T, typename Tx>
+	bool is_each_of(T t, Tx&& p1)
+	{
+		return t == p1;
+	}
+
+	template<typename T, typename T1, typename... Tx>
+	bool is_each_of(T t, T1&& p1, Tx&&... px) {
+		return is_each_of(t, p1) && is_each_of(t, px...);
+	}
+
+	template<typename T, typename M, typename F>	inline bool check_bits(M bitmask, F val) { return ((T)val & (T)bitmask) == bitmask; }
+	template<typename T, typename M, typename F>	inline bool check_one_bit(M bitmask, F val) { return (((T)val) & ((T)bitmask)) != 0; }
+	template<typename T, typename M, typename F>	inline M set_bits(M bitmask, F val = 0) { return ((T)val |= (T)bitmask); }
+	template<typename T, typename M, typename F>	inline M clear_bits(M bitmask, F val = 0) { return (T)val &= ~(T)bitmask; }
+
 }
+
+using Utils::is_one_of;
+using Utils::is_each_of;
+
+using Utils::check_bits;
+using Utils::check_one_bit;
+using Utils::set_bits;
+using Utils::clear_bits;
+

@@ -97,33 +97,37 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDOWN: {:#010x} ", pMsg->message));
+						onNcLButtonDown(pMsg);
+						break;
+					case WM_LBUTTONUP:
+						WRITE_DEBUG_LOG(format("WM_LBUTTONUP: {:#010x} ", pMsg->message));
+						onLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(format("WM_NCLBUTTONUP: {:#010x} ", pMsg->message));
 						break;
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDBLCLK: {:#010x} ", pMsg->message));
-						onNcButtonDblClick(pMsg);
+						onNcLButtonDblClick(pMsg);
 						break;
 					case WM_COMMAND:
 					{
 						uint16_t type = HIWORD(pMsg->wParam);
 						uint16_t wmId = LOWORD(pMsg->wParam);
+
 						WRITE_DEBUG_LOG(format("WM_COMMAND: {:#010x} ID: {}", pMsg->message, wmId));
-						//if (type == Type::Menu)
-						//{
-							switch (wmId)
-							{
-								case ID_SYSMENU_INCREMENTWINDOWSIZE:
-									onIncrementWindow(pMsg, 10);
-									break;
-								case ID_SYSMENU_DECREMENTWINDOWSIZE:
-									onIncrementWindow(pMsg, -10);
-									break;
-								default:
-									break;
-							}
-						//}
+
+						switch (wmId)
+						{
+							case ID_SYSMENU_INCREMENTWINDOWSIZE:
+								onIncrementWindow(pMsg, 10);
+								break;
+							case ID_SYSMENU_DECREMENTWINDOWSIZE:
+								onIncrementWindow(pMsg, -10);
+								break;
+							default:
+								break;
+						}
 					}
 						break;
 					default:
@@ -138,10 +142,8 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
-void HooksImpl::onNcButtonDblClick(MSG* pMsg)
+void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 {
-	//int x = LOWORD(pMsg->lParam);
-	//int y = HIWORD(pMsg->lParam);
 	int x = GET_X_LPARAM(pMsg->lParam);
 	int y = GET_Y_LPARAM(pMsg->lParam);
 
@@ -191,11 +193,7 @@ void HooksImpl::onNcButtonDblClick(MSG* pMsg)
 	int lowerCaption = wr.top + GetSystemMetrics(SM_CYCAPTION);
 	if (pt.y < lowerCaption)
 	{
-		bool isRelevant =
-			hitTest != HTMINBUTTON &&
-			hitTest != HTMAXBUTTON &&
-			hitTest != HTCLOSE &&
-			hitTest != HTSYSMENU;
+		bool isRelevant = hitTest != HTMINBUTTON && hitTest != HTMAXBUTTON && hitTest != HTCLOSE && hitTest != HTSYSMENU;
 
 		if (hasLastRect() && isRelevant)
 		{
@@ -223,7 +221,7 @@ void HooksImpl::onWindowPosChanged(CWPSTRUCT* pMsg)
 	}
 }
 
-void HooksImpl::onIncrementWindow(MSG* pMsg, int diff)
+void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd::All*/, POINT* pCursorPos /*= nullptr*/)
 {
 	HWND hWnd = pMsg->hwnd;
 
@@ -234,7 +232,15 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff)
 
 	RECT wr = { 0 };
 	GetWindowRect(hWnd, &wr);
-	InflateRect(&wr, diff, diff);
+	if (check_one_bit<uint8_t>(IncWnd::Left, incDir))
+		wr.left -= diff;
+	if (check_one_bit<uint8_t>(IncWnd::Right, incDir))
+		wr.right += diff;
+	if (check_one_bit<uint8_t>(IncWnd::Up, incDir))
+		wr.top -= diff;
+	if (check_one_bit<uint8_t>(IncWnd::Down, incDir))
+		wr.bottom += diff;
+	//InflateRect(&wr, diff, diff);
 
 	//auto width = r.right - r.left;
 	auto height = wr.bottom - wr.top;
@@ -254,19 +260,88 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff)
 		return;
 	}
 
-	if (HIBYTE(GetAsyncKeyState(VK_CONTROL)) || HIBYTE(GetAsyncKeyState(VK_SHIFT)))
+	if (pCursorPos != nullptr && check_one_bit<uint8_t>(IncWnd::Up, incDir))
 	{
-		POINT pt = { 0 };
-		GetCursorPos(&pt);
-		//ScreenToClient(hWnd, &pt);
+		POINT& pt = *pCursorPos;
 		SetCursorPos(pt.x, pt.y - diff);
 	}
 
 	wp.rcNormalPosition = wr;
 	wp.showCmd = SW_NORMAL;
 	SetWindowPlacement(hWnd, &wp);
-	//if(wp.showCmd == SW_MAXIMIZE)
-	//ShowWindow(hWnd, SW_NORMAL);
-	//int l = 
-	//SetWindowPos(hWnd, HWND_NOTOPMOST, r.left, r.top, r.right - r.left, r.bottom - r.top, SWP_SHOWWINDOW);
+}
+/**
+ * @brief global stuff for click events
+*/
+struct
+{
+	POINT lastLButtonDown = { 0 };
+} lb;
+/**
+ * @brief processes the WM_NCLBUTTONDOWN event
+ * @param pMsg 
+*/
+void HooksImpl::onNcLButtonDown(MSG* pMsg)
+{
+	int x = GET_X_LPARAM(pMsg->lParam);
+	int y = GET_Y_LPARAM(pMsg->lParam);
+	POINT pt = { x, y };
+	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+
+	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU))
+	{
+		lb.lastLButtonDown = pt;
+	}
+}
+/**
+ * @brief processes the WM_LBUTTONUP event
+ * @param pMsg 
+*/
+void HooksImpl::onLButtonUp(MSG* pMsg)
+{
+	// extract the exact click point from lParam
+	POINT pt = { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) };
+	// Adjust the client rectangle to screen coordinates
+	MapWindowPoints(pMsg->hwnd, HWND_DESKTOP, (LPPOINT)&pt, 1);
+	// check if the click is on a control of the title bar
+	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+
+	// check the Key States
+	bool lctrl = HIBYTE(GetAsyncKeyState(VK_LCONTROL));
+	bool lshift = HIBYTE(GetAsyncKeyState(VK_LSHIFT));
+	bool lalt= HIBYTE(GetAsyncKeyState(VK_LMENU));
+	bool rctrl = HIBYTE(GetAsyncKeyState(VK_RCONTROL));
+	bool rshift =HIBYTE(GetAsyncKeyState(VK_RSHIFT));
+	bool ralt =HIBYTE(GetAsyncKeyState(VK_RMENU));
+	//bool left = HIBYTE(GetAsyncKeyState(VK_LEFT));
+	//bool down = HIBYTE(GetAsyncKeyState(VK_DOWN));
+	//bool right = HIBYTE(GetAsyncKeyState(VK_RIGHT));
+	//bool up = HIBYTE(GetAsyncKeyState(VK_UP));
+
+	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU))
+	{
+		static const int32_t TOL = 3; // tolerance
+		RECT rc = { pt.x - TOL, pt.y - TOL, pt.x + TOL, pt.y + TOL };
+		if (PtInRect(&rc, lb.lastLButtonDown))
+		{
+			lb.lastLButtonDown = { 0 };
+			if (lctrl)
+				onIncrementWindow(pMsg, 10, IncWnd::All, &pt);
+			else if (lshift)
+				onIncrementWindow(pMsg, -10, IncWnd::All, &pt);
+			//else if (rctrl)
+			//{
+			//	onIncrementWindow(pMsg, -10, IncWnd::Horizontal, &pt);
+			//}
+			//else if (rshift)
+			//{
+			//	onIncrementWindow(pMsg, -10, IncWnd::Horizontal, &pt);
+			//}
+		}
+		else if (is_one_of(hitTest, HTLEFT, HTRIGHT) && lctrl)
+			onIncrementWindow(pMsg, 10, IncWnd::Horizontal, &pt);
+		else if (is_one_of(hitTest, HTLEFT, HTRIGHT) && lshift)
+			onIncrementWindow(pMsg, -10, IncWnd::Horizontal, &pt);
+
+	}
 }

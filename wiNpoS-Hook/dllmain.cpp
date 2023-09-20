@@ -141,7 +141,7 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 					else
 						WRITE_DEBUG_LOG(format("Initialize of task toolbar succede with {:#010x} for {}", hr, Utils::ExeName));
 
-					uint32_t sourceThreadId = pMsg->wParam;
+					uint32_t sourceThreadId = (uint32_t)pMsg->wParam;
 					if(sourceThreadId != GetCurrentThreadId())
 						PostThreadMessage(sourceThreadId, WM_QUIT, 0, 0);
 				}

@@ -431,7 +431,6 @@ void DrawWindowBorderForTargeting(_In_ HWND hWnd)
 {
 	RECT rect;
 	HDC hdc;
-	LONG dpiValue;
 
 	GetWindowRect(hWnd, &rect);
 	hdc = GetWindowDC(hWnd);
