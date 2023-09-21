@@ -9,20 +9,20 @@ App that displays a configurable positioning window starting from the title bar 
 
 ## Entrance points
 
+### Files
+
 - dllmain.cpp
 - wiNpoS-App.cpp
 
-### Interfaces
-
-
-
 ### Classes
 
-- Hooks
+- HooksMgr
+- HooksImpl
+- Config
 
+### Namespaces
 
-<!-- ### Helpers -->
-
+- Utils
 
 
 ## Overviews
