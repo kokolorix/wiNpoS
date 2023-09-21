@@ -100,8 +100,35 @@ $(document).ready(function(){initNavTree('namespaceanonymous__namespace_02_utils
 Functions</h2></td></tr>
 <tr class="memitem:a3e36aa8018bd7df30929d3af45d069a2" id="r_a3e36aa8018bd7df30929d3af45d069a2"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a3e36aa8018bd7df30929d3af45d069a2">initLogFile</a> ()</td></tr>
 <tr class="separator:a3e36aa8018bd7df30929d3af45d069a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53c07dc6e7ee9776a7ea823490f3d30" id="r_af53c07dc6e7ee9776a7ea823490f3d30"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#af53c07dc6e7ee9776a7ea823490f3d30">initExeName</a> ()</td></tr>
+<tr class="separator:af53c07dc6e7ee9776a7ea823490f3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="af53c07dc6e7ee9776a7ea823490f3d30" name="af53c07dc6e7ee9776a7ea823490f3d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53c07dc6e7ee9776a7ea823490f3d30">&#9670;&#160;</a></span>initExeName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string anonymous_namespace{Utils.cpp}::initExeName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00044">44</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>    {</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">   47</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   48</span>        <span class="keywordtype">string</span>  exeName = PathFindFileNameA(buffer);</div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> exeName;</div>
+<div class="line"><span class="lineno">   50</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a3e36aa8018bd7df30929d3af45d069a2" name="a3e36aa8018bd7df30929d3af45d069a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e36aa8018bd7df30929d3af45d069a2">&#9670;&#160;</a></span>initLogFile()</h2>
 
@@ -133,13 +160,13 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   35</span>        ExpandEnvironmentStringsA(format(R<span class="stringliteral">&quot;(%APPDATA%\wiNpoS\{}-debug1.log)&quot;, moduleName).c_str(), logPath, MAX_PATH);</span></div>
 <div class="line"><span class="lineno">   36</span><span class="stringliteral"></span> </div>
 <div class="line"><span class="lineno">   37</span><span class="stringliteral">        ofstream fs(logPath);</span></div>
-<div class="line"><span class="lineno">   38</span><span class="stringliteral">        fs &lt;&lt; </span><span class="stringliteral">&quot;Zeit\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   38</span><span class="stringliteral">        fs &lt;&lt; </span><span class="stringliteral">&quot;Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   39</span> </div>
 <div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> logPath;</div>
 <div class="line"><span class="lineno">   41</span>    }</div>
-<div class="ttc" id="adllmain_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="dllmain_8cpp_source.html#l00009">dllmain.cpp:9</a></div></div>
+<div class="ttc" id="adllmain_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="dllmain_8cpp_source.html#l00011">dllmain.cpp:11</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="dllmain_8cpp_source.html#l00009">hInstance</a>.</p>
+<p class="reference">References <a class="el" href="dllmain_8cpp_source.html#l00011">hInstance</a>.</p>
 
 </div>
 </div>

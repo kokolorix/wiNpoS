@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['wndproc_0',['WndProc',['../wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f',1,'wiNpoS-App.cpp']]],
-  ['writeconfig_1',['writeConfig',['../class_config.html#aab0ab085dc15e32882dcb6c96c88f56f',1,'Config']]],
-  ['writedebuglog_2',['WriteDebugLog',['../namespace_utils.html#abdc36608727de989652b34f84852737c',1,'Utils']]],
-  ['wwinmain_3',['wWinMain',['../wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339',1,'wiNpoS-App.cpp']]]
+  ['set_5fbits_0',['set_bits',['../namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89',1,'Utils']]],
+  ['sethooks_1',['setHooks',['../class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01',1,'HooksMgr']]],
+  ['shellhookproc_2',['ShellHookProc',['../dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a',1,'dllmain.cpp']]],
+  ['showlasterror_3',['ShowLastError',['../namespace_utils.html#aad1c305219375bf7d3fc42f22b325710',1,'Utils']]]
 ];

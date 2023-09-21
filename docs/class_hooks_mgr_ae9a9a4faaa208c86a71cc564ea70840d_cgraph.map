@@ -1,5 +1,7 @@
 <map id="HooksMgr::detach" name="HooksMgr::detach">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,133,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98" title=" " alt="" coords="181,5,307,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,16,166,16,166,21,133,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,133,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473" title=" " alt="" coords="181,5,348,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,33,166,29,166,34,133,38"/>
+<area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98" title=" " alt="" coords="201,56,328,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,50,187,57,186,62,133,55"/>
 </map>

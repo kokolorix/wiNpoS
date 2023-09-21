@@ -92,6 +92,8 @@ $(document).ready(function(){initNavTree('class_hooks_impl.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="class_hooks_impl-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">HooksImpl Class Reference</div></div>
 </div><!--header-->
@@ -102,14 +104,91 @@ $(document).ready(function(){initNavTree('class_hooks_impl.html',''); initResiza
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a10c087a169c357990bf12340347e2fc0" id="r_a10c087a169c357990bf12340347e2fc0"><td class="memItemLeft" align="right" valign="top">static LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">callWndProc</a> (_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</td></tr>
+<tr class="memdesc:a10c087a169c357990bf12340347e2fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">here we follow the main message loop of the application  <br /></td></tr>
 <tr class="separator:a10c087a169c357990bf12340347e2fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07053e18c49265e300fe89b2a5bc28de" id="r_a07053e18c49265e300fe89b2a5bc28de"><td class="memItemLeft" align="right" valign="top">static LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">getMsgProc</a> (_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</td></tr>
+<tr class="memdesc:a07053e18c49265e300fe89b2a5bc28de"><td class="mdescLeft">&#160;</td><td class="mdescRight">here the Windows messages are picked up, which do not appear in the main message loop  <br /></td></tr>
 <tr class="separator:a07053e18c49265e300fe89b2a5bc28de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a01d6af706c6e837140f0888031611ef7" id="r_a01d6af706c6e837140f0888031611ef7"><td class="memItemLeft" align="right" valign="top">enum struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7">IncWnd</a> : unsigned char { <br />
+&#160;&#160;<a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a> = 0x01
+, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a> = 0x02
+, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a> = 0x04
+, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a> = 0x08
+, <br />
+&#160;&#160;<a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = Left|Right|Up|Down
+, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">Horizontal</a> =Left|Right
+, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">Vertical</a> =Up|Down
+<br />
+ }</td></tr>
+<tr class="separator:a01d6af706c6e837140f0888031611ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:afe7a8e2c13ab2abe83b4f3d0c462e761" id="r_afe7a8e2c13ab2abe83b4f3d0c462e761"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761">onNcLButtonDblClick</a> (MSG *pMsg)</td></tr>
+<tr class="memdesc:afe7a8e2c13ab2abe83b4f3d0c462e761"><td class="mdescLeft">&#160;</td><td class="mdescRight">this procedure handles the double click in non-client area  <br /></td></tr>
+<tr class="separator:afe7a8e2c13ab2abe83b4f3d0c462e761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1022c4a7b4012228b83b0b89ee790f89" id="r_a1022c4a7b4012228b83b0b89ee790f89"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89">onWindowPosChanged</a> (CWPSTRUCT *pMsg)</td></tr>
+<tr class="memdesc:a1022c4a7b4012228b83b0b89ee790f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">here we react to position changes of the main window  <br /></td></tr>
+<tr class="separator:a1022c4a7b4012228b83b0b89ee790f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196885e33b25e2aa5c126a368b6f91de" id="r_a196885e33b25e2aa5c126a368b6f91de"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a> (MSG *pMsg, int diff, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7">IncWnd</a> incDir=<a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">IncWnd::All</a>, POINT *pCursorPos=nullptr, LRESULT hitTest=HTNOWHERE)</td></tr>
+<tr class="memdesc:a196885e33b25e2aa5c126a368b6f91de"><td class="mdescLeft">&#160;</td><td class="mdescRight">method to change the size of a window in stepps  <br /></td></tr>
+<tr class="separator:a196885e33b25e2aa5c126a368b6f91de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adf50040968aa66908f643ad1edda53" id="r_a9adf50040968aa66908f643ad1edda53"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53">onNcLButtonDown</a> (MSG *pMsg)</td></tr>
+<tr class="memdesc:a9adf50040968aa66908f643ad1edda53"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes the WM_NCLBUTTONDOWN event  <br /></td></tr>
+<tr class="separator:a9adf50040968aa66908f643ad1edda53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7628ad89b3625fcd9e8538d94d7b2cde" id="r_a7628ad89b3625fcd9e8538d94d7b2cde"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde">onLButtonUp</a> (MSG *pMsg)</td></tr>
+<tr class="memdesc:a7628ad89b3625fcd9e8538d94d7b2cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes the WM_LBUTTONUP event  <br /></td></tr>
+<tr class="separator:a7628ad89b3625fcd9e8538d94d7b2cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_hooks_impl_8h_source.html#l00003">3</a> of file <a class="el" href="_hooks_impl_8h_source.html">HooksImpl.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a01d6af706c6e837140f0888031611ef7" name="a01d6af706c6e837140f0888031611ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01d6af706c6e837140f0888031611ef7">&#9670;&#160;</a></span>IncWnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum struct <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7">HooksImpl::IncWnd</a> : unsigned char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff" name="a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff"></a>Left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c" name="a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c"></a>Right&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa" name="a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa"></a>Up&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53" name="a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53"></a>Down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680" name="a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f" name="a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f"></a>Horizontal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012" name="a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012"></a>Vertical&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8h_source.html#l00013">13</a> of file <a class="el" href="_hooks_impl_8h_source.html">HooksImpl.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> { <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a> = 0x01, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a> = 0x02, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a> = 0x04, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a> = 0x08, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a>|<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a>|<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a>|<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a>, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">Horizontal</a>=<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a>|<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a>, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">Vertical</a>=<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a>|<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a> };</div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">HooksImpl::IncWnd::Vertical</a></div><div class="ttdeci">@ Vertical</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">HooksImpl::IncWnd::Down</a></div><div class="ttdeci">@ Down</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">HooksImpl::IncWnd::Up</a></div><div class="ttdeci">@ Up</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">HooksImpl::IncWnd::Right</a></div><div class="ttdeci">@ Right</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">HooksImpl::IncWnd::Left</a></div><div class="ttdeci">@ Left</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">HooksImpl::IncWnd::All</a></div><div class="ttdeci">@ All</div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f"><div class="ttname"><a href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">HooksImpl::IncWnd::Horizontal</a></div><div class="ttdeci">@ Horizontal</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a10c087a169c357990bf12340347e2fc0" name="a10c087a169c357990bf12340347e2fc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10c087a169c357990bf12340347e2fc0">&#9670;&#160;</a></span>callWndProc()</h2>
 
@@ -150,35 +229,88 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00019">19</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">switch</span> (nCode)</div>
-<div class="line"><span class="lineno">   22</span>    {</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">case</span> HC_ACTION:</div>
-<div class="line"><span class="lineno">   24</span>        {</div>
-<div class="line"><span class="lineno">   25</span>            CWPSTRUCT* sMsg = (CWPSTRUCT*)lParam;</div>
-<div class="line"><span class="lineno">   26</span>            <span class="comment">//WRITE_DEBUG_LOG(format(&quot;Msg: {}&quot;, sMsg-&gt;message));</span></div>
-<div class="line"><span class="lineno">   27</span>        }</div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   31</span>}</div>
-</div><!-- fragment --><div class="dynheader">
+<p>here we follow the main message loop of the application </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nCode</td><td></td></tr>
+    <tr><td class="paramname">wParam</td><td></td></tr>
+    <tr><td class="paramname">lParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00058">58</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">switch</span> (nCode)</div>
+<div class="line"><span class="lineno">   61</span>    {</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">case</span> HC_ACTION:</div>
+<div class="line"><span class="lineno">   63</span>        {</div>
+<div class="line"><span class="lineno">   64</span>            CWPSTRUCT* pMsg = (CWPSTRUCT*)lParam;</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>            <span class="keywordflow">switch</span> (pMsg-&gt;message)</div>
+<div class="line"><span class="lineno">   67</span>            {</div>
+<div class="line"><span class="lineno">   68</span>                <span class="comment">//case WM_MOUSEMOVE:</span></div>
+<div class="line"><span class="lineno">   69</span>                <span class="comment">//  WRITE_DEBUG_LOG(format(&quot;WM_MOUSEMOVE: {:#010x} &quot;, pMsg-&gt;message));</span></div>
+<div class="line"><span class="lineno">   70</span>                <span class="comment">//  break;</span></div>
+<div class="line"><span class="lineno">   71</span>                <span class="comment">//case WM_SHOWWINDOW:</span></div>
+<div class="line"><span class="lineno">   72</span>                <span class="comment">//  WRITE_DEBUG_LOG(format(&quot;WM_SHOWWINDOW: {:#010x} &quot;, pMsg-&gt;message));</span></div>
+<div class="line"><span class="lineno">   73</span>                <span class="comment">//  break;</span></div>
+<div class="line"><span class="lineno">   74</span>                <span class="keywordflow">case</span> WM_WINDOWPOSCHANGED:</div>
+<div class="line"><span class="lineno">   75</span>                    <span class="comment">//WRITE_DEBUG_LOG(format(&quot;WM_WINDOWPOSCHANGED: {:#010x} &quot;, pMsg-&gt;message));</span></div>
+<div class="line"><span class="lineno">   76</span>                    <a class="code hl_function" href="class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89">onWindowPosChanged</a>(pMsg);</div>
+<div class="line"><span class="lineno">   77</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   79</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   80</span>            }</div>
+<div class="line"><span class="lineno">   81</span>            <span class="comment">//WRITE_DEBUG_LOG(format(&quot;Msg: {} in {}&quot;, pMsg-&gt;message, Utils::ExeName));</span></div>
+<div class="line"><span class="lineno">   82</span>        }</div>
+<div class="line"><span class="lineno">   83</span>    }</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   86</span>}</div>
+<div class="ttc" id="aclass_hooks_impl_html_a1022c4a7b4012228b83b0b89ee790f89"><div class="ttname"><a href="class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89">HooksImpl::onWindowPosChanged</a></div><div class="ttdeci">static void onWindowPosChanged(CWPSTRUCT *pMsg)</div><div class="ttdoc">here we react to position changes of the main window</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00240">HooksImpl.cpp:240</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00240">onWindowPosChanged()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a10c087a169c357990bf12340347e2fc0_cgraph.png" border="0" usemap="#aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_cgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_cgraph" id="aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_cgraph">
+<area shape="rect" title="here we follow the main message loop of the application" alt="" coords="5,5,170,32"/>
+<area shape="rect" href="class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="218,5,442,32"/>
+<area shape="poly" title=" " alt="" coords="170,16,203,16,203,21,170,21"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hooks_impl_a10c087a169c357990bf12340347e2fc0_icgraph.png" border="0" usemap="#aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_icgraph" alt=""/></div>
 <map name="aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_icgraph" id="aclass_hooks_impl_a10c087a169c357990bf12340347e2fc0_icgraph">
-<area shape="rect" title=" " alt="" coords="742,5,906,32"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title=" " alt="" coords="597,5,694,32"/>
-<area shape="poly" title=" " alt="" coords="727,21,695,21,695,16,727,16"/>
+<area shape="rect" title="here we follow the main message loop of the application" alt="" coords="1134,31,1298,57"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title="the exported hook for the main window procedure" alt="" coords="988,31,1086,57"/>
+<area shape="poly" title=" " alt="" coords="1119,47,1086,47,1086,41,1119,41"/>
 <area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="582,21,549,21,549,16,582,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
-<area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+<area shape="poly" title=" " alt="" coords="974,44,549,24,549,19,974,38"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,940,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
 </map>
 </div>
 
@@ -224,49 +356,793 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00033">33</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">switch</span> (nCode)</div>
-<div class="line"><span class="lineno">   36</span>    {</div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">case</span> HC_ACTION:</div>
-<div class="line"><span class="lineno">   38</span>        {</div>
-<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">if</span> (wParam == PM_REMOVE || wParam == PM_NOREMOVE || wParam == PM_NOYIELD)</div>
-<div class="line"><span class="lineno">   40</span>            {</div>
-<div class="line"><span class="lineno">   41</span>                MSG* pMsg = (MSG*)lParam;</div>
-<div class="line"><span class="lineno">   42</span>                <span class="comment">//WRITE_DEBUG_LOG(format(&quot;Msg: {}, UNLOAD: {}&quot;, pMsg-&gt;message, MT_HOOK_MSG_UNLOAD));</span></div>
-<div class="line"><span class="lineno">   43</span>                <span class="comment">//if (pMsg-&gt;message == MT_HOOK_MSG_UNLOAD)</span></div>
-<div class="line"><span class="lineno">   44</span>                <span class="comment">//{</span></div>
-<div class="line"><span class="lineno">   45</span>                <span class="comment">//  if (hInstance)</span></div>
-<div class="line"><span class="lineno">   46</span>                <span class="comment">//      HooksMgr::unload(hInstance);</span></div>
-<div class="line"><span class="lineno">   47</span>                <span class="comment">//}</span></div>
-<div class="line"><span class="lineno">   48</span>                <span class="comment">//switch (pMsg-&gt;message)</span></div>
-<div class="line"><span class="lineno">   49</span>                <span class="comment">//{</span></div>
-<div class="line"><span class="lineno">   50</span>                <span class="comment">//  case MT_HOOK_MSG_UNLOAD:</span></div>
-<div class="line"><span class="lineno">   51</span>                <span class="comment">//  default:</span></div>
-<div class="line"><span class="lineno">   52</span>                <span class="comment">//      break;</span></div>
-<div class="line"><span class="lineno">   53</span>                <span class="comment">//}</span></div>
-<div class="line"><span class="lineno">   54</span>            }</div>
-<div class="line"><span class="lineno">   55</span>        }</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   59</span>}</div>
-</div><!-- fragment --><div class="dynheader">
+<p>here the Windows messages are picked up, which do not appear in the main message loop </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nCode</td><td></td></tr>
+    <tr><td class="paramname">wParam</td><td></td></tr>
+    <tr><td class="paramname">lParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00094">94</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">switch</span> (nCode)</div>
+<div class="line"><span class="lineno">   97</span>    {</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">case</span> HC_ACTION:</div>
+<div class="line"><span class="lineno">   99</span>        {</div>
+<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">if</span> (wParam == PM_REMOVE || wParam == PM_NOREMOVE || wParam == PM_NOYIELD)</div>
+<div class="line"><span class="lineno">  101</span>            {</div>
+<div class="line"><span class="lineno">  102</span>                MSG* pMsg = (MSG*)lParam;</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>                <span class="keywordflow">switch</span> (pMsg-&gt;message)</div>
+<div class="line"><span class="lineno">  105</span>                {</div>
+<div class="line"><span class="lineno">  106</span>                    <span class="comment">//case WM_MOUSEMOVE:</span></div>
+<div class="line"><span class="lineno">  107</span>                    <span class="comment">//  WRITE_DEBUG_LOG(format(&quot;WM_MOUSEMOVE: {:#010x} &quot;, pMsg-&gt;message));</span></div>
+<div class="line"><span class="lineno">  108</span>                    <span class="comment">//  break;</span></div>
+<div class="line"><span class="lineno">  109</span>                    <span class="keywordflow">case</span> WM_SHOWWINDOW:</div>
+<div class="line"><span class="lineno">  110</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_SHOWWINDOW: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  111</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  112</span>                    <span class="keywordflow">case</span> WM_GETMINMAXINFO:</div>
+<div class="line"><span class="lineno">  113</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_GETMINMAXINFO: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  114</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  115</span>                    <span class="keywordflow">case</span> WM_WINDOWPOSCHANGING:</div>
+<div class="line"><span class="lineno">  116</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_WINDOWPOSCHANGING: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  117</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  118</span>                    <span class="keywordflow">case</span> WM_LBUTTONDBLCLK:</div>
+<div class="line"><span class="lineno">  119</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_LBUTTONDBLCLK: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  120</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  121</span>                    <span class="keywordflow">case</span> WM_NCRBUTTONDOWN:</div>
+<div class="line"><span class="lineno">  122</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_NCRBUTTONDOWN: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  123</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  124</span>                    <span class="keywordflow">case</span> WM_NCRBUTTONUP:</div>
+<div class="line"><span class="lineno">  125</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_NCRBUTTONUP: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  126</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  127</span>                    <span class="keywordflow">case</span> WM_NCLBUTTONDOWN:</div>
+<div class="line"><span class="lineno">  128</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_NCLBUTTONDOWN: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  129</span>                        <a class="code hl_function" href="class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53">onNcLButtonDown</a>(pMsg);</div>
+<div class="line"><span class="lineno">  130</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  131</span>                    <span class="keywordflow">case</span> WM_LBUTTONUP:</div>
+<div class="line"><span class="lineno">  132</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_LBUTTONUP: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  133</span>                        <a class="code hl_function" href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde">onLButtonUp</a>(pMsg);</div>
+<div class="line"><span class="lineno">  134</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  135</span>                    <span class="keywordflow">case</span> WM_NCLBUTTONUP:</div>
+<div class="line"><span class="lineno">  136</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_NCLBUTTONUP: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  137</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  138</span>                    <span class="keywordflow">case</span> WM_NCLBUTTONDBLCLK:</div>
+<div class="line"><span class="lineno">  139</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_NCLBUTTONDBLCLK: {:#010x} &quot;</span>, pMsg-&gt;message));</div>
+<div class="line"><span class="lineno">  140</span>                        <a class="code hl_function" href="class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761">onNcLButtonDblClick</a>(pMsg);</div>
+<div class="line"><span class="lineno">  141</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  142</span>                    <span class="keywordflow">case</span> WM_COMMAND:</div>
+<div class="line"><span class="lineno">  143</span>                    {</div>
+<div class="line"><span class="lineno">  144</span>                        uint16_t type = HIWORD(pMsg-&gt;wParam);</div>
+<div class="line"><span class="lineno">  145</span>                        uint16_t wmId = LOWORD(pMsg-&gt;wParam);</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>                        <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;WM_COMMAND: {:#010x} ID: {}&quot;</span>, pMsg-&gt;message, wmId));</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>                        <span class="keywordflow">switch</span> (wmId)</div>
+<div class="line"><span class="lineno">  150</span>                        {</div>
+<div class="line"><span class="lineno">  151</span>                            <span class="keywordflow">case</span> <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a>:</div>
+<div class="line"><span class="lineno">  152</span>                                <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10);</div>
+<div class="line"><span class="lineno">  153</span>                                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  154</span>                            <span class="keywordflow">case</span> <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a>:</div>
+<div class="line"><span class="lineno">  155</span>                                <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10);</div>
+<div class="line"><span class="lineno">  156</span>                                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  157</span>                            <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  158</span>                                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  159</span>                        }</div>
+<div class="line"><span class="lineno">  160</span>                    }</div>
+<div class="line"><span class="lineno">  161</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  162</span>                    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  163</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  164</span>                }</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>                <span class="comment">//WRITE_DEBUG_LOG(format(&quot;Msg: {} in {}&quot;, pMsg-&gt;message, Utils::ExeName));</span></div>
+<div class="line"><span class="lineno">  167</span>            }</div>
+<div class="line"><span class="lineno">  168</span>        }</div>
+<div class="line"><span class="lineno">  169</span>    }</div>
+<div class="line"><span class="lineno">  170</span> </div>
+<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">  172</span>}</div>
+<div class="ttc" id="a_utils_8h_html_ae88a29d949fb0fe5dad728fa6e9522de"><div class="ttname"><a href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a></div><div class="ttdeci">#define WRITE_DEBUG_LOG(msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00052">Utils.h:52</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a196885e33b25e2aa5c126a368b6f91de"><div class="ttname"><a href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">HooksImpl::onIncrementWindow</a></div><div class="ttdeci">static void onIncrementWindow(MSG *pMsg, int diff, IncWnd incDir=IncWnd::All, POINT *pCursorPos=nullptr, LRESULT hitTest=HTNOWHERE)</div><div class="ttdoc">method to change the size of a window in stepps</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00380">HooksImpl.cpp:380</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a7628ad89b3625fcd9e8538d94d7b2cde"><div class="ttname"><a href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde">HooksImpl::onLButtonUp</a></div><div class="ttdeci">static void onLButtonUp(MSG *pMsg)</div><div class="ttdoc">processes the WM_LBUTTONUP event</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00286">HooksImpl.cpp:286</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a9adf50040968aa66908f643ad1edda53"><div class="ttname"><a href="class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53">HooksImpl::onNcLButtonDown</a></div><div class="ttdeci">static void onNcLButtonDown(MSG *pMsg)</div><div class="ttdoc">processes the WM_NCLBUTTONDOWN event</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00270">HooksImpl.cpp:270</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_afe7a8e2c13ab2abe83b4f3d0c462e761"><div class="ttname"><a href="class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761">HooksImpl::onNcLButtonDblClick</a></div><div class="ttdeci">static void onNcLButtonDblClick(MSG *pMsg)</div><div class="ttdoc">this procedure handles the double click in non-client area</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00177">HooksImpl.cpp:177</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a326348d8f8e9a93186c0c270b1779e0a"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_DECREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00010">resource.h:10</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_aeb92da27a02de250ef490c0b550c78d4"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_INCREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00011">resource.h:11</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00010">ID_SYSMENU_DECREMENTWINDOWSIZE</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00011">ID_SYSMENU_INCREMENTWINDOWSIZE</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00380">onIncrementWindow()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00286">onLButtonUp()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00177">onNcLButtonDblClick()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00270">onNcLButtonDown()</a>, and <a class="el" href="_utils_8h_source.html#l00052">WRITE_DEBUG_LOG</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_cgraph.png" border="0" usemap="#aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_cgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_cgraph" id="aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_cgraph">
+<area shape="rect" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="5,61,166,88"/>
+<area shape="rect" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="459,7,666,33"/>
+<area shape="poly" title=" " alt="" coords="109,58,156,36,213,17,272,8,332,4,445,6,444,11,332,9,272,14,214,23,158,41,112,63"/>
+<area shape="rect" href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="230,32,395,59"/>
+<area shape="poly" title=" " alt="" coords="166,62,215,55,215,61,166,67"/>
+<area shape="rect" href="class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="220,83,405,125"/>
+<area shape="poly" title=" " alt="" coords="166,82,206,87,205,93,166,88"/>
+<area shape="rect" href="class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="214,149,411,176"/>
+<area shape="poly" title=" " alt="" coords="112,86,159,110,215,135,237,142,235,147,213,140,157,115,110,91"/>
+<area shape="poly" title=" " alt="" coords="395,34,444,29,444,35,396,40"/>
+</map>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_icgraph.png" border="0" usemap="#aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_icgraph" alt=""/></div>
 <map name="aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_icgraph" id="aclass_hooks_impl_a07053e18c49265e300fe89b2a5bc28de_icgraph">
-<area shape="rect" title=" " alt="" coords="739,5,899,32"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title=" " alt="" coords="597,5,691,32"/>
-<area shape="poly" title=" " alt="" coords="724,21,691,21,691,16,724,16"/>
+<area shape="rect" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="1131,31,1291,57"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
+<area shape="poly" title=" " alt="" coords="1116,47,1083,47,1083,41,1116,41"/>
 <area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="582,21,549,21,549,16,582,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
-<area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a196885e33b25e2aa5c126a368b6f91de" name="a196885e33b25e2aa5c126a368b6f91de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a196885e33b25e2aa5c126a368b6f91de">&#9670;&#160;</a></span>onIncrementWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksImpl::onIncrementWindow </td>
+          <td>(</td>
+          <td class="paramtype">MSG *&#160;</td>
+          <td class="paramname"><em>pMsg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>diff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7">IncWnd</a>&#160;</td>
+          <td class="paramname"><em>incDir</em> = <code><a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">IncWnd::All</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">POINT *&#160;</td>
+          <td class="paramname"><em>pCursorPos</em> = <code>nullptr</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LRESULT&#160;</td>
+          <td class="paramname"><em>hitTest</em> = <code>HTNOWHERE</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>method to change the size of a window in stepps </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td>MSG structure from hook </td></tr>
+    <tr><td class="paramname">diff</td><td>steppsize </td></tr>
+    <tr><td class="paramname">incDir</td><td>direction to grow or shrink the window </td></tr>
+    <tr><td class="paramname">pCursorPos</td><td>position of cursor, if displacement is desired </td></tr>
+    <tr><td class="paramname">hitTest</td><td>information, where the click has hit </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00380">380</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  381</span>{</div>
+<div class="line"><span class="lineno">  382</span>    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Msg: {:#010x}, diff: {}, dir: {:#06x}, cursorPos: {}&quot;</span>, pMsg-&gt;message, diff, (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>)incDir, pCursorPos ? format(<span class="stringliteral">&quot;x: {}, y: {}&quot;</span>, pCursorPos-&gt;x, pCursorPos-&gt;y) : string(<span class="stringliteral">&quot;NULL&quot;</span>)));</div>
+<div class="line"><span class="lineno">  383</span>    HWND hWnd = pMsg-&gt;hwnd;</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>    WINDOWPLACEMENT wp = { <span class="keyword">sizeof</span>(WINDOWPLACEMENT) };</div>
+<div class="line"><span class="lineno">  386</span>    GetWindowPlacement(hWnd, &amp;wp);</div>
+<div class="line"><span class="lineno">  387</span>    <span class="keywordflow">if</span> (wp.showCmd == SW_MAXIMIZE &amp;&amp; diff &gt; 0)</div>
+<div class="line"><span class="lineno">  388</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  389</span> </div>
+<div class="line"><span class="lineno">  390</span>    wp.flags = WPF_ASYNCWINDOWPLACEMENT;</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>    RECT wr = { 0 };</div>
+<div class="line"><span class="lineno">  393</span>    GetWindowRect(hWnd, &amp;wr);</div>
+<div class="line"><span class="lineno">  394</span> </div>
+<div class="line"><span class="lineno">  395</span>    <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">IncWnd::Left</a>, incDir))</div>
+<div class="line"><span class="lineno">  396</span>        wr.left -= diff;</div>
+<div class="line"><span class="lineno">  397</span>    <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">IncWnd::Right</a>, incDir))</div>
+<div class="line"><span class="lineno">  398</span>        wr.right += diff;</div>
+<div class="line"><span class="lineno">  399</span>    <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">IncWnd::Up</a>, incDir))</div>
+<div class="line"><span class="lineno">  400</span>        wr.top -= diff;</div>
+<div class="line"><span class="lineno">  401</span>    <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">IncWnd::Down</a>, incDir))</div>
+<div class="line"><span class="lineno">  402</span>        wr.bottom += diff;</div>
+<div class="line"><span class="lineno">  403</span>    <span class="comment">//InflateRect(&amp;wr, diff, diff);</span></div>
+<div class="line"><span class="lineno">  404</span> </div>
+<div class="line"><span class="lineno">  405</span>    <span class="comment">//auto width = r.right - r.left;</span></div>
+<div class="line"><span class="lineno">  406</span>    <span class="keyword">auto</span> height = wr.bottom - wr.top;</div>
+<div class="line"><span class="lineno">  407</span> </div>
+<div class="line"><span class="lineno">  408</span>    <span class="keyword">auto</span> captionHeight = GetSystemMetrics(SM_CYCAPTION);</div>
+<div class="line"><span class="lineno">  409</span>    <span class="keywordflow">if</span> (height &lt;= captionHeight)</div>
+<div class="line"><span class="lineno">  410</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  411</span> </div>
+<div class="line"><span class="lineno">  412</span>    HMONITOR hMon = MonitorFromWindow(hWnd, MONITOR_DEFAULTTONEAREST);</div>
+<div class="line"><span class="lineno">  413</span>    MONITORINFO mi = { <span class="keyword">sizeof</span>(MONITORINFO) };</div>
+<div class="line"><span class="lineno">  414</span>    GetMonitorInfo(hMon, &amp;mi);</div>
+<div class="line"><span class="lineno">  415</span>    <span class="keyword">auto</span> mr = mi.rcWork;</div>
+<div class="line"><span class="lineno">  416</span>    <span class="keywordflow">if</span> (height &gt;= (mr.bottom - mr.top))</div>
+<div class="line"><span class="lineno">  417</span>    {</div>
+<div class="line"><span class="lineno">  418</span>        wp.showCmd = SW_MAXIMIZE;</div>
+<div class="line"><span class="lineno">  419</span>        SetWindowPlacement(hWnd, &amp;wp);</div>
+<div class="line"><span class="lineno">  420</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  421</span>    }</div>
+<div class="line"><span class="lineno">  422</span> </div>
+<div class="line"><span class="lineno">  423</span>    <span class="keywordflow">if</span> (pCursorPos != <span class="keyword">nullptr</span>)</div>
+<div class="line"><span class="lineno">  424</span>    {</div>
+<div class="line"><span class="lineno">  425</span>        POINT&amp; pt = *pCursorPos;</div>
+<div class="line"><span class="lineno">  426</span>        <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">IncWnd::Up</a>, incDir) &amp;&amp; hitTest == HTCAPTION)</div>
+<div class="line"><span class="lineno">  427</span>            SetCursorPos(pt.x, pt.y - diff); <span class="comment">// keep cursor over caption</span></div>
+<div class="line"><span class="lineno">  428</span>        <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">IncWnd::Up</a>, incDir) &amp;&amp; hitTest == HTTOP)</div>
+<div class="line"><span class="lineno">  429</span>            SetCursorPos(pt.x , pt.y - diff); <span class="comment">// keep cursor over top border;</span></div>
+<div class="line"><span class="lineno">  430</span>        <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">IncWnd::Left</a>, incDir) &amp;&amp; hitTest == HTLEFT)</div>
+<div class="line"><span class="lineno">  431</span>            SetCursorPos(pt.x - diff, pt.y); <span class="comment">// keep cursor over left border</span></div>
+<div class="line"><span class="lineno">  432</span>        <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">IncWnd::Right</a>, incDir) &amp;&amp; hitTest == HTRIGHT)</div>
+<div class="line"><span class="lineno">  433</span>            SetCursorPos(pt.x + diff, pt.y); <span class="comment">// keep cursor over right border;</span></div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordflow">if</span> (check_one_bit&lt;uint8_t&gt;(<a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">IncWnd::Down</a>, incDir) &amp;&amp; hitTest == HTBOTTOM)</div>
+<div class="line"><span class="lineno">  435</span>            SetCursorPos(pt.x, pt.y + diff); <span class="comment">// keep cursor over bottom border;</span></div>
+<div class="line"><span class="lineno">  436</span>    }</div>
+<div class="line"><span class="lineno">  437</span> </div>
+<div class="line"><span class="lineno">  438</span>    wp.rcNormalPosition = wr;</div>
+<div class="line"><span class="lineno">  439</span>    wp.showCmd = SW_NORMAL;</div>
+<div class="line"><span class="lineno">  440</span>    <span class="comment">// async, because the behavior when clicking on the border is otherwise strange</span></div>
+<div class="line"><span class="lineno">  441</span>    <span class="keyword">auto</span> resFuture = std::async(std::launch::async, [hWnd, wp]()</div>
+<div class="line"><span class="lineno">  442</span>        {</div>
+<div class="line"><span class="lineno">  443</span>            assert(SetWindowPlacement(hWnd, &amp;wp));</div>
+<div class="line"><span class="lineno">  444</span>        });</div>
+<div class="line"><span class="lineno">  445</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a>, and <a class="el" href="_utils_8h_source.html#l00052">WRITE_DEBUG_LOG</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a196885e33b25e2aa5c126a368b6f91de_icgraph.png" border="0" usemap="#aclass_hooks_impl_a196885e33b25e2aa5c126a368b6f91de_icgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a196885e33b25e2aa5c126a368b6f91de_icgraph" id="aclass_hooks_impl_a196885e33b25e2aa5c126a368b6f91de_icgraph">
+<area shape="rect" title="method to change the size of a window in stepps" alt="" coords="1552,31,1760,57"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="1131,31,1291,57"/>
+<area shape="poly" title=" " alt="" coords="1538,47,1291,47,1291,41,1538,41"/>
+<area shape="rect" href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="1339,56,1504,83"/>
+<area shape="poly" title=" " alt="" coords="1538,59,1505,63,1505,58,1537,54"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
+<area shape="poly" title=" " alt="" coords="1116,47,1083,47,1083,41,1116,41"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
+<area shape="poly" title=" " alt="" coords="1324,60,1291,56,1292,51,1325,55"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7628ad89b3625fcd9e8538d94d7b2cde" name="a7628ad89b3625fcd9e8538d94d7b2cde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7628ad89b3625fcd9e8538d94d7b2cde">&#9670;&#160;</a></span>onLButtonUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksImpl::onLButtonUp </td>
+          <td>(</td>
+          <td class="paramtype">MSG *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>processes the WM_LBUTTONUP event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00286">286</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  287</span>{</div>
+<div class="line"><span class="lineno">  288</span>    <span class="comment">// extract the exact click point from lParam</span></div>
+<div class="line"><span class="lineno">  289</span>    POINT pt = { GET_X_LPARAM(pMsg-&gt;lParam), GET_Y_LPARAM(pMsg-&gt;lParam) };</div>
+<div class="line"><span class="lineno">  290</span>    <span class="comment">// Adjust the client rectangle to screen coordinates</span></div>
+<div class="line"><span class="lineno">  291</span>    MapWindowPoints(pMsg-&gt;hwnd, HWND_DESKTOP, (LPPOINT)&amp;pt, 1);</div>
+<div class="line"><span class="lineno">  292</span>    <span class="comment">// check if the click is on a control of the title bar</span></div>
+<div class="line"><span class="lineno">  293</span>    LRESULT hitTest = SendMessage(pMsg-&gt;hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>    <span class="comment">// check the Key States</span></div>
+<div class="line"><span class="lineno">  296</span>    <span class="keywordtype">bool</span> lCtrl = HIBYTE(GetAsyncKeyState(VK_LCONTROL));</div>
+<div class="line"><span class="lineno">  297</span>    <span class="keywordtype">bool</span> lShift = HIBYTE(GetAsyncKeyState(VK_LSHIFT));</div>
+<div class="line"><span class="lineno">  298</span>    <span class="keywordtype">bool</span> lAlt= HIBYTE(GetAsyncKeyState(VK_LMENU));</div>
+<div class="line"><span class="lineno">  299</span>    <span class="comment">//bool rctrl = HIBYTE(GetAsyncKeyState(VK_RCONTROL));</span></div>
+<div class="line"><span class="lineno">  300</span>    <span class="comment">//bool rshift =HIBYTE(GetAsyncKeyState(VK_RSHIFT));</span></div>
+<div class="line"><span class="lineno">  301</span>    <span class="comment">//bool ralt =HIBYTE(GetAsyncKeyState(VK_RMENU));</span></div>
+<div class="line"><span class="lineno">  302</span>    <span class="comment">//bool left = HIBYTE(GetAsyncKeyState(VK_LEFT));</span></div>
+<div class="line"><span class="lineno">  303</span>    <span class="comment">//bool down = HIBYTE(GetAsyncKeyState(VK_DOWN));</span></div>
+<div class="line"><span class="lineno">  304</span>    <span class="comment">//bool right = HIBYTE(GetAsyncKeyState(VK_RIGHT));</span></div>
+<div class="line"><span class="lineno">  305</span>    <span class="comment">//bool up = HIBYTE(GetAsyncKeyState(VK_UP));</span></div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))</div>
+<div class="line"><span class="lineno">  308</span>    {</div>
+<div class="line"><span class="lineno">  309</span>        <span class="keyword">static</span> <span class="keyword">const</span> int32_t TOL = 3; <span class="comment">// tolerance</span></div>
+<div class="line"><span class="lineno">  310</span>        RECT rc = { pt.x - TOL, pt.y - TOL, pt.x + TOL, pt.y + TOL };</div>
+<div class="line"><span class="lineno">  311</span>        <span class="keywordflow">if</span> (PtInRect(&amp;rc, <a class="code hl_variable" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>.lastLButtonDown))</div>
+<div class="line"><span class="lineno">  312</span>        {</div>
+<div class="line"><span class="lineno">  313</span>            <a class="code hl_variable" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>.lastLButtonDown = { 0 };</div>
+<div class="line"><span class="lineno">  314</span>            <span class="keywordflow">if</span> (lCtrl)</div>
+<div class="line"><span class="lineno">  315</span>                <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">IncWnd::All</a>, &amp;pt, HTCAPTION);</div>
+<div class="line"><span class="lineno">  316</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (lShift)</div>
+<div class="line"><span class="lineno">  317</span>                <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">IncWnd::All</a>, &amp;pt, HTCAPTION);</div>
+<div class="line"><span class="lineno">  318</span>        }</div>
+<div class="line"><span class="lineno">  319</span> </div>
+<div class="line"><span class="lineno">  320</span>    }</div>
+<div class="line"><span class="lineno">  321</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTLEFT) &amp;&amp; lCtrl &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  322</span>    {</div>
+<div class="line"><span class="lineno">  323</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">IncWnd::Left</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  324</span>    }</div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTLEFT) &amp;&amp; lShift &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  326</span>    {</div>
+<div class="line"><span class="lineno">  327</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">IncWnd::Left</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  328</span>    }</div>
+<div class="line"><span class="lineno">  329</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTRIGHT) &amp;&amp; lCtrl &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  330</span>    {</div>
+<div class="line"><span class="lineno">  331</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">IncWnd::Right</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  332</span>    }</div>
+<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTRIGHT) &amp;&amp; lShift &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  334</span>    {</div>
+<div class="line"><span class="lineno">  335</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">IncWnd::Right</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  336</span>    }</div>
+<div class="line"><span class="lineno">  337</span> </div>
+<div class="line"><span class="lineno">  338</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTTOP) &amp;&amp; lCtrl &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  339</span>    {</div>
+<div class="line"><span class="lineno">  340</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">IncWnd::Up</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  341</span>    }</div>
+<div class="line"><span class="lineno">  342</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTTOP) &amp;&amp; lShift &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  343</span>    {</div>
+<div class="line"><span class="lineno">  344</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">IncWnd::Up</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  345</span>    }</div>
+<div class="line"><span class="lineno">  346</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTBOTTOM) &amp;&amp; lCtrl &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  347</span>    {</div>
+<div class="line"><span class="lineno">  348</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">IncWnd::Down</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  349</span>    }</div>
+<div class="line"><span class="lineno">  350</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTBOTTOM) &amp;&amp; lShift &amp;&amp; lAlt)</div>
+<div class="line"><span class="lineno">  351</span>    {</div>
+<div class="line"><span class="lineno">  352</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">IncWnd::Down</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  353</span>    }</div>
+<div class="line"><span class="lineno">  354</span> </div>
+<div class="line"><span class="lineno">  355</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTLEFT, HTRIGHT) &amp;&amp; lCtrl)</div>
+<div class="line"><span class="lineno">  356</span>    {</div>
+<div class="line"><span class="lineno">  357</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">IncWnd::Horizontal</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  358</span>    }</div>
+<div class="line"><span class="lineno">  359</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTLEFT, HTRIGHT) &amp;&amp; lShift)</div>
+<div class="line"><span class="lineno">  360</span>    {</div>
+<div class="line"><span class="lineno">  361</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">IncWnd::Horizontal</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  362</span>    }</div>
+<div class="line"><span class="lineno">  363</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTTOP, HTBOTTOM) &amp;&amp; lCtrl)</div>
+<div class="line"><span class="lineno">  364</span>    {</div>
+<div class="line"><span class="lineno">  365</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, 10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">IncWnd::Vertical</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  366</span>    }</div>
+<div class="line"><span class="lineno">  367</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTTOP, HTBOTTOM) &amp;&amp; lShift)</div>
+<div class="line"><span class="lineno">  368</span>    {</div>
+<div class="line"><span class="lineno">  369</span>        <a class="code hl_function" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de">onIncrementWindow</a>(pMsg, -10, <a class="code hl_enumvalue" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">IncWnd::Vertical</a>, &amp;pt, hitTest);</div>
+<div class="line"><span class="lineno">  370</span>    }</div>
+<div class="line"><span class="lineno">  371</span>}</div>
+<div class="ttc" id="a_hooks_impl_8cpp_html_ae60ee111c07e1185fbf5c516e016044a"><div class="ttname"><a href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a></div><div class="ttdeci">struct @0 lb</div><div class="ttdoc">global stuff for click events</div></div>
+<div class="ttc" id="anamespace_utils_html_a2a769bbb1284de09ef460684deb5de0a"><div class="ttname"><a href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a></div><div class="ttdeci">bool is_one_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00091">Utils.h:91</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ab1c94ca2fbc3e78fc30069c8d0f01680">All</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a08a38277b0309070706f6652eeae9a53">Down</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7ac1b5fa03ecdb95d4a45dd1c40b02527f">Horizontal</a>, <a class="el" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff">Left</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00380">onIncrementWindow()</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a92b09c7c48c520c3c55e497875da437c">Right</a>, <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa">Up</a>, and <a class="el" href="class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012">Vertical</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_cgraph.png" border="0" usemap="#aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_cgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_cgraph" id="aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_cgraph">
+<area shape="rect" title="processes the WM_LBUTTONUP event" alt="" coords="5,5,171,32"/>
+<area shape="rect" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="219,5,426,32"/>
+<area shape="poly" title=" " alt="" coords="171,16,204,16,204,21,171,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_icgraph.png" border="0" usemap="#aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_icgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_icgraph" id="aclass_hooks_impl_a7628ad89b3625fcd9e8538d94d7b2cde_icgraph">
+<area shape="rect" title="processes the WM_LBUTTONUP event" alt="" coords="1339,31,1504,57"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="1131,31,1291,57"/>
+<area shape="poly" title=" " alt="" coords="1324,47,1292,47,1292,41,1324,41"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
+<area shape="poly" title=" " alt="" coords="1116,47,1083,47,1083,41,1116,41"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afe7a8e2c13ab2abe83b4f3d0c462e761" name="afe7a8e2c13ab2abe83b4f3d0c462e761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe7a8e2c13ab2abe83b4f3d0c462e761">&#9670;&#160;</a></span>onNcLButtonDblClick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksImpl::onNcLButtonDblClick </td>
+          <td>(</td>
+          <td class="paramtype">MSG *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this procedure handles the double click in non-client area </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00177">177</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>{</div>
+<div class="line"><span class="lineno">  179</span>    <span class="keywordtype">int</span> x = GET_X_LPARAM(pMsg-&gt;lParam);</div>
+<div class="line"><span class="lineno">  180</span>    <span class="keywordtype">int</span> y = GET_Y_LPARAM(pMsg-&gt;lParam);</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>    POINT pt = { 0 };</div>
+<div class="line"><span class="lineno">  183</span>    GetCursorPos(&amp;pt);</div>
+<div class="line"><span class="lineno">  184</span>    LRESULT hitTest = SendMessage(pMsg-&gt;hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));</div>
+<div class="line"><span class="lineno">  185</span> </div>
+<div class="line"><span class="lineno">  186</span>    <span class="comment">// Get the window&#39;s client rectangle</span></div>
+<div class="line"><span class="lineno">  187</span>    RECT cr;</div>
+<div class="line"><span class="lineno">  188</span>    GetClientRect(pMsg-&gt;hwnd, &amp;cr);</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>    RECT wr;</div>
+<div class="line"><span class="lineno">  191</span>    GetWindowRect(pMsg-&gt;hwnd, &amp;wr);</div>
+<div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span>    <span class="comment">// Adjust the client rectangle to screen coordinates</span></div>
+<div class="line"><span class="lineno">  194</span>    MapWindowPoints(pMsg-&gt;hwnd, HWND_DESKTOP, (LPPOINT)&amp;cr, 2);</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>    <span class="comment">// Check if the double-click occurred in the border area</span></div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">if</span> (pt.x &lt; cr.left || pt.x &gt;= cr.right)</div>
+<div class="line"><span class="lineno">  198</span>    {</div>
+<div class="line"><span class="lineno">  199</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062">hasLastRect</a>())</div>
+<div class="line"><span class="lineno">  200</span>        {</div>
+<div class="line"><span class="lineno">  201</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})&quot;</span>, (int64_t)pMsg-&gt;hwnd, NULL, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.right - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.bottom - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, SWP_NOZORDER));</div>
+<div class="line"><span class="lineno">  202</span>            SetWindowPos(pMsg-&gt;hwnd, NULL, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.right - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.bottom - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, SWP_NOZORDER);</div>
+<div class="line"><span class="lineno">  203</span>            <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a> = { 0 };</div>
+<div class="line"><span class="lineno">  204</span>        }</div>
+<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  206</span>        {</div>
+<div class="line"><span class="lineno">  207</span>            <span class="comment">// Get the handle to the primary monitor</span></div>
+<div class="line"><span class="lineno">  208</span>            HMONITOR hMonitor = MonitorFromWindow(pMsg-&gt;hwnd, MONITOR_DEFAULTTOPRIMARY);</div>
+<div class="line"><span class="lineno">  209</span> </div>
+<div class="line"><span class="lineno">  210</span>            <span class="comment">// Get the monitor information</span></div>
+<div class="line"><span class="lineno">  211</span>            MONITORINFOEX mi;</div>
+<div class="line"><span class="lineno">  212</span>            mi.cbSize = <span class="keyword">sizeof</span>(MONITORINFOEX);</div>
+<div class="line"><span class="lineno">  213</span>            GetMonitorInfo(hMonitor, &amp;mi);</div>
+<div class="line"><span class="lineno">  214</span> </div>
+<div class="line"><span class="lineno">  215</span>            <span class="comment">// Calculate the width of the monitor</span></div>
+<div class="line"><span class="lineno">  216</span>            <span class="keywordtype">int</span> ml = mi.rcMonitor.left;</div>
+<div class="line"><span class="lineno">  217</span>            <span class="keywordtype">int</span> mw = mi.rcMonitor.right - mi.rcMonitor.left;</div>
+<div class="line"><span class="lineno">  218</span>            <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a> = wr;</div>
+<div class="line"><span class="lineno">  219</span>            <span class="comment">//WINUSERAPI BOOL WINAPI SetWindowPos(_In_ HWND hWnd, _In_opt_ HWND hWndInsertAfter, _In_ int X, _In_ int Y, _In_ int cx, _In_ int cy, _In_ UINT uFlags)</span></div>
+<div class="line"><span class="lineno">  220</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})&quot;</span>, (int64_t)pMsg-&gt;hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));</div>
+<div class="line"><span class="lineno">  221</span>            SetWindowPos(pMsg-&gt;hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER);</div>
+<div class="line"><span class="lineno">  222</span>        }</div>
+<div class="line"><span class="lineno">  223</span>    }</div>
+<div class="line"><span class="lineno">  224</span>    <span class="comment">// Check if the double-click occurred in the caption area</span></div>
+<div class="line"><span class="lineno">  225</span>    <span class="keywordtype">int</span> lowerCaption = wr.top + GetSystemMetrics(SM_CYCAPTION);</div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">if</span> (pt.y &lt; lowerCaption)</div>
+<div class="line"><span class="lineno">  227</span>    {</div>
+<div class="line"><span class="lineno">  228</span>        <span class="keywordtype">bool</span> isRelevant = hitTest != HTMINBUTTON &amp;&amp; hitTest != HTMAXBUTTON &amp;&amp; hitTest != HTCLOSE &amp;&amp; hitTest != HTSYSMENU;</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062">hasLastRect</a>() &amp;&amp; isRelevant)</div>
+<div class="line"><span class="lineno">  231</span>        {</div>
+<div class="line"><span class="lineno">  232</span>            <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a2ed2da84501564791eff001922d953e7">cd</a> = pt;</div>
+<div class="line"><span class="lineno">  233</span>        }</div>
+<div class="line"><span class="lineno">  234</span>    }</div>
+<div class="line"><span class="lineno">  235</span>}</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_hooks_impl_8cpp_03_html_a2ed2da84501564791eff001922d953e7"><div class="ttname"><a href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a2ed2da84501564791eff001922d953e7">anonymous_namespace{HooksImpl.cpp}::cd</a></div><div class="ttdeci">POINT cd</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00045">HooksImpl.cpp:45</a></div></div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_hooks_impl_8cpp_03_html_a4fcfed5ca24f2275a0b6c464093b77de"><div class="ttname"><a href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">anonymous_namespace{HooksImpl.cpp}::lr</a></div><div class="ttdeci">RECT lr</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00040">HooksImpl.cpp:40</a></div></div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_hooks_impl_8cpp_03_html_ab34a4efbfde2a430840df8962588a062"><div class="ttname"><a href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062">anonymous_namespace{HooksImpl.cpp}::hasLastRect</a></div><div class="ttdeci">bool hasLastRect()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00041">HooksImpl.cpp:41</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00052">WRITE_DEBUG_LOG</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_afe7a8e2c13ab2abe83b4f3d0c462e761_icgraph.png" border="0" usemap="#aclass_hooks_impl_afe7a8e2c13ab2abe83b4f3d0c462e761_icgraph" alt=""/></div>
+<map name="aclass_hooks_impl_afe7a8e2c13ab2abe83b4f3d0c462e761_icgraph" id="aclass_hooks_impl_afe7a8e2c13ab2abe83b4f3d0c462e761_icgraph">
+<area shape="rect" title="this procedure handles the double click in non&#45;client area" alt="" coords="1339,23,1523,65"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="1131,31,1291,57"/>
+<area shape="poly" title=" " alt="" coords="1324,47,1291,47,1291,41,1324,41"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
+<area shape="poly" title=" " alt="" coords="1116,47,1083,47,1083,41,1116,41"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9adf50040968aa66908f643ad1edda53" name="a9adf50040968aa66908f643ad1edda53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9adf50040968aa66908f643ad1edda53">&#9670;&#160;</a></span>onNcLButtonDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksImpl::onNcLButtonDown </td>
+          <td>(</td>
+          <td class="paramtype">MSG *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>processes the WM_NCLBUTTONDOWN event </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00270">270</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  271</span>{</div>
+<div class="line"><span class="lineno">  272</span>    <span class="keywordtype">int</span> x = GET_X_LPARAM(pMsg-&gt;lParam);</div>
+<div class="line"><span class="lineno">  273</span>    <span class="keywordtype">int</span> y = GET_Y_LPARAM(pMsg-&gt;lParam);</div>
+<div class="line"><span class="lineno">  274</span>    POINT pt = { x, y };</div>
+<div class="line"><span class="lineno">  275</span>    LRESULT hitTest = SendMessage(pMsg-&gt;hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));</div>
+<div class="line"><span class="lineno">  276</span> </div>
+<div class="line"><span class="lineno">  277</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))</div>
+<div class="line"><span class="lineno">  278</span>    {</div>
+<div class="line"><span class="lineno">  279</span>        <a class="code hl_variable" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>.lastLButtonDown = pt;</div>
+<div class="line"><span class="lineno">  280</span>    }</div>
+<div class="line"><span class="lineno">  281</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a9adf50040968aa66908f643ad1edda53_icgraph.png" border="0" usemap="#aclass_hooks_impl_a9adf50040968aa66908f643ad1edda53_icgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a9adf50040968aa66908f643ad1edda53_icgraph" id="aclass_hooks_impl_a9adf50040968aa66908f643ad1edda53_icgraph">
+<area shape="rect" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="1339,31,1536,57"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="1131,31,1291,57"/>
+<area shape="poly" title=" " alt="" coords="1324,47,1291,47,1291,41,1324,41"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
+<area shape="poly" title=" " alt="" coords="1116,47,1083,47,1083,41,1116,41"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1022c4a7b4012228b83b0b89ee790f89" name="a1022c4a7b4012228b83b0b89ee790f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1022c4a7b4012228b83b0b89ee790f89">&#9670;&#160;</a></span>onWindowPosChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksImpl::onWindowPosChanged </td>
+          <td>(</td>
+          <td class="paramtype">CWPSTRUCT *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>here we react to position changes of the main window </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pMsg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00240">240</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span>{</div>
+<div class="line"><span class="lineno">  242</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a0d6ddc1f3fad3c826b6197e416c77d21">hasCaptionDblClicked</a>())</div>
+<div class="line"><span class="lineno">  243</span>    {</div>
+<div class="line"><span class="lineno">  244</span>        <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a2ed2da84501564791eff001922d953e7">cd</a> = { 0 };</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062">hasLastRect</a>())</div>
+<div class="line"><span class="lineno">  247</span>        {</div>
+<div class="line"><span class="lineno">  248</span>            <span class="keywordflow">if</span> (IsZoomed(pMsg-&gt;hwnd))</div>
+<div class="line"><span class="lineno">  249</span>            {</div>
+<div class="line"><span class="lineno">  250</span>                <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})&quot;</span>, (int64_t)pMsg-&gt;hwnd, NULL, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.right - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.bottom - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, SWP_NOZORDER));</div>
+<div class="line"><span class="lineno">  251</span>                ShowWindow(pMsg-&gt;hwnd, SW_NORMAL);</div>
+<div class="line"><span class="lineno">  252</span>                SetWindowPos(pMsg-&gt;hwnd, NULL, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.right - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.left, <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.bottom - <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a>.top, SWP_NOZORDER);</div>
+<div class="line"><span class="lineno">  253</span>                <a class="code hl_variable" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">lr</a> = { 0 };</div>
+<div class="line"><span class="lineno">  254</span>            }</div>
+<div class="line"><span class="lineno">  255</span>        }</div>
+<div class="line"><span class="lineno">  256</span>    }</div>
+<div class="line"><span class="lineno">  257</span>}</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_hooks_impl_8cpp_03_html_a0d6ddc1f3fad3c826b6197e416c77d21"><div class="ttname"><a href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a0d6ddc1f3fad3c826b6197e416c77d21">anonymous_namespace{HooksImpl.cpp}::hasCaptionDblClicked</a></div><div class="ttdeci">bool hasCaptionDblClicked()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00046">HooksImpl.cpp:46</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00052">WRITE_DEBUG_LOG</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_impl_a1022c4a7b4012228b83b0b89ee790f89_icgraph.png" border="0" usemap="#aclass_hooks_impl_a1022c4a7b4012228b83b0b89ee790f89_icgraph" alt=""/></div>
+<map name="aclass_hooks_impl_a1022c4a7b4012228b83b0b89ee790f89_icgraph" id="aclass_hooks_impl_a1022c4a7b4012228b83b0b89ee790f89_icgraph">
+<area shape="rect" title="here we react to position changes of the main window" alt="" coords="1346,31,1570,57"/>
+<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="1134,31,1298,57"/>
+<area shape="poly" title=" " alt="" coords="1331,47,1299,47,1299,41,1331,41"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title="the exported hook for the main window procedure" alt="" coords="988,31,1086,57"/>
+<area shape="poly" title=" " alt="" coords="1119,47,1086,47,1086,41,1119,41"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
+<area shape="poly" title=" " alt="" coords="974,44,549,24,549,19,974,38"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,940,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
 </map>
 </div>
 

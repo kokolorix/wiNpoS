@@ -91,6 +91,7 @@ $(document).ready(function(){initNavTree('_hooks_impl_8cpp.html',''); initResiza
 
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">HooksImpl.cpp File Reference</div></div>
@@ -100,46 +101,86 @@ $(document).ready(function(){initNavTree('_hooks_impl_8cpp.html',''); initResiza
 <code>#include &quot;<a class="el" href="_hooks_impl_8h_source.html">HooksImpl.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
+<code>#include &lt;Shlwapi.h&gt;</code><br />
+<code>#include &lt;windowsx.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="wi_npo_s-_hook_2resource_8h_source.html">resource.h</a>&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;future&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for HooksImpl.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_impl_8cpp__incl.png" border="0" usemap="#awi_npo_s-_hook_2_hooks_impl_8cpp" alt=""/></div>
 <map name="awi_npo_s-_hook_2_hooks_impl_8cpp" id="awi_npo_s-_hook_2_hooks_impl_8cpp">
-<area shape="rect" title=" " alt="" coords="111,5,300,32"/>
+<area shape="rect" title=" " alt="" coords="360,5,550,32"/>
 <area shape="rect" href="wi_npo_s-_hook_2pch_8h.html" title=" " alt="" coords="24,80,78,107"/>
-<area shape="poly" title=" " alt="" coords="180,35,92,76,90,71,178,30"/>
+<area shape="poly" title=" " alt="" coords="360,35,236,54,93,82,92,77,235,48,359,29"/>
 <area shape="rect" href="_hooks_impl_8h.html" title=" " alt="" coords="102,80,195,107"/>
-<area shape="poly" title=" " alt="" coords="198,34,169,70,165,67,194,31"/>
+<area shape="poly" title=" " alt="" coords="402,35,210,80,209,75,401,30"/>
 <area shape="rect" href="_hooks_mgr_8h.html" title=" " alt="" coords="219,80,310,107"/>
-<area shape="poly" title=" " alt="" coords="218,31,247,67,243,70,214,34"/>
+<area shape="poly" title=" " alt="" coords="423,35,312,77,310,72,421,30"/>
 <area shape="rect" href="_utils_8h.html" title=" " alt="" coords="334,80,392,107"/>
-<area shape="poly" title=" " alt="" coords="234,30,323,71,321,76,232,35"/>
+<area shape="poly" title=" " alt="" coords="441,35,392,73,388,69,437,30"/>
+<area shape="rect" title=" " alt="" coords="416,80,494,107"/>
+<area shape="poly" title=" " alt="" coords="458,33,458,65,452,65,452,33"/>
+<area shape="rect" title=" " alt="" coords="518,80,606,107"/>
+<area shape="poly" title=" " alt="" coords="475,30,532,69,529,73,472,35"/>
+<area shape="rect" href="wi_npo_s-_hook_2resource_8h.html" title=" " alt="" coords="630,80,712,107"/>
+<area shape="poly" title=" " alt="" coords="493,30,620,72,619,77,492,35"/>
+<area shape="rect" title=" " alt="" coords="737,80,805,107"/>
+<area shape="poly" title=" " alt="" coords="515,30,723,77,722,82,513,35"/>
+<area shape="rect" title=" " alt="" coords="830,80,883,107"/>
+<area shape="poly" title=" " alt="" coords="550,29,673,48,815,77,814,82,672,54,550,35"/>
 <area shape="rect" href="wi_npo_s-_hook_2framework_8h.html" title=" " alt="" coords="5,155,97,181"/>
 <area shape="poly" title=" " alt="" coords="54,107,54,140,48,140,48,107"/>
 <area shape="rect" title=" " alt="" coords="10,229,92,256"/>
 <area shape="poly" title=" " alt="" coords="54,182,54,214,48,214,48,182"/>
-<area shape="rect" title=" " alt="" coords="256,155,310,181"/>
-<area shape="poly" title=" " alt="" coords="351,109,309,147,306,143,347,105"/>
-<area shape="rect" title=" " alt="" coords="334,155,392,181"/>
-<area shape="poly" title=" " alt="" coords="366,107,366,140,360,140,360,107"/>
-<area shape="rect" title=" " alt="" coords="416,155,500,181"/>
-<area shape="poly" title=" " alt="" coords="381,105,431,143,428,148,378,109"/>
+<area shape="rect" title=" " alt="" coords="214,155,267,181"/>
+<area shape="poly" title=" " alt="" coords="343,110,276,149,273,144,340,105"/>
+<area shape="rect" title=" " alt="" coords="292,155,352,181"/>
+<area shape="poly" title=" " alt="" coords="358,109,338,143,334,140,353,106"/>
+<area shape="rect" title=" " alt="" coords="376,155,433,181"/>
+<area shape="poly" title=" " alt="" coords="373,106,392,140,388,143,368,109"/>
+<area shape="rect" title=" " alt="" coords="457,155,541,181"/>
+<area shape="poly" title=" " alt="" coords="388,105,463,145,461,150,385,110"/>
 </map>
 </div>
 </div>
 <p><a href="_hooks_impl_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceanonymous__namespace_02_hooks_impl_8cpp_03" id="r_namespaceanonymous__namespace_02_hooks_impl_8cpp_03"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html">anonymous_namespace{HooksImpl.cpp}</a></td></tr>
+<tr class="memdesc:namespaceanonymous__namespace_02_hooks_impl_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight">global stuff <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:adae4ff67fba416ac992fe973d90abc58" id="r_adae4ff67fba416ac992fe973d90abc58"><td class="memItemLeft" align="right" valign="top">LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a> (_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</td></tr>
+<tr class="memdesc:adae4ff67fba416ac992fe973d90abc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">the exported hook for the main window procedure  <br /></td></tr>
 <tr class="separator:adae4ff67fba416ac992fe973d90abc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9f4b48939788d5aa0f404323b16a957" id="r_ab9f4b48939788d5aa0f404323b16a957"><td class="memItemLeft" align="right" valign="top">LRESULT CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a> (_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</td></tr>
+<tr class="memdesc:ab9f4b48939788d5aa0f404323b16a957"><td class="mdescLeft">&#160;</td><td class="mdescRight">the exported hook for the windows-message procedure  <br /></td></tr>
 <tr class="separator:ab9f4b48939788d5aa0f404323b16a957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab34a4efbfde2a430840df8962588a062" id="r_ab34a4efbfde2a430840df8962588a062"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062">anonymous_namespace{HooksImpl.cpp}::hasLastRect</a> ()</td></tr>
+<tr class="separator:ab34a4efbfde2a430840df8962588a062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6ddc1f3fad3c826b6197e416c77d21" id="r_a0d6ddc1f3fad3c826b6197e416c77d21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a0d6ddc1f3fad3c826b6197e416c77d21">anonymous_namespace{HooksImpl.cpp}::hasCaptionDblClicked</a> ()</td></tr>
+<tr class="separator:a0d6ddc1f3fad3c826b6197e416c77d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a74029128723095e7bf00a71d46af8b24" id="r_a74029128723095e7bf00a71d46af8b24"><td class="memItemLeft" align="right" valign="top">HINSTANCE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></td></tr>
 <tr class="separator:a74029128723095e7bf00a71d46af8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fcfed5ca24f2275a0b6c464093b77de" id="r_a4fcfed5ca24f2275a0b6c464093b77de"><td class="memItemLeft" align="right" valign="top">RECT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de">anonymous_namespace{HooksImpl.cpp}::lr</a> = { 0 }</td></tr>
+<tr class="separator:a4fcfed5ca24f2275a0b6c464093b77de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed2da84501564791eff001922d953e7" id="r_a2ed2da84501564791eff001922d953e7"><td class="memItemLeft" align="right" valign="top">POINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a2ed2da84501564791eff001922d953e7">anonymous_namespace{HooksImpl.cpp}::cd</a> = { 0 }</td></tr>
+<tr class="separator:a2ed2da84501564791eff001922d953e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae60ee111c07e1185fbf5c516e016044a" id="r_ae60ee111c07e1185fbf5c516e016044a"><td class="memItemLeft" >struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c24b2043b825e097a012e7c5eaf08c2" id="r_a4c24b2043b825e097a012e7c5eaf08c2"><td class="memItemLeft" >&#160;&#160;&#160;POINT&#160;&#160;&#160;<a class="el" href="_hooks_impl_8cpp.html#a58414a9c886524a674b5d4600ccc2beb">lastLButtonDown</a> = { 0 }&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a4c24b2043b825e097a012e7c5eaf08c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae60ee111c07e1185fbf5c516e016044a" id="r_ae60ee111c07e1185fbf5c516e016044a"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#ae60ee111c07e1185fbf5c516e016044a">lb</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memdesc:ae60ee111c07e1185fbf5c516e016044a"><td class="mdescLeft">&#160;</td><td class="mdescRight">global stuff for click events  <br /></td></tr>
+<tr class="separator:ae60ee111c07e1185fbf5c516e016044a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="adae4ff67fba416ac992fe973d90abc58" name="adae4ff67fba416ac992fe973d90abc58"></a>
@@ -174,21 +215,34 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00008">8</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
-<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   11</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_a10c087a169c357990bf12340347e2fc0"><div class="ttname"><a href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a></div><div class="ttdeci">static LRESULT CALLBACK callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00019">HooksImpl.cpp:19</a></div></div>
+<p>the exported hook for the main window procedure </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nCode</td><td></td></tr>
+    <tr><td class="paramname">wParam</td><td></td></tr>
+    <tr><td class="paramname">lParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00019">19</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   22</span>}</div>
+<div class="ttc" id="aclass_hooks_impl_html_a10c087a169c357990bf12340347e2fc0"><div class="ttname"><a href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a></div><div class="ttdeci">static LRESULT CALLBACK callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here we follow the main message loop of the application</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00058">HooksImpl.cpp:58</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00019">HooksImpl::callWndProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00058">HooksImpl::callWndProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph.png" border="0" usemap="#a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph" alt=""/></div>
 <map name="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph" id="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,103,32"/>
-<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title=" " alt="" coords="151,5,315,32"/>
+<area shape="rect" title="the exported hook for the main window procedure" alt="" coords="5,5,103,32"/>
+<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="151,5,315,32"/>
 <area shape="poly" title=" " alt="" coords="103,16,136,16,136,21,103,21"/>
+<area shape="rect" href="class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="363,5,587,32"/>
+<area shape="poly" title=" " alt="" coords="316,16,348,16,348,21,316,21"/>
 </map>
 </div>
 <div class="dynheader">
@@ -196,15 +250,28 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph.png" border="0" usemap="#a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph" alt=""/></div>
 <map name="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph" id="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph">
-<area shape="rect" title=" " alt="" coords="597,5,694,32"/>
+<area shape="rect" title="the exported hook for the main window procedure" alt="" coords="988,31,1086,57"/>
 <area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="582,21,549,21,549,16,582,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
-<area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+<area shape="poly" title=" " alt="" coords="974,44,549,24,549,19,974,38"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,940,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
 </map>
 </div>
 
@@ -242,22 +309,42 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00013">13</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>{</div>
-<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   16</span> </div>
-<div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_a07053e18c49265e300fe89b2a5bc28de"><div class="ttname"><a href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a></div><div class="ttdeci">static LRESULT CALLBACK getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00033">HooksImpl.cpp:33</a></div></div>
+<p>the exported hook for the windows-message procedure </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nCode</td><td></td></tr>
+    <tr><td class="paramname">wParam</td><td></td></tr>
+    <tr><td class="paramname">lParam</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00030">30</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>{</div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>}</div>
+<div class="ttc" id="aclass_hooks_impl_html_a07053e18c49265e300fe89b2a5bc28de"><div class="ttname"><a href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a></div><div class="ttdeci">static LRESULT CALLBACK getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here the Windows messages are picked up, which do not appear in the main message loop</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00094">HooksImpl.cpp:94</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00033">HooksImpl::getMsgProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00094">HooksImpl::getMsgProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph.png" border="0" usemap="#a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph" alt=""/></div>
 <map name="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph" id="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,100,32"/>
-<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title=" " alt="" coords="148,5,308,32"/>
-<area shape="poly" title=" " alt="" coords="100,16,133,16,133,21,100,21"/>
+<area shape="rect" title="the exported hook for the windows&#45;message procedure" alt="" coords="5,61,100,88"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="148,61,308,88"/>
+<area shape="poly" title=" " alt="" coords="100,72,133,72,133,77,100,77"/>
+<area shape="rect" href="class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="601,7,809,33"/>
+<area shape="poly" title=" " alt="" coords="252,58,299,36,355,17,414,8,474,4,587,6,587,11,474,9,415,14,357,23,301,41,254,63"/>
+<area shape="rect" href="class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="372,32,537,59"/>
+<area shape="poly" title=" " alt="" coords="308,62,357,55,358,61,309,67"/>
+<area shape="rect" href="class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="363,83,547,125"/>
+<area shape="poly" title=" " alt="" coords="309,82,348,87,347,93,308,88"/>
+<area shape="rect" href="class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="356,149,553,176"/>
+<area shape="poly" title=" " alt="" coords="255,86,301,110,357,135,379,142,377,147,355,140,299,115,252,91"/>
+<area shape="poly" title=" " alt="" coords="538,34,586,29,587,35,538,40"/>
 </map>
 </div>
 <div class="dynheader">
@@ -265,15 +352,28 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph.png" border="0" usemap="#a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph" alt=""/></div>
 <map name="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph" id="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph">
-<area shape="rect" title=" " alt="" coords="597,5,691,32"/>
+<area shape="rect" title="the exported hook for the windows&#45;message procedure" alt="" coords="988,31,1083,57"/>
 <area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="582,21,549,21,549,16,582,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
-<area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+<area shape="poly" title=" " alt="" coords="973,44,549,24,549,19,974,39"/>
+<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="797,56,940,83"/>
+<area shape="poly" title=" " alt="" coords="974,56,941,61,941,56,973,51"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,44,378,71"/>
+<area shape="poly" title=" " alt="" coords="421,39,379,50,378,45,419,34"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,44,255,71"/>
+<area shape="poly" title=" " alt="" coords="288,60,255,60,255,55,288,55"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,44,87,71"/>
+<area shape="poly" title=" " alt="" coords="119,60,87,60,87,55,119,55"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="611,56,735,83"/>
+<area shape="poly" title=" " alt="" coords="782,72,735,72,735,67,782,67"/>
+<area shape="rect" href="dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="597,107,749,133"/>
+<area shape="poly" title=" " alt="" coords="801,90,728,109,727,103,799,84"/>
+<area shape="poly" title=" " alt="" coords="607,54,538,35,540,30,608,49"/>
+<area shape="poly" title=" " alt="" coords="596,69,379,61,379,56,596,64"/>
+<area shape="rect" href="dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="309,120,373,147"/>
+<area shape="poly" title=" " alt="" coords="582,126,373,135,373,129,582,121"/>
+<area shape="rect" href="dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="434,157,541,184"/>
+<area shape="poly" title=" " alt="" coords="608,140,540,159,538,154,607,135"/>
+<area shape="poly" title=" " alt="" coords="419,156,373,144,374,139,420,151"/>
 </map>
 </div>
 
@@ -300,7 +400,40 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="dllmain_8cpp_source.html#l00009">9</a> of file <a class="el" href="dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="dllmain_8cpp_source.html#l00011">11</a> of file <a class="el" href="dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a58414a9c886524a674b5d4600ccc2beb" name="a58414a9c886524a674b5d4600ccc2beb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58414a9c886524a674b5d4600ccc2beb">&#9670;&#160;</a></span>lastLButtonDown</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">POINT lastLButtonDown = { 0 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00264">264</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  264</span>{ 0 };</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae60ee111c07e1185fbf5c516e016044a" name="ae60ee111c07e1185fbf5c516e016044a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae60ee111c07e1185fbf5c516e016044a">&#9670;&#160;</a></span>[struct]</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct  { ... }  lb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>global stuff for click events </p>
 
 </div>
 </div>

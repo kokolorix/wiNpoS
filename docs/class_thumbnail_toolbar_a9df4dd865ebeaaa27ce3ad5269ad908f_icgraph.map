@@ -1,0 +1,10 @@
+<map id="ThumbnailToolbar::initialize" name="ThumbnailToolbar::initialize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="473,5,651,32"/>
+<area shape="rect" id="Node000002" href="$dllmain_8cpp.html#ab540bac039db43f82b11a73d2ead1441" title=" " alt="" coords="273,5,425,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,21,425,21,425,16,458,16"/>
+<area shape="rect" id="Node000003" href="$dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="5,5,70,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="258,21,70,21,70,16,258,16"/>
+<area shape="rect" id="Node000004" href="$dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title=" " alt="" coords="118,31,225,57"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="259,34,226,39,225,34,258,29"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="102,34,70,27,71,22,103,28"/>
+</map>

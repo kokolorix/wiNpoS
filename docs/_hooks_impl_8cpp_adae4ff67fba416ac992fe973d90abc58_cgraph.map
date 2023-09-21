@@ -1,5 +1,7 @@
 <map id="CallWndProc" name="CallWndProc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,103,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title=" " alt="" coords="151,5,315,32"/>
+<area shape="rect" id="Node000001" title="the exported hook for the main window procedure" alt="" coords="5,5,103,32"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="151,5,315,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,16,136,16,136,21,103,21"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="363,5,587,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,16,348,16,348,21,316,21"/>
 </map>

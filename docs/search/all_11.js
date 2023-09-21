@@ -1,19 +1,11 @@
 var searchData=
 [
-  ['win32_5flean_5fand_5fmean_0',['win32_lean_and_mean',['../wi_npo_s-_app_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_hook_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h']]],
-  ['winpos_1',['winpos',['../md__r_e_a_d_m_e.html',1,'wiNpoS'],['../index.html',1,'wiNpoS']]],
-  ['winpos_2dapp_2ecpp_2',['wiNpoS-App.cpp',['../wi_npo_s-_app_8cpp.html',1,'']]],
-  ['winpos_2dapp_2eh_3',['wiNpoS-App.h',['../wi_npo_s-_app_8h.html',1,'']]],
-  ['winpos_2edox_4',['wiNpoS.dox',['../wi_npo_s_8dox.html',1,'']]],
-  ['winpos_2emd_5',['wiNpoS.md',['../wi_npo_s_8md.html',1,'']]],
-  ['wndproc_6',['WndProc',['../wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f',1,'wiNpoS-App.cpp']]],
-  ['wndthreadid_7',['wndThreadId',['../struct_get_main_wnd_res.html#a622d85c8bdc88b3750297b450468a567',1,'GetMainWndRes']]],
-  ['wndvector_8',['WndVector',['../dllmain_8cpp.html#a93101747c73648d1347710e5c45ba0da',1,'dllmain.cpp']]],
-  ['write_5fdebug_5flog_9',['WRITE_DEBUG_LOG',['../_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_10',['WRITE_DEBUG_LOG_DETAIL',['../_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_5fduration_11',['WRITE_DEBUG_LOG_DETAIL_DURATION',['../_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fduration_12',['WRITE_DEBUG_LOG_DURATION',['../_utils_8h.html#a11191e674f9190988d8d3002f487e6a5',1,'Utils.h']]],
-  ['writeconfig_13',['writeConfig',['../class_config.html#aab0ab085dc15e32882dcb6c96c88f56f',1,'Config']]],
-  ['writedebuglog_14',['WriteDebugLog',['../namespace_utils.html#abdc36608727de989652b34f84852737c',1,'Utils']]],
-  ['wwinmain_15',['wWinMain',['../wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339',1,'wiNpoS-App.cpp']]]
+  ['unhookhooks_0',['unhookHooks',['../class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473',1,'HooksMgr']]],
+  ['uninitialize_1',['uninitialize',['../class_thumbnail_toolbar.html#a680b096cfcbbfa9550ebcc0076710903',1,'ThumbnailToolbar']]],
+  ['uninstall_2',['uninstall',['../class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5',1,'HooksMgr']]],
+  ['unload_3',['unload',['../class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98',1,'HooksMgr']]],
+  ['up_4',['Up',['../class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a258f49887ef8d14ac268c92b02503aaa',1,'HooksImpl']]],
+  ['utils_5',['Utils',['../namespace_utils.html',1,'']]],
+  ['utils_2ecpp_6',['Utils.cpp',['../_utils_8cpp.html',1,'']]],
+  ['utils_2eh_7',['Utils.h',['../_utils_8h.html',1,'']]]
 ];

@@ -1,0 +1,12 @@
+<map id="HooksImpl::getMsgProc" name="HooksImpl::getMsgProc">
+<area shape="rect" id="Node000001" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="5,61,166,88"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="459,7,666,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,58,156,36,213,17,272,8,332,4,445,6,444,11,332,9,272,14,214,23,158,41,112,63"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="230,32,395,59"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,62,215,55,215,61,166,67"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="220,83,405,125"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="166,82,206,87,205,93,166,88"/>
+<area shape="rect" id="Node000005" href="$class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="214,149,411,176"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="112,86,159,110,215,135,237,142,235,147,213,140,157,115,110,91"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="395,34,444,29,444,35,396,40"/>
+</map>

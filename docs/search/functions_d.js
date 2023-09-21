@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ehooksmgr_0',['~HooksMgr',['../class_hooks_mgr.html#a1aca7817523366f0d7c2770d221686ff',1,'HooksMgr']]]
+  ['thumbnailtoolbar_0',['ThumbnailToolbar',['../class_thumbnail_toolbar.html#a44a36d7bcf052a3b864e810f7a861f04',1,'ThumbnailToolbar']]]
 ];

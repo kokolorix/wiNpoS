@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('namespace_utils.html',''); initResizab
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Utils Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -103,10 +104,642 @@ $(document).ready(function(){initNavTree('namespace_utils.html',''); initResizab
 Functions</h2></td></tr>
 <tr class="memitem:abdc36608727de989652b34f84852737c" id="r_abdc36608727de989652b34f84852737c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_utils.html#abdc36608727de989652b34f84852737c">WriteDebugLog</a> (string msg)</td></tr>
 <tr class="separator:abdc36608727de989652b34f84852737c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1be1e6106c4ac75be529963a672f3038" id="r_a1be1e6106c4ac75be529963a672f3038"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a1be1e6106c4ac75be529963a672f3038"><td class="memTemplItemLeft" align="right" valign="top">string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a> (std::string_view rt_fmt_str, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a1be1e6106c4ac75be529963a672f3038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad1c305219375bf7d3fc42f22b325710" id="r_aad1c305219375bf7d3fc42f22b325710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">ShowLastError</a> (const string fmtStr)</td></tr>
+<tr class="separator:aad1c305219375bf7d3fc42f22b325710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a769bbb1284de09ef460684deb5de0a" id="r_a2a769bbb1284de09ef460684deb5de0a"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Tx &gt; </td></tr>
+<tr class="memitem:a2a769bbb1284de09ef460684deb5de0a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a> (T t, Tx &amp;&amp;p1)</td></tr>
+<tr class="separator:a2a769bbb1284de09ef460684deb5de0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dfa0d16c0461a00fde6bd7e78e80b1e" id="r_a2dfa0d16c0461a00fde6bd7e78e80b1e"><td class="memTemplParams" colspan="2">template&lt;typename T , typename T1 , typename... Tx&gt; </td></tr>
+<tr class="memitem:a2dfa0d16c0461a00fde6bd7e78e80b1e"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a2dfa0d16c0461a00fde6bd7e78e80b1e">is_one_of</a> (T t, T1 &amp;&amp;p1, Tx &amp;&amp;... px)</td></tr>
+<tr class="separator:a2dfa0d16c0461a00fde6bd7e78e80b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8e5c5f8404717acbb753a3111d1c716" id="r_af8e5c5f8404717acbb753a3111d1c716"><td class="memTemplParams" colspan="2">template&lt;typename T , typename Tx &gt; </td></tr>
+<tr class="memitem:af8e5c5f8404717acbb753a3111d1c716"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a> (T t, Tx &amp;&amp;p1)</td></tr>
+<tr class="separator:af8e5c5f8404717acbb753a3111d1c716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a896381b1d0efed49040e943db2dbb2ae" id="r_a896381b1d0efed49040e943db2dbb2ae"><td class="memTemplParams" colspan="2">template&lt;typename T , typename T1 , typename... Tx&gt; </td></tr>
+<tr class="memitem:a896381b1d0efed49040e943db2dbb2ae"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a896381b1d0efed49040e943db2dbb2ae">is_each_of</a> (T t, T1 &amp;&amp;p1, Tx &amp;&amp;... px)</td></tr>
+<tr class="separator:a896381b1d0efed49040e943db2dbb2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795971fe1c865d91d4f436c0abf6a147" id="r_a795971fe1c865d91d4f436c0abf6a147"><td class="memTemplParams" colspan="2">template&lt;typename T , typename M , typename F &gt; </td></tr>
+<tr class="memitem:a795971fe1c865d91d4f436c0abf6a147"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">check_bits</a> (M bitmask, F val)</td></tr>
+<tr class="separator:a795971fe1c865d91d4f436c0abf6a147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4b2cccca2ee094b39494b224d528f64" id="r_ad4b2cccca2ee094b39494b224d528f64"><td class="memTemplParams" colspan="2">template&lt;typename T , typename M , typename F &gt; </td></tr>
+<tr class="memitem:ad4b2cccca2ee094b39494b224d528f64"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">check_one_bit</a> (M bitmask, F val)</td></tr>
+<tr class="separator:ad4b2cccca2ee094b39494b224d528f64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7f0050acff0a017f8c65b5af8b5b89" id="r_a6c7f0050acff0a017f8c65b5af8b5b89"><td class="memTemplParams" colspan="2">template&lt;typename T , typename M , typename F &gt; </td></tr>
+<tr class="memitem:a6c7f0050acff0a017f8c65b5af8b5b89"><td class="memTemplItemLeft" align="right" valign="top">M&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">set_bits</a> (M bitmask, F val=0)</td></tr>
+<tr class="separator:a6c7f0050acff0a017f8c65b5af8b5b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22cd134d7088505ab53a60489e74654" id="r_ae22cd134d7088505ab53a60489e74654"><td class="memTemplParams" colspan="2">template&lt;typename T , typename M , typename F &gt; </td></tr>
+<tr class="memitem:ae22cd134d7088505ab53a60489e74654"><td class="memTemplItemLeft" align="right" valign="top">M&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">clear_bits</a> (M bitmask, F val=0)</td></tr>
+<tr class="separator:ae22cd134d7088505ab53a60489e74654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a15790a9bc9887c45b6728c6b8ef150ae" id="r_a15790a9bc9887c45b6728c6b8ef150ae"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">ExeName</a> = initExeName()</td></tr>
+<tr class="separator:a15790a9bc9887c45b6728c6b8ef150ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Some helper constructs. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a795971fe1c865d91d4f436c0abf6a147" name="a795971fe1c865d91d4f436c0abf6a147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795971fe1c865d91d4f436c0abf6a147">&#9670;&#160;</a></span>check_bits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename M , typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::check_bits </td>
+          <td>(</td>
+          <td class="paramtype">M&#160;</td>
+          <td class="paramname"><em>bitmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00112">112</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{ <span class="keywordflow">return</span> ((T)val &amp; (T)bitmask) == bitmask; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00112">check_bits()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a795971fe1c865d91d4f436c0abf6a147_cgraph.png" border="0" usemap="#anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_cgraph" alt=""/></div>
+<map name="anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_cgraph" id="anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,124,56"/>
+<area shape="poly" title=" " alt="" coords="43,30,40,20,42,11,51,5,65,3,80,6,87,13,84,16,77,10,64,8,53,10,47,14,45,20,48,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a795971fe1c865d91d4f436c0abf6a147_icgraph.png" border="0" usemap="#anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_icgraph" alt=""/></div>
+<map name="anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_icgraph" id="anamespace_utils_a795971fe1c865d91d4f436c0abf6a147_icgraph">
+<area shape="rect" title=" " alt="" coords="5,29,124,56"/>
+<area shape="poly" title=" " alt="" coords="84,16,77,10,64,8,53,10,47,14,45,20,48,28,43,30,40,20,42,11,51,5,65,3,80,6,87,13"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad4b2cccca2ee094b39494b224d528f64" name="ad4b2cccca2ee094b39494b224d528f64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4b2cccca2ee094b39494b224d528f64">&#9670;&#160;</a></span>check_one_bit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename M , typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::check_one_bit </td>
+          <td>(</td>
+          <td class="paramtype">M&#160;</td>
+          <td class="paramname"><em>bitmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00113">113</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>    { </div>
+<div class="line"><span class="lineno">  115</span>        T res = (((T)val) &amp; ((T)bitmask));</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">return</span> res != 0;</div>
+<div class="line"><span class="lineno">  117</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00113">check_one_bit()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_ad4b2cccca2ee094b39494b224d528f64_cgraph.png" border="0" usemap="#anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_cgraph" alt=""/></div>
+<map name="anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_cgraph" id="anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,145,56"/>
+<area shape="poly" title=" " alt="" coords="50,30,46,21,49,11,59,5,75,3,93,5,102,12,98,17,90,10,75,8,61,10,53,14,52,20,55,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_ad4b2cccca2ee094b39494b224d528f64_icgraph.png" border="0" usemap="#anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_icgraph" alt=""/></div>
+<map name="anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_icgraph" id="anamespace_utils_ad4b2cccca2ee094b39494b224d528f64_icgraph">
+<area shape="rect" title=" " alt="" coords="5,29,145,56"/>
+<area shape="poly" title=" " alt="" coords="98,17,90,10,75,8,61,10,53,14,52,20,55,28,50,30,46,21,49,11,59,5,75,3,93,5,102,12"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae22cd134d7088505ab53a60489e74654" name="ae22cd134d7088505ab53a60489e74654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22cd134d7088505ab53a60489e74654">&#9670;&#160;</a></span>clear_bits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename M , typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">M Utils::clear_bits </td>
+          <td>(</td>
+          <td class="paramtype">M&#160;</td>
+          <td class="paramname"><em>bitmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>val</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00119">119</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>{ <span class="keywordflow">return</span> (T)val &amp;= ~(T)bitmask; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00119">clear_bits()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_ae22cd134d7088505ab53a60489e74654_cgraph.png" border="0" usemap="#anamespace_utils_ae22cd134d7088505ab53a60489e74654_cgraph" alt=""/></div>
+<map name="anamespace_utils_ae22cd134d7088505ab53a60489e74654_cgraph" id="anamespace_utils_ae22cd134d7088505ab53a60489e74654_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,117,56"/>
+<area shape="poly" title=" " alt="" coords="41,30,38,20,40,11,48,5,61,3,75,6,83,13,79,16,73,10,61,8,50,10,44,14,43,20,46,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_ae22cd134d7088505ab53a60489e74654_icgraph.png" border="0" usemap="#anamespace_utils_ae22cd134d7088505ab53a60489e74654_icgraph" alt=""/></div>
+<map name="anamespace_utils_ae22cd134d7088505ab53a60489e74654_icgraph" id="anamespace_utils_ae22cd134d7088505ab53a60489e74654_icgraph">
+<area shape="rect" title=" " alt="" coords="5,29,117,56"/>
+<area shape="poly" title=" " alt="" coords="79,16,73,10,61,8,50,10,44,14,43,20,46,28,41,30,38,20,40,11,48,5,61,3,75,6,83,13"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a1be1e6106c4ac75be529963a672f3038" name="a1be1e6106c4ac75be529963a672f3038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1be1e6106c4ac75be529963a672f3038">&#9670;&#160;</a></span>dformat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">string Utils::dformat </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>rt_fmt_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>dynamic format </p>
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00067">67</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> std::vformat(rt_fmt_str, std::make_format_args(args...));</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a1be1e6106c4ac75be529963a672f3038_icgraph.png" border="0" usemap="#anamespace_utils_a1be1e6106c4ac75be529963a672f3038_icgraph" alt=""/></div>
+<map name="anamespace_utils_a1be1e6106c4ac75be529963a672f3038_icgraph" id="anamespace_utils_a1be1e6106c4ac75be529963a672f3038_icgraph">
+<area shape="rect" title=" " alt="" coords="784,5,882,32"/>
+<area shape="rect" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710" title=" " alt="" coords="596,5,736,32"/>
+<area shape="poly" title=" " alt="" coords="769,21,736,21,736,16,769,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a14fd7ace25a44831aa57b9ac432860e0" title=" " alt="" coords="426,5,548,32"/>
+<area shape="poly" title=" " alt="" coords="581,21,548,21,548,16,581,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
+<area shape="poly" title=" " alt="" coords="412,21,379,21,379,16,412,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
+<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a896381b1d0efed49040e943db2dbb2ae" name="a896381b1d0efed49040e943db2dbb2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a896381b1d0efed49040e943db2dbb2ae">&#9670;&#160;</a></span>is_each_of() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename T1 , typename... Tx&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::is_each_of </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1 &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tx &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>px</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00108">108</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>                                              {</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, p1) &amp;&amp; <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, px...);</div>
+<div class="line"><span class="lineno">  110</span>    }</div>
+<div class="ttc" id="anamespace_utils_html_af8e5c5f8404717acbb753a3111d1c716"><div class="ttname"><a href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">Utils::is_each_of</a></div><div class="ttdeci">bool is_each_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00102">Utils.h:102</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00102">is_each_of()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a896381b1d0efed49040e943db2dbb2ae_cgraph.png" border="0" usemap="#anamespace_utils_a896381b1d0efed49040e943db2dbb2ae_cgraph" alt=""/></div>
+<map name="anamespace_utils_a896381b1d0efed49040e943db2dbb2ae_cgraph" id="anamespace_utils_a896381b1d0efed49040e943db2dbb2ae_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,123,56"/>
+<area shape="rect" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716" title=" " alt="" coords="171,29,288,56"/>
+<area shape="poly" title=" " alt="" coords="123,40,156,40,156,45,123,45"/>
+<area shape="poly" title=" " alt="" coords="201,30,196,21,199,11,211,5,229,3,250,6,261,13,258,17,248,11,229,8,212,10,203,15,201,20,205,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af8e5c5f8404717acbb753a3111d1c716" name="af8e5c5f8404717acbb753a3111d1c716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8e5c5f8404717acbb753a3111d1c716">&#9670;&#160;</a></span>is_each_of() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Tx &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::is_each_of </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tx &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00102">102</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>    {</div>
+<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">return</span> t == p1;</div>
+<div class="line"><span class="lineno">  105</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00102">is_each_of()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_af8e5c5f8404717acbb753a3111d1c716_cgraph.png" border="0" usemap="#anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_cgraph" alt=""/></div>
+<map name="anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_cgraph" id="anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,123,56"/>
+<area shape="poly" title=" " alt="" coords="43,30,39,20,42,11,50,5,64,3,79,6,87,13,83,16,77,10,64,8,52,10,46,14,45,20,48,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_af8e5c5f8404717acbb753a3111d1c716_icgraph.png" border="0" usemap="#anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_icgraph" alt=""/></div>
+<map name="anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_icgraph" id="anamespace_utils_af8e5c5f8404717acbb753a3111d1c716_icgraph">
+<area shape="rect" title=" " alt="" coords="171,29,288,56"/>
+<area shape="poly" title=" " alt="" coords="258,17,248,11,229,8,212,10,203,15,201,20,205,28,201,30,196,21,199,11,211,5,229,3,250,6,261,13"/>
+<area shape="rect" href="namespace_utils.html#a896381b1d0efed49040e943db2dbb2ae" title=" " alt="" coords="5,29,123,56"/>
+<area shape="poly" title=" " alt="" coords="156,45,123,45,123,40,156,40"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2dfa0d16c0461a00fde6bd7e78e80b1e" name="a2dfa0d16c0461a00fde6bd7e78e80b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dfa0d16c0461a00fde6bd7e78e80b1e">&#9670;&#160;</a></span>is_one_of() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename T1 , typename... Tx&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::is_one_of </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1 &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tx &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>px</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00097">97</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>                                             {</div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, p1) || <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, px...);</div>
+<div class="line"><span class="lineno">   99</span>    }</div>
+<div class="ttc" id="anamespace_utils_html_a2a769bbb1284de09ef460684deb5de0a"><div class="ttname"><a href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a></div><div class="ttdeci">bool is_one_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00091">Utils.h:91</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00091">is_one_of()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a2dfa0d16c0461a00fde6bd7e78e80b1e_cgraph.png" border="0" usemap="#anamespace_utils_a2dfa0d16c0461a00fde6bd7e78e80b1e_cgraph" alt=""/></div>
+<map name="anamespace_utils_a2dfa0d16c0461a00fde6bd7e78e80b1e_cgraph" id="anamespace_utils_a2dfa0d16c0461a00fde6bd7e78e80b1e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,116,56"/>
+<area shape="rect" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a" title=" " alt="" coords="164,29,274,56"/>
+<area shape="poly" title=" " alt="" coords="116,40,149,40,149,45,116,45"/>
+<area shape="poly" title=" " alt="" coords="191,30,187,21,190,11,201,5,219,3,239,6,249,13,246,17,237,11,219,8,203,10,194,15,192,20,196,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2a769bbb1284de09ef460684deb5de0a" name="a2a769bbb1284de09ef460684deb5de0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a769bbb1284de09ef460684deb5de0a">&#9670;&#160;</a></span>is_one_of() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename Tx &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::is_one_of </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Tx &amp;&amp;&#160;</td>
+          <td class="paramname"><em>p1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00091">91</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   92</span>    {</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">return</span> t == p1;</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00091">is_one_of()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a2a769bbb1284de09ef460684deb5de0a_cgraph.png" border="0" usemap="#anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_cgraph" alt=""/></div>
+<map name="anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_cgraph" id="anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,116,56"/>
+<area shape="poly" title=" " alt="" coords="40,30,37,20,39,11,48,5,61,3,75,6,82,13,78,16,72,10,60,8,50,10,44,14,43,20,45,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a2a769bbb1284de09ef460684deb5de0a_icgraph.png" border="0" usemap="#anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_icgraph" alt=""/></div>
+<map name="anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_icgraph" id="anamespace_utils_a2a769bbb1284de09ef460684deb5de0a_icgraph">
+<area shape="rect" title=" " alt="" coords="164,29,274,56"/>
+<area shape="poly" title=" " alt="" coords="246,17,237,11,219,8,203,10,194,15,192,20,196,28,191,30,187,21,190,11,201,5,219,3,239,6,249,13"/>
+<area shape="rect" href="namespace_utils.html#a2dfa0d16c0461a00fde6bd7e78e80b1e" title=" " alt="" coords="5,29,116,56"/>
+<area shape="poly" title=" " alt="" coords="148,45,116,45,116,40,148,40"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6c7f0050acff0a017f8c65b5af8b5b89" name="a6c7f0050acff0a017f8c65b5af8b5b89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7f0050acff0a017f8c65b5af8b5b89">&#9670;&#160;</a></span>set_bits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename M , typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">M Utils::set_bits </td>
+          <td>(</td>
+          <td class="paramtype">M&#160;</td>
+          <td class="paramname"><em>bitmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F&#160;</td>
+          <td class="paramname"><em>val</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00118">118</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>{ <span class="keywordflow">return</span> ((T)val |= (T)bitmask); }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00118">set_bits()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_cgraph.png" border="0" usemap="#anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_cgraph" alt=""/></div>
+<map name="anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_cgraph" id="anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,107,56"/>
+<area shape="poly" title=" " alt="" coords="37,30,34,20,36,11,44,5,56,3,69,6,76,13,72,16,67,10,56,8,46,10,41,14,40,20,42,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_icgraph.png" border="0" usemap="#anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_icgraph" alt=""/></div>
+<map name="anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_icgraph" id="anamespace_utils_a6c7f0050acff0a017f8c65b5af8b5b89_icgraph">
+<area shape="rect" title=" " alt="" coords="5,29,107,56"/>
+<area shape="poly" title=" " alt="" coords="72,16,67,10,56,8,46,10,41,14,40,20,42,28,37,30,34,20,36,11,44,5,56,3,69,6,76,13"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aad1c305219375bf7d3fc42f22b325710" name="aad1c305219375bf7d3fc42f22b325710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad1c305219375bf7d3fc42f22b325710">&#9670;&#160;</a></span>ShowLastError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Utils::ShowLastError </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>fmtStr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00072">72</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>    {</div>
+<div class="line"><span class="lineno">   74</span>        LPSTR errorText = NULL;</div>
+<div class="line"><span class="lineno">   75</span>        FormatMessageA(</div>
+<div class="line"><span class="lineno">   76</span>            FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,</div>
+<div class="line"><span class="lineno">   77</span>            NULL,</div>
+<div class="line"><span class="lineno">   78</span>            GetLastError(),</div>
+<div class="line"><span class="lineno">   79</span>            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),</div>
+<div class="line"><span class="lineno">   80</span>            (LPSTR)&amp;errorText,</div>
+<div class="line"><span class="lineno">   81</span>            0,</div>
+<div class="line"><span class="lineno">   82</span>            NULL);</div>
+<div class="line"><span class="lineno">   83</span>        <span class="keyword">const</span> <span class="keywordtype">string</span> errorStr = errorText;</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordtype">string</span> msg = <a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(fmtStr, errorStr);</div>
+<div class="line"><span class="lineno">   86</span>        MessageBoxA(NULL, msg.c_str(), <span class="stringliteral">&quot;Error&quot;</span>, MB_ICONERROR | MB_OK);</div>
+<div class="line"><span class="lineno">   87</span>        LocalFree(errorText);</div>
+<div class="line"><span class="lineno">   88</span>    }</div>
+<div class="ttc" id="anamespace_utils_html_a1be1e6106c4ac75be529963a672f3038"><div class="ttname"><a href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a></div><div class="ttdeci">string dformat(std::string_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00067">Utils.h:67</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00067">dformat()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_aad1c305219375bf7d3fc42f22b325710_cgraph.png" border="0" usemap="#anamespace_utils_aad1c305219375bf7d3fc42f22b325710_cgraph" alt=""/></div>
+<map name="anamespace_utils_aad1c305219375bf7d3fc42f22b325710_cgraph" id="anamespace_utils_aad1c305219375bf7d3fc42f22b325710_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,146,32"/>
+<area shape="rect" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038" title=" " alt="" coords="194,5,292,32"/>
+<area shape="poly" title=" " alt="" coords="146,16,179,16,179,21,146,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_utils_aad1c305219375bf7d3fc42f22b325710_icgraph.png" border="0" usemap="#anamespace_utils_aad1c305219375bf7d3fc42f22b325710_icgraph" alt=""/></div>
+<map name="anamespace_utils_aad1c305219375bf7d3fc42f22b325710_icgraph" id="anamespace_utils_aad1c305219375bf7d3fc42f22b325710_icgraph">
+<area shape="rect" title=" " alt="" coords="596,5,736,32"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a14fd7ace25a44831aa57b9ac432860e0" title=" " alt="" coords="426,5,548,32"/>
+<area shape="poly" title=" " alt="" coords="581,21,548,21,548,16,581,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
+<area shape="poly" title=" " alt="" coords="412,21,379,21,379,16,412,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
+<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="abdc36608727de989652b34f84852737c" name="abdc36608727de989652b34f84852737c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdc36608727de989652b34f84852737c">&#9670;&#160;</a></span>WriteDebugLog()</h2>
 
@@ -131,11 +764,36 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00049">49</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>        ::OutputDebugStringA(msg.c_str());</div>
-<div class="line"><span class="lineno">   52</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_utils_8h_source.html#l00057">57</a> of file <a class="el" href="_utils_8h_source.html">Utils.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>    {</div>
+<div class="line"><span class="lineno">   59</span>        ::OutputDebugStringA(msg.c_str());</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a15790a9bc9887c45b6728c6b8ef150ae" name="a15790a9bc9887c45b6728c6b8ef150ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15790a9bc9887c45b6728c6b8ef150ae">&#9670;&#160;</a></span>ExeName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Utils::ExeName = initExeName()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00063">63</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

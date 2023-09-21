@@ -1,5 +1,14 @@
 <map id="GetMsgProc" name="GetMsgProc">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,100,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title=" " alt="" coords="148,5,308,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,16,133,16,133,21,100,21"/>
+<area shape="rect" id="Node000001" title="the exported hook for the windows&#45;message procedure" alt="" coords="5,61,100,88"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="148,61,308,88"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,72,133,72,133,77,100,77"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="601,7,809,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="252,58,299,36,355,17,414,8,474,4,587,6,587,11,474,9,415,14,357,23,301,41,254,63"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="372,32,537,59"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="308,62,357,55,358,61,309,67"/>
+<area shape="rect" id="Node000005" href="$class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="363,83,547,125"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="309,82,348,87,347,93,308,88"/>
+<area shape="rect" id="Node000006" href="$class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="356,149,553,176"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="255,86,301,110,357,135,379,142,377,147,355,140,299,115,252,91"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="538,34,586,29,587,35,538,40"/>
 </map>

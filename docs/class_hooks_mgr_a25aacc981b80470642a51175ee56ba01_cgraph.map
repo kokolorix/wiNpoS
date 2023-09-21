@@ -1,0 +1,22 @@
+<map id="HooksMgr::setHooks" name="HooksMgr::setHooks">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,149,83"/>
+<area shape="rect" id="Node000002" href="$_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title="the exported hook for the main window procedure" alt="" coords="197,19,294,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,53,182,43,183,49,141,58"/>
+<area shape="rect" id="Node000005" href="$_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="198,81,293,108"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="149,78,184,83,183,88,149,83"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="342,12,506,39"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="294,28,327,26,327,32,294,33"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="554,5,779,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="507,20,539,20,539,25,507,26"/>
+<area shape="rect" id="Node000006" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="344,107,504,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="293,99,330,104,329,109,293,104"/>
+<area shape="rect" id="Node000007" href="$class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="827,81,1034,108"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="483,103,554,92,687,85,812,86,812,92,688,90,555,97,484,109"/>
+<area shape="rect" id="Node000008" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="584,107,749,133"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="505,117,569,117,569,123,505,123"/>
+<area shape="rect" id="Node000009" href="$class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="574,157,759,200"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="483,131,562,151,561,156,482,136"/>
+<area shape="rect" id="Node000010" href="$class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53" title="processes the WM_NCLBUTTONDOWN event" alt="" coords="568,224,765,251"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="442,132,491,171,522,192,555,210,574,217,572,222,553,214,519,196,487,175,439,136"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="749,109,812,103,812,109,750,115"/>
+</map>

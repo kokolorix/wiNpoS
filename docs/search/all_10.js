@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['uninstall_0',['uninstall',['../class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5',1,'HooksMgr']]],
-  ['unload_1',['unload',['../class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98',1,'HooksMgr']]],
-  ['utils_2',['Utils',['../namespace_utils.html',1,'']]],
-  ['utils_2ecpp_3',['Utils.cpp',['../_utils_8cpp.html',1,'']]],
-  ['utils_2eh_4',['Utils.h',['../_utils_8h.html',1,'']]]
+  ['targetingcurrentwindow_0',['targetingCurrentWindow',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a07ca8191dfb6c925c358b89ba1d709b6',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
+  ['targetingwindow_1',['targetingWindow',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#aa31c1367798e305b6c4aca23efeb3353',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
+  ['targetver_2eh_2',['targetver.h',['../targetver_8h.html',1,'']]],
+  ['thumbnailtoolbar_3',['thumbnailtoolbar',['../class_thumbnail_toolbar.html',1,'ThumbnailToolbar'],['../class_thumbnail_toolbar.html#a44a36d7bcf052a3b864e810f7a861f04',1,'ThumbnailToolbar::ThumbnailToolbar()'],['../dllmain_8cpp.html#a56d00a0d1f982ac466b8bd3584be4e35',1,'thumbnailToolbar:&#160;dllmain.cpp']]],
+  ['thumbnailtoolbar_2ecpp_4',['ThumbnailToolbar.cpp',['../_thumbnail_toolbar_8cpp.html',1,'']]],
+  ['thumbnailtoolbar_2eh_5',['ThumbnailToolbar.h',['../_thumbnail_toolbar_8h.html',1,'']]]
 ];

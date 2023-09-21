@@ -27,12 +27,13 @@ var NAVTREE =
   [ "wiNpoS", "index.html", [
     [ "Description", "index.html#autotoc_md4", null ],
     [ "Entrance points", "index.html#autotoc_md5", [
-      [ "Interfaces", "index.html#autotoc_md6", null ],
-      [ "Classes", "index.html#autotoc_md7", null ]
+      [ "Files", "index.html#autotoc_md6", null ],
+      [ "Classes", "index.html#autotoc_md7", null ],
+      [ "Namespaces", "index.html#autotoc_md8", null ]
     ] ],
-    [ "Overviews", "index.html#autotoc_md8", null ],
-    [ "External documentations", "index.html#autotoc_md9", null ],
-    [ "In Action", "index.html#autotoc_md10", null ],
+    [ "Overviews", "index.html#autotoc_md9", null ],
+    [ "External documentations", "index.html#autotoc_md10", null ],
+    [ "In Action", "index.html#autotoc_md11", null ],
     [ "wiNpoS", "md__r_e_a_d_m_e.html", [
       [ "Description", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "In Action", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
@@ -41,7 +42,8 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -50,7 +52,8 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
