@@ -97,5 +97,57 @@ void Utils::WriteDebugLog(std::string msg)
 }
 
 #endif
+/**
+ * @brief private stuff to determine the top level windows
+*/
+namespace
+{
+	using WndVector = std::vector<HWND>;
+
+	BOOL CALLBACK EnumWindowsProc(HWND   hWnd, LPARAM lParam)
+	{
+		WndVector& hWnds = *reinterpret_cast<WndVector*>(lParam);
+		hWnds.push_back(hWnd);
+		return TRUE;
+	}
+
+	WndVector GetDesktopWnds()
+	{
+		WndVector hWnds;
+		auto threadId = GetCurrentThreadId();
+		auto hDesktop = GetThreadDesktop(threadId);
+
+		auto res = EnumDesktopWindows(hDesktop, EnumWindowsProc, (LPARAM)&hWnds);
+
+		return hWnds;	//EnumDesktopWindows()
+	}
+}
+/*
+ * @brief get the top level window for the given process- and thread-id
+ * @param threadId 
+ * @param processId 
+ * @return 
+*/
+Utils::GetMainWndRes Utils::GetMainWnd(DWORD threadId /*= 0*/, DWORD processId /*= 0*/)
+{
+	auto wnds = GetDesktopWnds();
+
+	processId = processId ? processId : GetCurrentProcessId();
+
+	for (HWND hWnd : wnds)
+	{
+		DWORD wndProcessId = NULL;
+		auto wndThreadId = GetWindowThreadProcessId(hWnd, &wndProcessId);
+		if (processId == wndProcessId && (threadId == 0 || wndThreadId == threadId))
+		{
+			HWND hMainWnd = GetAncestor(hWnd, GA_ROOT);
+			GetMainWndRes res = { hMainWnd, wndThreadId };
+			return res;
+		}
+	}
+
+	GetMainWndRes res = { 0 };
+	return res;
+}
 
 

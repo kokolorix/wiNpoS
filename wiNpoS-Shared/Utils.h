@@ -68,6 +68,11 @@ namespace Utils
 	{
 		return std::vformat(rt_fmt_str, std::make_format_args(args...));
 	}
+	template <typename... Args>
+	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args) 
+	{
+		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
+	}
 
 	inline void ShowLastError(const string fmtStr)
 	{
@@ -113,8 +118,9 @@ namespace Utils
 	template<typename T, typename M, typename F>	inline bool check_one_bit(M bitmask, F val) { return (((T)val) & ((T)bitmask)) != 0; }
 	template<typename T, typename M, typename F>	inline M set_bits(M bitmask, F val = 0) { return ((T)val |= (T)bitmask); }
 	template<typename T, typename M, typename F>	inline M clear_bits(M bitmask, F val = 0) { return (T)val &= ~(T)bitmask; }
-
 }
+using Utils::dformat;
+using Utils::dwformat;
 
 using Utils::is_one_of;
 using Utils::is_each_of;
@@ -124,3 +130,18 @@ using Utils::check_one_bit;
 using Utils::set_bits;
 using Utils::clear_bits;
 
+namespace Utils
+{
+	struct GetMainWndRes
+	{
+		HWND hMainWnd;
+		uint32_t wndThreadId;
+
+		operator HWND () const { return hMainWnd; }
+		operator bool() const { return hMainWnd != NULL; }
+	};
+
+	GetMainWndRes GetMainWnd(DWORD threadId = 0, DWORD processId = 0);
+}
+using Utils::GetMainWndRes;
+using Utils::GetMainWnd;

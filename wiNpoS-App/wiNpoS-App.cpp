@@ -146,8 +146,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 namespace
 {
-
-	bool targetingWindow = false;
+	DWORD targetingWindowId = 0;
+	//bool targetingWindow = false;
 	HWND targetingCurrentWindow = NULL;
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -205,13 +205,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 {
 						 SetCapture(hWnd);
 						 SetCursor(LoadCursor(NULL, IDC_CROSS));
-						 targetingWindow = true;
+						 targetingWindowId = wmId;
 						 targetingCurrentWindow = NULL;
 					 }
 					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
 					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+					 break;
+				 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
+						 SetCapture(hWnd);
+						 SetCursor(LoadCursor(NULL, IDC_CROSS));
+						 targetingWindowId = wmId;
+						 targetingCurrentWindow = NULL;
 					 break;
 				 case IDM_FILE_OPEN_CINFIG_DIR:
                 config.openFolder();
@@ -224,7 +230,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		 break;
 		 case WM_LBUTTONDOWN:
 			 {
-				 if (targetingWindow)
+				 if (targetingWindowId)
 				 {
 					 // Send the window to the bottom.
 					 SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
@@ -234,7 +240,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 break;
 		 case WM_MOUSEMOVE:
 			 {
-				 if (targetingWindow)
+				 if (targetingWindowId)
 				 {
 					 POINT cursorPos;
 					 HWND windowUnderMouse;
@@ -242,8 +248,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 GetCursorPos(&cursorPos);
 					 windowUnderMouse = WindowFromPoint(cursorPos);
 					 ULONG processId = 0;
-					 ULONG threadId = GetWindowThreadProcessId(targetingCurrentWindow, &processId);
-					 threadId = threadId;
+					 ULONG threadId = GetWindowThreadProcessId(windowUnderMouse, &processId);
+					 windowUnderMouse = GetMainWnd(threadId, processId);
 					 if(windowUnderMouse != hWnd)
 					 {
 						 //FlashWindow(windowUnderMouse, true);
@@ -255,7 +261,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 break;
 		 case WM_LBUTTONUP:
 			 {
-				 if (targetingWindow && targetingCurrentWindow != hWnd)
+				 if (targetingWindowId && targetingCurrentWindow != hWnd)
 				 {
 					 SetCursor(LoadCursor(NULL, IDC_ARROW));
 
@@ -269,9 +275,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 GetWindowRect(hWnd, &rect);
 					 InvalidateRect(hWnd, &rect, TRUE);
 
-					 targetingWindow = false;
+					 targetingWindowId = 0;
 					 targetingCurrentWindow = NULL;
 					 ReleaseCapture();
+
+					 switch (targetingWindowId)
+					 {
+						 case IDM_FILE_ATTACH_TO_WND:
+							 AttachToProcess(processId);
+							 break;
+						 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
+							 WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_CREATE_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_CREATE_TASK_TOOLBAR));
+							 assert(PostMessage( targetingCurrentWindow, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+							 break;
+						 default:
+							 break;
+					 }
 
 					 AttachToProcess(processId);
 				 }
@@ -279,13 +298,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 break;
 		 case WM_KEYDOWN :
 			 {
-				 if (targetingWindow)
+				 if (targetingWindowId)
 				 {
 					 if (wParam == VK_ESCAPE)
 					 {
 						 SetCursor(LoadCursor(NULL, IDC_ARROW));
 						 ReleaseCapture();
-						 targetingWindow = false;
+						 targetingWindowId = 0;
 						 targetingCurrentWindow = NULL;
 					 }
 				 }
@@ -348,9 +367,10 @@ DWORD WINAPI NewWindowProc(_In_ LPVOID lpParameter)
 
 HWND CreateNewWindow()
 {
+	std::wstring title = dwformat(L"{} - {}({})", szTitle, GetCurrentProcessId(), GetCurrentThreadId());
 	HWND hWnd = CreateWindow(
 		szWindowClass,
-		szTitle,
+		title.c_str(),
 		WS_OVERLAPPEDWINDOW,
 		config.Rect.left,
 		config.Rect.top,
@@ -449,7 +469,7 @@ void DrawWindowBorderForTargeting(_In_ HWND hWnd)
 		// Get an inversion effect.
 		SetROP2(hdc, R2_NOT);
 
-		pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0x00, 0x00, 0x00));
+		pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0x00, 0xFF, 0x00));
 		SelectPen(hdc, pen);
 
 		brush = GetStockBrush(NULL_BRUSH);

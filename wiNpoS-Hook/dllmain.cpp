@@ -15,17 +15,6 @@ thread_local HHOOK hhGetMessageHookProc = NULL;
 thread_local HHOOK hhShellHookProc = NULL;
 thread_local HRESULT coInit = S_FALSE;
 
-struct GetMainWndRes
-{
-	HWND hMainWnd;
-	uint32_t wndThreadId;
-
-	operator HWND () const { return hMainWnd; }
-	operator bool() const { return hMainWnd != NULL; }
-};
-using WndVector = std::vector<HWND>;
-
-GetMainWndRes GetMainWnd(DWORD currentThreadId = 0);
 LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam);
 LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
@@ -42,7 +31,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 			//	Sleep(500);
 			//}
 			hInstance = hModule;
-			GetMainWndRes mw = GetMainWnd(0);
+			GetMainWndRes mw = GetMainWnd(); // for current process and thread
 			if (mw) // only apps with main window 
 			{
 
@@ -53,7 +42,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 
 					PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
 				}
-				else	// otherweise its a attach by infiltrated thread
+				else	// otherwise its a attach by infiltrated thread
 				{		// here we must start a new thread, to release the calling process
 
 					std::thread t([mw]()
@@ -61,8 +50,9 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 							hhGetMessageHookProc =
 								SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
 
-							PostMessage(mw.hMainWnd, MT_HOOK_MSG_REGISTER_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-							PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
+							PostMessage(mw.hMainWnd, MT_HOOK_MSG_REGISTER_THREAD_HOOK, 0, 0);
+							//PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentThreadId(), (LPARAM)GetCurrentThread());
+							PostMessage(mw.hMainWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
 
 							MSG msg;
 							while (GetMessage(&msg, NULL, 0, 0))
@@ -137,9 +127,9 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 						hr = thumbnailToolbar.initialize(hInstance, pMsg->hwnd);
 					}
 					if (FAILED(hr))
-						WRITE_DEBUG_LOG(format("Initialize of task toolbar failed with {:#010x} for {}", hr, Utils::ExeName));
+						WRITE_DEBUG_LOG(format("Initialize of task toolbar failed with {:#018x} for {}", hr, Utils::ExeName));
 					else
-						WRITE_DEBUG_LOG(format("Initialize of task toolbar succede with {:#010x} for {}", hr, Utils::ExeName));
+						WRITE_DEBUG_LOG(format("Initialize of task toolbar succede with {:#018x} for {}", hr, Utils::ExeName));
 
 					uint32_t sourceThreadId = (uint32_t)pMsg->wParam;
 					if(sourceThreadId != GetCurrentThreadId())
@@ -165,51 +155,6 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	}
 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
-}
-
-WndVector GetDesktopWnds();
-
-GetMainWndRes GetMainWnd(DWORD currentThreadId /*= 0*/)
-{
-	auto wnds = GetDesktopWnds();
-
-	auto currentProcessId = GetCurrentProcessId();
-
-	for (HWND hWnd : wnds) 
-	{
-		DWORD wndProcessId = NULL;
-		auto wndThreadId = GetWindowThreadProcessId(hWnd, &wndProcessId);
-		if (currentProcessId == wndProcessId && (currentThreadId == 0 || wndThreadId == currentThreadId))
-		{
-			HWND hMainWnd = GetAncestor(hWnd, GA_ROOT);
-			GetMainWndRes res = { hMainWnd, wndThreadId };
-			return res;
-		}
-	}
-
-	GetMainWndRes res = { 0 };
-	return res;
-}
-
-namespace
-{
-	BOOL CALLBACK EnumWindowsProc(HWND   hWnd, LPARAM lParam)
-	{
-		WndVector& hWnds = *reinterpret_cast<WndVector*>(lParam);
-		hWnds.push_back(hWnd);
-		return TRUE;
-	}
-}
-
-WndVector GetDesktopWnds()
-{
-	WndVector hWnds;
-	auto threadId = GetCurrentThreadId();
-	auto hDesktop = GetThreadDesktop(threadId);
-
-	auto res = EnumDesktopWindows(hDesktop, EnumWindowsProc, (LPARAM)&hWnds);
-
-	return hWnds;	//EnumDesktopWindows()
 }
 
 LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
