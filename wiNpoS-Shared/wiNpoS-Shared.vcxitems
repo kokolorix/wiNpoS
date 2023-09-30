@@ -28,4 +28,7 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\wiNpoS.md" />
+  </ItemGroup>
 </Project>

@@ -44,3 +44,8 @@
 /wiNpoS-Hook/x64/Release
 /wiNpoS-Hook/*.user
 /wiNpoS-App/*.user
+/wiNpoS-App/wiNpoS-App.aps
+
+wiNpoS-Support/Win32/Release/
+
+*.user

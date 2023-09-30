@@ -30,6 +30,7 @@ INT_PTR CALLBACK		About(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI			NewWindowProc(_In_ LPVOID lpParameter);
 HWND						CreateNewWindow();
 void						AttachToProcess(ULONG processId);
+void						DetachFromProcess(ULONG targetPid, HINSTANCE hInstance);
 void						DrawWindowBorderForTargeting(_In_ HWND hWnd);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -148,7 +149,7 @@ namespace
 {
 	DWORD targetingWindowId = 0;
 	//bool targetingWindow = false;
-	HWND targetingCurrentWindow = NULL;
+	HWND hTargetingCurrentWnd = NULL;
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -167,7 +168,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 DestroyWindow(hWnd);
 					 break;
 				 case IDM_FILE_ATTACH:
-					 hooks.attach();
+					 hooks.loadHook();
+					 assert(PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
@@ -180,7 +182,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_DISABLED);
 					 DrawMenuBar(hWnd);
-					 hooks.detach();
+					 assert(PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+					 assert(PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+					 assert(PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId()));
+					 //hooks.detach();
 					 break;
 				 case IDM_FILE_INSTALL:
 					 hooks.install();
@@ -191,6 +196,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 DrawMenuBar(hWnd); 
 					 break;
 				 case IDM_FILE_UNINSTALL:
+					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0));
 					 hooks.uninstall();
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
@@ -202,22 +208,28 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 CreateThread(NULL, 0, NewWindowProc, NULL, 0, NULL);
 					 break;
 				 case IDM_FILE_ATTACH_TO_WND:
-					 {
-						 SetCapture(hWnd);
-						 SetCursor(LoadCursor(NULL, IDC_CROSS));
-						 targetingWindowId = wmId;
-						 targetingCurrentWindow = NULL;
-					 }
+					 SetCapture(hWnd);
+					 SetCursor(LoadCursor(NULL, IDC_CROSS));
+					 targetingWindowId = wmId;
+					 hTargetingCurrentWnd = NULL;
+					 break;
+				 case IDM_FILE_DETACH_FROM_WND:
+					 SetCapture(hWnd);
+					 SetCursor(LoadCursor(NULL, IDC_CROSS));
+					 targetingWindowId = wmId;
+					 hTargetingCurrentWnd = NULL;
 					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
 					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
 					 break;
 				 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
-						 SetCapture(hWnd);
-						 SetCursor(LoadCursor(NULL, IDC_CROSS));
-						 targetingWindowId = wmId;
-						 targetingCurrentWindow = NULL;
+					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_CREATE_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_CREATE_TASK_TOOLBAR));
+					assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+					 break;
+				 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
+					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_DESTROY_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR));
+					assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0));
 					 break;
 				 case IDM_FILE_OPEN_CINFIG_DIR:
                 config.openFolder();
@@ -243,56 +255,69 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				 if (targetingWindowId)
 				 {
 					 POINT cursorPos;
-					 HWND windowUnderMouse;
+					 HWND hWndUnderMouse;
 
 					 GetCursorPos(&cursorPos);
-					 windowUnderMouse = WindowFromPoint(cursorPos);
+					 hWndUnderMouse = WindowFromPoint(cursorPos);
 					 ULONG processId = 0;
-					 ULONG threadId = GetWindowThreadProcessId(windowUnderMouse, &processId);
-					 windowUnderMouse = GetMainWnd(threadId, processId);
-					 if(windowUnderMouse != hWnd)
+					 ULONG threadId = GetWindowThreadProcessId(hWndUnderMouse, &processId);
+					 hWndUnderMouse = GetMainWnd(threadId, processId);
+					 if(hWndUnderMouse != hWnd)
 					 {
 						 //FlashWindow(windowUnderMouse, true);
-						 DrawWindowBorderForTargeting(windowUnderMouse);
-						 targetingCurrentWindow = windowUnderMouse;
+						 DrawWindowBorderForTargeting(hWndUnderMouse);
+						 hTargetingCurrentWnd = hWndUnderMouse;
 					 }
 				 }
 			 }
 			 break;
 		 case WM_LBUTTONUP:
 			 {
-				 if (targetingWindowId && targetingCurrentWindow != hWnd)
+				 if (targetingWindowId && hTargetingCurrentWnd != hWnd)
 				 {
 					 SetCursor(LoadCursor(NULL, IDC_ARROW));
 
 					 // Bring the window back to the top, and preserve the Always on Top setting.
-					 SetWindowPos(targetingCurrentWindow, HWND_TOP, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+					 SetWindowPos(hTargetingCurrentWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
 
 					 ULONG processId = 0;
-					 ULONG threadId = GetWindowThreadProcessId(targetingCurrentWindow, &processId);
+					 ULONG threadId = GetWindowThreadProcessId(hTargetingCurrentWnd, &processId);
 
 					 RECT rect;
 					 GetWindowRect(hWnd, &rect);
 					 InvalidateRect(hWnd, &rect, TRUE);
 
-					 targetingWindowId = 0;
-					 targetingCurrentWindow = NULL;
-					 ReleaseCapture();
-
 					 switch (targetingWindowId)
 					 {
 						 case IDM_FILE_ATTACH_TO_WND:
 							 AttachToProcess(processId);
+							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+							 break;
+						 case IDM_FILE_DETACH_FROM_WND:
+							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId()));
 							 break;
 						 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
-							 WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_CREATE_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_CREATE_TASK_TOOLBAR));
-							 assert(PostMessage( targetingCurrentWindow, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_CREATE_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+							 break;
+						 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
+							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_DESTROY_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
+							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0));
 							 break;
 						 default:
 							 break;
 					 }
 
-					 AttachToProcess(processId);
+					 targetingWindowId = 0;
+					 hTargetingCurrentWnd = NULL;
+					 ReleaseCapture();
+
+					 //AttachToProcess(processId);
 				 }
 			 }
 			 break;
@@ -305,7 +330,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						 SetCursor(LoadCursor(NULL, IDC_ARROW));
 						 ReleaseCapture();
 						 targetingWindowId = 0;
-						 targetingCurrentWindow = NULL;
+						 hTargetingCurrentWnd = NULL;
 					 }
 				 }
 			 }
@@ -323,6 +348,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 PostQuitMessage(0);
 			 break;
 		 default:
+			 if (message == MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED)
+			 {
+				 HWND hSrcWnd = (HWND)wParam;
+				 if (hWnd == hSrcWnd)
+				 {
+					 hooks.unloadHook();
+				 }
+				 else
+				 {
+					 DWORD wndProcessId = NULL;
+					 auto wndThreadId = GetWindowThreadProcessId(hSrcWnd, &wndProcessId);
+					 HINSTANCE hInstance = (HINSTANCE)lParam;
+					 DetachFromProcess(wndProcessId, hInstance);
+				 }
+			 }
 			 return DefWindowProc(hWnd, message, wParam, lParam);
 	 }
     return 0;
@@ -351,7 +391,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 DWORD WINAPI NewWindowProc(_In_ LPVOID lpParameter)
 {
 	HWND hNewOne = CreateNewWindow();
-	assert(PostMessage(hNewOne, MT_HOOK_MSG_REGISTER_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+	assert(PostMessage(hNewOne, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
 	ShowWindow(hNewOne, SW_SHOW);
 	UpdateWindow(hNewOne);
 
@@ -447,6 +487,63 @@ void AttachToProcess(ULONG targetPid)
 	CloseHandle(hProcess);
 }
 
+void DetachFromProcess(ULONG targetPid, HINSTANCE hInstance)
+{
+	// Open the target process with read/write access
+	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetPid);
+	if (hProcess == NULL)
+		return Utils::ShowLastError("Failed to open process, error {}");
+
+	// Get the address of the LoadLibrary function in the kernel32.dll module
+	HMODULE hKernel32 = GetModuleHandle(_T("kernel32.dll"));
+	if (hKernel32 == NULL)
+		return Utils::ShowLastError("Failed to obtain kernel32.dll handle, error {}");
+
+	FARPROC pFreeLibrary = GetProcAddress(hKernel32, "FreeLibrary");
+	if (pFreeLibrary == nullptr)
+		return Utils::ShowLastError("Failed to obtain LoadLibraryW adress, error {}");
+
+
+	// Allocate memory in the target process to hold the path to the DLL
+	//SIZE_T hSize = sizeof(HMODULE);
+	//LPVOID hRemote = VirtualAllocEx(hProcess, NULL, hSize, MEM_COMMIT, PAGE_READWRITE);
+	//if (hRemote == NULL)
+	//{
+	//	Utils::ShowLastError("Failed to allocate memory in process, error {}");
+	//	CloseHandle(hProcess);
+	//	return;
+	//}
+
+	//// Write the path to the DLL to the allocated memory in the target process
+	//if (!WriteProcessMemory(hProcess, hRemote, hInstance, hSize, NULL))
+	//{
+	//	Utils::ShowLastError("Failed to write to process memory, error {}");
+	//	VirtualFreeEx(hProcess, hRemote, 0, MEM_RELEASE);
+	//	CloseHandle(hProcess);
+	//	return;
+	//}
+
+	SYSTEM_INFO si;
+	GetSystemInfo(&si);
+	// Create a remote thread in the target process to call LoadLibrary with the path to the DLL
+	HANDLE hThread = CreateRemoteThread(hProcess, NULL, si.dwPageSize * 32, (LPTHREAD_START_ROUTINE)pFreeLibrary, (LPVOID)hInstance, 0, NULL);
+	if (hThread == NULL)
+	{
+		Utils::ShowLastError("Failed to create remote thread, error {}");
+		//VirtualFreeEx(hProcess, hRemote, 0, MEM_RELEASE);
+		CloseHandle(hProcess);
+		return;
+	}
+
+	// Wait for the remote thread to finish executing
+	WaitForSingleObject(hThread, INFINITE);
+
+	// Free the memory and close the handles
+	//VirtualFreeEx(hProcess, hRemote, 0, MEM_RELEASE);
+	CloseHandle(hThread);
+	CloseHandle(hProcess);
+}
+
 void DrawWindowBorderForTargeting(_In_ HWND hWnd)
 {
 	RECT rect;
@@ -462,14 +559,14 @@ void DrawWindowBorderForTargeting(_In_ HWND hWnd)
 		HPEN pen;
 		HBRUSH brush;
 
-		penWidth = GetSystemMetrics(SM_CXBORDER) * 3;
+		penWidth = GetSystemMetrics(SM_CXBORDER) * 10;
 
 		oldDc = SaveDC(hdc);
 
 		// Get an inversion effect.
 		SetROP2(hdc, R2_NOT);
 
-		pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0x00, 0xFF, 0x00));
+		pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0x00, 0x00, 0x00));
 		SelectPen(hdc, pen);
 
 		brush = GetStockBrush(NULL_BRUSH);

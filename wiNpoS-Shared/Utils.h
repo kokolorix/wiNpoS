@@ -3,6 +3,7 @@
 #include <xstring>
 #include <format>
 #include <debugapi.h>
+#include <vector>
 
 using std::string;
 using std::format;
@@ -114,10 +115,26 @@ namespace Utils
 		return is_each_of(t, p1) && is_each_of(t, px...);
 	}
 
-	template<typename T, typename M, typename F>	inline bool check_bits(M bitmask, F val) { return ((T)val & (T)bitmask) == bitmask; }
-	template<typename T, typename M, typename F>	inline bool check_one_bit(M bitmask, F val) { return (((T)val) & ((T)bitmask)) != 0; }
-	template<typename T, typename M, typename F>	inline M set_bits(M bitmask, F val = 0) { return ((T)val |= (T)bitmask); }
-	template<typename T, typename M, typename F>	inline M clear_bits(M bitmask, F val = 0) { return (T)val &= ~(T)bitmask; }
+	template<typename T = uint32_t, typename M = T, typename F = T>	
+	inline bool check_bits(M bitmask, F val) 
+	{ 
+		return ((T)val & (T)bitmask) == bitmask; 
+	}
+	template<typename T = uint32_t, typename M = T, typename F = T>	
+	inline bool check_one_bit(M bitmask, F val) 
+	{ 
+		return (((T)val) & ((T)bitmask)) != 0; 
+	}
+	template<typename T = uint32_t, typename M = T, typename F = T>	
+	inline M set_bits(M bitmask, F val = 0) 
+	{
+		return ((T)val |= (T)bitmask); 
+	}
+	template<typename T = uint32_t, typename M = T, typename F = T>	
+	inline M clear_bits(M bitmask, F val = 0)
+	{ 
+		return (T)val &= ~(T)bitmask;
+	}
 }
 using Utils::dformat;
 using Utils::dwformat;
@@ -132,7 +149,7 @@ using Utils::clear_bits;
 
 namespace Utils
 {
-	struct GetMainWndRes
+	struct MainWndRes
 	{
 		HWND hMainWnd;
 		uint32_t wndThreadId;
@@ -141,7 +158,12 @@ namespace Utils
 		operator bool() const { return hMainWnd != NULL; }
 	};
 
-	GetMainWndRes GetMainWnd(DWORD threadId = 0, DWORD processId = 0);
+	MainWndRes GetMainWnd(DWORD threadId = 0, DWORD processId = 0);
+
+	using MainWindResVector = std::vector<MainWndRes>;
+	MainWindResVector GetMainWnds(DWORD threadId = 0, DWORD processId = 0);
 }
-using Utils::GetMainWndRes;
+using Utils::MainWindResVector;
+using Utils::GetMainWnds;
+using Utils::MainWndRes;
 using Utils::GetMainWnd;

@@ -6,6 +6,7 @@
 #include <chrono>
 #include <format>
 #include <vector>
+#include <winuser.h>
 #pragma comment(lib, "Shlwapi.lib")
 
 using std::ofstream;
@@ -103,11 +104,10 @@ void Utils::WriteDebugLog(std::string msg)
 namespace
 {
 	using WndVector = std::vector<HWND>;
-
-	BOOL CALLBACK EnumWindowsProc(HWND   hWnd, LPARAM lParam)
+	BOOL CALLBACK EnumWindowsProc(_In_ HWND hwnd, _In_ LPARAM lParam)
 	{
 		WndVector& hWnds = *reinterpret_cast<WndVector*>(lParam);
-		hWnds.push_back(hWnd);
+		hWnds.push_back(hwnd);
 		return TRUE;
 	}
 
@@ -128,7 +128,7 @@ namespace
  * @param processId 
  * @return 
 */
-Utils::GetMainWndRes Utils::GetMainWnd(DWORD threadId /*= 0*/, DWORD processId /*= 0*/)
+Utils::MainWndRes Utils::GetMainWnd(DWORD threadId /*= 0*/, DWORD processId /*= 0*/)
 {
 	auto wnds = GetDesktopWnds();
 
@@ -140,14 +140,50 @@ Utils::GetMainWndRes Utils::GetMainWnd(DWORD threadId /*= 0*/, DWORD processId /
 		auto wndThreadId = GetWindowThreadProcessId(hWnd, &wndProcessId);
 		if (processId == wndProcessId && (threadId == 0 || wndThreadId == threadId))
 		{
-			HWND hMainWnd = GetAncestor(hWnd, GA_ROOT);
-			GetMainWndRes res = { hMainWnd, wndThreadId };
+			HWND hMainWnd = GetAncestor(hWnd, GA_ROOTOWNER);
+			MainWndRes res = { hMainWnd, wndThreadId };
 			return res;
 		}
 	}
 
-	GetMainWndRes res = { 0 };
+	MainWndRes res = { 0 };
 	return res;
 }
 
+namespace
+{
+	using DesktopNameVector = std::vector<string>;
+	BOOL CALLBACK EnumDesktopProcA(_In_ LPSTR lpszDesktop, _In_ LPARAM lParam)
+	{
+		DesktopNameVector& desktopNames = *reinterpret_cast<DesktopNameVector*>(lParam);
+		desktopNames.push_back(string(lpszDesktop));
+		return TRUE;
+	}
+}
+
+Utils::MainWindResVector Utils::GetMainWnds(DWORD threadId /*= 0*/, DWORD processId /*= 0*/)
+{
+	DesktopNameVector desktopNames;
+	EnumDesktopsA(nullptr, EnumDesktopProcA, (LPARAM)&desktopNames);
+
+	MainWindResVector mainWnds;
+	for (const string dn : desktopNames)
+	{
+		HDESK hDesk = OpenDesktopA(dn.c_str(), 0, FALSE, READ_CONTROL);
+		WndVector hWnds;
+		auto res = EnumDesktopWindows(hDesk, EnumWindowsProc, (LPARAM)&hWnds);
+		CloseDesktop(hDesk);
+		for (HWND hWnd : hWnds)
+		{
+			DWORD wndProcessId = NULL;
+			auto wndThreadId = GetWindowThreadProcessId(hWnd, &wndProcessId);
+			if (processId == wndProcessId && (threadId == 0 || wndThreadId == threadId))
+			{
+				HWND hMainWnd = GetAncestor(hWnd, GA_ROOTOWNER);
+				mainWnds.push_back({ hMainWnd, wndThreadId });
+			}
+		}
+	}
+	return mainWnds;
+}
 

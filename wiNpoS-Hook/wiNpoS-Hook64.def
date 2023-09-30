@@ -1,4 +1,5 @@
 LIBRARY wiNpoS-Hook64
 EXPORTS
+	ShellHookProc
 	CallWndProc
 	GetMsgProc

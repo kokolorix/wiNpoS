@@ -2,6 +2,7 @@
 #include "HooksImpl.h"
 #include "HooksMgr.h"
 #include "Utils.h"
+#include "TaskToolbar.h"
 #include <Shlwapi.h>
 #include <windowsx.h>
 #include <resource.h>
@@ -9,6 +10,20 @@
 #include <future>
 
 extern HINSTANCE hInstance;
+TaskToolbar thumbnailToolbar;
+thread_local HRESULT coInit /*= S_FALSE*/;
+
+/**
+ * @brief  the exported hook for the shell procedure
+ * @param nCode 
+ * @param wParam 
+ * @param lParam 
+ * @return 
+*/
+LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+	return HooksImpl::shellHookProc(nCode, wParam, lParam);
+}
 /**
  * @brief the exported hook for the main window procedure
  * @param nCode 
@@ -42,11 +57,27 @@ namespace
 	{
 		return lr.left + lr.right + lr.right + lr.bottom != 0;
 	}
-	POINT cd = { 0 }; // caption dblclicked
+	POINT cd = { 0 }; // caption dbl clicked
 	bool hasCaptionDblClicked()
 	{
 		return cd.x + cd.y != 0;
 	}
+}
+/**
+ * @brief 
+ * @param nCode 
+ * @param wParam 
+ * @param lParam 
+ * @return 
+*/
+LRESULT CALLBACK HooksImpl::shellHookProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)
+{
+	if (nCode == HSHELL_WINDOWCREATED)
+	{
+		HWND hNewWindow = (HWND)wParam;
+		PostMessage(hNewWindow, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
+	}
+	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 /**
  * @brief here we follow the main message loop of the application
@@ -107,36 +138,36 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 					//	WRITE_DEBUG_LOG(format("WM_MOUSEMOVE: {:#010x} ", pMsg->message));
 					//	break;
 					case WM_SHOWWINDOW:
-						WRITE_DEBUG_LOG(format("WM_SHOWWINDOW: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_SHOWWINDOW: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_GETMINMAXINFO:
-						WRITE_DEBUG_LOG(format("WM_GETMINMAXINFO: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_GETMINMAXINFO: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_WINDOWPOSCHANGING:
-						WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGING: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_WINDOWPOSCHANGING: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_LBUTTONDBLCLK:
-						WRITE_DEBUG_LOG(format("WM_LBUTTONDBLCLK: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_LBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_NCRBUTTONDOWN:
-						WRITE_DEBUG_LOG(format("WM_NCRBUTTONDOWN: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_NCRBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_NCRBUTTONUP:
-						WRITE_DEBUG_LOG(format("WM_NCRBUTTONUP: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_NCRBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_NCLBUTTONDOWN:
-						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDOWN: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						onNcLButtonDown(pMsg);
 						break;
 					case WM_LBUTTONUP:
-						WRITE_DEBUG_LOG(format("WM_LBUTTONUP: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						onLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
-						WRITE_DEBUG_LOG(format("WM_NCLBUTTONUP: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_NCLBUTTONDBLCLK:
-						WRITE_DEBUG_LOG(format("WM_NCLBUTTONDBLCLK: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						onNcLButtonDblClick(pMsg);
 						break;
 					case WM_COMMAND:
@@ -158,9 +189,31 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 								break;
 						}
 					}
-						break;
+					break;
 					default:
+					{
+						if (pMsg->message == MT_HOOK_MSG_CREATE_TASK_TOOLBAR)
+						{
+							WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_CREATE_TASK_TOOLBAR: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+
+							HWND hMainWnd = pMsg->hwnd; // GetAncestor(pMsg->hwnd, GA_ROOT);
+
+							HRESULT hr = thumbnailToolbar.initialize(hInstance, hMainWnd);
+							if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
+							{
+								coInit = CoInitialize(NULL);
+								hr = thumbnailToolbar.initialize(hInstance, hMainWnd);
+							}
+						}
+
+						else if (pMsg->message == MT_HOOK_MSG_DESTROY_TASK_TOOLBAR)
+						{
+							WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_DESTROY_TASK_TOOLBAR: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+							HWND hMainWnd = pMsg->hwnd; // GetAncestor(pMsg->hwnd, GA_ROOT);
+							thumbnailToolbar.uninitialize(hInstance, hMainWnd);
+						}
 						break;
+					}
 				}
 
 				//WRITE_DEBUG_LOG(format("Msg: {} in {}", pMsg->message, Utils::ExeName));
@@ -247,7 +300,7 @@ void HooksImpl::onWindowPosChanged(CWPSTRUCT* pMsg)
 		{
 			if (IsZoomed(pMsg->hwnd))
 			{
-				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#018x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
 				ShowWindow(pMsg->hwnd, SW_NORMAL);
 				SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
 				lr = { 0 };
@@ -392,7 +445,7 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 	RECT wr = { 0 };
 	GetWindowRect(hWnd, &wr);
 
-	if (check_one_bit<uint8_t>(IncWnd::Left, incDir))
+	if (check_one_bit(IncWnd::Left, incDir))
 		wr.left -= diff;
 	if (check_one_bit<uint8_t>(IncWnd::Right, incDir))
 		wr.right += diff;
