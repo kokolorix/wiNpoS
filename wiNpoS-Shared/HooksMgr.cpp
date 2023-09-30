@@ -24,7 +24,8 @@ HMODULE HooksMgr::load()
 */
 void HooksMgr::unloadHook(HMODULE hModule)
 {
-	assert(FreeLibrary(hModule));
+	BOOL libraryFreed = FreeLibrary(hModule);
+	assert(libraryFreed);
 }
 
 /**

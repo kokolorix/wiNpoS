@@ -169,7 +169,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 break;
 				 case IDM_FILE_ATTACH:
 					 hooks.loadHook();
-					 assert(PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+					 PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
@@ -182,9 +182,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_DISABLED);
 					 DrawMenuBar(hWnd);
-					 assert(PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
-					 assert(PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
-					 assert(PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId()));
+					 PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					 PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					 PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
 					 //hooks.detach();
 					 break;
 				 case IDM_FILE_INSTALL:
@@ -196,7 +196,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 DrawMenuBar(hWnd); 
 					 break;
 				 case IDM_FILE_UNINSTALL:
-					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0));
+					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
 					 hooks.uninstall();
 					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
 					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
@@ -221,15 +221,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 break;
 				 case IDM_FILE_SEND_UNLOAD:
 					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
-					 assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					 break;
 				 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
 					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_CREATE_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_CREATE_TASK_TOOLBAR));
-					assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
 					 break;
 				 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
 					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_DESTROY_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR));
-					assert(PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0));
+					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
 					 break;
 				 case IDM_FILE_OPEN_CINFIG_DIR:
                 config.openFolder();
@@ -292,22 +292,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 						 case IDM_FILE_ATTACH_TO_WND:
 							 AttachToProcess(processId);
 							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 							 break;
 						 case IDM_FILE_DETACH_FROM_WND:
 							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId()));
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
 							 break;
 						 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
 							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_CREATE_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0));
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
 							 break;
 						 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
 							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_DESTROY_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
-							 assert(PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0));
+							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
 							 break;
 						 default:
 							 break;
@@ -391,7 +391,7 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 DWORD WINAPI NewWindowProc(_In_ LPVOID lpParameter)
 {
 	HWND hNewOne = CreateNewWindow();
-	assert(PostMessage(hNewOne, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId()));
+	PostMessage(hNewOne, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 	ShowWindow(hNewOne, SW_SHOW);
 	UpdateWindow(hNewOne);
 

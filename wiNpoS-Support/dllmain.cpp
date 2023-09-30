@@ -37,7 +37,7 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 					assert(hhGetMessageHookProc == NULL);
 					hookThreadInstalled = false;
 					HWND hSrcWnd = (HWND)pMsg->wParam;
-					assert(PostMessage(hSrcWnd, MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED, (WPARAM)pMsg->hwnd, (LPARAM)hInstance));
+					PostMessage(hSrcWnd, MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED, (WPARAM)pMsg->hwnd, (LPARAM)hInstance);
 				}
 
 				//else if (pMsg->message == MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK)

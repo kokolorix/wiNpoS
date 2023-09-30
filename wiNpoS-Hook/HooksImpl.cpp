@@ -493,6 +493,7 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 	// async, because the behavior when clicking on the border is otherwise strange
 	auto resFuture = std::async(std::launch::async, [hWnd, wp]()
 		{
-			assert(SetWindowPlacement(hWnd, &wp));
+			BOOL wndReplaced = SetWindowPlacement(hWnd, &wp);
+			assert(wndReplaced);
 		});
 }
