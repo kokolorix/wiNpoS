@@ -11,7 +11,7 @@ App that displays a configurable positioning window starting from the title bar 
 
 ### Files
 
-- dllmain.cpp
+- wiNpoS-Hook/dllmain.cpp
 - wiNpoS-App.cpp
 
 ### Classes
