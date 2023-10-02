@@ -19,6 +19,7 @@ private:
 	void onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir = IncWnd::All, POINT* pCursorPos = nullptr, LRESULT hitTest = HTNOWHERE);
 	void onNcLButtonDown(MSG* pMsg);
 	void onLButtonUp(MSG* pMsg);
+	void onClosePosWnd(MSG* pMsg, POINT pt);
 	void onShowPosWnd(MSG* pMsg, POINT pt);
 };
 

@@ -160,11 +160,8 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
 						hooks.onNcLButtonDown(pMsg);
-						break;
-					case WM_LBUTTONUP:
-						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						hooks.onLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
@@ -172,6 +169,14 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						hooks.onNcLButtonDblClick(pMsg);
+						break;
+					case WM_LBUTTONDOWN:
+						WRITE_DEBUG_LOG(dformat("WM_LBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
+						break;
+					case WM_LBUTTONUP:
+						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						hooks.onLButtonUp(pMsg);
 						break;
 					case WM_COMMAND:
 					{
@@ -188,6 +193,13 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 							case ID_SYSMENU_DECREMENTWINDOWSIZE:
 								hooks.onIncrementWindow(pMsg, -10);
 								break;
+							case ID_SYSMENU_SHOWPOSWINDOW:
+							{
+								POINT pt = { 0 };
+								GetCursorPos(&pt);
+								hooks.onShowPosWnd(pMsg, pt);
+								break;
+							}
 							default:
 								break;
 						}
@@ -503,6 +515,17 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 			assert(wndReplaced);
 		});
 }
+
+/**
+ * @brief 
+ * @param pMsg 
+ * @param pt 
+*/
+void HooksImpl::onClosePosWnd(MSG* pMsg, POINT pt)
+{
+	_winPosWnd.destroy();
+}
+
 /**
  * @brief 
  * @param pMsg 
@@ -510,5 +533,5 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 */
 void HooksImpl::onShowPosWnd(MSG* pMsg, POINT pt)
 {
-	_winPosWnd.show(pt, pMsg->hwnd);
+	_winPosWnd.create(pt, pMsg->hwnd);
 }

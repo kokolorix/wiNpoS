@@ -3,6 +3,7 @@
 #include <string>
 #include <ranges>
 #include "Utils.h"
+#include <algorithm>
 
 extern HINSTANCE hInstance;
 
@@ -43,52 +44,125 @@ namespace
 	BOOL CALLBACK Monitorenumproc(HMONITOR hMon, HDC hDC, LPRECT pRECT, LPARAM lParam)
 	{
 		std::vector<MONITORINFOEX>& mInfos = *(std::vector<MONITORINFOEX>*)lParam;
-		MONITORINFOEX mi = { 0 };
-		mi.cbSize = sizeof(MONITORINFOEX);
+		MONITORINFOEX mi = { sizeof(MONITORINFOEX) };
 		GetMonitorInfo(hMon, &mi);
 		mInfos.push_back(mi);
 		return TRUE;
 	}
 }
-RECT WinPosWnd::calculateWndRect(POINT pt)
+
+/**
+ * @brief 
+ * @param monitorRects 
+ * @param pt 
+ * @return 
+*/
+RECT WinPosWnd::getTotalPreviewRect(const RectVector& monitorRects, POINT pt)
 {
-	std::vector<MONITORINFOEX> monInfos;
-	EnumDisplayMonitors(NULL, NULL, Monitorenumproc, (LPARAM)&monInfos);
-
-	using std::views::transform;
-	//using std::views::filter;
-	using std::ranges::min;
-	using std::ranges::max;
-
-	// determine offset from screens with different resolutions
-	LONG ox = min(monInfos | transform([](const MONITORINFOEX& mi) { return mi.rcWork.left; }));
-	LONG oy = min(monInfos | transform([](const MONITORINFOEX& mi) {return mi.rcWork.top; }));
-
-
-	return { pt.x - 150, pt.y, pt.x + 150, pt.y + 300 };
+	RECT tpr = { 0 };
+	for (const RECT& r : monitorRects)
+	{
+		RECT pr = tpr;
+		UnionRect(&tpr, &pr, &r);
+	}
+	tpr = ScaleRect(tpr, F);
+	OffsetRect(&tpr, pt.x - ((tpr.right - tpr.left) / 2), pt.y);
+	return tpr;
 }
 
-void WinPosWnd::show(POINT pt, HWND hParentWnd)
+/**
+ * @brief 
+ * @param monitorRects 
+ * @param totalPreviewRect 
+ * @param pt 
+ * @return 
+*/
+WinPosWnd::RectVector WinPosWnd::getPreviewRects(const RectVector& monitorRects, RECT& totalRect, POINT& pt)
+{
+	using std::views::transform;
+	using std::ranges::to;
+	LONG xoffset = 0;
+	return monitorRects | transform([&xoffset, &totalRect, pt](RECT r)
+		{
+			OffsetRect(&r, -r.left, 0);
+			r = ScaleRect(r, F);
+			OffsetRect(&r, pt.x - ((totalRect.right - totalRect.left) / 2) + xoffset, pt.y);
+			xoffset += (r.right - r.left) - GetSystemMetrics(SM_CXBORDER);
+			return  r;
+		}) | to<RectVector>();
+}
+
+/**
+ * @brief if the window looks beyond the edge of the monitor,
+ *			 it is moved so that it is displayed as a whole on this monitor
+ * @param previewRects 
+ * @param pt 
+ * @param totalRect 
+*/
+void WinPosWnd::correctEdgecases(RectVector& previewRects, POINT pt, const RECT& totalRect)
+{
+	HMONITOR hMonitor = MonitorFromPoint(pt, MONITOR_DEFAULTTONEAREST);
+	if (hMonitor)
+	{
+		MONITORINFOEX mi = { sizeof(MONITORINFOEX) };
+		GetMonitorInfo(hMonitor, &mi);
+		const RECT& mr = mi.rcWork;
+
+		using std::make_tuple;
+		using std::get;
+		enum { X, Y };
+
+		auto offset = make_tuple(0, 0);
+
+		if (totalRect.left < mr.left)
+			offset = make_tuple(mr.left - totalRect.left, get<Y>(offset));
+
+		if (totalRect.right > mr.right)
+			offset = make_tuple(-(totalRect.right - mr.right), get<Y>(offset));
+
+		if (totalRect.top < mr.top)
+			offset = make_tuple(get<X>(offset), mr.top - totalRect.top);
+
+		if (totalRect.bottom > mr.bottom)
+			offset = make_tuple(get<X>(offset), -(totalRect.bottom - mr.bottom));
+
+		if (offset != std::make_tuple(0, 0))
+		{
+			for (RECT& r : previewRects)
+				OffsetRect(&r, get<X>(offset), get<Y>(offset));
+		}
+	}
+}
+
+/**
+ * @brief 
+ * @param pt 
+ * @param hParentWnd 
+*/
+void WinPosWnd::create(POINT pt, HWND hParentWnd)
 {
 	if (wndClass == nullptr)
 		wndClass = initWndClass();
 
-	for (HWND hWnd : _hWnds)
-		DestroyWindow(hWnd);
-	_hWnds.clear();
+	destroy();
 
-	std::vector<MONITORINFOEX> monInfos;
-	EnumDisplayMonitors(NULL, NULL, Monitorenumproc, (LPARAM)&monInfos);
+	using MonitorInfos = std::vector<MONITORINFOEX>;
+	MonitorInfos monitorInfos;
+	EnumDisplayMonitors(NULL, NULL, Monitorenumproc, (LPARAM)&monitorInfos);
+	
+	using std::views::transform;
+	using std::ranges::to;
+	RectVector monitorRects = monitorInfos | transform([](const MONITORINFOEX& mi) { return mi.rcWork; }) | to<RectVector>();	
+	
+	RECT totalRect = getTotalPreviewRect(monitorRects, pt);
+	RectVector previewRects = getPreviewRects(monitorRects, totalRect, pt);
 
-	LONG xoffset = 0;
-	for (const MONITORINFOEX& mi : monInfos)
+	correctEdgecases(previewRects, pt, totalRect);
+
+
+	//for (const MONITORINFOEX& mi : monitorInfos)
+	for(const RECT& r : previewRects)
 	{
-		RECT r = mi.rcWork;
-		OffsetRect(&r, -r.left, 0);
-		r = ScaleRect(r, F);
-		OffsetRect(&r, pt.x + xoffset, pt.y);
-		xoffset += (r.right - r.left) - GetSystemMetrics(SM_CXBORDER);
-
 		HWND hWnd = CreateWindowEx(
 			WS_EX_TOPMOST, // | WS_EX_TOOLWINDOW,// Optional window styles.
 			wndClass->lpszClassName,                     // Window class
@@ -109,10 +183,26 @@ void WinPosWnd::show(POINT pt, HWND hParentWnd)
 		WinPosWnd::hWndToWinPosMap[hWnd] = this;
 	}
 	SetTimer(_hWnds.front(), CLOSE_TIMER, CLOSE_TIMEOUT, (TIMERPROC)nullptr);
-	//RECT rct = calculateWndRect(pt);
-
 }
 
+/**
+ * @brief 
+*/
+void WinPosWnd::destroy()
+{
+	for (HWND hWnd : _hWnds)
+		DestroyWindow(hWnd);
+	_hWnds.clear();
+}
+
+/**
+ * @brief 
+ * @param hWnd 
+ * @param message 
+ * @param wParam 
+ * @param lParam 
+ * @return 
+*/
 LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 
@@ -121,9 +211,7 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		case WM_TIMER:
 			if (wParam == CLOSE_TIMER)
 			{
-				for (HWND hWnd : _hWnds)
-					DestroyWindow(hWnd);
-				_hWnds.clear();
+				destroy();
 			}
 			break;
 		case WM_DESTROY:
@@ -132,9 +220,7 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 			break;
 		}
 		case WM_LBUTTONUP:
-			for (HWND hWnd : _hWnds)
-				DestroyWindow(hWnd);
-			_hWnds.clear();
+			destroy();
 			break;
 		case WM_MOUSEMOVE:
 			SetTimer(_hWnds.front(), CLOSE_TIMER, CLOSE_TIMEOUT, (TIMERPROC)nullptr);

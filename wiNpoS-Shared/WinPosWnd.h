@@ -8,7 +8,9 @@
 class WinPosWnd
 {
 public:
-	void show(POINT pt, HWND hParentWnd);
+	void create(POINT pt, HWND hParentWnd);
+
+	void destroy();
 
 private:
 
@@ -18,10 +20,15 @@ private:
 	std::vector<HWND>  _hWnds;
 
 private:
+	using RectVector = std::vector<RECT>;
+
 	static WNDCLASS* initWndClass();
 	static LRESULT CALLBACK WndPosWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 	
-	RECT calculateWndRect(POINT pt);
+	RECT getTotalPreviewRect(const RectVector& monitorRects, POINT pt);
+	RectVector getPreviewRects(const RectVector& monitorRects, RECT& totalRect, POINT& pt);
+	void correctEdgecases(RectVector& previewRects, POINT pt, const RECT& totalRect);
+
 	LRESULT WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 };
 
