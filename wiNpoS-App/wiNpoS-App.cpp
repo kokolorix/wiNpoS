@@ -11,6 +11,7 @@
 #include "Utils.h"
 #include <assert.h>
 #include <Shlwapi.h>
+#include <future>
 #pragma comment(lib, "Shlwapi.lib")
 
 #define MAX_LOADSTRING 100
@@ -130,6 +131,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+	string cmdLine = toLowerCase(string(GetCommandLineA()));
+	if(cmdLine.find("install") != std::string::npos)
+	{
+		auto resFuture = std::async(std::launch::async, [hWnd]() {
+			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_INSTALL), 0);
+			});
+	}
+
 
    return TRUE;
 }
@@ -345,6 +355,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 break;
 		 case WM_DESTROY:
 			 GetWindowRect(hWnd, &config.Rect);
+			 SendMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_UNINSTALL), 0);
 			 PostQuitMessage(0);
 			 break;
 		 default:

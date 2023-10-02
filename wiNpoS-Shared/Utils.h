@@ -4,6 +4,7 @@
 #include <format>
 #include <debugapi.h>
 #include <vector>
+#include <algorithm>
 
 using std::string;
 using std::format;
@@ -146,6 +147,17 @@ using Utils::check_bits;
 using Utils::check_one_bit;
 using Utils::set_bits;
 using Utils::clear_bits;
+
+namespace Utils
+{
+	template<typename StrT>
+	inline std::string toLowerCase(const StrT& str) {
+		StrT result = str;
+		std::transform(result.begin(), result.end(), result.begin(), ::tolower);
+		return result;
+	}
+}
+using Utils::toLowerCase;
 
 namespace Utils
 {
