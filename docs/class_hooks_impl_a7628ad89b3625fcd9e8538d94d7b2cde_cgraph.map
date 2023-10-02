@@ -1,5 +1,21 @@
 <map id="HooksImpl::onLButtonUp" name="HooksImpl::onLButtonUp">
-<area shape="rect" id="Node000001" title="processes the WM_LBUTTONUP event" alt="" coords="5,5,171,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in stepps" alt="" coords="219,5,426,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,16,204,16,204,21,171,21"/>
+<area shape="rect" id="Node000001" title="processes the WM_LBUTTONUP event" alt="" coords="5,81,171,108"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de" title="method to change the size of a window in steps" alt="" coords="219,56,426,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,83,203,80,203,85,171,88"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#ab8254c50d188d2a3fa54f26139083c63" title=" " alt="" coords="229,107,416,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,101,214,106,213,111,171,106"/>
+<area shape="rect" id="Node000004" href="$class_win_pos_wnd.html#abec2e67db5543a717d59b02ab8dbb930" title=" " alt="" coords="474,107,612,133"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="416,117,459,117,459,123,416,123"/>
+<area shape="rect" id="Node000005" href="$class_win_pos_wnd.html#a0c7765fb832dada13594bf8a06a22dde" title="if the window looks beyond the edge of the monitor, it is moved so that it is displayed as a whole on..." alt="" coords="666,5,874,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="560,104,603,73,659,42,678,34,680,39,661,46,606,77,563,108"/>
+<area shape="rect" id="Node000006" href="$class_win_pos_wnd.html#a8abc6edd027488d4f7242b9f12693af8" title=" " alt="" coords="697,56,843,83"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="606,103,692,84,693,89,607,109"/>
+<area shape="rect" id="Node000007" href="$class_win_pos_wnd.html#a364d5154abd2a3c3bf6ca46c706681bd" title=" " alt="" coords="671,107,869,133"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="613,117,655,117,655,123,613,123"/>
+<area shape="rect" id="Node000008" href="$class_win_pos_wnd.html#ac56329c2dab9f718151119069181b25f" title=" " alt="" coords="660,157,880,184"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="607,131,693,151,692,156,606,137"/>
+<area shape="rect" id="Node000009" href="$class_win_pos_wnd.html#a86ca33ea895961e25e6c1601e420f40e" title=" " alt="" coords="680,208,860,235"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="563,132,606,163,661,194,680,201,678,206,659,198,603,167,560,136"/>
+<area shape="rect" id="Node000010" href="$class_win_pos_wnd.html#acb834a55d7390f9ab8bf76b62ae36633" title=" " alt="" coords="928,208,1134,235"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="860,219,912,219,912,224,860,224"/>
 </map>

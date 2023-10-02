@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['targetingcurrentwindow_0',['targetingCurrentWindow',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a07ca8191dfb6c925c358b89ba1d709b6',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
-  ['targetingwindow_1',['targetingWindow',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#aa31c1367798e305b6c4aca23efeb3353',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
-  ['targetver_2eh_2',['targetver.h',['../targetver_8h.html',1,'']]],
-  ['thumbnailtoolbar_3',['thumbnailtoolbar',['../class_thumbnail_toolbar.html',1,'ThumbnailToolbar'],['../class_thumbnail_toolbar.html#a44a36d7bcf052a3b864e810f7a861f04',1,'ThumbnailToolbar::ThumbnailToolbar()'],['../dllmain_8cpp.html#a56d00a0d1f982ac466b8bd3584be4e35',1,'thumbnailToolbar:&#160;dllmain.cpp']]],
-  ['thumbnailtoolbar_2ecpp_4',['ThumbnailToolbar.cpp',['../_thumbnail_toolbar_8cpp.html',1,'']]],
-  ['thumbnailtoolbar_2eh_5',['ThumbnailToolbar.h',['../_thumbnail_toolbar_8h.html',1,'']]]
+  ['targetingwindowid_0',['targetingWindowId',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#ad1ce295e59390663d8b4acf9b91c7995',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
+  ['targetver_2eh_1',['targetver.h',['../targetver_8h.html',1,'']]],
+  ['tasktoolbar_2',['tasktoolbar',['../class_task_toolbar.html',1,'TaskToolbar'],['../class_task_toolbar.html#af38dd08ce0b441646be3b7d2e4c7e60d',1,'TaskToolbar::TaskToolbar()']]],
+  ['tasktoolbar_2ecpp_3',['TaskToolbar.cpp',['../_task_toolbar_8cpp.html',1,'']]],
+  ['tasktoolbar_2eh_4',['TaskToolbar.h',['../_task_toolbar_8h.html',1,'']]],
+  ['threadproc_5',['ThreadProc',['../wi_npo_s-_support_2dllmain_8cpp.html#a98ba7173d03ad13193cd02a0005fec10',1,'dllmain.cpp']]],
+  ['thumbnailtoolbar_6',['thumbnailToolbar',['../_hooks_impl_8cpp.html#a0d58c333a5231f00bafab9e4303e604b',1,'HooksImpl.cpp']]],
+  ['tolowercase_7',['toLowerCase',['../namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd',1,'Utils']]]
 ];

@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['base_0',['base',['../classrapidjson_1_1_pretty_writer.html#a792881200bdf51add62117617e66bd49',1,'rapidjson::PrettyWriter::Base'],['../classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01false_01_4.html#afd7bd26d312c88bfc63e3830d0922f33',1,'rapidjson::GenericReader::NumberStream&lt; InputStream, StackCharacter, true, false &gt;::Base'],['../classrapidjson_1_1_generic_reader_1_1_number_stream_3_01_input_stream_00_01_stack_character_00_01true_00_01true_01_4.html#a89b0156a52630717c29ec039d5d96ee6',1,'rapidjson::GenericReader::NumberStream&lt; InputStream, StackCharacter, true, true &gt;::Base']]],
-  ['baseallocatortype_1',['baseallocatortype',['../classrapidjson_1_1_std_allocator.html#ac0d58eb6c3ba02487d1599e8b56c8fb8',1,'rapidjson::StdAllocator::BaseAllocatorType'],['../classrapidjson_1_1_std_allocator_3_01void_00_01_base_allocator_01_4.html#a26403e281673c44c4a75eeb54fa89d89',1,'rapidjson::StdAllocator&lt; void, BaseAllocator &gt;::BaseAllocatorType']]],
-  ['basereaderhandlerutf8void_2',['BaseReaderHandlerUtf8Void',['../fwdtest_8cpp.html#a8a42d262ef3e52e3b736977481021887',1,'fwdtest.cpp']]],
-  ['basicnarrowiomanip_3',['BasicNarrowIoManip',['../classtesting_1_1_message.html#a391c6b2afc501b8a94ac363e38d5c4ca',1,'testing::Message']]],
-  ['biggestint_4',['BiggestInt',['../namespacetesting_1_1internal.html#a05c6bd9ede5ccdf25191a590d610dcc6',1,'testing::internal']]],
-  ['bigtuple_5',['BigTuple',['../classanonymous__namespace_02gtest-tuple__test_8cc_03_1_1_big_tuple_test.html#a27cd23582777b7a48e285e6aa2c2b7fe',1,'anonymous_namespace{gtest-tuple_test.cc}::BigTupleTest']]],
-  ['bits_6',['bits',['../classtesting_1_1gmock__matchers__test_1_1_floating_point_test.html#addf899bd832ae51103198d201d2f2ea2',1,'testing::gmock_matchers_test::FloatingPointTest::Bits'],['../classtesting_1_1internal_1_1_floating_point.html#abf228bf6cd48f12c8b44c85b4971a731',1,'testing::internal::FloatingPoint::Bits'],['../classanonymous__namespace_02gtest__unittest_8cc_03_1_1_floating_point_test.html#af6dd259f2896edcc2637c4f745be1b07',1,'anonymous_namespace{gtest_unittest.cc}::FloatingPointTest::Bits']]],
-  ['booleantype_7',['BooleanType',['../structrapidjson_1_1_parse_result.html#aff2daa285445bba8f76578ea274e34a3',1,'rapidjson::ParseResult']]]
+  ['mainwindresvector_0',['MainWindResVector',['../namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746',1,'Utils']]]
 ];

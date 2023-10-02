@@ -1,7 +1,8 @@
 <map id="HooksMgr::detach" name="HooksMgr::detach">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,133,57"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,133,69"/>
 <area shape="rect" id="Node000002" href="$class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473" title=" " alt="" coords="181,5,348,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,33,166,29,166,34,133,38"/>
-<area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a2fdca915ac5126953edf7cca8e936c98" title=" " alt="" coords="201,56,328,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,50,187,57,186,62,133,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,41,176,33,177,38,133,46"/>
+<area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f" title=" " alt="" coords="186,80,343,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,66,177,74,176,79,132,71"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="231,81,225,71,229,62,243,55,264,53,288,56,300,62,298,67,286,61,264,59,244,61,233,65,230,71,236,78"/>
 </map>

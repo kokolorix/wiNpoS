@@ -11,9 +11,13 @@ var class_hooks_impl =
     ] ],
     [ "callWndProc", "class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0", null ],
     [ "getMsgProc", "class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de", null ],
+    [ "onClosePosWnd", "class_hooks_impl.html#aac5c36e6987b75db9ec6f06bae9b27e9", null ],
     [ "onIncrementWindow", "class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de", null ],
     [ "onLButtonUp", "class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde", null ],
     [ "onNcLButtonDblClick", "class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761", null ],
     [ "onNcLButtonDown", "class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53", null ],
-    [ "onWindowPosChanged", "class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89", null ]
+    [ "onShowPosWnd", "class_hooks_impl.html#ab8254c50d188d2a3fa54f26139083c63", null ],
+    [ "onWindowPosChanged", "class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89", null ],
+    [ "shellHookProc", "class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f", null ],
+    [ "_winPosWnd", "class_hooks_impl.html#a3868baa8fba488f67b305ec2a9083d70", null ]
 ];

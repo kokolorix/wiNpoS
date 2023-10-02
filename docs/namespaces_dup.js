@@ -1,8 +1,5 @@
 var namespaces_dup =
 [
-    [ "anonymous_namespace{dllmain.cpp}", "namespaceanonymous__namespace_02dllmain_8cpp_03.html", [
-      [ "EnumWindowsProc", "namespaceanonymous__namespace_02dllmain_8cpp_03.html#a822148ad826748a91b0a11650a929ef3", null ]
-    ] ],
     [ "anonymous_namespace{HooksImpl.cpp}", "namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html", [
       [ "hasCaptionDblClicked", "namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a0d6ddc1f3fad3c826b6197e416c77d21", null ],
       [ "hasLastRect", "namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#ab34a4efbfde2a430840df8962588a062", null ],
@@ -10,25 +7,23 @@ var namespaces_dup =
       [ "lr", "namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#a4fcfed5ca24f2275a0b6c464093b77de", null ]
     ] ],
     [ "anonymous_namespace{Utils.cpp}", "namespaceanonymous__namespace_02_utils_8cpp_03.html", [
+      [ "DesktopNameVector", "namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a", null ],
+      [ "WndVector", "namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38", null ],
+      [ "EnumDesktopProcA", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a22b1f611333509d9c72eaae66db0405e", null ],
+      [ "EnumWindowsProc", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85", null ],
+      [ "GetDesktopWnds", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78", null ],
       [ "initExeName", "namespaceanonymous__namespace_02_utils_8cpp_03.html#af53c07dc6e7ee9776a7ea823490f3d30", null ],
       [ "initLogFile", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a3e36aa8018bd7df30929d3af45d069a2", null ]
     ] ],
     [ "anonymous_namespace{wiNpoS-App.cpp}", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html", [
-      [ "targetingCurrentWindow", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a07ca8191dfb6c925c358b89ba1d709b6", null ],
-      [ "targetingWindow", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#aa31c1367798e305b6c4aca23efeb3353", null ]
+      [ "hTargetingCurrentWnd", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a091bbc1fe65a0762c35c869e832e8d0e", null ],
+      [ "targetingWindowId", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#ad1ce295e59390663d8b4acf9b91c7995", null ]
     ] ],
-    [ "Utils", "namespace_utils.html", [
-      [ "check_bits", "namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147", null ],
-      [ "check_one_bit", "namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64", null ],
-      [ "clear_bits", "namespace_utils.html#ae22cd134d7088505ab53a60489e74654", null ],
-      [ "dformat", "namespace_utils.html#a1be1e6106c4ac75be529963a672f3038", null ],
-      [ "is_each_of", "namespace_utils.html#a896381b1d0efed49040e943db2dbb2ae", null ],
-      [ "is_each_of", "namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716", null ],
-      [ "is_one_of", "namespace_utils.html#a2dfa0d16c0461a00fde6bd7e78e80b1e", null ],
-      [ "is_one_of", "namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a", null ],
-      [ "set_bits", "namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89", null ],
-      [ "ShowLastError", "namespace_utils.html#aad1c305219375bf7d3fc42f22b325710", null ],
-      [ "WriteDebugLog", "namespace_utils.html#abdc36608727de989652b34f84852737c", null ],
-      [ "ExeName", "namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae", null ]
-    ] ]
+    [ "anonymous_namespace{WinPosWnd.cpp}", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html", [
+      [ "Monitorenumproc", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#aa1f90dadeda131a2fac796d864d3f099", null ],
+      [ "CLOSE_TIMEOUT", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a3c6c27ad637de8e8f75532e6242a99e2", null ],
+      [ "CLOSE_TIMER", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#afb175292384d77c8a2b7fa266d3c91b2", null ],
+      [ "F", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a7d771a1761aea007e3557deba453ae7b", null ]
+    ] ],
+    [ "Utils", "namespace_utils.html", "namespace_utils" ]
 ];

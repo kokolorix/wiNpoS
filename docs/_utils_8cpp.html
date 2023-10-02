@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('_utils_8cpp.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Utils.cpp File Reference</div></div>
 </div><!--header-->
@@ -104,35 +105,41 @@ $(document).ready(function(){initNavTree('_utils_8cpp.html',''); initResizable()
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;format&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;winuser.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Utils.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_utils_8cpp__incl.png" border="0" usemap="#awi_npo_s-_shared_2_utils_8cpp" alt=""/></div>
 <map name="awi_npo_s-_shared_2_utils_8cpp" id="awi_npo_s-_shared_2_utils_8cpp">
-<area shape="rect" title=" " alt="" coords="305,5,471,32"/>
-<area shape="rect" title=" " alt="" coords="103,80,156,107"/>
-<area shape="poly" title=" " alt="" coords="341,35,171,82,170,77,339,30"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="180,80,239,107"/>
-<area shape="poly" title=" " alt="" coords="358,35,253,77,251,72,356,30"/>
-<area shape="rect" title=" " alt="" coords="275,155,333,181"/>
-<area shape="poly" title=" " alt="" coords="358,35,327,54,314,66,304,81,297,110,299,140,294,140,291,110,299,79,310,63,324,50,355,30"/>
-<area shape="rect" title=" " alt="" coords="313,80,378,107"/>
-<area shape="poly" title=" " alt="" coords="383,34,362,68,358,66,378,31"/>
-<area shape="rect" title=" " alt="" coords="402,80,459,107"/>
-<area shape="poly" title=" " alt="" coords="398,31,418,66,414,68,393,34"/>
-<area shape="rect" title=" " alt="" coords="484,80,561,107"/>
-<area shape="poly" title=" " alt="" coords="413,30,488,70,485,75,410,35"/>
-<area shape="rect" title=" " alt="" coords="586,80,646,107"/>
-<area shape="poly" title=" " alt="" coords="429,30,572,75,571,81,427,35"/>
-<area shape="rect" title=" " alt="" coords="670,80,725,107"/>
-<area shape="poly" title=" " alt="" coords="452,30,656,77,655,82,451,35"/>
-<area shape="rect" title=" " alt="" coords="5,155,59,181"/>
-<area shape="poly" title=" " alt="" coords="181,109,73,153,71,148,179,104"/>
-<area shape="rect" title=" " alt="" coords="83,155,144,181"/>
-<area shape="poly" title=" " alt="" coords="194,109,143,148,140,144,191,105"/>
-<area shape="poly" title=" " alt="" coords="227,105,278,143,274,148,224,109"/>
-<area shape="rect" title=" " alt="" coords="167,155,252,181"/>
-<area shape="poly" title=" " alt="" coords="212,107,212,140,207,140,207,107"/>
+<area shape="rect" title=" " alt="" coords="297,5,462,32"/>
+<area shape="rect" title=" " alt="" coords="86,80,139,107"/>
+<area shape="poly" title=" " alt="" coords="334,35,155,83,154,78,332,30"/>
+<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="214,80,273,107"/>
+<area shape="poly" title=" " alt="" coords="357,35,282,75,279,70,354,30"/>
+<area shape="rect" title=" " alt="" coords="5,155,63,181"/>
+<area shape="poly" title=" " alt="" coords="337,35,273,56,203,82,153,109,73,150,71,145,150,104,201,78,271,51,335,30"/>
+<area shape="rect" title=" " alt="" coords="457,155,512,181"/>
+<area shape="poly" title=" " alt="" coords="367,34,352,49,339,68,333,87,338,105,350,113,377,125,444,150,442,155,375,130,348,118,333,108,328,87,334,65,348,46,363,30"/>
+<area shape="rect" title=" " alt="" coords="347,80,412,107"/>
+<area shape="poly" title=" " alt="" coords="382,33,382,64,377,64,377,33"/>
+<area shape="rect" title=" " alt="" coords="436,80,493,107"/>
+<area shape="poly" title=" " alt="" coords="396,31,440,68,437,72,392,35"/>
+<area shape="rect" title=" " alt="" coords="518,80,595,107"/>
+<area shape="poly" title=" " alt="" coords="411,30,513,71,511,76,409,35"/>
+<area shape="rect" title=" " alt="" coords="620,80,680,107"/>
+<area shape="poly" title=" " alt="" coords="429,30,605,77,604,82,428,35"/>
+<area shape="rect" title=" " alt="" coords="704,80,780,107"/>
+<area shape="poly" title=" " alt="" coords="451,30,689,77,688,82,450,35"/>
+<area shape="rect" title=" " alt="" coords="87,155,141,181"/>
+<area shape="poly" title=" " alt="" coords="222,110,151,149,149,144,220,105"/>
+<area shape="rect" title=" " alt="" coords="165,155,226,181"/>
+<area shape="poly" title=" " alt="" coords="237,109,214,143,210,140,233,106"/>
+<area shape="poly" title=" " alt="" coords="215,107,78,154,76,149,213,102"/>
+<area shape="rect" title=" " alt="" coords="249,155,334,181"/>
+<area shape="poly" title=" " alt="" coords="254,106,277,140,272,143,249,109"/>
+<area shape="poly" title=" " alt="" coords="274,101,443,151,441,156,272,106"/>
+<area shape="rect" title=" " alt="" coords="358,155,433,181"/>
+<area shape="poly" title=" " alt="" coords="271,105,356,145,354,150,269,110"/>
 </map>
 </div>
 </div>
@@ -141,7 +148,15 @@ Include dependency graph for Utils.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceanonymous__namespace_02_utils_8cpp_03" id="r_namespaceanonymous__namespace_02_utils_8cpp_03"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html">anonymous_namespace{Utils.cpp}</a></td></tr>
+<tr class="memdesc:namespaceanonymous__namespace_02_utils_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight">private stuff to determine the top level windows <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac6e2b9676759e0fe2c0f639f27729f38" id="r_ac6e2b9676759e0fe2c0f639f27729f38"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">anonymous_namespace{Utils.cpp}::WndVector</a> = std::vector&lt; HWND &gt;</td></tr>
+<tr class="separator:ac6e2b9676759e0fe2c0f639f27729f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47370d940d705276a88e70d4c06087a" id="r_ae47370d940d705276a88e70d4c06087a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">anonymous_namespace{Utils.cpp}::DesktopNameVector</a> = std::vector&lt; string &gt;</td></tr>
+<tr class="separator:ae47370d940d705276a88e70d4c06087a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -149,6 +164,12 @@ Functions</h2></td></tr>
 <tr class="separator:a3e36aa8018bd7df30929d3af45d069a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af53c07dc6e7ee9776a7ea823490f3d30" id="r_af53c07dc6e7ee9776a7ea823490f3d30"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#af53c07dc6e7ee9776a7ea823490f3d30">anonymous_namespace{Utils.cpp}::initExeName</a> ()</td></tr>
 <tr class="separator:af53c07dc6e7ee9776a7ea823490f3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93de0f4cd5b604498deff24571ac5f85" id="r_a93de0f4cd5b604498deff24571ac5f85"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a> (_In_ HWND hwnd, _In_ LPARAM lParam)</td></tr>
+<tr class="separator:a93de0f4cd5b604498deff24571ac5f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56891ad55436366351fef991050aae78" id="r_a56891ad55436366351fef991050aae78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78">anonymous_namespace{Utils.cpp}::GetDesktopWnds</a> ()</td></tr>
+<tr class="separator:a56891ad55436366351fef991050aae78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22b1f611333509d9c72eaae66db0405e" id="r_a22b1f611333509d9c72eaae66db0405e"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a22b1f611333509d9c72eaae66db0405e">anonymous_namespace{Utils.cpp}::EnumDesktopProcA</a> (_In_ LPSTR lpszDesktop, _In_ LPARAM lParam)</td></tr>
+<tr class="separator:a22b1f611333509d9c72eaae66db0405e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

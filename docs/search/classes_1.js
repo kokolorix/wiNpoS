@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getmainwndres_0',['GetMainWndRes',['../struct_get_main_wnd_res.html',1,'']]]
+  ['hooksimpl_0',['HooksImpl',['../class_hooks_impl.html',1,'']]],
+  ['hooksmgr_1',['HooksMgr',['../class_hooks_mgr.html',1,'']]]
 ];

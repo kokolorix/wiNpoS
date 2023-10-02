@@ -1,0 +1,15 @@
+<map id="WinPosWnd::create" name="WinPosWnd::create">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,144,133"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#a0c7765fb832dada13594bf8a06a22dde" title="if the window looks beyond the edge of the monitor, it is moved so that it is displayed as a whole on..." alt="" coords="198,5,405,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,104,135,73,191,42,210,34,212,39,193,46,138,77,94,108"/>
+<area shape="rect" id="Node000003" href="$class_win_pos_wnd.html#a8abc6edd027488d4f7242b9f12693af8" title=" " alt="" coords="229,56,374,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,103,223,84,224,89,138,109"/>
+<area shape="rect" id="Node000004" href="$class_win_pos_wnd.html#a364d5154abd2a3c3bf6ca46c706681bd" title=" " alt="" coords="202,107,401,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="144,117,187,117,187,123,144,123"/>
+<area shape="rect" id="Node000005" href="$class_win_pos_wnd.html#ac56329c2dab9f718151119069181b25f" title=" " alt="" coords="192,157,411,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="138,131,224,151,223,156,137,137"/>
+<area shape="rect" id="Node000006" href="$class_win_pos_wnd.html#a86ca33ea895961e25e6c1601e420f40e" title=" " alt="" coords="212,208,391,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="94,132,138,163,193,194,212,201,210,206,191,198,135,167,91,136"/>
+<area shape="rect" id="Node000007" href="$class_win_pos_wnd.html#acb834a55d7390f9ab8bf76b62ae36633" title=" " alt="" coords="459,208,665,235"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="392,219,443,219,443,224,392,224"/>
+</map>

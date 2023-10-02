@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['wndthreadid_0',['wndThreadId',['../struct_get_main_wnd_res.html#a1bfcffd5bf93d5e1e5c5e2c87f17df9b',1,'GetMainWndRes']]]
+  ['targetingwindowid_0',['targetingWindowId',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#ad1ce295e59390663d8b4acf9b91c7995',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
+  ['thumbnailtoolbar_1',['thumbnailToolbar',['../_hooks_impl_8cpp.html#a0d58c333a5231f00bafab9e4303e604b',1,'HooksImpl.cpp']]]
 ];

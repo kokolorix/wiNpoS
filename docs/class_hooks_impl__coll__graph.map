@@ -1,0 +1,10 @@
+<map id="HooksImpl" name="HooksImpl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,187,88,213"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html" title=" " alt="" coords="110,96,204,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,128,80,137,66,148,55,167,50,187,45,186,50,165,62,145,77,132,94,123"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,187,348,213"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="152,138,152,150,156,161,168,174,184,184,181,188,165,178,151,164,147,151,146,138"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,173,214,148,200,136,184,125,187,121,203,131,218,145,231,171"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="85,5,230,32"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="160,48,160,95,155,95,155,48"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="WinPosWnd" name="WinPosWnd">
+<area shape="rect" id="Node000001" title=" " alt="" coords="71,96,166,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,187,232,213"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="84,134,73,148,72,158,76,167,96,184,92,188,72,170,66,158,68,146,80,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,172,131,162,130,142,123,124,128,122,135,141,136,163,133,173"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="46,5,191,32"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="121,48,121,95,116,95,116,48"/>
+</map>

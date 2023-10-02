@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['thumbnailtoolbar_0',['ThumbnailToolbar',['../class_thumbnail_toolbar.html',1,'']]]
+  ['tasktoolbar_0',['TaskToolbar',['../class_task_toolbar.html',1,'']]]
 ];
