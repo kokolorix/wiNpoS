@@ -16,7 +16,7 @@
 #define MAX_LOADSTRING 100
 
 // Global Variables:
-HINSTANCE hInst;                                // current instance
+HINSTANCE hInstance;                            // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 HooksMgr hooks;                                    // the hooks manager
@@ -120,7 +120,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance; // Store instance handle in our global variable
+   hInstance = hInstance; // Store instance handle in our global variable
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
@@ -162,7 +162,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			 switch (wmId)
 			 {
 				 case IDM_ABOUT:
-					 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+					 DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
 					 break;
 				 case IDM_EXIT:
 					 DestroyWindow(hWnd);
@@ -418,7 +418,7 @@ HWND CreateNewWindow()
 		config.Rect.bottom - config.Rect.top,
 		nullptr,
 		nullptr,
-		hInst,
+		hInstance,
 		nullptr);
 
 	return hWnd;

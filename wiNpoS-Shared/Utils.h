@@ -166,4 +166,10 @@ namespace Utils
 using Utils::MainWindResVector;
 using Utils::GetMainWnds;
 using Utils::MainWndRes;
-using Utils::GetMainWnd;
+using Utils::GetMainWnd; 
+
+namespace Utils
+{
+	RECT ScaleRect(const RECT& in, FLOAT f);
+}
+using Utils::ScaleRect;

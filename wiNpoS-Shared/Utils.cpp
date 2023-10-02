@@ -187,3 +187,15 @@ Utils::MainWindResVector Utils::GetMainWnds(DWORD threadId /*= 0*/, DWORD proces
 	return mainWnds;
 }
 
+RECT Utils::ScaleRect(const RECT& in, FLOAT f)
+{
+	RECT r = { 0 };
+
+	r.right = static_cast<LONG>(((FLOAT)((in.right - in.left) + in.left)) * f);
+	r.bottom = static_cast<LONG>(((FLOAT)((in.bottom - in.top) + in.top)) * f);
+	r.left = static_cast<LONG>(((FLOAT)in.left) * f);
+	r.top = static_cast<LONG>(((FLOAT)in.top) * f);
+
+	return r;
+}
+

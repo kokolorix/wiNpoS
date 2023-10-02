@@ -10,8 +10,11 @@
 #include <future>
 
 extern HINSTANCE hInstance;
-TaskToolbar thumbnailToolbar;
 thread_local HRESULT coInit /*= S_FALSE*/;
+
+TaskToolbar thumbnailToolbar;
+thread_local HooksImpl hooks;
+
 
 /**
  * @brief  the exported hook for the shell procedure
@@ -104,7 +107,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 				//	break;
 				case WM_WINDOWPOSCHANGED:
 					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
-					onWindowPosChanged(pMsg);
+					hooks.onWindowPosChanged(pMsg);
 					break;
 				default:
 					break;
@@ -157,18 +160,18 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						onNcLButtonDown(pMsg);
+						hooks.onNcLButtonDown(pMsg);
 						break;
 					case WM_LBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						onLButtonUp(pMsg);
+						hooks.onLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						onNcLButtonDblClick(pMsg);
+						hooks.onNcLButtonDblClick(pMsg);
 						break;
 					case WM_COMMAND:
 					{
@@ -180,10 +183,10 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						switch (wmId)
 						{
 							case ID_SYSMENU_INCREMENTWINDOWSIZE:
-								onIncrementWindow(pMsg, 10);
+								hooks.onIncrementWindow(pMsg, 10);
 								break;
 							case ID_SYSMENU_DECREMENTWINDOWSIZE:
-								onIncrementWindow(pMsg, -10);
+								hooks.onIncrementWindow(pMsg, -10);
 								break;
 							default:
 								break;
@@ -261,7 +264,7 @@ void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 			HMONITOR hMonitor = MonitorFromWindow(pMsg->hwnd, MONITOR_DEFAULTTOPRIMARY);
 
 			// Get the monitor information
-			MONITORINFOEX mi;
+			MONITORINFOEX mi = { sizeof(MONITORINFOEX) };
 			mi.cbSize = sizeof(MONITORINFOEX);
 			GetMonitorInfo(hMonitor, &mi);
 
@@ -368,6 +371,8 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 				onIncrementWindow(pMsg, 10, IncWnd::All, &pt, HTCAPTION);
 			else if (lShift)
 				onIncrementWindow(pMsg, -10, IncWnd::All, &pt, HTCAPTION);
+			else
+				onShowPosWnd(pMsg, pt);
 		}
 
 	}
@@ -422,10 +427,11 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 		onIncrementWindow(pMsg, -10, IncWnd::Vertical, &pt, hitTest);
 	}
 }
+
 /**
- * @brief method to change the size of a window in stepps
+ * @brief method to change the size of a window in steps
  * @param pMsg MSG structure from hook
- * @param diff steppsize
+ * @param diff step-size
  * @param incDir direction to grow or shrink the window
  * @param pCursorPos position of cursor, if displacement is desired 
  * @param hitTest information, where the click has hit
@@ -496,4 +502,13 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 			BOOL wndReplaced = SetWindowPlacement(hWnd, &wp);
 			assert(wndReplaced);
 		});
+}
+/**
+ * @brief 
+ * @param pMsg 
+ * @param pt 
+*/
+void HooksImpl::onShowPosWnd(MSG* pMsg, POINT pt)
+{
+	_winPosWnd.show(pt, pMsg->hwnd);
 }
