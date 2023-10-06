@@ -182,6 +182,10 @@ using Utils::GetMainWnd;
 
 namespace Utils
 {
+	enum Units { Percent, Pixels };
 	RECT ScaleRect(const RECT& in, FLOAT f);
 }
+using Utils::Units;
+using Utils::Percent;
+using Utils::Pixels;
 using Utils::ScaleRect;

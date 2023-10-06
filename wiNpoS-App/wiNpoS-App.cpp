@@ -136,7 +136,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	if(cmdLine.find("install") != std::string::npos)
 	{
 		auto resFuture = std::async(std::launch::async, [hWnd]() {
-			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_INSTALL), 0);
+			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(IDM_FILE_INSTALL, 0), MAKELPARAM(0,0));
 			});
 	}
 
@@ -175,6 +175,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					 DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
 					 break;
 				 case IDM_EXIT:
+					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
+					 hooks.uninstall();
 					 DestroyWindow(hWnd);
 					 break;
 				 case IDM_FILE_ATTACH:
@@ -455,9 +457,9 @@ void AttachToProcess(ULONG targetPid)
 	DWORD pathLength = GetModuleFileName(NULL, path, MAX_PATH);
 	PathRemoveFileSpec(path);
 #ifdef _WIN64
-	PathAppend(path, L"wiNpoS-Hook64.dll");
+	PathAppend(path, L"wiNpoS-Support64.dll");
 #else
-	PathAppend(path, L"wiNpoS-Hook32.dll");
+	PathAppend(path, L"wiNpoS-Support32.dll");
 #endif // _WIN64
 
 	// Allocate memory in the target process to hold the path to the DLL

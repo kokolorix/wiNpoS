@@ -20,6 +20,6 @@ private:
 	void onNcLButtonDown(MSG* pMsg);
 	void onLButtonUp(MSG* pMsg);
 	void onClosePosWnd(MSG* pMsg, POINT pt);
-	void onShowPosWnd(MSG* pMsg, POINT pt);
+	HWND onShowPosWnd(MSG* pMsg, POINT pt);
 };
 

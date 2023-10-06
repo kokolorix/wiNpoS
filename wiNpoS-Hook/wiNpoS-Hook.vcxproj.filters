@@ -30,6 +30,9 @@
     <ClInclude Include="TaskToolbar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WinPosWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -38,6 +41,9 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="HooksImpl.cpp" />
     <ClCompile Include="TaskToolbar.cpp" />
+    <ClCompile Include="WinPosWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="wiNpoS-Hook.rc">

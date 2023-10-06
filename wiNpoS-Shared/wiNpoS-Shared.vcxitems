@@ -17,7 +17,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Config.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)HooksMgr.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)WinPosWnd.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)WinPosWndConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Config.cpp" />
@@ -28,7 +28,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)WinPosWnd.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)WinPosWndConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\wiNpoS.md" />

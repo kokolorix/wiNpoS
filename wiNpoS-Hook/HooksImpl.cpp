@@ -178,6 +178,13 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						hooks.onLButtonUp(pMsg);
 						break;
+					case WM_KEYDOWN:
+						WRITE_DEBUG_LOG(dformat("WM_KEYDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						if (pMsg->wParam == VK_ESCAPE)
+						{
+							hooks.onClosePosWnd(pMsg, { 0 });
+						}
+						break;
 					case WM_COMMAND:
 					{
 						uint16_t type = HIWORD(pMsg->wParam);
@@ -197,7 +204,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 							{
 								POINT pt = { 0 };
 								GetCursorPos(&pt);
-								hooks.onShowPosWnd(pMsg, pt);
+								HWND hWnd = hooks.onShowPosWnd(pMsg, pt);
 								break;
 							}
 							default:
@@ -372,7 +379,7 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 	//bool right = HIBYTE(GetAsyncKeyState(VK_RIGHT));
 	//bool up = HIBYTE(GetAsyncKeyState(VK_UP));
 
-	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))
+	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM) && !hasCaptionDblClicked())
 	{
 		static const int32_t TOL = 3; // tolerance
 		RECT rc = { pt.x - TOL, pt.y - TOL, pt.x + TOL, pt.y + TOL };
@@ -523,6 +530,8 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 */
 void HooksImpl::onClosePosWnd(MSG* pMsg, POINT pt)
 {
+	if (WinPosWnd* winPosWnd = _winPosWnd.getWinPosWnd(pMsg ? pMsg->hwnd : NULL))
+		return;		
 	_winPosWnd.destroy();
 }
 
@@ -531,7 +540,8 @@ void HooksImpl::onClosePosWnd(MSG* pMsg, POINT pt)
  * @param pMsg 
  * @param pt 
 */
-void HooksImpl::onShowPosWnd(MSG* pMsg, POINT pt)
+HWND HooksImpl::onShowPosWnd(MSG* pMsg, POINT pt)
 {
 	_winPosWnd.create(pt, pMsg->hwnd);
+	return _winPosWnd.getWndHandle();
 }
