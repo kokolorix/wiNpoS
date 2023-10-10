@@ -98,7 +98,7 @@ void WinPosWndConfig::readConfig()
 									PosPreviewConfig pc = {
 										getRect((Value&)p["WndRect"]),
 										p.HasMember("PrvRect") ? getRect((Value&)p["PrvRect"]) : RECT{0},
-										p["Name"].GetString(),
+										p.HasMember("Name") ? p["Name"].GetString() : string(),
 										lstrcmpA(p["Units"].GetString(), "%") == 0 ? Percent : Pixels,
 									};
 									if (pc.prvRect == RECT{ 0 })
