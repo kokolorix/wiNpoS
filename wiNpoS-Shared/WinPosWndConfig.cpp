@@ -11,6 +11,7 @@
 #include <xlocbuf>
 #include <codecvt>
 #include <tuple>
+#include <Shlwapi.h>
 
 namespace
 {
@@ -39,8 +40,12 @@ void WinPosWndConfig::readConfig()
 	if (fp)
 	{
 		using namespace rapidjson;
-		char buffer[4096*8] = { 0 };
-		FileReadStream is(fp, buffer, sizeof(buffer));
+		using namespace std;
+		static const size_t BUFFER_SIZE = 4096 * 8;
+		unique_ptr<char[]> buffer = make_unique<char[]>(BUFFER_SIZE);
+		FileReadStream is(fp, buffer.get(), BUFFER_SIZE);
+		//char buffer[4096*8] = { 0 };
+		//FileReadStream is(fp, buffer, sizeof(buffer));
 		fclose(fp);
 
 		Document d;
@@ -113,6 +118,19 @@ void WinPosWndConfig::readConfig()
 
 	// something was not finished above. Use default.
 	{
+		char sampleConfig[MAX_PATH] = { 0 };
+		strcpy_s(sampleConfig, Utils::BinDir.c_str());
+		PathRemoveFileSpecA(sampleConfig);
+		PathAppendA(sampleConfig, "WndConfig.jsonc");
+
+		DWORD fileAttributes = GetFileAttributesA(sampleConfig);
+		if (fileAttributes != INVALID_FILE_ATTRIBUTES && !(fileAttributes & FILE_ATTRIBUTE_DIRECTORY)) 
+		{
+			// The file exists, copy it to configPath	and then repeat
+			if (CopyFileA(sampleConfig, configPath.c_str(), TRUE))
+				return readConfig();
+		}
+
 		// standard configuration
 		_closeTimeout = 3500;
 		_scale = 0.12f;

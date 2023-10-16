@@ -14,9 +14,9 @@ using std::wstring;
 using std::chrono::system_clock;
 using std::chrono::duration_cast;
 using std::chrono::milliseconds;
-#ifdef _USRDLL
+//#ifdef _USRDLL
 extern HINSTANCE hInstance;   // current instance
-#endif // _USRDLL
+//#endif // _USRDLL
 
 namespace
 {
@@ -49,6 +49,13 @@ namespace
 		string  exeName = PathFindFileNameA(buffer);
 		return exeName;
 	}
+	string initBinDir()
+	{
+		char buffer[MAX_PATH] = { 0 };
+		GetModuleFileNameA(hInstance, buffer, MAX_PATH);
+		PathRemoveFileSpecA(buffer);
+		return buffer;
+	}
 
 #ifdef _USRDLL
 	string initDllName()
@@ -62,6 +69,7 @@ namespace
 #endif // _USRDLL
 }
 string Utils::ExeName = initExeName();
+string Utils::BinDir = initBinDir();
  
 #ifdef _USRDLL
 string Utils::DllName = initDllName();

@@ -14,6 +14,7 @@ using std::format;
 namespace Utils
 {
 	extern string ExeName;
+	extern string BinDir;
 #ifdef _USRDLL
 	extern string DllName;
 #endif // _USRDLL
