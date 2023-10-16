@@ -99,7 +99,7 @@ void WinPosWndConfig::readConfig()
 										getRect((Value&)p["WndRect"]),
 										p.HasMember("PrvRect") ? getRect((Value&)p["PrvRect"]) : RECT{0},
 										p.HasMember("Name") ? p["Name"].GetString() : string(),
-										lstrcmpA(p["Units"].GetString(), "%") == 0 ? Percent : Pixels,
+										lstrcmpA(p["Units"].GetString(), "px") == 0 ? Pixels : Percent,
 									};
 									if (pc.prvRect == RECT{ 0 })
 										pc.prvRect = pc.units == Pixels ? ScaleRect(pc.wndRect, getScale()) : pc.wndRect;

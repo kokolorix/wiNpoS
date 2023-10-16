@@ -401,17 +401,17 @@ void WinPosWnd::MonitorPreview::paint(PAINTSTRUCT& ps, HDC hDc)
 
 	RECT rc = prvRect;
 	OffsetRect(&rc, -rc.left, -rc.top);
-	RECT rcText = rc;
-	int oldBkMode = SetBkMode(hDc, TRANSPARENT);	
-	COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT)); 
+	//RECT rcText = rc;
+	//int oldBkMode = SetBkMode(hDc, TRANSPARENT);	
+	//COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT)); 
 
-	string text = format("{}\n{}", name, device);
-	int textHeight = DrawTextA(hDc, text.c_str(), text.length(), &rcText, DT_CALCRECT|DT_CENTER|DT_VCENTER|DT_WORDBREAK);
-	OffsetRect(&rc, 0, (rc.bottom - textHeight) / 2);
-	DrawTextA(hDc, text.c_str(), text.length(), &rc, DT_CENTER|DT_VCENTER|DT_WORDBREAK);
+	//string text = format("{}\n{}", name, device);
+	//int textHeight = DrawTextA(hDc, text.c_str(), text.length(), &rcText, DT_CALCRECT|DT_CENTER|DT_VCENTER|DT_WORDBREAK);
+	//OffsetRect(&rc, 0, (rc.bottom - textHeight) / 2);
+	//DrawTextA(hDc, text.c_str(), text.length(), &rc, DT_CENTER|DT_VCENTER|DT_WORDBREAK);
 
-	SetBkMode(hDc, oldBkMode);
-	SetTextColor(hDc, oldColor);
+	//SetBkMode(hDc, oldBkMode);
+	//SetTextColor(hDc, oldColor);
 
 	for (auto pv : previews)
 		pv->paint(hWnd, ps, hDc);
@@ -535,23 +535,26 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 	}
 	FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_HOTLIGHT));
 
-	RECT rc = prvRect;
-	RECT rcText = rc;
+	if(mp->activeWinPosPreview.get() == this)
+	{
+		RECT rc = prvRect;
+		RECT rcText = rc;
 
-	int oldBkMode = SetBkMode(hDc, TRANSPARENT);	
-	COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT)); 
-	
-	int textHeight = DrawTextA(hDc, name.c_str(), name.length(), &rcText, DT_CALCRECT|DT_CENTER|DT_VCENTER|DT_WORDBREAK);
-	OffsetRect(&rc, 0, (rc.bottom - rc.top - textHeight) / 2);
-	DrawTextA(hDc, name.c_str(), name.length(), &rc, DT_CENTER|DT_VCENTER|DT_WORDBREAK);
+		int oldBkMode = SetBkMode(hDc, TRANSPARENT);
+		COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT));
 
-	//if (hCurrentFont)
-	//	SelectObject(hDc, hCurrentFont);
-	//if (hFont)
-	//	DeleteObject(hFont);
+		int textHeight = DrawTextA(hDc, name.c_str(), name.length(), &rcText, DT_CALCRECT | DT_CENTER | DT_VCENTER | DT_WORDBREAK);
+		OffsetRect(&rc, 0, (rc.bottom - rc.top - textHeight) / 2);
+		DrawTextA(hDc, name.c_str(), name.length(), &rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);
 
-	SetBkMode(hDc, oldBkMode);
-	SetTextColor(hDc, oldColor);
+		//if (hCurrentFont)
+		//	SelectObject(hDc, hCurrentFont);
+		//if (hFont)
+		//	DeleteObject(hFont);
+
+		SetBkMode(hDc, oldBkMode);
+		SetTextColor(hDc, oldColor);
+	}
 
 }
 
