@@ -140,8 +140,11 @@ RECT WinPosWnd::getTotalPreviewRect(POINT pt, const RectVector& monitorRects)
 	RECT tpr = { 0 };
 	for (const RECT& r : monitorRects)
 	{
-		RECT pr = tpr;
-		UnionRect(&tpr, &pr, &r);
+		//RECT pr = tpr;
+		tpr.right += r.right - r.left;
+		tpr.top = std::min(tpr.top, r.top);
+		tpr.bottom = std::max(tpr.bottom, r.bottom);
+		//UnionRect(&tpr, &pr, &r);
 	}
 	tpr = ScaleRect(tpr, _scale);
 	OffsetRect(&tpr, pt.x - ((tpr.right - tpr.left) / 2), pt.y);
@@ -507,6 +510,13 @@ void WinPosWnd::MonitorPreview::onLButtonDown(POINT pt)
 void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 {
 	auto mp = monitorPreview.lock();
+
+	HWND hParent = GetParent(hWnd);
+	RECT rcRealWnd = { 0 };
+	GetWindowRect(hParent, &rcRealWnd);
+	RECT mr = mp->monitorRect;
+	OffsetRect(&rcRealWnd, -mr.left, -mr.top);
+
 	if(mp->activeWinPosPreview.get() == this)
 	{
 		FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_ACTIVECAPTION));
@@ -518,14 +528,21 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 		blendFunction.AlphaFormat = AC_SRC_ALPHA;
 		blendFunction.BlendFlags = 0;
 		blendFunction.BlendOp = AC_SRC_OVER;
-		blendFunction.SourceConstantAlpha = 128 + 64; // 0 (transparent) to 255 (opaque)
+		blendFunction.SourceConstantAlpha =  0xAC; // 0 (transparent) to 255 (opaque)
 
 		// Draw the half-transparent rectangle
 		HDC memDC = CreateCompatibleDC(hDc);
 		HBITMAP memBitmap = CreateCompatibleBitmap(hDc, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top);
 		HBITMAP hOldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);
 
-		FillRect(memDC, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
+		if (rcRealWnd == wndRect)
+		{
+			FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_GRADIENTINACTIVECAPTION));
+		}
+		else
+		{
+			FillRect(memDC, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
+		}
 		AlphaBlend(hDc, prvRect.left, prvRect.top, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, memDC, 0, 0, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, blendFunction);
 
 		SelectObject(memDC, hOldBitmap);
@@ -533,7 +550,10 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 		DeleteDC(memDC);
 		//FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
 	}
-	FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_HOTLIGHT));
+	//if (rcRealWnd == wndRect)
+	//	FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_BTNSHADOW));
+	//else
+		FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_HOTLIGHT));
 
 	if(mp->activeWinPosPreview.get() == this)
 	{

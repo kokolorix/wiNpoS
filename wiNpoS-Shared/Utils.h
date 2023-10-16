@@ -184,8 +184,16 @@ namespace Utils
 {
 	enum Units { Percent, Pixels };
 	RECT ScaleRect(const RECT& in, FLOAT f);
+
+	inline bool operator == (const RECT& x, const RECT& y)
+	{
+		using std::make_tuple;
+		return make_tuple(x.left, x.top, x.right, x.bottom) == make_tuple(y.left, y.top, y.right, y.bottom);
+	}
+
 }
 using Utils::Units;
 using Utils::Percent;
 using Utils::Pixels;
-using Utils::ScaleRect;
+using Utils::ScaleRect; 
+using Utils::operator==;

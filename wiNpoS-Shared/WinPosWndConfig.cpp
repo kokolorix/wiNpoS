@@ -23,12 +23,6 @@ namespace
 		mInfos.push_back(mi);
 		return TRUE;
 	}
-
-	bool operator == (const RECT& x, const RECT& y)
-	{
-		using std::make_tuple;
-		return make_tuple(x.left, x.top, x.right, x.bottom) == make_tuple(y.left, y.top, y.right, y.bottom);
-	}
 }
 
 void WinPosWndConfig::readConfig()
@@ -99,7 +93,7 @@ void WinPosWndConfig::readConfig()
 										getRect((Value&)p["WndRect"]),
 										p.HasMember("PrvRect") ? getRect((Value&)p["PrvRect"]) : RECT{0},
 										p.HasMember("Name") ? p["Name"].GetString() : string(),
-										lstrcmpA(p["Units"].GetString(), "px") == 0 ? Pixels : Percent,
+										p.HasMember("Units") ? lstrcmpA(p["Units"].GetString(), "px") == 0 ? Pixels : Percent : Percent,
 									};
 									if (pc.prvRect == RECT{ 0 })
 										pc.prvRect = pc.units == Pixels ? ScaleRect(pc.wndRect, getScale()) : pc.wndRect;
