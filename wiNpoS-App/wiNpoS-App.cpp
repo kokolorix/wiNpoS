@@ -12,20 +12,23 @@
 #include <assert.h>
 #include <Shlwapi.h>
 #include <future>
+#include <shellapi.h>
 #pragma comment(lib, "Shlwapi.lib")
 
 #define MAX_LOADSTRING 100
+#define MYWM_NOTIFYICON (WM_APP + 1)
 
 // Global Variables:
 HINSTANCE hInstance;                            // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-HooksMgr hooks;                                    // the hooks manager
+NOTIFYICONDATAA nid = { 0 };							// the Tray Icon struct
+HooksMgr hooks;                                 // the hooks manager
 Config config;                                  // the config manager
 
 // Forward declarations of functions included in this code module:
 ATOM						MyRegisterClass(HINSTANCE hInstance);
-BOOL						InitInstance(HINSTANCE, int);
+BOOL InitInstance(HINSTANCE hInst, int nCmdShow);
 LRESULT CALLBACK		WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK		About(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI			NewWindowProc(_In_ LPVOID lpParameter);
@@ -34,7 +37,7 @@ void						AttachToProcess(ULONG processId);
 void						DetachFromProcess(ULONG targetPid, HINSTANCE hInstance);
 void						DrawWindowBorderForTargeting(_In_ HWND hWnd);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(_In_ HINSTANCE hInst,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
@@ -46,23 +49,23 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Initialize global strings
 #ifdef _WIN64
-	 LoadStringW(hInstance, IDS_APP_TITLE_64, szTitle, MAX_LOADSTRING);
+	 LoadStringW(hInst, IDS_APP_TITLE_64, szTitle, MAX_LOADSTRING);
 #else
-	 LoadStringW(hInstance, IDS_APP_TITLE_32, szTitle, MAX_LOADSTRING);
+	 LoadStringW(hInst, IDS_APP_TITLE_32, szTitle, MAX_LOADSTRING);
 #endif // _WIN64
 
-    LoadStringW(hInstance, IDC_WINPOSAPP, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance);
+    LoadStringW(hInst, IDC_WINPOSAPP, szWindowClass, MAX_LOADSTRING);
+    MyRegisterClass(hInst);
 
 	 config.readConfig();
 
     // Perform application initialization:
-    if (!InitInstance (hInstance, nCmdShow))
+    if (!InitInstance (hInst, nCmdShow))
     {
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINPOSAPP));
+    HACCEL hAccelTable = LoadAccelerators(hInst, MAKEINTRESOURCE(IDC_WINPOSAPP));
 
     MSG msg;
 
@@ -77,6 +80,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
 	 config.writeConfig();
+
+	 Shell_NotifyIconA(NIM_DELETE, &nid);
 
     return (int) msg.wParam;
 }
@@ -119,21 +124,32 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //        In this function, we save the instance handle in a global variable and
 //        create and display the main program window.
 //
-BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
+BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 {
-   hInstance = hInstance; // Store instance handle in our global variable
+   ::hInstance = hInst; // Store instance handle in our global variable
+
+	using namespace std;
+	
+	string cmdLine = toLowerCase(string(GetCommandLineA()));
+	bool installHook = cmdLine.find("not-install") == string::npos;
+	bool showWnd = cmdLine.find("not-hidden") != string::npos;
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
-   {
       return FALSE;
-   }
 
-   ShowWindow(hWnd, nCmdShow);
+   ShowWindow(hWnd, showWnd ? nCmdShow : SW_HIDE);
    UpdateWindow(hWnd);
 
-	string cmdLine = toLowerCase(string(GetCommandLineA()));
-	if(cmdLine.find("install") != std::string::npos)
+	nid = { sizeof(NOTIFYICONDATAA), hWnd, 0 };
+	nid.uID = 1; // Unique ID for the notification icon
+	nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+	nid.uCallbackMessage = MYWM_NOTIFYICON;
+	nid.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINPOSAPP)); // Set the icon
+	if(lstrcpynA(nid.szTip, "wiNpoS, click to show more ...", sizeof(nid.szTip)))
+		Shell_NotifyIconA(NIM_ADD, &nid);
+
+	if(installHook)
 	{
 		auto resFuture = std::async(std::launch::async, [hWnd]() {
 			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(IDM_FILE_INSTALL, 0), MAKELPARAM(0,0));
@@ -163,222 +179,259 @@ namespace
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
-    {
-		 case WM_COMMAND:
-		 {
-			 int wmId = LOWORD(wParam);
-			 // Parse the menu selections:
-			 switch (wmId)
-			 {
-				 case IDM_ABOUT:
-					 DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-					 break;
-				 case IDM_EXIT:
-					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
-					 hooks.uninstall();
-					 DestroyWindow(hWnd);
-					 break;
-				 case IDM_FILE_ATTACH:
-					 hooks.loadHook();
-					 PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_ENABLED);
-					 DrawMenuBar(hWnd); 
-					 break;
-				 case IDM_FILE_DETACH:
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_ENABLED);
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_DISABLED);
-					 DrawMenuBar(hWnd);
-					 PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-					 PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-					 PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
-					 //hooks.detach();
-					 break;
-				 case IDM_FILE_INSTALL:
-					 hooks.install();
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_CHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_DISABLED);
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_ENABLED);
-					 DrawMenuBar(hWnd); 
-					 break;
-				 case IDM_FILE_UNINSTALL:
-					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
-					 hooks.uninstall();
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
-					 CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
-					 EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_DISABLED);
-					 DrawMenuBar(hWnd);
-					 break;
-				 case IDM_FILE_OPEN_NEW_WND:
-					 CreateThread(NULL, 0, NewWindowProc, NULL, 0, NULL);
-					 break;
-				 case IDM_FILE_ATTACH_TO_WND:
-					 SetCapture(hWnd);
-					 SetCursor(LoadCursor(NULL, IDC_CROSS));
-					 targetingWindowId = wmId;
-					 hTargetingCurrentWnd = NULL;
-					 break;
-				 case IDM_FILE_DETACH_FROM_WND:
-					 SetCapture(hWnd);
-					 SetCursor(LoadCursor(NULL, IDC_CROSS));
-					 targetingWindowId = wmId;
-					 hTargetingCurrentWnd = NULL;
-					 break;
-				 case IDM_FILE_SEND_UNLOAD:
-					 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
-					 PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-					 break;
-				 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
+	switch (message)
+	{
+		case WM_COMMAND:
+		{
+			int wmId = LOWORD(wParam);
+			// Parse the menu selections:
+			switch (wmId)
+			{
+				case IDM_ABOUT:
+					DialogBox(hInstance, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+					break;
+				case IDM_EXIT:
+				case IDM_TRAYMENU_EXIT:
+					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
+					hooks.uninstall();
+					DestroyWindow(hWnd);
+					break;
+				case IDM_FILE_ATTACH:
+					hooks.loadHook();
+					PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_ENABLED);
+					DrawMenuBar(hWnd);
+					break;
+				case IDM_FILE_DETACH:
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_ENABLED);
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_DETACH, MF_DISABLED);
+					DrawMenuBar(hWnd);
+					PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
+					//hooks.detach();
+					break;
+				case IDM_FILE_INSTALL:
+					hooks.install();
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_CHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_DISABLED);
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_ENABLED);
+					DrawMenuBar(hWnd);
+					break;
+				case IDM_FILE_UNINSTALL:
+					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
+					hooks.uninstall();
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
+					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
+					EnableMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_DISABLED);
+					DrawMenuBar(hWnd);
+					break;
+				case IDM_FILE_OPEN_NEW_WND:
+					CreateThread(NULL, 0, NewWindowProc, NULL, 0, NULL);
+					break;
+				case IDM_FILE_ATTACH_TO_WND:
+					SetCapture(hWnd);
+					SetCursor(LoadCursor(NULL, IDC_CROSS));
+					targetingWindowId = wmId;
+					hTargetingCurrentWnd = NULL;
+					break;
+				case IDM_FILE_DETACH_FROM_WND:
+					SetCapture(hWnd);
+					SetCursor(LoadCursor(NULL, IDC_CROSS));
+					targetingWindowId = wmId;
+					hTargetingCurrentWnd = NULL;
+					break;
+				case IDM_FILE_SEND_UNLOAD:
+					WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNLOAD) to all Windows", MT_HOOK_MSG_UNLOAD));
+					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+					break;
+				case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
 					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_CREATE_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_CREATE_TASK_TOOLBAR));
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
-					 break;
-				 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
+					break;
+				case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
 					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_DESTROY_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR));
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
-					 break;
-				 case IDM_FILE_OPEN_CINFIG_DIR:
-                config.openFolder();
-					 break;
+					break;
+				case IDM_FILE_OPEN_CINFIG_DIR:
+					config.openFolder();
+					break;
 
-				 default:
-					 return DefWindowProc(hWnd, message, wParam, lParam);
-			 }
-		 }
-		 break;
-		 case WM_LBUTTONDOWN:
-			 {
-				 if (targetingWindowId)
-				 {
-					 // Send the window to the bottom.
-					 SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
-					 SendMessage(hWnd, WM_MOUSEMOVE, 0, 0);
-				 }
-			 }
-			 break;
-		 case WM_MOUSEMOVE:
-			 {
-				 if (targetingWindowId)
-				 {
-					 POINT cursorPos;
-					 HWND hWndUnderMouse;
+				default:
+					return DefWindowProc(hWnd, message, wParam, lParam);
+			}
+		}
+		break;
 
-					 GetCursorPos(&cursorPos);
-					 hWndUnderMouse = WindowFromPoint(cursorPos);
-					 ULONG processId = 0;
-					 ULONG threadId = GetWindowThreadProcessId(hWndUnderMouse, &processId);
-					 hWndUnderMouse = GetMainWnd(threadId, processId);
-					 if(hWndUnderMouse != hWnd)
-					 {
-						 //FlashWindow(windowUnderMouse, true);
-						 DrawWindowBorderForTargeting(hWndUnderMouse);
-						 hTargetingCurrentWnd = hWndUnderMouse;
-					 }
-				 }
-			 }
-			 break;
-		 case WM_LBUTTONUP:
-			 {
-				 if (targetingWindowId && hTargetingCurrentWnd != hWnd)
-				 {
-					 SetCursor(LoadCursor(NULL, IDC_ARROW));
+		case WM_LBUTTONDOWN:
+		{
+			if (targetingWindowId)
+			{
+				// Send the window to the bottom.
+				SetWindowPos(hWnd, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+				SendMessage(hWnd, WM_MOUSEMOVE, 0, 0);
+			}
+		}
+		break;
 
-					 // Bring the window back to the top, and preserve the Always on Top setting.
-					 SetWindowPos(hTargetingCurrentWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+		case WM_MOUSEMOVE:
+		{
+			if (targetingWindowId)
+			{
+				POINT cursorPos;
+				HWND hWndUnderMouse;
 
-					 ULONG processId = 0;
-					 ULONG threadId = GetWindowThreadProcessId(hTargetingCurrentWnd, &processId);
+				GetCursorPos(&cursorPos);
+				hWndUnderMouse = WindowFromPoint(cursorPos);
+				ULONG processId = 0;
+				ULONG threadId = GetWindowThreadProcessId(hWndUnderMouse, &processId);
+				hWndUnderMouse = GetMainWnd(threadId, processId);
+				if (hWndUnderMouse != hWnd)
+				{
+					//FlashWindow(windowUnderMouse, true);
+					DrawWindowBorderForTargeting(hWndUnderMouse);
+					hTargetingCurrentWnd = hWndUnderMouse;
+				}
+			}
+		}
+		break;
 
-					 RECT rect;
-					 GetWindowRect(hWnd, &rect);
-					 InvalidateRect(hWnd, &rect, TRUE);
+		case WM_LBUTTONUP:
+		{
+			if (targetingWindowId && hTargetingCurrentWnd != hWnd)
+			{
+				SetCursor(LoadCursor(NULL, IDC_ARROW));
 
-					 switch (targetingWindowId)
-					 {
-						 case IDM_FILE_ATTACH_TO_WND:
-							 AttachToProcess(processId);
-							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-							 break;
-						 case IDM_FILE_DETACH_FROM_WND:
-							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
-							 break;
-						 case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
-							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_CREATE_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
-							 break;
-						 case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
-							 WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_DESTROY_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
-							 PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
-							 break;
-						 default:
-							 break;
-					 }
+				// Bring the window back to the top, and preserve the Always on Top setting.
+				SetWindowPos(hTargetingCurrentWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
 
-					 targetingWindowId = 0;
-					 hTargetingCurrentWnd = NULL;
-					 ReleaseCapture();
+				ULONG processId = 0;
+				ULONG threadId = GetWindowThreadProcessId(hTargetingCurrentWnd, &processId);
 
-					 //AttachToProcess(processId);
-				 }
-			 }
-			 break;
-		 case WM_KEYDOWN :
-			 {
-				 if (targetingWindowId)
-				 {
-					 if (wParam == VK_ESCAPE)
-					 {
-						 SetCursor(LoadCursor(NULL, IDC_ARROW));
-						 ReleaseCapture();
-						 targetingWindowId = 0;
-						 hTargetingCurrentWnd = NULL;
-					 }
-				 }
-			 }
-			 break;
-		 case WM_PAINT:
-			 {
-				 PAINTSTRUCT ps;
-				 HDC hdc = BeginPaint(hWnd, &ps);
-				 // TODO: Add any drawing code that uses hdc here...
-				 EndPaint(hWnd, &ps);
-			 }
-			 break;
-		 case WM_DESTROY:
-			 GetWindowRect(hWnd, &config.Rect);
-			 SendMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_UNINSTALL), 0);
-			 PostQuitMessage(0);
-			 break;
-		 default:
-			 if (message == MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED)
-			 {
-				 HWND hSrcWnd = (HWND)wParam;
-				 if (hWnd == hSrcWnd)
-				 {
-					 hooks.unloadHook();
-				 }
-				 else
-				 {
-					 DWORD wndProcessId = NULL;
-					 auto wndThreadId = GetWindowThreadProcessId(hSrcWnd, &wndProcessId);
-					 HINSTANCE hInstance = (HINSTANCE)lParam;
-					 DetachFromProcess(wndProcessId, hInstance);
-				 }
-			 }
-			 return DefWindowProc(hWnd, message, wParam, lParam);
-	 }
-    return 0;
+				RECT rect;
+				GetWindowRect(hWnd, &rect);
+				InvalidateRect(hWnd, &rect, TRUE);
+
+				switch (targetingWindowId)
+				{
+					case IDM_FILE_ATTACH_TO_WND:
+						AttachToProcess(processId);
+						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						break;
+					case IDM_FILE_DETACH_FROM_WND:
+						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
+						break;
+					case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
+						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_CREATE_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, 0, 0);
+						break;
+					case IDM_FILE_SEND_DESTROY_TASK_TOOLBAR:
+						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_DESTROY_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
+						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
+						break;
+					default:
+						break;
+				}
+
+				targetingWindowId = 0;
+				hTargetingCurrentWnd = NULL;
+				ReleaseCapture();
+
+				//AttachToProcess(processId);
+			}
+		}
+		break;
+
+		case WM_KEYDOWN:
+		{
+			if (targetingWindowId)
+			{
+				if (wParam == VK_ESCAPE)
+				{
+					SetCursor(LoadCursor(NULL, IDC_ARROW));
+					ReleaseCapture();
+					targetingWindowId = 0;
+					hTargetingCurrentWnd = NULL;
+				}
+			}
+		}
+		break;
+
+		case WM_PAINT:
+		{
+			PAINTSTRUCT ps;
+			HDC hdc = BeginPaint(hWnd, &ps);
+			// TODO: Add any drawing code that uses hdc here...
+			EndPaint(hWnd, &ps);
+		}
+		break;
+
+		case WM_DESTROY:
+			GetWindowRect(hWnd, &config.Rect);
+			SendMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_UNINSTALL), 0);
+			PostQuitMessage(0);
+			break;
+
+		case MYWM_NOTIFYICON:
+			switch (lParam) {
+				case WM_RBUTTONDOWN:
+				case WM_CONTEXTMENU:
+					// Show context menu
+				{
+					POINT cursor;
+					GetCursorPos(&cursor);
+					HMENU hMenu = LoadMenu(GetModuleHandle(nullptr), MAKEINTRESOURCE(IDR_TRAY_MENU));
+					TrackPopupMenu(GetSubMenu(hMenu, 0), TPM_LEFTALIGN | TPM_RIGHTBUTTON, cursor.x, cursor.y, 0, hWnd, NULL);
+				}
+				break;
+				case WM_LBUTTONUP:
+					// Handle left-click event
+				{
+					if (IsWindowVisible(hWnd))
+					{
+						ShowWindow(hWnd, SW_HIDE);
+					}
+					else
+					{
+						ShowWindow(hWnd, SW_SHOW);
+						SetForegroundWindow(hWnd); // Ensure that the window is in the foreground
+					}
+				}
+				break;
+			}
+			break;
+
+		default:
+			if (message == MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED)
+			{
+				HWND hSrcWnd = (HWND)wParam;
+				if (hWnd == hSrcWnd)
+				{
+					hooks.unloadHook();
+				}
+				else
+				{
+					DWORD wndProcessId = NULL;
+					auto wndThreadId = GetWindowThreadProcessId(hSrcWnd, &wndProcessId);
+					HINSTANCE hInstance = (HINSTANCE)lParam;
+					DetachFromProcess(wndProcessId, hInstance);
+				}
+			}
+			return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
 }
 
 // Message handler for about box.
