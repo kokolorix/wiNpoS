@@ -517,46 +517,35 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 	RECT mr = mp->monitorRect;
 	OffsetRect(&rcRealWnd, -mr.left, -mr.top);
 
-	if(mp->activeWinPosPreview.get() == this)
+	// Create a semi-transparent color using ALPHA
+	BLENDFUNCTION blendFunction = { 0 };
+	blendFunction.AlphaFormat = AC_SRC_ALPHA;
+	blendFunction.BlendFlags = 0;
+	blendFunction.BlendOp = AC_SRC_ALPHA;
+	blendFunction.SourceConstantAlpha = 128; // 0 (transparent) to 255 (opaque)
+
+	// Draw the half-transparent rectangle
+	HDC memDC = CreateCompatibleDC(hDc);
+	HBITMAP memBitmap = CreateCompatibleBitmap(hDc, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top);
+	HBITMAP hOldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);
+
+	if (rcRealWnd == wndRect)
 	{
-		FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_ACTIVECAPTION));
+		FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_GRADIENTINACTIVECAPTION));
 	}
 	else
 	{
-		// Create a semi-transparent color using ALPHA
-		BLENDFUNCTION blendFunction;
-		blendFunction.AlphaFormat = AC_SRC_ALPHA;
-		blendFunction.BlendFlags = 0;
-		blendFunction.BlendOp = AC_SRC_OVER;
-		blendFunction.SourceConstantAlpha =  0xAC; // 0 (transparent) to 255 (opaque)
-
-		// Draw the half-transparent rectangle
-		HDC memDC = CreateCompatibleDC(hDc);
-		HBITMAP memBitmap = CreateCompatibleBitmap(hDc, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top);
-		HBITMAP hOldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);
-
-		if (rcRealWnd == wndRect)
-		{
-			FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_GRADIENTINACTIVECAPTION));
-		}
-		else
-		{
-			FillRect(memDC, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
-		}
-		AlphaBlend(hDc, prvRect.left, prvRect.top, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, memDC, 0, 0, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, blendFunction);
-
-		SelectObject(memDC, hOldBitmap);
-		DeleteObject(memBitmap);
-		DeleteDC(memDC);
-		//FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
+		FillRect(memDC, &prvRect, GetSysColorBrush(COLOR_INACTIVECAPTION));
 	}
-	//if (rcRealWnd == wndRect)
-	//	FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_BTNSHADOW));
-	//else
-		FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_HOTLIGHT));
+	AlphaBlend(hDc, prvRect.left, prvRect.top, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, memDC, 0, 0, prvRect.right - prvRect.left, prvRect.bottom - prvRect.top, blendFunction);
+
+	SelectObject(memDC, hOldBitmap);
+	DeleteObject(memBitmap);
+	DeleteDC(memDC);
 
 	if(mp->activeWinPosPreview.get() == this)
 	{
+		FillRect(hDc, &prvRect, GetSysColorBrush(COLOR_ACTIVECAPTION));
 		RECT rc = prvRect;
 		RECT rcText = rc;
 
@@ -567,15 +556,11 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 		OffsetRect(&rc, 0, (rc.bottom - rc.top - textHeight) / 2);
 		DrawTextA(hDc, name.c_str(), name.length(), &rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);
 
-		//if (hCurrentFont)
-		//	SelectObject(hDc, hCurrentFont);
-		//if (hFont)
-		//	DeleteObject(hFont);
-
 		SetBkMode(hDc, oldBkMode);
 		SetTextColor(hDc, oldColor);
 	}
 
+	FrameRect(hDc, &prvRect, GetSysColorBrush(COLOR_HOTLIGHT));
 }
 
 /**
