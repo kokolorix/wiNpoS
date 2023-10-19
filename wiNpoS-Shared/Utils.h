@@ -186,6 +186,11 @@ namespace Utils
 	enum Units { Percent, Pixels };
 	RECT ScaleRect(const RECT& in, FLOAT f);
 
+	inline bool operator == (const POINT& x, const POINT& y)
+	{
+		using std::make_tuple;
+		return make_tuple(x.x, x.y) == make_tuple(y.x, y.y);
+	}
 	inline bool operator == (const RECT& x, const RECT& y)
 	{
 		using std::make_tuple;

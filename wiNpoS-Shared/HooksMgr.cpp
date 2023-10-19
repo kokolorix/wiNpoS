@@ -105,7 +105,7 @@ void HooksMgr::unhookHooks()
 */
 void HooksMgr::install()
 {
-	attach();
+	_hModule = load();
 
 	//HOOKPROC hkShellHookProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(ShellHookProc));
 	//assert(hkShellHookProc);

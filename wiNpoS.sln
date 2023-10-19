@@ -11,6 +11,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wiNpoS-Shared", "wiNpoS-Sha
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wiNpoS-Support", "wiNpoS-Support\wiNpoS-Support.vcxproj", "{D065C08E-511C-4A26-AD2E-205356B62A62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E39755F6-9506-4F3E-937B-82EC24577C59}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		wiNpoS.dox = wiNpoS.dox
+		pages\docs\wiNpoS.gif = pages\docs\wiNpoS.gif
+		wiNpoS.md = wiNpoS.md
+		wiNpoS.png = wiNpoS.png
+		WndConfig.jsonc = WndConfig.jsonc
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

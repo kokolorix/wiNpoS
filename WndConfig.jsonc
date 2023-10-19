@@ -1,543 +1,211 @@
 {
-   "PosWndConfig": {
-      "Scale": 0.12,
-      "CloseTimeout": 2500,
-      "Monitors": [
-         {
-            "Device": "Generic Non-PnP Monitor",
-            "MonitorRect": "0,0,2560,1400",
-            "Index": 0,
-            "Positions": [
-               {
-                  "WndRect": {
-                     "Left": 3,
-                     "Top": 6,
-                     "Width": 95,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 2,
-                     "Top": 2,
-                     "Width": 96,
-                     "Height": 96
-                  },
-                  "Name": "Center-Big",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 4,
-                     "Top": 4,
-                     "Width": 45,
-                     "Height": 45
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 6,
-                     "Width": 30,
-                     "Height": 30
-                  },
-                  "Name": "Top-Left"
-               },
-               {
-                  "WndRect": {
-                     "Left": 51,
-                     "Top": 4,
-                     "Width": 45,
-                     "Height": 45
-                  },
-                  "PrvRect": {
-                     "Left": 64,
-                     "Top": 6,
-                     "Width": 30,
-                     "Height": 30
-                  },
-                  "Name": "Top-Right"
-               },
-               {
-                  "WndRect": {
-                     "Left": 4,
-                     "Top": 51,
-                     "Width": 45,
-                     "Height": 45
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 64,
-                     "Width": 30,
-                     "Height": 30
-                  },
-                  "Name": "Bottom-Left"
-               },
-               {
-                  "WndRect": {
-                     "Left": 51,
-                     "Top": 51,
-                     "Width": 45,
-                     "Height": 45
-                  },
-                  "PrvRect": {
-                     "Left": 64,
-                     "Top": 64,
-                     "Width": 30,
-                     "Height": 30
-                  },
-                  "Name": "Bottom-Right"
-               },
-               {
-                  "WndRect": {
-                     "Left": 15,
-                     "Top": 15,
-                     "Width": 70,
-                     "Height": 70
-                  },
-                  "Name": "Center-Small"
-               },
-               {
-                  "WndRect": {
-                     "Left": 30,
-                     "Top": 30,
-                     "Width": 40,
-                     "Height": 40
-                  },
-                  "Name": "Center-Mini"
-               }
-            ]
-         },
-         {
-            "Device": "Generic Non-PnP Monitor",
-            "MonitorRect": "0,0,2560,1400",
-            "Index": 0,
-            "Positions": [
-               {
-                  "WndRect": {
-                     "Left": 2,
-                     "Top": 6,
-                     "Width": 65,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 2,
-                     "Top": 6,
-                     "Width": 62,
-                     "Height": 92
-                  },
-                  "Name": "Left-Two-Thirds",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 35,
-                     "Top": 6,
-                     "Width": 65,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 35,
-                     "Top": 6,
-                     "Width": 62,
-                     "Height": 92
-                  },
-                  "Name": "Right-Two-Thirds",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 2,
-                     "Top": 6,
-                     "Width": 32,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 2,
-                     "Top": 6,
-                     "Width": 29,
-                     "Height": 92
-                  },
-                  "Name": "Left-Third",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 35,
-                     "Top": 6,
-                     "Width": 32,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 35,
-                     "Top": 6,
-                     "Width": 29,
-                     "Height": 92
-                  },
-                  "Name": "Left-Third",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 68,
-                     "Top": 6,
-                     "Width": 32,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 68,
-                     "Top": 6,
-                     "Width": 29,
-                     "Height": 92
-                  },
-                  "Name": "Left-Third",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 2,
-                     "Top": 6,
-                     "Width": 46,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 4,
-                     "Top": 22,
-                     "Width": 25,
-                     "Height": 56
-                  },
-                  "Name": "Left-Half",
-                  "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 51,
-                     "Top": 6,
-                     "Width": 46,
-                     "Height": 92
-                  },
-                  "PrvRect": {
-                     "Left": 70,
-                     "Top": 22,
-                     "Width": 25,
-                     "Height": 56
-                  },
-                  "Name": "Right-Half",
-                  "Units": "%"
-               }
-            ]
-         },
-         {
-            "Device": "Generic Non-PnP Monitor",
-            "MonitorRect": "2560,-197,1080,1880",
-            "Index": 1,
-            "Positions": [
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 94
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 93
-                  },
-                  "Name": "High-Big"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 46
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 45
-                  },
-                  "Name": "Top Half"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 22
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 21
-                  },
-                  "Name": "Right 1 + 2"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 3,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 1"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 15,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 15,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 2"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 27,
-                     "Width": 92,
-                     "Height": 22
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 27,
-                     "Width": 92,
-                     "Height": 21
-                  },
-                  "Name": "Right 3 + 4"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 27,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 27,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 3"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 39,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 39,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 4"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 46
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 45
-                  },
-                  "Name": "Bottom Half"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 22
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 21
-                  },
-                  "Name": "Right 5 + 6"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 51,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 5"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 63,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 63,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 6"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 75,
-                     "Width": 92,
-                     "Height": 22
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 75,
-                     "Width": 92,
-                     "Height": 21
-                  },
-                  "Name": "Right 7 + 8"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 75,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 75,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 7"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 87,
-                     "Width": 92,
-                     "Height": 10
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 87,
-                     "Width": 92,
-                     "Height": 9
-                  },
-                  "Name": "Right 8"
-               }
-            ]
-         },
-         {
-            "Device": "Generic Non-PnP Monitor",
-            "MonitorRect": "2560,-197,1080,1880",
-            "Index": 1,
-            "Positions": [
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 2,
-                     "Width": 92,
-                     "Height": 65
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 2,
-                     "Width": 92,
-                     "Height": 62
-                  },
-                  "Name": "Top-Two-Thirds"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 35,
-                     "Width": 92,
-                     "Height": 65
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 35,
-                     "Width": 92,
-                     "Height": 62
-                  },
-                  "Name": "Bottom-Two-Thirds"
-                  // "Units": "%"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 2,
-                     "Width": 92,
-                     "Height": 32
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 2,
-                     "Width": 92,
-                     "Height": 29
-                  },
-                  "Name": "Top-Third"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 35,
-                     "Width": 92,
-                     "Height": 32
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 35,
-                     "Width": 92,
-                     "Height": 29
-                  },
-                  "Name": "Middle-Third"
-               },
-               {
-                  "WndRect": {
-                     "Left": 6,
-                     "Top": 68,
-                     "Width": 92,
-                     "Height": 32
-                  },
-                  "PrvRect": {
-                     "Left": 6,
-                     "Top": 68,
-                     "Width": 92,
-                     "Height": 29
-                  },
-                  "Name": "Bottom-Third"
-               }
-            ]
-         }
-      ]
-   }
+    "PosWndConfig": {
+        "Scale": 0.12,
+        "CloseTimeout": 2500,
+        "Monitors": [
+            {
+                "Device": "Generic Non-PnP Monitor",
+                "MonitorRect": "0,0,2560,1400",
+                "Index": 0,
+                "Positions": [
+                    {
+                        "WndRect": {"Left": 2,"Top": 6,"Width": 96,"Height": 92},
+                        // "PrvRect": {"Left": 2,"Top": 2,"Width": 96,"Height": 96},
+                        "Name": "Center-Big",
+                        // "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 2,"Top": 6,"Width": 46,"Height": 92},
+                        "PrvRect": {"Left": 2,"Top": 6,"Width": 45,"Height": 92},
+                        "Name": "Left-Half",
+                    },
+                    {
+                        "WndRect": {"Left": 51,"Top": 6,"Width": 46,"Height": 92},
+                        "PrvRect": {"Left": 53,"Top": 6,"Width": 45,"Height": 92},
+                        "Name": "Right-Half",
+                    },
+                    {
+                        "WndRect": {"Left": 15,"Top": 15,"Width": 70,"Height": 70},
+                        "Name": "Center-Middle",
+                    },
+                    {
+                        "WndRect": {"Left": 27,"Top": 27,"Width": 45,"Height": 45},
+                        "Name": "Center-Small",
+                    },
+                    {
+                        "WndRect": {"Left": 32,"Top": 32,"Width": 36,"Height": 36},
+                        "PrvRect": {"Left": 34,"Top": 34,"Width": 32,"Height": 32},
+                        "Name": "Center-Mini",
+                    },
+                ]
+            },
+            {
+                "Device": "Generic Non-PnP Monitor",
+                "MonitorRect": "0,0,2560,1400",
+                "Index": 0,
+                "Positions": [
+                    {
+                        "WndRect": {"Left": 2,"Top": 6,"Width": 65,"Height": 92},
+                        "PrvRect": {"Left": 2,"Top": 6,"Width": 62,"Height": 92},
+                        "Name": "Left-Two-Thirds",
+                        "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 35,"Top": 6,"Width": 65,"Height": 92},
+                        "PrvRect": {"Left": 35,"Top": 6,"Width": 62,"Height": 92},
+                        "Name": "Right-Two-Thirds",
+                        "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 2,"Top": 6,"Width": 32,"Height": 92},
+                        "PrvRect": {"Left": 2,"Top": 6,"Width": 29,"Height": 92},
+                        "Name": "Left-Third",
+                        "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 35,"Top": 6,"Width": 32,"Height": 92},
+                        "PrvRect": {"Left": 35,"Top": 6,"Width": 29,"Height": 92},
+                        "Name": "Left-Third",
+                        "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 68,"Top": 6,"Width": 32,"Height": 92},
+                        "PrvRect": {"Left": 68,"Top": 6,"Width": 29,"Height": 92},
+                        "Name": "Left-Third",
+                        "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 4,"Top": 4,"Width": 45,"Height": 45},
+                        "PrvRect": {"Left": 6,"Top": 10,"Width": 22,"Height": 30},
+                        "Name": "Top-Left",
+                    },
+                    {
+                        "WndRect": {"Left": 51,"Top": 4,"Width": 45,"Height": 45},
+                        "PrvRect": {"Left": 71,"Top": 10,"Width": 22,"Height": 30},
+                        "Name": "Top-Right",
+                    },
+                    {
+                        "WndRect": {"Left": 4,"Top": 51,"Width": 45,"Height": 45},
+                        "PrvRect": {"Left": 6,"Top": 64,"Width": 22,"Height": 30},
+                        "Name": "Bottom-Left",
+                    },
+                    {
+                        "WndRect": {"Left": 51,"Top": 51,"Width": 45,"Height": 45},
+                        "PrvRect": {"Left": 71,"Top": 64,"Width": 22,"Height": 30},
+                        "Name": "Bottom-Right",
+                    },
+                ]
+            },
+            {
+                "Device": "Generic Non-PnP Monitor",
+                "MonitorRect": "2560,-197,1080,1880",
+                "Index": 1,
+                "Positions": [
+                    {
+                        "WndRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 46},
+                        "PrvRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 45},
+                        "Name": "Top Half",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 22},
+                        "PrvRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 21},
+                        "Name": "Right 1 + 2",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 9},
+                        "Name": "Right 1",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 15,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 15,"Width": 92,"Height": 9},
+                        "Name": "Right 2",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 27,"Width": 92,"Height": 22},
+                        "PrvRect": {"Left": 6,"Top": 27,"Width": 92,"Height": 21},
+                        "Name": "Right 3 + 4",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 27,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 27,"Width": 92,"Height": 9},
+                        "Name": "Right 3",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 39,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 39,"Width": 92,"Height": 9},
+                        "Name": "Right 4",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 46},
+                        "PrvRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 45},
+                        "Name": "Bottom Half",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 22},
+                        "PrvRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 21},
+                        "Name": "Right 5 + 6",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 51,"Width": 92,"Height": 9},
+                        "Name": "Right 5",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 63,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 63,"Width": 92,"Height": 9},
+                        "Name": "Right 6",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 75,"Width": 92,"Height": 22},
+                        "PrvRect": {"Left": 6,"Top": 75,"Width": 92,"Height": 21},
+                        "Name": "Right 7 + 8",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 75,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 75,"Width": 92,"Height": 9},
+                        "Name": "Right 7",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 87,"Width": 92,"Height": 10},
+                        "PrvRect": {"Left": 6,"Top": 87,"Width": 92,"Height": 9},
+                        "Name": "Right 8",
+                    },
+             ]
+            },
+            {
+                "Device": "Generic Non-PnP Monitor",
+                "MonitorRect": "2560,-197,1080,1880",
+                "Index": 1,
+                "Positions": [
+                    {
+                        "WndRect": {"Left": 6,"Top": 2,"Width": 92,"Height": 65},
+                        "PrvRect": {"Left": 6,"Top": 2,"Width": 92,"Height": 62},
+                        "Name": "Top-Two-Thirds",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 35,"Width": 92,"Height": 65},
+                        "PrvRect": {"Left": 6,"Top": 35,"Width": 92,"Height": 62},
+                        "Name": "Bottom-Two-Thirds",
+                        // "Units": "%"
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 2,"Width": 92,"Height": 32},
+                        "PrvRect": {"Left": 6,"Top": 2,"Width": 92,"Height": 29},
+                        "Name": "Top-Third",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 35,"Width": 92,"Height": 32},
+                        "PrvRect": {"Left": 6,"Top": 35,"Width": 92,"Height": 29},
+                        "Name": "Middle-Third",
+                    },
+                    {
+                        "WndRect": {"Left": 6,"Top": 68,"Width": 92,"Height": 32},
+                        "PrvRect": {"Left": 6,"Top": 68,"Width": 92,"Height": 29},
+                        "Name": "Bottom-Third",
+                    },
+             ]
+            },
+        ]
+    }
 }

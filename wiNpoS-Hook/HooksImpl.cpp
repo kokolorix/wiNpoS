@@ -12,9 +12,17 @@
 extern HINSTANCE hInstance;
 thread_local HRESULT coInit /*= S_FALSE*/;
 
-TaskToolbar thumbnailToolbar;
+thread_local TaskToolbar thumbnailToolbar;
 thread_local HooksImpl hooks;
 
+namespace
+{
+	/**
+	 * @brief ID from close timer
+	*/
+	const UINT TI_LBUTTONUP = 0x40;
+	const UINT TI_NCLBUTTONUP = 0x50;
+}
 
 /**
  * @brief  the exported hook for the shell procedure
@@ -49,22 +57,6 @@ LRESULT CALLBACK GetMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lPar
 {
 	return HooksImpl::getMsgProc(nCode, wParam, lParam);
 
-}
-/**
- * @brief global stuff 
-*/
-namespace 
-{
-	RECT lr = { 0 }; // last rect
-	bool hasLastRect()
-	{
-		return lr.left + lr.right + lr.right + lr.bottom != 0;
-	}
-	POINT cd = { 0 }; // caption dbl clicked
-	bool hasCaptionDblClicked()
-	{
-		return cd.x + cd.y != 0;
-	}
 }
 /**
  * @brief 
@@ -165,6 +157,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						hooks.onNCLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
@@ -176,15 +169,44 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_LBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						//SetTimer(pMsg->hwnd, TI_NCLBUTTONUP, USER_TIMER_MINIMUM, (TIMERPROC)nullptr);
+						//PostMessage(pMsg->hwnd, DO_THE_WORK, (WPARAM)GetCurrentThreadId(), 0);
 						hooks.onLButtonUp(pMsg);
 						break;
 					case WM_KEYDOWN:
-						WRITE_DEBUG_LOG(dformat("WM_KEYDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+						//WRITE_DEBUG_LOG(dformat("WM_KEYDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						if (pMsg->wParam == VK_ESCAPE)
 						{
 							hooks.onClosePosWnd(pMsg, { 0 });
 						}
 						break;
+					case WM_TIMER:
+						if (pMsg->wParam == TI_LBUTTONUP)
+						{
+							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+							KillTimer(pMsg->hwnd, TI_LBUTTONUP);
+							MSG msg = *hooks.getLButtonUpMsg();
+
+							// extract the exact click point from lParam
+							POINT pt = { GET_X_LPARAM(msg.lParam), GET_Y_LPARAM(msg.lParam) };
+							// Adjust the client rectangle to screen coordinates
+							MapWindowPoints(msg.hwnd, HWND_DESKTOP, (LPPOINT)&pt, 1);
+							// check if the click is on a control of the title bar
+							LRESULT hitTest = SendMessage(msg.hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+
+							msg.lParam = MAKELPARAM(pt.x, pt.y);
+							msg.wParam = hitTest;
+
+							hooks.onCaptionClick(&msg);
+						}
+						else if (pMsg->wParam == TI_NCLBUTTONUP)
+						{
+							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+							KillTimer(pMsg->hwnd, TI_NCLBUTTONUP);
+							hooks.onCaptionClick(hooks.getNcLButtonUpMsg());
+						}
+						break;
+
 					case WM_COMMAND:
 					{
 						uint16_t type = HIWORD(pMsg->wParam);
@@ -251,6 +273,8 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 */
 void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 {
+	_lastLButtonDown = { 0 };
+
 	int x = GET_X_LPARAM(pMsg->lParam);
 	int y = GET_Y_LPARAM(pMsg->lParam);
 
@@ -269,13 +293,19 @@ void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 	MapWindowPoints(pMsg->hwnd, HWND_DESKTOP, (LPPOINT)&cr, 2);
 
 	// Check if the double-click occurred in the border area
-	if (pt.x < cr.left || pt.x >= cr.right)
+	//if (pt.x < cr.left || pt.x >= cr.right)
+	if (is_one_of(hitTest, HTLEFT, HTRIGHT))
 	{
 		if (hasLastRect())
 		{
-			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
-			SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
-			lr = { 0 };
+			auto resFuture = std::async(std::launch::async, [pMsg, this]()
+				{
+					WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, _lastRect.left, _lastRect.top, _lastRect.right - _lastRect.left, _lastRect.bottom - _lastRect.top, SWP_NOZORDER));
+					SetWindowPos(pMsg->hwnd, NULL, _lastRect.left, _lastRect.top, _lastRect.right - _lastRect.left, _lastRect.bottom - _lastRect.top, SWP_NOZORDER | SWP_ASYNCWINDOWPOS);
+					_lastRect = { 0 };
+				});
+			//SetWindowPos(pMsg->hwnd, NULL, _lastRect.left, _lastRect.top, _lastRect.right - _lastRect.left, _lastRect.bottom - _lastRect.top, SWP_NOZORDER);
+			//_lastRect = { 0 };
 		}
 		else
 		{
@@ -290,10 +320,13 @@ void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 			// Calculate the width of the monitor
 			int ml = mi.rcMonitor.left;
 			int mw = mi.rcMonitor.right - mi.rcMonitor.left;
-			lr = wr;
+			_lastRect = wr;
 			//WINUSERAPI BOOL WINAPI SetWindowPos(_In_ HWND hWnd, _In_opt_ HWND hWndInsertAfter, _In_ int X, _In_ int Y, _In_ int cx, _In_ int cy, _In_ UINT uFlags)
-			WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
-			SetWindowPos(pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER);
+			auto resFuture = std::async(std::launch::async, [ml, wr, mw, pMsg, this]()
+				{
+					WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#010x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER));
+					SetWindowPos(pMsg->hwnd, NULL, ml, wr.top, mw, wr.bottom - wr.top, SWP_NOZORDER | SWP_ASYNCWINDOWPOS);
+				});
 		}
 	}
 	// Check if the double-click occurred in the caption area
@@ -304,7 +337,7 @@ void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 
 		if (hasLastRect() && isRelevant)
 		{
-			cd = pt;
+			_captionDblClick = pt;
 		}
 	}
 }
@@ -316,28 +349,20 @@ void HooksImpl::onWindowPosChanged(CWPSTRUCT* pMsg)
 {
 	if (hasCaptionDblClicked())
 	{
-		cd = { 0 };
+		_captionDblClick = { 0 };
 
 		if (hasLastRect())
 		{
 			if (IsZoomed(pMsg->hwnd))
 			{
-				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#018x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER));
+				WRITE_DEBUG_LOG(format("SetWindowPos(hWnd: {:#018x}, hWndInsertAfter: {}, x: {}, y: {}, cx: {}, cy: {}, uFlags: {:#010x})", (int64_t)pMsg->hwnd, NULL, _lastRect.left, _lastRect.top, _lastRect.right - _lastRect.left, _lastRect.bottom - _lastRect.top, SWP_NOZORDER));
 				ShowWindow(pMsg->hwnd, SW_NORMAL);
-				SetWindowPos(pMsg->hwnd, NULL, lr.left, lr.top, lr.right - lr.left, lr.bottom - lr.top, SWP_NOZORDER);
-				lr = { 0 };
+				SetWindowPos(pMsg->hwnd, NULL, _lastRect.left, _lastRect.top, _lastRect.right - _lastRect.left, _lastRect.bottom - _lastRect.top, SWP_NOZORDER);
+				_lastRect = { 0 };
 			}
 		}
 	}
 }
-
-/**
- * @brief global stuff for click events
-*/
-struct
-{
-	POINT lastLButtonDown = { 0 };
-} lb;
 /**
  * @brief processes the WM_NCLBUTTONDOWN event
  * @param pMsg 
@@ -351,8 +376,18 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))
 	{
-		lb.lastLButtonDown = pt;
+		_lastLButtonDown = pt;
 	}
+}
+/**
+ * @brief processes the WM_NCLBUTTONUP event
+ * @param pMsg 
+*/
+void HooksImpl::onNCLButtonUp(MSG* pMsg)
+{
+	_ncLButtonUpMsg = *pMsg;
+	UINT dblClickTime = GetDoubleClickTime();
+	SetTimer(pMsg->hwnd, TI_NCLBUTTONUP, dblClickTime, (TIMERPROC)nullptr);
 }
 /**
  * @brief processes the WM_LBUTTONUP event
@@ -381,19 +416,22 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM) && !hasCaptionDblClicked())
 	{
-		static const int32_t TOL = 3; // tolerance
-		RECT rc = { pt.x - TOL, pt.y - TOL, pt.x + TOL, pt.y + TOL };
-		if (PtInRect(&rc, lb.lastLButtonDown))
-		{
-			lb.lastLButtonDown = { 0 };
-			if (lCtrl)
-				onIncrementWindow(pMsg, 10, IncWnd::All, &pt, HTCAPTION);
-			else if (lShift)
-				onIncrementWindow(pMsg, -10, IncWnd::All, &pt, HTCAPTION);
-			else
-				onShowPosWnd(pMsg, pt);
-		}
+		_lButtonUpMsg = *pMsg;
+		UINT dblClickTime = GetDoubleClickTime();
+		SetTimer(pMsg->hwnd, TI_LBUTTONUP, dblClickTime, (TIMERPROC)nullptr);
 
+		//static const int32_t TOL = 3; // tolerance
+		//RECT rc = { pt.x - TOL, pt.y - TOL, pt.x + TOL, pt.y + TOL };
+		//if (PtInRect(&rc, lb.lastLButtonDown))
+		//{
+		//	lb.lastLButtonDown = { 0 };
+		//	if (lCtrl)
+		//		onIncrementWindow(pMsg, 10, IncWnd::All, &pt, HTCAPTION);
+		//	else if (lShift)
+		//		onIncrementWindow(pMsg, -10, IncWnd::All, &pt, HTCAPTION);
+		//	else
+		//		onShowPosWnd(pMsg, pt);
+		//}
 	}
 	else if (is_one_of(hitTest, HTLEFT) && lCtrl && lAlt)
 	{
@@ -448,6 +486,38 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 }
 
 /**
+ * @brief do the work, if necessary
+ * @param pMsg 
+*/
+void HooksImpl::onCaptionClick(MSG* pMsg)
+{
+	// extract the exact click point from lParam
+	POINT pt = { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) };
+	LRESULT hitTest = pMsg->wParam; // and the hitTest from wParam
+
+	// check the Key States
+	bool lCtrl = HIBYTE(GetAsyncKeyState(VK_LCONTROL));
+	bool lShift = HIBYTE(GetAsyncKeyState(VK_LSHIFT));
+	bool lAlt = HIBYTE(GetAsyncKeyState(VK_LMENU));
+
+	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM) && !hasCaptionDblClicked())
+	{
+		int xTol = GetSystemMetrics(SM_CXDOUBLECLK) / 2, yTol = GetSystemMetrics(SM_CYDOUBLECLK) / 2;
+		RECT rc = { pt.x - xTol, pt.y - yTol, pt.x + xTol, pt.y + yTol };
+		if (PtInRect(&rc, _lastLButtonDown))
+		{
+			_lastLButtonDown = { 0 };
+			if (lCtrl)
+				onIncrementWindow(pMsg, 10, IncWnd::All, &pt, HTCAPTION);
+			else if (lShift)
+				onIncrementWindow(pMsg, -10, IncWnd::All, &pt, HTCAPTION);
+			else
+				onShowPosWnd(pMsg, pt);
+		}
+	}
+}
+
+/**
  * @brief method to change the size of a window in steps
  * @param pMsg MSG structure from hook
  * @param diff step-size
@@ -455,33 +525,44 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
  * @param pCursorPos position of cursor, if displacement is desired 
  * @param hitTest information, where the click has hit
 */
-void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd::All*/, POINT* pCursorPos/*=nullptr*/, LRESULT hitTest /*= HTNOWHERE*/)
+void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd::All*/, POINT* pCursorPos/*=nullptr*/, LRESULT hitTest /*= HTNOWHERE*/, bool async /*= true*/)
 {
-	WRITE_DEBUG_LOG(format("Msg: {:#010x}, diff: {}, dir: {:#06x}, cursorPos: {}", pMsg->message, diff, (unsigned char)incDir, pCursorPos ? format("x: {}, y: {}", pCursorPos->x, pCursorPos->y) : string("NULL")));
 	HWND hWnd = pMsg->hwnd;
 
 	WINDOWPLACEMENT wp = { sizeof(WINDOWPLACEMENT) };
 	GetWindowPlacement(hWnd, &wp);
 	if (wp.showCmd == SW_MAXIMIZE && diff > 0)
+	{
+		WRITE_DEBUG_LOG_DETAIL(format("Msg: {:#010x}, diff: {}, dir: {:#06x}", pMsg->message, diff, (unsigned char)incDir),
+			format("CursorPos: {}", pMsg->message,pCursorPos ? format("x: {}, y: {}", pCursorPos->x, pCursorPos->y) : string("NULL")));
 		return;
+	}
 
 	wp.flags = WPF_ASYNCWINDOWPLACEMENT;
 
-	RECT wr = { 0 };
-	GetWindowRect(hWnd, &wr);
+	RECT wr1 = { 0 };// wp.rcNormalPosition;
+	GetWindowRect(hWnd, &wr1);
+	RECT wr2 = wr1;
 
 	if (check_one_bit(IncWnd::Left, incDir))
-		wr.left -= diff;
+		wr2.left -= diff;
 	if (check_one_bit<uint8_t>(IncWnd::Right, incDir))
-		wr.right += diff;
+		wr2.right += diff;
 	if (check_one_bit<uint8_t>(IncWnd::Up, incDir))
-		wr.top -= diff;
+		wr2.top -= diff;
 	if (check_one_bit<uint8_t>(IncWnd::Down, incDir))
-		wr.bottom += diff;
+		wr2.bottom += diff;
 	//InflateRect(&wr, diff, diff);
 
+	WRITE_DEBUG_LOG_DETAIL(format("Msg: {:#010x}, diff: {}, dir: {:#06x}", pMsg->message, diff, (unsigned char)incDir),
+		format("CursorPos: {}, RECT1: {},{},{},{}, RECT2: {},{},{},{}", 
+			pCursorPos ? format("x: {}, y: {}", pCursorPos->x, pCursorPos->y) : string("NULL"),
+		wr1.left, wr1.top, wr1.right, wr1.bottom,
+		wr2.left, wr2.top, wr2.right, wr2.bottom)
+	);
+
 	//auto width = r.right - r.left;
-	auto height = wr.bottom - wr.top;
+	auto height = wr2.bottom - wr2.top;
 
 	auto captionHeight = GetSystemMetrics(SM_CYCAPTION);
 	if (height <= captionHeight)
@@ -513,14 +594,23 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 			SetCursorPos(pt.x, pt.y + diff); // keep cursor over bottom border;
 	}
 
-	wp.rcNormalPosition = wr;
+	wp.rcNormalPosition = wr2;
 	wp.showCmd = SW_NORMAL;
-	// async, because the behavior when clicking on the border is otherwise strange
-	auto resFuture = std::async(std::launch::async, [hWnd, wp]()
-		{
-			BOOL wndReplaced = SetWindowPlacement(hWnd, &wp);
-			assert(wndReplaced);
-		});
+	if(async)
+	{
+		// async, because the behavior when clicking on the border is otherwise strange
+		auto resFuture = std::async(std::launch::async, [hWnd, wp]()
+			{
+				BOOL wndReplaced = SetWindowPlacement(hWnd, &wp);
+				assert(wndReplaced);
+			});
+	}
+	else
+	{
+		wp.flags = 0;
+		BOOL wndReplaced = SetWindowPlacement(hWnd, &wp);
+		assert(wndReplaced);
+	}
 }
 
 /**
