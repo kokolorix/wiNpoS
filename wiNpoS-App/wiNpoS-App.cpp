@@ -13,6 +13,7 @@
 #include <Shlwapi.h>
 #include <future>
 #include <shellapi.h>
+#include <regex>
 #pragma comment(lib, "Shlwapi.lib")
 
 #define MAX_LOADSTRING 100
@@ -109,7 +110,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINPOSAPP);
     wcex.lpszClassName  = szWindowClass;
-    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+    wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_WINPOSAPP));
 
     return RegisterClassExW(&wcex);
 }
@@ -133,6 +134,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 	string cmdLine = toLowerCase(string(GetCommandLineA()));
 	bool installHook = cmdLine.find("not-install") == string::npos;
 	bool showWnd = cmdLine.find("not-hidden") != string::npos;
+	bool trayIcon = cmdLine.find("no-tray") != string::npos;
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
@@ -141,13 +143,16 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
    ShowWindow(hWnd, showWnd ? nCmdShow : SW_HIDE);
    UpdateWindow(hWnd);
 
-	nid = { sizeof(NOTIFYICONDATAA), hWnd, 0 };
-	nid.uID = 1; // Unique ID for the notification icon
-	nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-	nid.uCallbackMessage = MYWM_NOTIFYICON;
-	nid.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINPOSAPP)); // Set the icon
-	if(lstrcpynA(nid.szTip, "wiNpoS, click to show more ...", sizeof(nid.szTip)))
-		Shell_NotifyIconA(NIM_ADD, &nid);
+	if(trayIcon)
+	{
+		nid = { sizeof(NOTIFYICONDATAA), hWnd, 0 };
+		nid.uID = 1; // Unique ID for the notification icon
+		nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
+		nid.uCallbackMessage = MYWM_NOTIFYICON;
+		nid.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINPOSAPP)); // Set the icon
+		if (lstrcpynA(nid.szTip, "wiNpoS, click to show more ...", sizeof(nid.szTip)))
+			Shell_NotifyIconA(NIM_ADD, &nid);
+	}
 
 	if(installHook)
 	{
@@ -156,6 +161,48 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 			});
 	}
 
+	if(!trayIcon)
+	{
+		auto resFuture = std::async(std::launch::async, [hWnd]() {
+			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(IDM_START_32_64_BIT, 0), MAKELPARAM(0, 0));
+			});
+	}
+
+	HMENU hFileMenu = GetSubMenu(GetMenu(hWnd), 0);
+	int itemIndex = [hFileMenu](int itemCount)
+		{
+			for (int i = 0; i < itemCount; i++)
+				if (GetMenuItemID(hFileMenu, i) == IDM_START_32_64_BIT)
+					return  i;
+			return -1;
+		}(GetMenuItemCount(hFileMenu));
+
+	if (itemIndex > -1)
+	{
+		using std::regex;
+		using std::regex_replace;
+#ifdef _WIN64
+		string exeName = regex_replace(Utils::ExeName, regex("32"), "64");
+#else
+		string exeName = regex_replace(Utils::ExeName, regex("64"), "32");
+#endif // _WIN64
+		char exePath[MAX_PATH] = { 0 };
+		strcpy_s(exePath, Utils::BinDir.c_str());
+		PathAppendA(exePath, exeName.c_str());
+		DWORD fileAttributes = GetFileAttributesA(exePath);
+
+		UINT nFlags = (fileAttributes != INVALID_FILE_ATTRIBUTES && !(fileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+			? MF_STRING | MF_ENABLED
+			: MF_STRING | MF_DISABLED | MF_GRAYED
+			;
+
+#ifdef _WIN64
+		BOOL res = ModifyMenuA(hFileMenu, IDM_START_32_64_BIT, nFlags|MF_BYCOMMAND, IDM_START_32_64_BIT, "&Start 32 bit");
+#else
+		BOOL res = ModifyMenuA(hFileMenu, itemIndex, nFlags|MF_BYPOSITION, IDM_START_32_64_BIT, "&Start 64 bit");
+#endif // _WIN64
+		DrawMenuBar(hWnd);
+	}
 
    return TRUE;
 }
@@ -262,6 +309,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					break;
 				case IDM_FILE_OPEN_CINFIG_DIR:
 					config.openFolder();
+					break;
+				case IDM_START_32_64_BIT:
+					hooks.startOtherBitInstance();
 					break;
 
 				default:

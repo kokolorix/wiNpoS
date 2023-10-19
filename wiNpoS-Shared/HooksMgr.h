@@ -38,5 +38,7 @@ public:
 
 	void install();
 	void uninstall();
+
+	void startOtherBitInstance();
 };
 

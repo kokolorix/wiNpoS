@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "HooksMgr.h"
 #include <cassert>
+#include <regex>
 #include "Utils.h"
+#include <Shlwapi.h>
 
 /**
  * @brief 
@@ -134,4 +136,72 @@ void HooksMgr::uninstall()
 	unhookHooks();
 	//PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);
 	//detach();
+}
+/**
+ * @brief starts other instance, if possible
+*/
+namespace
+{
+	void atExit()
+	{
+		using std::regex;
+		using std::regex_replace;
+	#ifdef _WIN64
+		string exeName = regex_replace(Utils::ExeName, regex("64"), "32");
+	#else
+		string exeName = regex_replace(Utils::ExeName, regex("32"), "64");
+	#endif // _WIN64
+		char exePath[MAX_PATH] = { 0 };
+		strcpy_s(exePath, Utils::BinDir.c_str());
+		PathAppendA(exePath, exeName.c_str());
+		std::system(format("taskkill /F /IM {}", exePath).c_str());
+
+	}
+}
+void HooksMgr::startOtherBitInstance()
+{
+	using std::regex;
+	using std::regex_replace;
+#ifdef _WIN64
+	string exeName = regex_replace(Utils::ExeName, regex("64"), "32");
+#else
+	string exeName = regex_replace(Utils::ExeName, regex("32"), "64");
+#endif // _WIN64
+	char exePath[MAX_PATH] = { 0 };
+	strcpy_s(exePath, Utils::BinDir.c_str());
+	PathAppendA(exePath, exeName.c_str());
+	DWORD fileAttributes = GetFileAttributesA(exePath);
+	if (fileAttributes != INVALID_FILE_ATTRIBUTES && !(fileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+	{
+		//STARTUPINFO si;
+		//PROCESS_INFORMATION pi;
+
+		//ZeroMemory(&si, sizeof(si));
+		//si.cb = sizeof(si);
+		//ZeroMemory(&pi, sizeof(pi);
+
+		//// Create the child process
+		//if (CreateProcess(
+		//	L"child_process.exe",    // Replace with the actual child process name or path
+		//	NULL,                   // Command line (optional)
+		//	NULL,                   // Process handle not inheritable
+		//	NULL,                   // Thread handle not inheritable
+		//	FALSE,                  // Set handle inheritance to FALSE
+		//	0,                      // No creation flags
+		//	NULL,                   // Use parent's environment block
+		//	NULL,                   // Use parent's starting directory
+		//	&si,                    // Pointer to STARTUPINFO structure
+		//	&pi                     // Pointer to PROCESS_INFORMATION structure
+		//)) {
+		//	// Close process and thread handles to prevent resource leaks
+		//	CloseHandle(pi.hProcess);
+		//	CloseHandle(pi.hThread);
+
+		//	// Rest of your main program logic
+
+		//	// Terminate the child process when the parent process exits
+		//	TerminateProcess(pi.hProcess, 0);		//std::system(format("{} -no-tray", exePath).c_str());
+		//std::atexit(atExit);
+		//CreateProcessA(exePath, "-no-tray", NULL, NULL, FALSE, 0, NULL, Utils::BinDir.c_str(), NULL, NULL);
+	}
 }
