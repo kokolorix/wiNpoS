@@ -1,5 +1,4 @@
 #include "pch.h"
-#include "Config.h"
 #include <format>
 #include <cstdio>
 #include <processenv.h>
@@ -18,6 +17,8 @@
 #include <shellapi.h>
 #include <Utils.h>
 
+#include "DebugNew.h"
+#include "Config.h"
 
 void Config::readConfig()
 {

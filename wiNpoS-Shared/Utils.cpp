@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "DebugNew.h"
 #include "Utils.h"
 #include <fstream>
 #include <iosfwd>

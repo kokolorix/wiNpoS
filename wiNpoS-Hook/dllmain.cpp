@@ -1,11 +1,11 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
+#include "DebugNew.h"
 #include <vector>
 //#include <condition_variable>
 #include <Utils.h>
 #include "HooksMgr.h"
 #include <Shlwapi.h>
-#include <assert.h>
 #include "TaskToolbar.h"
 #pragma comment(lib, "Shlwapi.lib")
 
@@ -21,6 +21,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 	LPVOID lpReserved
 )
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	switch ((int)ul_reason_for_call)
 	{
 		case DLL_PROCESS_ATTACH:
@@ -48,14 +49,14 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 		case DLL_THREAD_DETACH:
 			if (hhShellHookProc && UnhookWindowsHookEx(hhShellHookProc))
 				hhShellHookProc = NULL;
-			assert(hhShellHookProc == NULL);
+			AssertTrue(hhShellHookProc == NULL, "Hook handle should be NULL");
 			break;
 
 		case DLL_PROCESS_DETACH:
 		{
 			if (hhShellHookProc && UnhookWindowsHookEx(hhShellHookProc))
 				hhShellHookProc = NULL;
-			assert(hhShellHookProc == NULL);
+			AssertTrue(hhShellHookProc == NULL, "Hook handle should be NULL");
 
 			WRITE_DEBUG_LOG(format("Detach {} from {}", Utils::DllName, Utils::ExeName));
 			break;

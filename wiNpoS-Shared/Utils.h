@@ -5,9 +5,11 @@
 #include <debugapi.h>
 #include <vector>
 #include <algorithm>
+#include <vcruntime_exception.h>
 
 using std::string;
 using std::format;
+using std::exception;
 /**
  * @brief Some helper constructs
 */
@@ -19,11 +21,25 @@ namespace Utils
 	extern string DllName;
 #endif // _USRDLL
 
+#define STRINGIZE(asString) STRINGIZE_A((asString))
+#define STRINGIZE_A(arg) STRINGIZE_I arg
+#define STRINGIZE_I(asString) #asString
+#define S(asString)  STRINGIZE(asString)
 
-
-#define STRINGIZE(x) #x
-#define STR(x) STRINGIZE(x)
-#define __FILE_LINE__ __FILE__ "(" STR(__LINE__) ")"
+	/**
+	 * dynamic format
+	 */
+	template <typename... Args>
+	string dformat(std::string_view rt_fmt_str, Args&&... args)
+	{
+		return std::vformat(rt_fmt_str, std::make_format_args(args...));
+	}
+	template <typename... Args>
+	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args)
+	{
+		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
+	}
+#define __FILE_LINE__ __FILE__ "(" S(__LINE__) ")"
 
 #ifdef _DEBUG
 
@@ -63,19 +79,19 @@ namespace Utils
 	}
 
 #endif // !_DEBUG
-	/**
-	 * dynamic format
-	 */
-	template <typename... Args>
-	string dformat(std::string_view rt_fmt_str, Args&&... args) 
-	{
-		return std::vformat(rt_fmt_str, std::make_format_args(args...));
-	}
-	template <typename... Args>
-	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args) 
-	{
-		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
-	}
+
+#define AssertFail(message) \
+ { WRITE_DEBUG_LOG(message); \
+ throw exception(dformat("AssertFail: {}\t{}\t{}\t{}", "", __FILE__, __LINE__, (message)).c_str());	}
+
+#define AssertTrue(condition, message) \
+{ if(!(condition)) { WRITE_DEBUG_LOG(dformat("{}, {}", (#condition), message)); \
+throw exception(dformat("AssertTrue: {}\t{}\t{}\t{}", "", __FILE__, __LINE__, (message)).c_str()); }  }
+
+#define AssertFalse(condition, message) \
+{ if((condition)) { WRITE_DEBUG_LOG(dformat("{}, {}", (#condition), message)); \
+throw exception(dformat("AssertFalse: {}\t{}\t{}\t{}", "", __FILE__, __LINE__, (message)).c_str()); }  }
+
 
 	inline void ShowLastError(const string fmtStr)
 	{

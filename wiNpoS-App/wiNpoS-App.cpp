@@ -2,6 +2,7 @@
 //
 
 #include "pch.h"
+#include "DebugNew.h"
 #include "framework.h"
 #include <windowsx.h>
 #include "wiNpoS-App.h"
@@ -9,7 +10,6 @@
 #include "HooksMgr.h"
 #include "Config.h"
 #include "Utils.h"
-#include <assert.h>
 #include <Shlwapi.h>
 #include <future>
 #include <shellapi.h>
@@ -45,6 +45,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+	 _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
     // TODO: Place code here.
 

@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "DebugNew.h"
 #include "WinPosWnd.h"
 #include <string>
 #include <ranges>
