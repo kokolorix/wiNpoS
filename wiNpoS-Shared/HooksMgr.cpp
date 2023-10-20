@@ -173,35 +173,34 @@ void HooksMgr::startOtherBitInstance()
 	DWORD fileAttributes = GetFileAttributesA(exePath);
 	if (fileAttributes != INVALID_FILE_ATTRIBUTES && !(fileAttributes & FILE_ATTRIBUTE_DIRECTORY))
 	{
-		//STARTUPINFO si;
-		//PROCESS_INFORMATION pi;
+		stopOtherBitInstance();
 
-		//ZeroMemory(&si, sizeof(si));
-		//si.cb = sizeof(si);
-		//ZeroMemory(&pi, sizeof(pi);
+		STARTUPINFOA si = { sizeof(STARTUPINFO), 0 };
+		char arguments[MAX_PATH] = "-no-tray";
 
-		//// Create the child process
-		//if (CreateProcess(
-		//	L"child_process.exe",    // Replace with the actual child process name or path
-		//	NULL,                   // Command line (optional)
-		//	NULL,                   // Process handle not inheritable
-		//	NULL,                   // Thread handle not inheritable
-		//	FALSE,                  // Set handle inheritance to FALSE
-		//	0,                      // No creation flags
-		//	NULL,                   // Use parent's environment block
-		//	NULL,                   // Use parent's starting directory
-		//	&si,                    // Pointer to STARTUPINFO structure
-		//	&pi                     // Pointer to PROCESS_INFORMATION structure
-		//)) {
-		//	// Close process and thread handles to prevent resource leaks
-		//	CloseHandle(pi.hProcess);
-		//	CloseHandle(pi.hThread);
+		// Create the child process
+		BOOL succeed = CreateProcessA(
+			exePath,						 // Replace with the actual child process name or path
+			arguments,						 // Command line (optional)
+			NULL,							 // Process handle not inheritable
+			NULL,							 // Thread handle not inheritable
+			FALSE,							 // Set handle inheritance to FALSE
+			0,								 // No creation flags
+			NULL,							 // Use parent's environment block
+			NULL,							 // Use parent's starting directory
+			&si,							 // Pointer to STARTUPINFO structure
+			&_childProcessInfo				 // Pointer to PROCESS_INFORMATION structure
+		);
+	}
+}
 
-		//	// Rest of your main program logic
-
-		//	// Terminate the child process when the parent process exits
-		//	TerminateProcess(pi.hProcess, 0);		//std::system(format("{} -no-tray", exePath).c_str());
-		//std::atexit(atExit);
-		//CreateProcessA(exePath, "-no-tray", NULL, NULL, FALSE, 0, NULL, Utils::BinDir.c_str(), NULL, NULL);
+void HooksMgr::stopOtherBitInstance()
+{
+	if (_childProcessInfo.hThread)
+	{
+		BOOL succeed = PostThreadMessageA(GetThreadId(_childProcessInfo.hThread), WM_QUIT, 0, 0);
+		CloseHandle(_childProcessInfo.hProcess);
+		CloseHandle(_childProcessInfo.hThread);
+		_childProcessInfo = { 0 };
 	}
 }

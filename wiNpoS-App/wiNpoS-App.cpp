@@ -134,7 +134,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 	string cmdLine = toLowerCase(string(GetCommandLineA()));
 	bool installHook = cmdLine.find("not-install") == string::npos;
 	bool showWnd = cmdLine.find("not-hidden") != string::npos;
-	bool trayIcon = cmdLine.find("no-tray") != string::npos;
+	bool trayIcon = cmdLine.find("no-tray") == string::npos;
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
@@ -161,7 +161,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 			});
 	}
 
-	if(!trayIcon)
+	if(trayIcon)
 	{
 		auto resFuture = std::async(std::launch::async, [hWnd]() {
 			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(IDM_START_32_64_BIT, 0), MAKELPARAM(0, 0));
@@ -240,6 +240,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				case IDM_EXIT:
 				case IDM_TRAYMENU_EXIT:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
+					Sleep(1000);
+					hooks.stopOtherBitInstance();
 					hooks.uninstall();
 					DestroyWindow(hWnd);
 					break;

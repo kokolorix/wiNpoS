@@ -23,6 +23,7 @@ private:
 	HHOOK _hhkShellHookProc = NULL;
 	HHOOK _hhkCallWndProc = NULL;
 	HHOOK _hhkGetMessage = NULL;
+	PROCESS_INFORMATION _childProcessInfo = { 0 };
 
 public:
 	static HMODULE load();
@@ -40,5 +41,6 @@ public:
 	void uninstall();
 
 	void startOtherBitInstance();
+	void stopOtherBitInstance();
 };
 
