@@ -12,6 +12,7 @@ public:
 	void writeConfig();
 
 	void openFolder();
+	void openWinPosConfig();
 
 private:
 };

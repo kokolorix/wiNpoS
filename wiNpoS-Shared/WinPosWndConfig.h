@@ -38,11 +38,12 @@ public:
 	UINT getCloseTimeout() const { return _closeTimeout; }
 	FLOAT getScale() const { return _scale; }
 
+	static string getConfigPath(const string& configName = "WndConfig");
+
 private:
 	UINT _closeTimeout = 3500;
 	FLOAT _scale = 0.12f;
 
 	Monitors _monitors;
-	string getConfigPath(const string& configName = "WndConfig");
 };
 
