@@ -1,5 +1,24 @@
 var searchData=
 [
-  ['namespaces_0',['Namespaces',['../index.html#autotoc_md8',1,'']]],
-  ['newwindowproc_1',['NewWindowProc',['../wi_npo_s-_app_8cpp.html#a753ee9c862066d7e289d1da14855db15',1,'wiNpoS-App.cpp']]]
+  ['mainwindresvector_0',['MainWindResVector',['../namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746',1,'Utils']]],
+  ['mainwndres_1',['MainWndRes',['../struct_utils_1_1_main_wnd_res.html',1,'Utils']]],
+  ['max_5floadstring_2',['MAX_LOADSTRING',['../wi_npo_s-_app_8cpp.html#a2b68559d692760680c326428841254d1',1,'wiNpoS-App.cpp']]],
+  ['monitorconfig_3',['MonitorConfig',['../struct_win_pos_wnd_config_1_1_monitor_config.html',1,'WinPosWndConfig']]],
+  ['monitorenumproc_4',['Monitorenumproc',['../namespaceanonymous__namespace_02_win_pos_wnd_config_8cpp_03.html#a243323cde2e687357bfa4faf6863489c',1,'anonymous_namespace{WinPosWndConfig.cpp}']]],
+  ['monitorinfos_5',['MonitorInfos',['../namespaceanonymous__namespace_02_win_pos_wnd_config_8cpp_03.html#ada167851c6e327dc1463cb3bed2b4524',1,'anonymous_namespace{WinPosWndConfig.cpp}']]],
+  ['monitorpreview_6',['monitorpreview',['../struct_win_pos_wnd_1_1_monitor_preview.html',1,'WinPosWnd::MonitorPreview'],['../struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e',1,'WinPosWnd::WinPosPreview::monitorPreview']]],
+  ['monitorpreviewptr_7',['MonitorPreviewPtr',['../class_win_pos_wnd.html#a37ced6f8a9a6fcb11ebbe33b3f72d59d',1,'WinPosWnd']]],
+  ['monitorpreviews_8',['MonitorPreviews',['../class_win_pos_wnd.html#a705830ef206fad00f50d1e5e1a974616',1,'WinPosWnd']]],
+  ['monitorrect_9',['monitorrect',['../struct_win_pos_wnd_1_1_monitor_preview.html#a59911c5a291a8b30044832abfa40c78e',1,'WinPosWnd::MonitorPreview::monitorRect'],['../struct_win_pos_wnd_config_1_1_monitor_config.html#a2412bb9468da37b9a0703f70bc3f6b81',1,'WinPosWndConfig::MonitorConfig::monitorRect']]],
+  ['monitors_10',['Monitors',['../class_win_pos_wnd_config.html#a1a7d0b086ceb41160d914f906fb73b6b',1,'WinPosWndConfig']]],
+  ['mt_5fhook_5fmsg_5fcreate_5ftask_5ftoolbar_11',['MT_HOOK_MSG_CREATE_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fdestroy_5ftask_5ftoolbar_12',['MT_HOOK_MSG_DESTROY_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a1a3ab8b0e24a0d40f9eaaa0f8e008d51',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fregister_5fsupport_5fthread_5fhook_13',['MT_HOOK_MSG_REGISTER_SUPPORT_THREAD_HOOK',['../_hooks_mgr_8h.html#aa333c324ef7153134da8646fdeb3b0ca',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fregister_5fwnd_5fthread_5fhook_14',['MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#aa509a169a13ecd422073dd9ca7ed83b2',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5fsupport_5fthread_5fhook_5funregistered_15',['MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED',['../_hooks_mgr_8h.html#a60cedc479ca9e9b82b7470e7837eeab4',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5funload_16',['MT_HOOK_MSG_UNLOAD',['../_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5funregister_5fsupport_5fthread_5fhook_17',['MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK',['../_hooks_mgr_8h.html#a53b261cbcfcb7c5c7b2d5c8c9abc4002',1,'HooksMgr.h']]],
+  ['mt_5fhook_5fmsg_5funregister_5fwnd_5fthread_5fhook_18',['MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#a4aeda444aa9b46b4b0fe7324ef064afe',1,'HooksMgr.h']]],
+  ['myregisterclass_19',['MyRegisterClass',['../wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375',1,'wiNpoS-App.cpp']]],
+  ['mywm_5fnotifyicon_20',['MYWM_NOTIFYICON',['../wi_npo_s-_app_8cpp.html#a255be3b2e0d4ed68a0f5a35ed30ac9e2',1,'wiNpoS-App.cpp']]]
 ];

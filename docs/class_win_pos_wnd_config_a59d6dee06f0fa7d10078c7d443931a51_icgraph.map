@@ -1,0 +1,17 @@
+<map id="WinPosWndConfig::getConfigPath" name="WinPosWndConfig::getConfigPath">
+<area shape="rect" id="Node000001" title=" " alt="" coords="800,56,1019,83"/>
+<area shape="rect" id="Node000002" href="$class_config.html#a46a1e3ee992fee9b4cea74f4788e4492" title="open the wiNpoS config in editor" alt="" coords="563,5,739,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="822,55,722,35,723,30,823,50"/>
+<area shape="rect" id="Node000006" href="$class_win_pos_wnd_config.html#a0868c6a0570cd2e4f27c4f0dafc397fe" title=" " alt="" coords="303,93,502,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="784,80,551,97,503,101,503,96,550,92,784,75"/>
+<area shape="rect" id="Node000007" href="$class_win_pos_wnd_config.html#a5277c2e1479ab7d1ef3becdc68e425e5" title=" " alt="" coords="550,107,752,133"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="823,89,723,109,722,103,822,84"/>
+<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="365,5,440,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="548,21,441,21,441,16,548,16"/>
+<area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="350,21,255,21,255,16,350,16"/>
+<area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="438,80,426,74,403,72,381,74,369,79,366,84,372,91,367,94,361,85,365,75,380,69,403,67,427,69,441,76"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="535,116,502,115,503,109,535,111"/>
+</map>

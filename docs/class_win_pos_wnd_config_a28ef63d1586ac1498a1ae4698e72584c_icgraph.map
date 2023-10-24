@@ -1,0 +1,9 @@
+<map id="WinPosWndConfig::getScale" name="WinPosWndConfig::getScale">
+<area shape="rect" id="Node000001" title=" " alt="" coords="502,29,691,56"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd_config.html#a0868c6a0570cd2e4f27c4f0dafc397fe" title=" " alt="" coords="5,29,205,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="486,45,205,45,205,40,486,40"/>
+<area shape="rect" id="Node000003" href="$class_win_pos_wnd_config.html#a5277c2e1479ab7d1ef3becdc68e425e5" title=" " alt="" coords="253,55,454,81"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="487,57,455,60,454,55,486,51"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="148,17,134,10,105,8,79,10,64,15,61,20,68,27,63,31,56,21,61,11,78,5,105,3,135,5,150,12"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="237,59,205,55,205,50,237,53"/>
+</map>

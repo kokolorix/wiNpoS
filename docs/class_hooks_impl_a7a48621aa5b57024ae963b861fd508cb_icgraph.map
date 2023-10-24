@@ -1,0 +1,7 @@
+<map id="HooksImpl::hasLastRect" name="HooksImpl::hasLastRect">
+<area shape="rect" id="Node000001" title=" " alt="" coords="278,43,441,69"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761" title="this procedure handles the double click in non&#45;client area" alt="" coords="25,5,210,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,47,210,40,210,35,262,42"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="5,72,230,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,70,231,74,230,69,262,65"/>
+</map>

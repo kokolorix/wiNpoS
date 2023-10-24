@@ -1,0 +1,9 @@
+<map id="HooksImpl::hasCaptionDblClicked" name="HooksImpl::hasCaptionDblClicked">
+<area shape="rect" id="Node000001" title=" " alt="" coords="278,48,452,91"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5" title="do the work, if necessary" alt="" coords="29,5,206,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,51,186,35,187,30,263,46"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="35,56,200,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="262,72,201,72,201,67,262,67"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="5,107,230,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="263,93,187,109,186,103,262,88"/>
+</map>

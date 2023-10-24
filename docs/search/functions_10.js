@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['_7ehooksmgr_0',['~HooksMgr',['../class_hooks_mgr.html#a1aca7817523366f0d7c2770d221686ff',1,'HooksMgr']]],
-  ['_7etasktoolbar_1',['~TaskToolbar',['../class_task_toolbar.html#a51982046b6b802d349b2b2f8c61ed50c',1,'TaskToolbar']]]
+  ['unhookhooks_0',['unhookHooks',['../class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473',1,'HooksMgr']]],
+  ['uninitialize_1',['uninitialize',['../class_task_toolbar.html#a2304586dd147f754c7040f781eda1270',1,'TaskToolbar']]],
+  ['uninstall_2',['uninstall',['../class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5',1,'HooksMgr']]],
+  ['unloadhook_3',['unloadhook',['../class_hooks_mgr.html#a3984787eee8f05af8b2eb12a29534839',1,'HooksMgr::unloadHook(HMODULE hModule)'],['../class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f',1,'HooksMgr::unloadHook()']]]
 ];

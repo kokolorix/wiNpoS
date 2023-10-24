@@ -1,16 +1,6 @@
 var searchData=
 [
-  ['mainwindresvector_0',['MainWindResVector',['../namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746',1,'Utils']]],
-  ['mainwndres_1',['MainWndRes',['../struct_utils_1_1_main_wnd_res.html',1,'Utils']]],
-  ['max_5floadstring_2',['MAX_LOADSTRING',['../wi_npo_s-_app_8cpp.html#a2b68559d692760680c326428841254d1',1,'wiNpoS-App.cpp']]],
-  ['monitorenumproc_3',['Monitorenumproc',['../namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#aa1f90dadeda131a2fac796d864d3f099',1,'anonymous_namespace{WinPosWnd.cpp}']]],
-  ['mt_5fhook_5fmsg_5fcreate_5ftask_5ftoolbar_4',['MT_HOOK_MSG_CREATE_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5fdestroy_5ftask_5ftoolbar_5',['MT_HOOK_MSG_DESTROY_TASK_TOOLBAR',['../_hooks_mgr_8h.html#a1a3ab8b0e24a0d40f9eaaa0f8e008d51',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5fregister_5fsupport_5fthread_5fhook_6',['MT_HOOK_MSG_REGISTER_SUPPORT_THREAD_HOOK',['../_hooks_mgr_8h.html#aa333c324ef7153134da8646fdeb3b0ca',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5fregister_5fwnd_5fthread_5fhook_7',['MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#aa509a169a13ecd422073dd9ca7ed83b2',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5fsupport_5fthread_5fhook_5funregistered_8',['MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED',['../_hooks_mgr_8h.html#a60cedc479ca9e9b82b7470e7837eeab4',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5funload_9',['MT_HOOK_MSG_UNLOAD',['../_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5funregister_5fsupport_5fthread_5fhook_10',['MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK',['../_hooks_mgr_8h.html#a53b261cbcfcb7c5c7b2d5c8c9abc4002',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5funregister_5fwnd_5fthread_5fhook_11',['MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#a4aeda444aa9b46b4b0fe7324ef064afe',1,'HooksMgr.h']]],
-  ['myregisterclass_12',['MyRegisterClass',['../wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375',1,'wiNpoS-App.cpp']]]
+  ['left_0',['Left',['../class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a945d5e233cf7d6240f6b783b36a374ff',1,'HooksImpl']]],
+  ['load_1',['load',['../class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f',1,'HooksMgr']]],
+  ['loadhook_2',['loadHook',['../class_hooks_mgr.html#a9f23bc9ed2833734602401ccba353a6a',1,'HooksMgr']]]
 ];

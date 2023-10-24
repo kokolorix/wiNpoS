@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['winposwnd_0',['WinPosWnd',['../class_win_pos_wnd.html',1,'']]]
+  ['tasktoolbar_0',['TaskToolbar',['../class_task_toolbar.html',1,'']]]
 ];

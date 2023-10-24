@@ -91,93 +91,18 @@ $(document).ready(function(){initNavTree('namespaceanonymous__namespace_02_win_p
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">anonymous_namespace{WinPosWnd.cpp} Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aa1f90dadeda131a2fac796d864d3f099" id="r_aa1f90dadeda131a2fac796d864d3f099"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#aa1f90dadeda131a2fac796d864d3f099">Monitorenumproc</a> (HMONITOR hMon, HDC hDC, LPRECT pRECT, LPARAM lParam)</td></tr>
-<tr class="separator:aa1f90dadeda131a2fac796d864d3f099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7d771a1761aea007e3557deba453ae7b" id="r_a7d771a1761aea007e3557deba453ae7b"><td class="memItemLeft" align="right" valign="top">FLOAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a7d771a1761aea007e3557deba453ae7b">F</a> = 0.12f</td></tr>
-<tr class="separator:a7d771a1761aea007e3557deba453ae7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb175292384d77c8a2b7fa266d3c91b2" id="r_afb175292384d77c8a2b7fa266d3c91b2"><td class="memItemLeft" align="right" valign="top">const UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#afb175292384d77c8a2b7fa266d3c91b2">CLOSE_TIMER</a> = 0x30</td></tr>
+<tr class="memdesc:afb175292384d77c8a2b7fa266d3c91b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID from close timer.  <br /></td></tr>
 <tr class="separator:afb175292384d77c8a2b7fa266d3c91b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6c27ad637de8e8f75532e6242a99e2" id="r_a3c6c27ad637de8e8f75532e6242a99e2"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a3c6c27ad637de8e8f75532e6242a99e2">CLOSE_TIMEOUT</a> = 3500</td></tr>
-<tr class="separator:a3c6c27ad637de8e8f75532e6242a99e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="aa1f90dadeda131a2fac796d864d3f099" name="aa1f90dadeda131a2fac796d864d3f099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1f90dadeda131a2fac796d864d3f099">&#9670;&#160;</a></span>Monitorenumproc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">BOOL CALLBACK anonymous_namespace{WinPosWnd.cpp}::Monitorenumproc </td>
-          <td>(</td>
-          <td class="paramtype">HMONITOR&#160;</td>
-          <td class="paramname"><em>hMon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">HDC&#160;</td>
-          <td class="paramname"><em>hDC</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPRECT&#160;</td>
-          <td class="paramname"><em>pRECT</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPARAM&#160;</td>
-          <td class="paramname"><em>lParam</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00044">44</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>    {</div>
-<div class="line"><span class="lineno">   46</span>        std::vector&lt;MONITORINFOEX&gt;&amp; mInfos = *(std::vector&lt;MONITORINFOEX&gt;*)lParam;</div>
-<div class="line"><span class="lineno">   47</span>        MONITORINFOEX mi = { <span class="keyword">sizeof</span>(MONITORINFOEX) };</div>
-<div class="line"><span class="lineno">   48</span>        GetMonitorInfo(hMon, &amp;mi);</div>
-<div class="line"><span class="lineno">   49</span>        mInfos.push_back(mi);</div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">   51</span>    }</div>
-</div><!-- fragment -->
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a3c6c27ad637de8e8f75532e6242a99e2" name="a3c6c27ad637de8e8f75532e6242a99e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c6c27ad637de8e8f75532e6242a99e2">&#9670;&#160;</a></span>CLOSE_TIMEOUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">UINT anonymous_namespace{WinPosWnd.cpp}::CLOSE_TIMEOUT = 3500</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00014">14</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
-
-</div>
-</div>
 <a id="afb175292384d77c8a2b7fa266d3c91b2" name="afb175292384d77c8a2b7fa266d3c91b2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb175292384d77c8a2b7fa266d3c91b2">&#9670;&#160;</a></span>CLOSE_TIMER</h2>
 
@@ -190,23 +115,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00013">13</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
+<p>ID from close timer. </p>
 
-</div>
-</div>
-<a id="a7d771a1761aea007e3557deba453ae7b" name="a7d771a1761aea007e3557deba453ae7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d771a1761aea007e3557deba453ae7b">&#9670;&#160;</a></span>F</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FLOAT anonymous_namespace{WinPosWnd.cpp}::F = 0.12f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00012">12</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00020">20</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
 
 </div>
 </div>

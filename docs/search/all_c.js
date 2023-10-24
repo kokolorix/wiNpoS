@@ -1,14 +1,7 @@
 var searchData=
 [
-  ['oncloseposwnd_0',['onClosePosWnd',['../class_hooks_impl.html#aac5c36e6987b75db9ec6f06bae9b27e9',1,'HooksImpl']]],
-  ['onincrementwindow_1',['onIncrementWindow',['../class_hooks_impl.html#a196885e33b25e2aa5c126a368b6f91de',1,'HooksImpl']]],
-  ['onlbuttonup_2',['onLButtonUp',['../class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde',1,'HooksImpl']]],
-  ['onnclbuttondblclick_3',['onNcLButtonDblClick',['../class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761',1,'HooksImpl']]],
-  ['onnclbuttondown_4',['onNcLButtonDown',['../class_hooks_impl.html#a9adf50040968aa66908f643ad1edda53',1,'HooksImpl']]],
-  ['onshowposwnd_5',['onShowPosWnd',['../class_hooks_impl.html#ab8254c50d188d2a3fa54f26139083c63',1,'HooksImpl']]],
-  ['onwindowposchanged_6',['onWindowPosChanged',['../class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89',1,'HooksImpl']]],
-  ['openfolder_7',['openFolder',['../class_config.html#a56441193def0f70c9e3ab086f6d357a2',1,'Config']]],
-  ['operator_20bool_8',['operator bool',['../struct_utils_1_1_main_wnd_res.html#a3a3cd78f5f1a22fa0232e40e45ea86c3',1,'Utils::MainWndRes']]],
-  ['operator_20hwnd_9',['operator HWND',['../struct_utils_1_1_main_wnd_res.html#ab8227f119ab02271269652f29cd5549d',1,'Utils::MainWndRes']]],
-  ['overviews_10',['Overviews',['../index.html#autotoc_md9',1,'']]]
+  ['name_0',['name',['../struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee',1,'WinPosWnd::WinPosPreview::name'],['../struct_win_pos_wnd_1_1_monitor_preview.html#abf9fb37d7ab188497b520b04c469bd24',1,'WinPosWnd::MonitorPreview::name'],['../struct_win_pos_wnd_config_1_1_pos_preview_config.html#a56317c831f02478064dd20a836856be5',1,'WinPosWndConfig::PosPreviewConfig::name'],['../struct_win_pos_wnd_config_1_1_monitor_config.html#a82d134f2685c50b3f60357d7066b3782',1,'WinPosWndConfig::MonitorConfig::name']]],
+  ['namespaces_1',['Namespaces',['../index.html#autotoc_md8',1,'']]],
+  ['newwindowproc_2',['NewWindowProc',['../wi_npo_s-_app_8cpp.html#a753ee9c862066d7e289d1da14855db15',1,'wiNpoS-App.cpp']]],
+  ['nid_3',['nid',['../wi_npo_s-_app_8cpp.html#a9a5e8f18296d2d18b866f2f0ec10cb29',1,'wiNpoS-App.cpp']]]
 ];

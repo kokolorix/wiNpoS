@@ -9,6 +9,10 @@ var _utils_8h =
     [ "WRITE_DEBUG_LOG_DETAIL_DURATION", "_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16", null ],
     [ "WRITE_DEBUG_LOG_DURATION", "_utils_8h.html#a11191e674f9190988d8d3002f487e6a5", null ],
     [ "MainWindResVector", "_utils_8h.html#af7a6e5399669e9a9c0e9b90a88c3d746", null ],
+    [ "Units", "_utils_8h.html#abbed7df7657e15235cbba72f4c582606", [
+      [ "Percent", "_utils_8h.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191", null ],
+      [ "Pixels", "_utils_8h.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a", null ]
+    ] ],
     [ "check_bits", "_utils_8h.html#a795971fe1c865d91d4f436c0abf6a147", null ],
     [ "check_one_bit", "_utils_8h.html#ad4b2cccca2ee094b39494b224d528f64", null ],
     [ "clear_bits", "_utils_8h.html#ae22cd134d7088505ab53a60489e74654", null ],
@@ -20,10 +24,13 @@ var _utils_8h =
     [ "is_each_of", "_utils_8h.html#af8e5c5f8404717acbb753a3111d1c716", null ],
     [ "is_one_of", "_utils_8h.html#a2dfa0d16c0461a00fde6bd7e78e80b1e", null ],
     [ "is_one_of", "_utils_8h.html#a2a769bbb1284de09ef460684deb5de0a", null ],
+    [ "operator==", "_utils_8h.html#aba1e4263e69daaa39ce59c8f886e920c", null ],
+    [ "operator==", "_utils_8h.html#aaa4094884532d86fb266ea80598993d2", null ],
     [ "ScaleRect", "_utils_8h.html#a359e1089d465c28529bba63d115174ed", null ],
     [ "set_bits", "_utils_8h.html#a6c7f0050acff0a017f8c65b5af8b5b89", null ],
     [ "ShowLastError", "_utils_8h.html#aad1c305219375bf7d3fc42f22b325710", null ],
     [ "toLowerCase", "_utils_8h.html#a7e696129ddd52ce1360b387efd2decfd", null ],
     [ "WriteDebugLog", "_utils_8h.html#abdc36608727de989652b34f84852737c", null ],
+    [ "BinDir", "_utils_8h.html#a3102a2f3f02edf6de04d8324aee842e9", null ],
     [ "ExeName", "_utils_8h.html#a15790a9bc9887c45b6728c6b8ef150ae", null ]
 ];

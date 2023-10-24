@@ -1,0 +1,9 @@
+<map id="WinPosWnd::MonitorPreview::offsetToPt" name="WinPosWnd::MonitorPreview::offsetToPt">
+<area shape="rect" id="Node000001" title="move the rectangle to the cursor position" alt="" coords="651,5,841,48"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#abec2e67db5543a717d59b02ab8dbb930" title="create the required windows for monitor preview and all configured positions" alt="" coords="465,13,603,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="636,29,604,29,604,24,636,24"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#ab6696c1ccc12ebdd892883485456ed3c" title=" " alt="" coords="231,13,417,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,29,417,29,417,24,450,24"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5" title="do the work, if necessary" alt="" coords="5,13,183,40"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="215,29,183,29,183,24,215,24"/>
+</map>

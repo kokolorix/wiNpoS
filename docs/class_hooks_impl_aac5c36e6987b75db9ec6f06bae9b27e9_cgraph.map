@@ -1,5 +1,7 @@
 <map id="HooksImpl::onClosePosWnd" name="HooksImpl::onClosePosWnd">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,193,32"/>
-<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#a8abc6edd027488d4f7242b9f12693af8" title=" " alt="" coords="241,5,386,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,16,225,16,225,21,193,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,193,57"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#a8abc6edd027488d4f7242b9f12693af8" title="destroys every windows" alt="" coords="265,5,410,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,31,249,25,249,31,193,37"/>
+<area shape="rect" id="Node000003" href="$class_win_pos_wnd.html#a5ad8686caf3b8310fff6d4bec255f898" title="get the instance of WinPosWnd to a window handle" alt="" coords="241,56,434,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="193,51,225,55,225,60,193,57"/>
 </map>

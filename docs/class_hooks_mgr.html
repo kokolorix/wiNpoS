@@ -126,6 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7cfb009127366d7236f5c05c2e4f9ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d8a1f3354a8073433cb5365c6c8bcf5" id="r_a8d8a1f3354a8073433cb5365c6c8bcf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5">uninstall</a> ()</td></tr>
 <tr class="separator:a8d8a1f3354a8073433cb5365c6c8bcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f7bf5ffda4fef6c667c3656913cc5b" id="r_aa4f7bf5ffda4fef6c667c3656913cc5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html#aa4f7bf5ffda4fef6c667c3656913cc5b">startOtherBitInstance</a> ()</td></tr>
+<tr class="separator:aa4f7bf5ffda4fef6c667c3656913cc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7666db00d20e12f89ff327566b45dedb" id="r_a7666db00d20e12f89ff327566b45dedb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html#a7666db00d20e12f89ff327566b45dedb">stopOtherBitInstance</a> ()</td></tr>
+<tr class="separator:a7666db00d20e12f89ff327566b45dedb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -144,6 +148,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7d8f70f725110c1b8f97d17870dd17de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127ba67580ee9ae34c7d4241b7d9c074" id="r_a127ba67580ee9ae34c7d4241b7d9c074"><td class="memItemLeft" align="right" valign="top">HHOOK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = NULL</td></tr>
 <tr class="separator:a127ba67580ee9ae34c7d4241b7d9c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27914e1bf8161797f4aa7338e54b6618" id="r_a27914e1bf8161797f4aa7338e54b6618"><td class="memItemLeft" align="right" valign="top">PROCESS_INFORMATION&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a> = { 0 }</td></tr>
+<tr class="separator:a27914e1bf8161797f4aa7338e54b6618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manage the Hooks install / uninstall. </p>
@@ -216,16 +222,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00050">50</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a> = <a class="code hl_function" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">load</a>();</div>
-<div class="line"><span class="lineno">   53</span>    <a class="code hl_function" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01">setHooks</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
-<div class="line"><span class="lineno">   54</span>}</div>
-<div class="ttc" id="aclass_hooks_mgr_html_a25aacc981b80470642a51175ee56ba01"><div class="ttname"><a href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01">HooksMgr::setHooks</a></div><div class="ttdeci">void setHooks(HMODULE hModule)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00060">HooksMgr.cpp:60</a></div></div>
-<div class="ttc" id="aclass_hooks_mgr_html_ae14d3d66665b288a8a22f6beea14774f"><div class="ttname"><a href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">HooksMgr::load</a></div><div class="ttdeci">static HMODULE load()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00010">HooksMgr.cpp:10</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00052">52</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a> = <a class="code hl_function" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">load</a>();</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01">setHooks</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="aclass_hooks_mgr_html_a25aacc981b80470642a51175ee56ba01"><div class="ttname"><a href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01">HooksMgr::setHooks</a></div><div class="ttdeci">void setHooks(HMODULE hModule)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00062">HooksMgr.cpp:62</a></div></div>
+<div class="ttc" id="aclass_hooks_mgr_html_ae14d3d66665b288a8a22f6beea14774f"><div class="ttname"><a href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">HooksMgr::load</a></div><div class="ttdeci">static HMODULE load()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00012">HooksMgr.cpp:12</a></div></div>
 <div class="ttc" id="aclass_hooks_mgr_html_ae25e0775cdd1092cf37dd9233694a0b9"><div class="ttname"><a href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">HooksMgr::_hModule</a></div><div class="ttdeci">HMODULE _hModule</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00022">HooksMgr.h:22</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00010">load()</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00060">setHooks()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00012">load()</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00062">setHooks()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -250,22 +256,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="677,102,712,106,711,111,677,107"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_hooks_mgr_a5f8aa4cd119cb5d489b0a6f1a2971a79_icgraph.png" border="0" usemap="#aclass_hooks_mgr_a5f8aa4cd119cb5d489b0a6f1a2971a79_icgraph" alt=""/></div>
-<map name="aclass_hooks_mgr_a5f8aa4cd119cb5d489b0a6f1a2971a79_icgraph" id="aclass_hooks_mgr_a5f8aa4cd119cb5d489b0a6f1a2971a79_icgraph">
-<area shape="rect" title=" " alt="" coords="597,5,721,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="581,21,549,21,549,16,581,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
-<area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -284,16 +274,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00078">78</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
-<div class="line"><span class="lineno">   80</span>    <a class="code hl_function" href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">unhookHooks</a>();</div>
-<div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>    <a class="code hl_function" href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">unloadHook</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
-<div class="line"><span class="lineno">   83</span>}</div>
-<div class="ttc" id="aclass_hooks_mgr_html_a736b8f72f63d9e27ef9dc5131f082d2f"><div class="ttname"><a href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">HooksMgr::unloadHook</a></div><div class="ttdeci">void unloadHook()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00042">HooksMgr.cpp:42</a></div></div>
-<div class="ttc" id="aclass_hooks_mgr_html_ab884ce8d56cb57743ababa462daad473"><div class="ttname"><a href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">HooksMgr::unhookHooks</a></div><div class="ttdeci">void unhookHooks()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00088">HooksMgr.cpp:88</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00080">80</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>{</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_function" href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">unhookHooks</a>();</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">unloadHook</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
+<div class="line"><span class="lineno">   85</span>}</div>
+<div class="ttc" id="aclass_hooks_mgr_html_a736b8f72f63d9e27ef9dc5131f082d2f"><div class="ttname"><a href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">HooksMgr::unloadHook</a></div><div class="ttdeci">void unloadHook()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00044">HooksMgr.cpp:44</a></div></div>
+<div class="ttc" id="aclass_hooks_mgr_html_ab884ce8d56cb57743ababa462daad473"><div class="ttname"><a href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">HooksMgr::unhookHooks</a></div><div class="ttdeci">void unhookHooks()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00090">HooksMgr.cpp:90</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00088">unhookHooks()</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00042">unloadHook()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00090">unhookHooks()</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00044">unloadHook()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -325,62 +315,55 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00106">106</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
-<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79">attach</a>();</div>
-<div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>    <span class="comment">//HOOKPROC hkShellHookProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(ShellHookProc));</span></div>
-<div class="line"><span class="lineno">  111</span>    <span class="comment">//assert(hkShellHookProc);</span></div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a>));</div>
-<div class="line"><span class="lineno">  114</span>    assert(hkCallWndProc);</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a>));</div>
-<div class="line"><span class="lineno">  117</span>    assert(hkGetMsgProc);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    <span class="comment">//_hhkShellHookProc = SetWindowsHookEx(WH_SHELL, hkShellHookProc, _hModule, NULL);</span></div>
-<div class="line"><span class="lineno">  120</span>    <span class="comment">//assert(_hhkShellHookProc);</span></div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, NULL);</div>
-<div class="line"><span class="lineno">  123</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>);</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, NULL);</div>
-<div class="line"><span class="lineno">  126</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>);</div>
-<div class="line"><span class="lineno">  127</span>}</div>
-<div class="ttc" id="a_hooks_impl_8cpp_html_ab9f4b48939788d5aa0f404323b16a957"><div class="ttname"><a href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a></div><div class="ttdeci">LRESULT CALLBACK GetMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">the exported hook for the windows-message procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00048">HooksImpl.cpp:48</a></div></div>
-<div class="ttc" id="a_hooks_impl_8cpp_html_adae4ff67fba416ac992fe973d90abc58"><div class="ttname"><a href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a></div><div class="ttdeci">LRESULT CALLBACK CallWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">the exported hook for the main window procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00037">HooksImpl.cpp:37</a></div></div>
-<div class="ttc" id="a_utils_8h_html_a3428692efe6051ef30016ffde1a9f7bb"><div class="ttname"><a href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a></div><div class="ttdeci">#define STRINGIZE(x)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00023">Utils.h:23</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00108">108</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  109</span>{</div>
+<div class="line"><span class="lineno">  110</span>    <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a> = <a class="code hl_function" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">load</a>();</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="comment">//HOOKPROC hkShellHookProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(ShellHookProc));</span></div>
+<div class="line"><span class="lineno">  113</span>    <span class="comment">//assert(hkShellHookProc);</span></div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a>));</div>
+<div class="line"><span class="lineno">  116</span>    assert(hkCallWndProc);</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a>));</div>
+<div class="line"><span class="lineno">  119</span>    assert(hkGetMsgProc);</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    <span class="comment">//_hhkShellHookProc = SetWindowsHookEx(WH_SHELL, hkShellHookProc, _hModule, NULL);</span></div>
+<div class="line"><span class="lineno">  122</span>    <span class="comment">//assert(_hhkShellHookProc);</span></div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, NULL);</div>
+<div class="line"><span class="lineno">  125</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>, NULL);</div>
+<div class="line"><span class="lineno">  128</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>);</div>
+<div class="line"><span class="lineno">  129</span>}</div>
+<div class="ttc" id="a_hooks_impl_8cpp_html_ab9f4b48939788d5aa0f404323b16a957"><div class="ttname"><a href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a></div><div class="ttdeci">LRESULT CALLBACK GetMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">the exported hook for the windows-message procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00056">HooksImpl.cpp:56</a></div></div>
+<div class="ttc" id="a_hooks_impl_8cpp_html_adae4ff67fba416ac992fe973d90abc58"><div class="ttname"><a href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a></div><div class="ttdeci">LRESULT CALLBACK CallWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">the exported hook for the main window procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00045">HooksImpl.cpp:45</a></div></div>
+<div class="ttc" id="a_utils_8h_html_a3428692efe6051ef30016ffde1a9f7bb"><div class="ttname"><a href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a></div><div class="ttdeci">#define STRINGIZE(x)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00024">Utils.h:24</a></div></div>
 <div class="ttc" id="aclass_hooks_mgr_html_a127ba67580ee9ae34c7d4241b7d9c074"><div class="ttname"><a href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">HooksMgr::_hhkGetMessage</a></div><div class="ttdeci">HHOOK _hhkGetMessage</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00025">HooksMgr.h:25</a></div></div>
-<div class="ttc" id="aclass_hooks_mgr_html_a5f8aa4cd119cb5d489b0a6f1a2971a79"><div class="ttname"><a href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79">HooksMgr::attach</a></div><div class="ttdeci">void attach()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00050">HooksMgr.cpp:50</a></div></div>
 <div class="ttc" id="aclass_hooks_mgr_html_a7d8f70f725110c1b8f97d17870dd17de"><div class="ttname"><a href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">HooksMgr::_hhkCallWndProc</a></div><div class="ttdeci">HHOOK _hhkCallWndProc</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00024">HooksMgr.h:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00024">_hhkCallWndProc</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00025">_hhkGetMessage</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00050">attach()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00037">CallWndProc()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00048">GetMsgProc()</a>, and <a class="el" href="_utils_8h_source.html#l00023">STRINGIZE</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00024">_hhkCallWndProc</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00025">_hhkGetMessage</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00045">CallWndProc()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00056">GetMsgProc()</a>, <a class="el" href="_hooks_mgr_8cpp_source.html#l00012">load()</a>, and <a class="el" href="_utils_8h_source.html#l00024">STRINGIZE</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hooks_mgr_a7cfb009127366d7236f5c05c2e4f9ab3_cgraph.png" border="0" usemap="#aclass_hooks_mgr_a7cfb009127366d7236f5c05c2e4f9ab3_cgraph" alt=""/></div>
 <map name="aclass_hooks_mgr_a7cfb009127366d7236f5c05c2e4f9ab3_cgraph" id="aclass_hooks_mgr_a7cfb009127366d7236f5c05c2e4f9ab3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,55,128,82"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="176,55,300,82"/>
-<area shape="poly" title=" " alt="" coords="128,66,160,66,160,71,128,71"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title="the exported hook for the main window procedure" alt="" coords="539,55,637,82"/>
-<area shape="poly" title=" " alt="" coords="106,52,179,31,275,11,328,5,383,3,438,6,492,15,526,28,556,44,554,49,524,33,491,20,438,11,383,8,329,10,276,16,180,36,108,57"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="541,106,635,132"/>
-<area shape="poly" title=" " alt="" coords="124,80,176,91,262,107,348,116,441,120,525,119,526,124,441,125,348,122,261,112,175,96,122,85"/>
-<area shape="rect" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f" title=" " alt="" coords="364,30,476,56"/>
-<area shape="poly" title=" " alt="" coords="300,57,348,50,348,56,301,62"/>
-<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="348,80,491,107"/>
-<area shape="poly" title=" " alt="" coords="301,74,333,79,332,84,300,80"/>
-<area shape="poly" title=" " alt="" coords="491,80,524,75,524,81,492,86"/>
-<area shape="poly" title=" " alt="" coords="492,102,526,107,525,112,491,107"/>
-<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="685,55,849,82"/>
-<area shape="poly" title=" " alt="" coords="637,66,669,66,669,71,637,71"/>
-<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="687,106,847,132"/>
-<area shape="poly" title=" " alt="" coords="636,116,671,116,671,122,636,122"/>
-<area shape="rect" href="class_task_toolbar.html#a3159b1e31199ee3691bf2bcf5ec21100" title=" " alt="" coords="904,80,1050,107"/>
-<area shape="poly" title=" " alt="" coords="847,107,888,102,889,107,848,112"/>
-<area shape="rect" href="class_task_toolbar.html#a2304586dd147f754c7040f781eda1270" title=" " alt="" coords="897,131,1057,158"/>
-<area shape="poly" title=" " alt="" coords="848,126,882,130,881,136,847,131"/>
+<area shape="rect" title=" " alt="" coords="5,56,128,83"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58" title="the exported hook for the main window procedure" alt="" coords="183,5,281,32"/>
+<area shape="poly" title=" " alt="" coords="112,53,171,35,172,40,114,58"/>
+<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="185,56,279,83"/>
+<area shape="poly" title=" " alt="" coords="128,67,169,67,169,72,128,72"/>
+<area shape="rect" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f" title=" " alt="" coords="176,107,288,133"/>
+<area shape="poly" title=" " alt="" coords="114,81,172,99,171,104,112,86"/>
+<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="336,5,500,32"/>
+<area shape="poly" title=" " alt="" coords="281,16,321,16,321,21,281,21"/>
+<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="338,56,498,83"/>
+<area shape="poly" title=" " alt="" coords="280,67,323,67,323,72,280,72"/>
+<area shape="rect" href="class_task_toolbar.html#a3159b1e31199ee3691bf2bcf5ec21100" title=" " alt="" coords="555,31,702,57"/>
+<area shape="poly" title=" " alt="" coords="498,57,539,52,540,57,499,62"/>
+<area shape="rect" href="class_task_toolbar.html#a2304586dd147f754c7040f781eda1270" title=" " alt="" coords="548,81,709,108"/>
+<area shape="poly" title=" " alt="" coords="499,76,533,81,533,86,498,82"/>
 </map>
 </div>
 <div class="dynheader">
@@ -392,8 +375,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
 <area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
 </map>
 </div>
@@ -424,35 +407,35 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00010">10</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   11</span>{</div>
-<div class="line"><span class="lineno">   12</span>    HMODULE hModule = NULL;</div>
-<div class="line"><span class="lineno">   13</span><span class="preprocessor">#ifdef _WIN64</span></div>
-<div class="line"><span class="lineno">   14</span>    hModule = LoadLibrary(L<span class="stringliteral">&quot;wiNpoS-Hook64.dll&quot;</span>);</div>
-<div class="line"><span class="lineno">   15</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">   16</span>    hModule = LoadLibrary(L<span class="stringliteral">&quot;wiNpoS-Hook32.dll&quot;</span>);</div>
-<div class="line"><span class="lineno">   17</span><span class="preprocessor">#endif </span><span class="comment">// _WIN64</span></div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> hModule;</div>
-<div class="line"><span class="lineno">   19</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00012">12</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>    HMODULE hModule = NULL;</div>
+<div class="line"><span class="lineno">   15</span><span class="preprocessor">#ifdef _WIN64</span></div>
+<div class="line"><span class="lineno">   16</span>    hModule = LoadLibrary(L<span class="stringliteral">&quot;wiNpoS-Hook64.dll&quot;</span>);</div>
+<div class="line"><span class="lineno">   17</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">   18</span>    hModule = LoadLibrary(L<span class="stringliteral">&quot;wiNpoS-Hook32.dll&quot;</span>);</div>
+<div class="line"><span class="lineno">   19</span><span class="preprocessor">#endif </span><span class="comment">// _WIN64</span></div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> hModule;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hooks_mgr_ae14d3d66665b288a8a22f6beea14774f_icgraph.png" border="0" usemap="#aclass_hooks_mgr_ae14d3d66665b288a8a22f6beea14774f_icgraph" alt=""/></div>
 <map name="aclass_hooks_mgr_ae14d3d66665b288a8a22f6beea14774f_icgraph" id="aclass_hooks_mgr_ae14d3d66665b288a8a22f6beea14774f_icgraph">
-<area shape="rect" title=" " alt="" coords="789,31,901,57"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="617,5,741,32"/>
-<area shape="poly" title=" " alt="" coords="773,36,741,31,742,25,774,30"/>
-<area shape="rect" href="class_hooks_mgr.html#a9f23bc9ed2833734602401ccba353a6a" title=" " alt="" coords="426,56,569,83"/>
-<area shape="poly" title=" " alt="" coords="774,52,569,67,569,62,773,47"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="436,5,559,32"/>
-<area shape="poly" title=" " alt="" coords="601,21,559,21,559,16,601,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,31,378,57"/>
-<area shape="poly" title=" " alt="" coords="421,34,379,41,378,35,420,28"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
-<area shape="poly" title=" " alt="" coords="287,47,255,47,255,41,287,41"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,31,87,57"/>
-<area shape="poly" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
-<area shape="poly" title=" " alt="" coords="411,58,379,53,379,47,411,53"/>
+<area shape="rect" title=" " alt="" coords="617,56,729,83"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="435,5,560,32"/>
+<area shape="poly" title=" " alt="" coords="608,54,546,35,547,30,610,48"/>
+<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="436,56,559,83"/>
+<area shape="poly" title=" " alt="" coords="601,72,559,72,559,67,601,67"/>
+<area shape="rect" href="class_hooks_mgr.html#a9f23bc9ed2833734602401ccba353a6a" title=" " alt="" coords="426,107,569,133"/>
+<area shape="poly" title=" " alt="" coords="610,90,547,109,546,104,608,85"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,81,378,108"/>
+<area shape="poly" title=" " alt="" coords="421,84,379,91,378,86,420,79"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,81,255,108"/>
+<area shape="poly" title=" " alt="" coords="287,97,255,97,255,92,287,92"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,81,87,108"/>
+<area shape="poly" title=" " alt="" coords="119,97,87,97,87,92,119,92"/>
+<area shape="poly" title=" " alt="" coords="411,109,379,103,379,98,411,103"/>
 </map>
 </div>
 
@@ -473,12 +456,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00034">34</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>{</div>
-<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a> = <a class="code hl_function" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">load</a>();</div>
-<div class="line"><span class="lineno">   37</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00036">36</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a> = <a class="code hl_function" href="class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f">load</a>();</div>
+<div class="line"><span class="lineno">   39</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00010">load()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00012">load()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -499,7 +482,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
 <area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
 </map>
 </div>
@@ -528,22 +511,22 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00060">60</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
-<div class="line"><span class="lineno">   62</span>    HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a>));</div>
-<div class="line"><span class="lineno">   63</span>    assert(hkCallWndProc);</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a>));</div>
-<div class="line"><span class="lineno">   66</span>    assert(hkGetMsgProc);</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, GetCurrentThreadId());</div>
-<div class="line"><span class="lineno">   69</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>);</div>
-<div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());</div>
-<div class="line"><span class="lineno">   72</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>);</div>
-<div class="line"><span class="lineno">   73</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00062">62</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
+<div class="line"><span class="lineno">   64</span>    HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#adae4ff67fba416ac992fe973d90abc58">CallWndProc</a>));</div>
+<div class="line"><span class="lineno">   65</span>    assert(hkCallWndProc);</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>    HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, <a class="code hl_define" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">STRINGIZE</a>(<a class="code hl_function" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957">GetMsgProc</a>));</div>
+<div class="line"><span class="lineno">   68</span>    assert(hkGetMsgProc);</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, GetCurrentThreadId());</div>
+<div class="line"><span class="lineno">   71</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>);</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());</div>
+<div class="line"><span class="lineno">   74</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>);</div>
+<div class="line"><span class="lineno">   75</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00024">_hhkCallWndProc</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00025">_hhkGetMessage</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00037">CallWndProc()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00048">GetMsgProc()</a>, and <a class="el" href="_utils_8h_source.html#l00023">STRINGIZE</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00024">_hhkCallWndProc</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00025">_hhkGetMessage</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00045">CallWndProc()</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00056">GetMsgProc()</a>, and <a class="el" href="_utils_8h_source.html#l00024">STRINGIZE</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -569,17 +552,139 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hooks_mgr_a25aacc981b80470642a51175ee56ba01_icgraph.png" border="0" usemap="#aclass_hooks_mgr_a25aacc981b80470642a51175ee56ba01_icgraph" alt=""/></div>
 <map name="aclass_hooks_mgr_a25aacc981b80470642a51175ee56ba01_icgraph" id="aclass_hooks_mgr_a25aacc981b80470642a51175ee56ba01_icgraph">
-<area shape="rect" title=" " alt="" coords="769,5,912,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="597,5,721,32"/>
-<area shape="poly" title=" " alt="" coords="753,21,721,21,721,16,753,16"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="426,5,549,32"/>
-<area shape="poly" title=" " alt="" coords="581,21,549,21,549,16,581,16"/>
+<area shape="rect" title=" " alt="" coords="178,5,321,32"/>
+<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="5,5,130,32"/>
+<area shape="poly" title=" " alt="" coords="162,21,130,21,130,16,162,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa4f7bf5ffda4fef6c667c3656913cc5b" name="aa4f7bf5ffda4fef6c667c3656913cc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f7bf5ffda4fef6c667c3656913cc5b">&#9670;&#160;</a></span>startOtherBitInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksMgr::startOtherBitInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00161">161</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
+<div class="line"><span class="lineno">  163</span>    <span class="keyword">using </span>std::regex;</div>
+<div class="line"><span class="lineno">  164</span>    <span class="keyword">using </span>std::regex_replace;</div>
+<div class="line"><span class="lineno">  165</span><span class="preprocessor">#ifdef _WIN64</span></div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">string</span> exeName = regex_replace(<a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>, regex(<span class="stringliteral">&quot;64&quot;</span>), <span class="stringliteral">&quot;32&quot;</span>);</div>
+<div class="line"><span class="lineno">  167</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">  168</span>    <span class="keywordtype">string</span> exeName = regex_replace(<a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>, regex(<span class="stringliteral">&quot;32&quot;</span>), <span class="stringliteral">&quot;64&quot;</span>);</div>
+<div class="line"><span class="lineno">  169</span><span class="preprocessor">#endif </span><span class="comment">// _WIN64</span></div>
+<div class="line"><span class="lineno">  170</span>    <span class="keywordtype">char</span> exePath[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">  171</span>    strcpy_s(exePath, <a class="code hl_variable" href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">Utils::BinDir</a>.c_str());</div>
+<div class="line"><span class="lineno">  172</span>    PathAppendA(exePath, exeName.c_str());</div>
+<div class="line"><span class="lineno">  173</span>    DWORD fileAttributes = GetFileAttributesA(exePath);</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (fileAttributes != INVALID_FILE_ATTRIBUTES &amp;&amp; !(fileAttributes &amp; FILE_ATTRIBUTE_DIRECTORY))</div>
+<div class="line"><span class="lineno">  175</span>    {</div>
+<div class="line"><span class="lineno">  176</span>        <a class="code hl_function" href="class_hooks_mgr.html#a7666db00d20e12f89ff327566b45dedb">stopOtherBitInstance</a>();</div>
+<div class="line"><span class="lineno">  177</span> </div>
+<div class="line"><span class="lineno">  178</span>        STARTUPINFOA si = { <span class="keyword">sizeof</span>(STARTUPINFO), 0 };</div>
+<div class="line"><span class="lineno">  179</span>        <span class="keywordtype">char</span> arguments[MAX_PATH] = <span class="stringliteral">&quot;-no-tray&quot;</span>;</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>        <span class="comment">// Create the child process</span></div>
+<div class="line"><span class="lineno">  182</span>        BOOL succeed = CreateProcessA(</div>
+<div class="line"><span class="lineno">  183</span>            exePath,                         <span class="comment">// Replace with the actual child process name or path</span></div>
+<div class="line"><span class="lineno">  184</span>            arguments,                       <span class="comment">// Command line (optional)</span></div>
+<div class="line"><span class="lineno">  185</span>            NULL,                            <span class="comment">// Process handle not inheritable</span></div>
+<div class="line"><span class="lineno">  186</span>            NULL,                            <span class="comment">// Thread handle not inheritable</span></div>
+<div class="line"><span class="lineno">  187</span>            FALSE,                           <span class="comment">// Set handle inheritance to FALSE</span></div>
+<div class="line"><span class="lineno">  188</span>            0,                               <span class="comment">// No creation flags</span></div>
+<div class="line"><span class="lineno">  189</span>            NULL,                            <span class="comment">// Use parent&#39;s environment block</span></div>
+<div class="line"><span class="lineno">  190</span>            NULL,                            <span class="comment">// Use parent&#39;s starting directory</span></div>
+<div class="line"><span class="lineno">  191</span>            &amp;si,                             <span class="comment">// Pointer to STARTUPINFO structure</span></div>
+<div class="line"><span class="lineno">  192</span>            &amp;<a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a>               <span class="comment">// Pointer to PROCESS_INFORMATION structure</span></div>
+<div class="line"><span class="lineno">  193</span>        );</div>
+<div class="line"><span class="lineno">  194</span>    }</div>
+<div class="line"><span class="lineno">  195</span>}</div>
+<div class="ttc" id="aclass_hooks_mgr_html_a27914e1bf8161797f4aa7338e54b6618"><div class="ttname"><a href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">HooksMgr::_childProcessInfo</a></div><div class="ttdeci">PROCESS_INFORMATION _childProcessInfo</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00026">HooksMgr.h:26</a></div></div>
+<div class="ttc" id="aclass_hooks_mgr_html_a7666db00d20e12f89ff327566b45dedb"><div class="ttname"><a href="class_hooks_mgr.html#a7666db00d20e12f89ff327566b45dedb">HooksMgr::stopOtherBitInstance</a></div><div class="ttdeci">void stopOtherBitInstance()</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8cpp_source.html#l00197">HooksMgr.cpp:197</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00071">Utils.cpp:71</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a3102a2f3f02edf6de04d8324aee842e9"><div class="ttname"><a href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">Utils::BinDir</a></div><div class="ttdeci">string BinDir</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00072">Utils.cpp:72</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00026">_childProcessInfo</a>, <a class="el" href="_utils_8cpp_source.html#l00072">Utils::BinDir</a>, <a class="el" href="_utils_8cpp_source.html#l00071">Utils::ExeName</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00197">stopOtherBitInstance()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_cgraph.png" border="0" usemap="#aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_cgraph" alt=""/></div>
+<map name="aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_cgraph" id="aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,217,32"/>
+<area shape="rect" href="class_hooks_mgr.html#a7666db00d20e12f89ff327566b45dedb" title=" " alt="" coords="265,5,475,32"/>
+<area shape="poly" title=" " alt="" coords="217,16,249,16,249,21,217,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_icgraph.png" border="0" usemap="#aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_icgraph" alt=""/></div>
+<map name="aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_icgraph" id="aclass_hooks_mgr_aa4f7bf5ffda4fef6c667c3656913cc5b_icgraph">
+<area shape="rect" title=" " alt="" coords="426,5,638,32"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
 <area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
 <area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7666db00d20e12f89ff327566b45dedb" name="a7666db00d20e12f89ff327566b45dedb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7666db00d20e12f89ff327566b45dedb">&#9670;&#160;</a></span>stopOtherBitInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HooksMgr::stopOtherBitInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00197">197</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  198</span>{</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a>.hThread)</div>
+<div class="line"><span class="lineno">  200</span>    {</div>
+<div class="line"><span class="lineno">  201</span>        BOOL succeed = PostThreadMessageA(GetThreadId(<a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a>.hThread), WM_QUIT, 0, 0);</div>
+<div class="line"><span class="lineno">  202</span>        CloseHandle(<a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a>.hProcess);</div>
+<div class="line"><span class="lineno">  203</span>        CloseHandle(<a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a>.hThread);</div>
+<div class="line"><span class="lineno">  204</span>        <a class="code hl_variable" href="class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618">_childProcessInfo</a> = { 0 };</div>
+<div class="line"><span class="lineno">  205</span>    }</div>
+<div class="line"><span class="lineno">  206</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00026">_childProcessInfo</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hooks_mgr_a7666db00d20e12f89ff327566b45dedb_icgraph.png" border="0" usemap="#aclass_hooks_mgr_a7666db00d20e12f89ff327566b45dedb_icgraph" alt=""/></div>
+<map name="aclass_hooks_mgr_a7666db00d20e12f89ff327566b45dedb_icgraph" id="aclass_hooks_mgr_a7666db00d20e12f89ff327566b45dedb_icgraph">
+<area shape="rect" title=" " alt="" coords="686,31,896,57"/>
+<area shape="rect" href="class_hooks_mgr.html#aa4f7bf5ffda4fef6c667c3656913cc5b" title=" " alt="" coords="426,5,638,32"/>
+<area shape="poly" title=" " alt="" coords="670,35,638,32,639,26,671,30"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,31,378,57"/>
+<area shape="poly" title=" " alt="" coords="670,47,379,47,379,41,670,41"/>
+<area shape="poly" title=" " alt="" coords="412,37,379,42,378,36,412,32"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
+<area shape="poly" title=" " alt="" coords="287,47,255,47,255,41,287,41"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
+<area shape="poly" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
 </map>
 </div>
 
@@ -600,20 +705,20 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00088">88</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>))</div>
-<div class="line"><span class="lineno">   91</span>        <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = NULL;</div>
-<div class="line"><span class="lineno">   92</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> == NULL);</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>))</div>
-<div class="line"><span class="lineno">   95</span>        <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = NULL;</div>
-<div class="line"><span class="lineno">   96</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> == NULL);</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>    <span class="comment">//if (_hhkShellHookProc &amp;&amp; UnhookWindowsHookEx(_hhkShellHookProc))</span></div>
-<div class="line"><span class="lineno">   99</span>    <span class="comment">//  _hhkShellHookProc = NULL;</span></div>
-<div class="line"><span class="lineno">  100</span>    <span class="comment">//assert(_hhkShellHookProc == NULL);</span></div>
-<div class="line"><span class="lineno">  101</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00090">90</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a>))</div>
+<div class="line"><span class="lineno">   93</span>        <a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> = NULL;</div>
+<div class="line"><span class="lineno">   94</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074">_hhkGetMessage</a> == NULL);</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a>))</div>
+<div class="line"><span class="lineno">   97</span>        <a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> = NULL;</div>
+<div class="line"><span class="lineno">   98</span>    assert(<a class="code hl_variable" href="class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de">_hhkCallWndProc</a> == NULL);</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>    <span class="comment">//if (_hhkShellHookProc &amp;&amp; UnhookWindowsHookEx(_hhkShellHookProc))</span></div>
+<div class="line"><span class="lineno">  101</span>    <span class="comment">//  _hhkShellHookProc = NULL;</span></div>
+<div class="line"><span class="lineno">  102</span>    <span class="comment">//assert(_hhkShellHookProc == NULL);</span></div>
+<div class="line"><span class="lineno">  103</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00024">_hhkCallWndProc</a>, and <a class="el" href="_hooks_mgr_8h_source.html#l00025">_hhkGetMessage</a>.</p>
 <div class="dynheader">
@@ -630,7 +735,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="411,72,379,72,379,67,411,67"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,56,255,83"/>
 <area shape="poly" title=" " alt="" coords="287,72,255,72,255,67,287,67"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,56,87,83"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,56,87,83"/>
 <area shape="poly" title=" " alt="" coords="119,72,87,72,87,67,119,67"/>
 </map>
 </div>
@@ -652,14 +757,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00132">132</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  133</span>{</div>
-<div class="line"><span class="lineno">  134</span>    <a class="code hl_function" href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">unhookHooks</a>();</div>
-<div class="line"><span class="lineno">  135</span>    <span class="comment">//PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);</span></div>
-<div class="line"><span class="lineno">  136</span>    <span class="comment">//detach();</span></div>
-<div class="line"><span class="lineno">  137</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00134">134</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  135</span>{</div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="class_hooks_mgr.html#ab884ce8d56cb57743ababa462daad473">unhookHooks</a>();</div>
+<div class="line"><span class="lineno">  137</span>    <span class="comment">//PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);</span></div>
+<div class="line"><span class="lineno">  138</span>    <span class="comment">//detach();</span></div>
+<div class="line"><span class="lineno">  139</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8cpp_source.html#l00088">unhookHooks()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8cpp_source.html#l00090">unhookHooks()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -679,8 +784,8 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,5,378,32"/>
 <area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="288,21,255,21,255,16,288,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
 </map>
 </div>
@@ -702,12 +807,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00042">42</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">unloadHook</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00044">44</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_function" href="class_hooks_mgr.html#a736b8f72f63d9e27ef9dc5131f082d2f">unloadHook</a>(<a class="code hl_variable" href="class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9">_hModule</a>);</div>
+<div class="line"><span class="lineno">   47</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00042">unloadHook()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_mgr_8h_source.html#l00022">_hModule</a>, and <a class="el" href="_hooks_mgr_8cpp_source.html#l00044">unloadHook()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -761,11 +866,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00025">25</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   26</span>{</div>
-<div class="line"><span class="lineno">   27</span>    BOOL libraryFreed = FreeLibrary(hModule);</div>
-<div class="line"><span class="lineno">   28</span>    assert(libraryFreed);</div>
-<div class="line"><span class="lineno">   29</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8cpp_source.html#l00027">27</a> of file <a class="el" href="_hooks_mgr_8cpp_source.html">HooksMgr.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
+<div class="line"><span class="lineno">   29</span>    BOOL libraryFreed = FreeLibrary(hModule);</div>
+<div class="line"><span class="lineno">   30</span>    assert(libraryFreed);</div>
+<div class="line"><span class="lineno">   31</span>}</div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -776,7 +881,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="411,21,379,21,379,16,411,16"/>
 <area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
 <area shape="poly" title=" " alt="" coords="287,21,255,21,255,16,287,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339" title=" " alt="" coords="5,5,87,32"/>
+<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
 </map>
 </div>
@@ -784,6 +889,31 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a27914e1bf8161797f4aa7338e54b6618" name="a27914e1bf8161797f4aa7338e54b6618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27914e1bf8161797f4aa7338e54b6618">&#9670;&#160;</a></span>_childProcessInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">PROCESS_INFORMATION HooksMgr::_childProcessInfo = { 0 }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00026">26</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{ 0 };</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a7d8f70f725110c1b8f97d17870dd17de" name="a7d8f70f725110c1b8f97d17870dd17de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d8f70f725110c1b8f97d17870dd17de">&#9670;&#160;</a></span>_hhkCallWndProc</h2>
 

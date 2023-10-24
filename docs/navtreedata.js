@@ -44,7 +44,9 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -73,7 +75,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_config_8cpp.html",
-"wi_npo_s-_app_2resource_8h.html#a77a06326b569136edbb6c766bc98c33c"
+"namespaceanonymous__namespace_02_hooks_mgr_8cpp_03.html#aa59c7e0280478689baaf876d2f4a543a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

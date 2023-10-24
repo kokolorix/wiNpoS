@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['monitorenumproc_0',['Monitorenumproc',['../namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#aa1f90dadeda131a2fac796d864d3f099',1,'anonymous_namespace{WinPosWnd.cpp}']]],
-  ['myregisterclass_1',['MyRegisterClass',['../wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375',1,'wiNpoS-App.cpp']]]
+  ['load_0',['load',['../class_hooks_mgr.html#ae14d3d66665b288a8a22f6beea14774f',1,'HooksMgr']]],
+  ['loadhook_1',['loadHook',['../class_hooks_mgr.html#a9f23bc9ed2833734602401ccba353a6a',1,'HooksMgr']]]
 ];

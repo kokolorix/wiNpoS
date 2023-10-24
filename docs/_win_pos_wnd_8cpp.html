@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>wiNpoS: wiNpoS-Shared/WinPosWnd.cpp File Reference</title>
+<title>wiNpoS: wiNpoS-Hook/WinPosWnd.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,50 +92,71 @@ $(document).ready(function(){initNavTree('_win_pos_wnd_8cpp.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">WinPosWnd.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;pch.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="wi_npo_s-_hook_2pch_8h_source.html">pch.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_win_pos_wnd_8h_source.html">WinPosWnd.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="_win_pos_wnd_config_8h_source.html">WinPosWndConfig.h</a>&quot;</code><br />
+<code>#include &lt;corecrt_math.h&gt;</code><br />
+<code>#include &lt;windowsx.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for WinPosWnd.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_win_pos_wnd_8cpp__incl.png" border="0" usemap="#awi_npo_s-_shared_2_win_pos_wnd_8cpp" alt=""/></div>
-<map name="awi_npo_s-_shared_2_win_pos_wnd_8cpp" id="awi_npo_s-_shared_2_win_pos_wnd_8cpp">
-<area shape="rect" title=" " alt="" coords="220,5,432,32"/>
-<area shape="rect" title=" " alt="" coords="70,80,123,107"/>
-<area shape="poly" title=" " alt="" coords="287,35,139,81,138,76,285,30"/>
-<area shape="rect" href="_win_pos_wnd_8h.html" title=" " alt="" coords="148,80,253,107"/>
-<area shape="poly" title=" " alt="" coords="305,35,237,74,234,70,303,30"/>
-<area shape="rect" title=" " alt="" coords="253,155,306,181"/>
-<area shape="poly" title=" " alt="" coords="325,33,290,140,285,139,319,32"/>
-<area shape="rect" title=" " alt="" coords="464,80,524,107"/>
-<area shape="poly" title=" " alt="" coords="356,30,452,71,450,76,354,35"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="330,80,389,107"/>
-<area shape="poly" title=" " alt="" coords="334,31,350,65,345,67,329,34"/>
-<area shape="rect" title=" " alt="" coords="605,155,679,181"/>
-<area shape="poly" title=" " alt="" coords="343,30,390,66,452,104,513,126,590,150,589,155,511,131,450,109,387,71,339,35"/>
-<area shape="rect" title=" " alt="" coords="5,155,79,181"/>
-<area shape="poly" title=" " alt="" coords="174,110,85,150,83,145,172,105"/>
-<area shape="rect" title=" " alt="" coords="103,155,149,181"/>
-<area shape="poly" title=" " alt="" coords="190,109,151,146,148,142,186,105"/>
-<area shape="rect" title=" " alt="" coords="173,155,228,181"/>
-<area shape="poly" title=" " alt="" coords="203,107,203,139,198,139,198,107"/>
-<area shape="poly" title=" " alt="" coords="333,110,244,150,241,145,331,105"/>
-<area shape="poly" title=" " alt="" coords="347,109,306,146,302,142,344,105"/>
-<area shape="rect" title=" " alt="" coords="331,155,391,181"/>
-<area shape="poly" title=" " alt="" coords="362,107,363,139,357,139,357,107"/>
-<area shape="rect" title=" " alt="" coords="415,155,472,181"/>
-<area shape="poly" title=" " alt="" coords="376,105,419,142,416,146,372,109"/>
-<area shape="rect" title=" " alt="" coords="496,155,580,181"/>
-<area shape="poly" title=" " alt="" coords="390,104,493,146,492,151,388,109"/>
-<area shape="poly" title=" " alt="" coords="390,100,590,151,589,156,388,105"/>
+<div class="center"><img src="_win_pos_wnd_8cpp__incl.png" border="0" usemap="#awi_npo_s-_hook_2_win_pos_wnd_8cpp" alt=""/></div>
+<map name="awi_npo_s-_hook_2_win_pos_wnd_8cpp" id="awi_npo_s-_hook_2_win_pos_wnd_8cpp">
+<area shape="rect" title=" " alt="" coords="477,5,678,32"/>
+<area shape="rect" href="wi_npo_s-_hook_2pch_8h.html" title=" " alt="" coords="72,80,126,107"/>
+<area shape="poly" title=" " alt="" coords="494,35,141,88,141,83,493,30"/>
+<area shape="rect" href="_win_pos_wnd_8h.html" title=" " alt="" coords="244,80,349,107"/>
+<area shape="poly" title=" " alt="" coords="529,35,361,78,360,73,528,30"/>
+<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="422,229,480,256"/>
+<area shape="poly" title=" " alt="" coords="570,34,536,81,496,154,465,216,461,214,491,151,531,79,565,31"/>
+<area shape="rect" title=" " alt="" coords="522,304,575,331"/>
+<area shape="poly" title=" " alt="" coords="579,33,554,289,548,288,574,32"/>
+<area shape="rect" title=" " alt="" coords="599,304,674,331"/>
+<area shape="poly" title=" " alt="" coords="583,32,634,288,628,289,577,33"/>
+<area shape="rect" href="_win_pos_wnd_config_8h.html" title=" " alt="" coords="272,155,414,181"/>
+<area shape="poly" title=" " alt="" coords="559,35,377,149,374,144,556,30"/>
+<area shape="rect" title=" " alt="" coords="641,80,701,107"/>
+<area shape="poly" title=" " alt="" coords="596,30,645,68,641,73,592,35"/>
+<area shape="rect" title=" " alt="" coords="725,80,833,107"/>
+<area shape="poly" title=" " alt="" coords="614,30,730,72,729,77,612,35"/>
+<area shape="rect" title=" " alt="" coords="858,80,946,107"/>
+<area shape="poly" title=" " alt="" coords="635,30,843,76,842,81,634,35"/>
+<area shape="rect" title=" " alt="" coords="970,80,1039,107"/>
+<area shape="poly" title=" " alt="" coords="675,30,804,50,956,77,955,82,803,55,674,35"/>
+<area shape="rect" href="wi_npo_s-_hook_2framework_8h.html" title=" " alt="" coords="5,155,97,181"/>
+<area shape="poly" title=" " alt="" coords="93,109,70,143,65,140,88,106"/>
+<area shape="rect" title=" " alt="" coords="10,229,92,256"/>
+<area shape="poly" title=" " alt="" coords="54,182,54,214,48,214,48,182"/>
+<area shape="rect" title=" " alt="" coords="241,229,314,256"/>
+<area shape="poly" title=" " alt="" coords="288,109,274,130,263,155,261,185,269,214,263,215,256,186,258,154,269,127,284,106"/>
+<area shape="rect" title=" " alt="" coords="171,229,217,256"/>
+<area shape="poly" title=" " alt="" coords="290,109,256,156,213,218,208,215,251,153,285,106"/>
+<area shape="rect" title=" " alt="" coords="169,304,224,331"/>
+<area shape="poly" title=" " alt="" coords="277,109,248,129,215,157,184,191,162,230,159,246,162,261,177,291,173,293,157,263,153,246,156,228,180,188,212,153,245,125,274,105"/>
+<area shape="poly" title=" " alt="" coords="348,105,390,123,410,137,428,153,444,183,451,213,446,215,439,185,424,156,407,141,388,128,346,110"/>
+<area shape="poly" title=" " alt="" coords="307,106,329,140,325,143,302,109"/>
+<area shape="poly" title=" " alt="" coords="422,255,240,305,238,300,421,249"/>
+<area shape="poly" title=" " alt="" coords="470,254,521,293,518,297,466,259"/>
+<area shape="rect" title=" " alt="" coords="248,304,308,331"/>
+<area shape="poly" title=" " alt="" coords="422,259,323,300,321,295,420,254"/>
+<area shape="rect" title=" " alt="" coords="332,304,389,331"/>
+<area shape="poly" title=" " alt="" coords="437,259,389,296,386,292,434,254"/>
+<area shape="rect" title=" " alt="" coords="413,304,497,331"/>
+<area shape="poly" title=" " alt="" coords="454,256,456,288,451,289,449,257"/>
+<area shape="poly" title=" " alt="" coords="482,253,591,296,589,301,480,258"/>
+<area shape="poly" title=" " alt="" coords="334,184,301,220,297,216,330,180"/>
+<area shape="poly" title=" " alt="" coords="318,184,232,226,230,221,316,179"/>
+<area shape="poly" title=" " alt="" coords="347,182,344,218,338,239,328,258,313,270,291,282,239,304,237,299,289,277,310,265,324,254,333,237,339,217,341,182"/>
+<area shape="poly" title=" " alt="" coords="363,180,421,218,418,222,360,184"/>
 </map>
 </div>
 </div>
@@ -146,21 +167,13 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03" id="r_namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html">anonymous_namespace{WinPosWnd.cpp}</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aa1f90dadeda131a2fac796d864d3f099" id="r_aa1f90dadeda131a2fac796d864d3f099"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#aa1f90dadeda131a2fac796d864d3f099">anonymous_namespace{WinPosWnd.cpp}::Monitorenumproc</a> (HMONITOR hMon, HDC hDC, LPRECT pRECT, LPARAM lParam)</td></tr>
-<tr class="separator:aa1f90dadeda131a2fac796d864d3f099"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a74029128723095e7bf00a71d46af8b24" id="r_a74029128723095e7bf00a71d46af8b24"><td class="memItemLeft" align="right" valign="top">HINSTANCE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_win_pos_wnd_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></td></tr>
 <tr class="separator:a74029128723095e7bf00a71d46af8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d771a1761aea007e3557deba453ae7b" id="r_a7d771a1761aea007e3557deba453ae7b"><td class="memItemLeft" align="right" valign="top">FLOAT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a7d771a1761aea007e3557deba453ae7b">anonymous_namespace{WinPosWnd.cpp}::F</a> = 0.12f</td></tr>
-<tr class="separator:a7d771a1761aea007e3557deba453ae7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb175292384d77c8a2b7fa266d3c91b2" id="r_afb175292384d77c8a2b7fa266d3c91b2"><td class="memItemLeft" align="right" valign="top">const UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#afb175292384d77c8a2b7fa266d3c91b2">anonymous_namespace{WinPosWnd.cpp}::CLOSE_TIMER</a> = 0x30</td></tr>
+<tr class="memdesc:afb175292384d77c8a2b7fa266d3c91b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID from close timer.  <br /></td></tr>
 <tr class="separator:afb175292384d77c8a2b7fa266d3c91b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c6c27ad637de8e8f75532e6242a99e2" id="r_a3c6c27ad637de8e8f75532e6242a99e2"><td class="memItemLeft" align="right" valign="top">UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#a3c6c27ad637de8e8f75532e6242a99e2">anonymous_namespace{WinPosWnd.cpp}::CLOSE_TIMEOUT</a> = 3500</td></tr>
-<tr class="separator:a3c6c27ad637de8e8f75532e6242a99e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a74029128723095e7bf00a71d46af8b24" name="a74029128723095e7bf00a71d46af8b24"></a>
@@ -183,7 +196,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00020">20</a> of file <a class="el" href="wi_npo_s-_app_8cpp_source.html">wiNpoS-App.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">23</a> of file <a class="el" href="wi_npo_s-_app_8cpp_source.html">wiNpoS-App.cpp</a>.</p>
 
 </div>
 </div>
@@ -192,7 +205,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_07a02fbc162f5ca08e083f23092f80e4.html">wiNpoS-Shared</a></li><li class="navelem"><a class="el" href="_win_pos_wnd_8cpp.html">WinPosWnd.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_eb2affa7d77adb4803f99ae6cee935b0.html">wiNpoS-Hook</a></li><li class="navelem"><a class="el" href="_win_pos_wnd_8cpp.html">WinPosWnd.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

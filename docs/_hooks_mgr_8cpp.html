@@ -90,43 +90,64 @@ $(document).ready(function(){initNavTree('_hooks_mgr_8cpp.html',''); initResizab
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">HooksMgr.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;pch.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>&quot;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
+<code>#include &lt;Shlwapi.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for HooksMgr.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_hooks_mgr_8cpp__incl.png" border="0" usemap="#awi_npo_s-_shared_2_hooks_mgr_8cpp" alt=""/></div>
 <map name="awi_npo_s-_shared_2_hooks_mgr_8cpp" id="awi_npo_s-_shared_2_hooks_mgr_8cpp">
-<area shape="rect" title=" " alt="" coords="80,5,278,32"/>
+<area shape="rect" title=" " alt="" coords="172,5,370,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,59,107"/>
-<area shape="poly" title=" " alt="" coords="154,35,72,75,70,70,152,30"/>
+<area shape="poly" title=" " alt="" coords="229,35,74,82,73,77,227,30"/>
 <area shape="rect" href="_hooks_mgr_8h.html" title=" " alt="" coords="82,80,174,107"/>
-<area shape="poly" title=" " alt="" coords="172,34,147,69,143,66,168,31"/>
+<area shape="poly" title=" " alt="" coords="247,35,168,75,165,70,245,30"/>
 <area shape="rect" title=" " alt="" coords="197,80,262,107"/>
-<area shape="poly" title=" " alt="" coords="190,31,214,66,210,69,185,34"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="286,80,344,107"/>
-<area shape="poly" title=" " alt="" coords="204,30,279,70,276,75,201,35"/>
-<area shape="rect" title=" " alt="" coords="76,155,129,181"/>
-<area shape="poly" title=" " alt="" coords="286,107,145,155,143,150,284,102"/>
-<area shape="rect" title=" " alt="" coords="154,155,214,181"/>
-<area shape="poly" title=" " alt="" coords="293,110,222,149,219,144,291,105"/>
-<area shape="rect" title=" " alt="" coords="238,155,295,181"/>
-<area shape="poly" title=" " alt="" coords="309,109,286,143,281,140,304,106"/>
-<area shape="rect" title=" " alt="" coords="319,155,404,181"/>
-<area shape="poly" title=" " alt="" coords="325,106,347,140,343,143,321,109"/>
-<area shape="rect" title=" " alt="" coords="427,155,482,181"/>
-<area shape="poly" title=" " alt="" coords="340,105,418,145,415,149,338,110"/>
-<area shape="rect" title=" " alt="" coords="507,155,581,181"/>
-<area shape="poly" title=" " alt="" coords="345,101,493,148,491,153,343,106"/>
+<area shape="poly" title=" " alt="" coords="266,34,246,68,242,65,261,31"/>
+<area shape="rect" title=" " alt="" coords="285,80,339,107"/>
+<area shape="poly" title=" " alt="" coords="280,31,300,65,295,68,276,34"/>
+<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="363,80,421,107"/>
+<area shape="poly" title=" " alt="" coords="293,30,359,69,356,74,290,35"/>
+<area shape="rect" title=" " alt="" coords="445,80,523,107"/>
+<area shape="poly" title=" " alt="" coords="309,30,433,72,432,77,307,35"/>
+<area shape="rect" title=" " alt="" coords="153,155,207,181"/>
+<area shape="poly" title=" " alt="" coords="363,107,222,155,221,150,362,102"/>
+<area shape="rect" title=" " alt="" coords="231,155,292,181"/>
+<area shape="poly" title=" " alt="" coords="371,110,299,149,296,144,368,105"/>
+<area shape="rect" title=" " alt="" coords="315,155,373,181"/>
+<area shape="poly" title=" " alt="" coords="386,109,363,143,358,140,381,106"/>
+<area shape="rect" title=" " alt="" coords="397,155,481,181"/>
+<area shape="poly" title=" " alt="" coords="402,106,425,140,420,143,398,109"/>
+<area shape="rect" title=" " alt="" coords="504,155,560,181"/>
+<area shape="poly" title=" " alt="" coords="418,105,495,145,493,149,415,110"/>
+<area shape="rect" title=" " alt="" coords="584,155,659,181"/>
+<area shape="poly" title=" " alt="" coords="422,101,570,148,569,153,421,106"/>
 </map>
 </div>
 </div>
 <p><a href="_hooks_mgr_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceanonymous__namespace_02_hooks_mgr_8cpp_03" id="r_namespaceanonymous__namespace_02_hooks_mgr_8cpp_03"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_mgr_8cpp_03.html">anonymous_namespace{HooksMgr.cpp}</a></td></tr>
+<tr class="memdesc:namespaceanonymous__namespace_02_hooks_mgr_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight">starts other instance, if possible <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa59c7e0280478689baaf876d2f4a543a" id="r_aa59c7e0280478689baaf876d2f4a543a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_mgr_8cpp_03.html#aa59c7e0280478689baaf876d2f4a543a">anonymous_namespace{HooksMgr.cpp}::atExit</a> ()</td></tr>
+<tr class="separator:aa59c7e0280478689baaf876d2f4a543a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

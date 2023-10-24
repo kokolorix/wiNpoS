@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['hhgetmessagehookproc_0',['hhGetMessageHookProc',['../wi_npo_s-_support_2dllmain_8cpp.html#acecfc653cfb72e508d95a2630390fe0a',1,'dllmain.cpp']]],
-  ['hhshellhookproc_1',['hhShellHookProc',['../wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df',1,'dllmain.cpp']]],
-  ['hinstance_2',['hinstance',['../wi_npo_s-_app_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;wiNpoS-App.cpp'],['../wi_npo_s-_hook_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;dllmain.cpp'],['../_hooks_impl_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;wiNpoS-App.cpp'],['../_win_pos_wnd_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;wiNpoS-App.cpp'],['../wi_npo_s-_support_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24',1,'hInstance:&#160;dllmain.cpp']]],
-  ['hmainwnd_3',['hMainWnd',['../struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd',1,'Utils::MainWndRes']]],
-  ['hooks_4',['hooks',['../wi_npo_s-_app_8cpp.html#a94024fae4c55a7f2268b1748b1a815e2',1,'hooks:&#160;wiNpoS-App.cpp'],['../wi_npo_s-_hook_2dllmain_8cpp.html#a9763dc7ce06c91d4163b706cf4051c61',1,'hooks:&#160;dllmain.cpp'],['../_hooks_impl_8cpp.html#ae3e1293c07883fb4c0726fc7b7d11fe6',1,'hooks:&#160;HooksImpl.cpp']]],
-  ['hookthreadinstalled_5',['hookThreadInstalled',['../wi_npo_s-_support_2dllmain_8cpp.html#a083b688a7833f1db7c94e4decfda8719',1,'dllmain.cpp']]],
-  ['htargetingcurrentwnd_6',['hTargetingCurrentWnd',['../namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a091bbc1fe65a0762c35c869e832e8d0e',1,'anonymous_namespace{wiNpoS-App.cpp}']]],
-  ['hwndtowinposmap_7',['hWndToWinPosMap',['../class_win_pos_wnd.html#aaffb97e34377e0383fb23798c3317ece',1,'WinPosWnd']]]
+  ['device_0',['device',['../struct_win_pos_wnd_1_1_monitor_preview.html#add1630a9b7ac53187c0f468a8876755b',1,'WinPosWnd::MonitorPreview::device'],['../struct_win_pos_wnd_config_1_1_monitor_config.html#a8ad10f971cf85f717969c4530b0d7857',1,'WinPosWndConfig::MonitorConfig::device']]]
 ];

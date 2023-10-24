@@ -8,5 +8,6 @@ var searchData=
   ['mt_5fhook_5fmsg_5fsupport_5fthread_5fhook_5funregistered_5',['MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED',['../_hooks_mgr_8h.html#a60cedc479ca9e9b82b7470e7837eeab4',1,'HooksMgr.h']]],
   ['mt_5fhook_5fmsg_5funload_6',['MT_HOOK_MSG_UNLOAD',['../_hooks_mgr_8h.html#aa60c78354a7425a01d05430dbf274635',1,'HooksMgr.h']]],
   ['mt_5fhook_5fmsg_5funregister_5fsupport_5fthread_5fhook_7',['MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK',['../_hooks_mgr_8h.html#a53b261cbcfcb7c5c7b2d5c8c9abc4002',1,'HooksMgr.h']]],
-  ['mt_5fhook_5fmsg_5funregister_5fwnd_5fthread_5fhook_8',['MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#a4aeda444aa9b46b4b0fe7324ef064afe',1,'HooksMgr.h']]]
+  ['mt_5fhook_5fmsg_5funregister_5fwnd_5fthread_5fhook_8',['MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK',['../_hooks_mgr_8h.html#a4aeda444aa9b46b4b0fe7324ef064afe',1,'HooksMgr.h']]],
+  ['mywm_5fnotifyicon_9',['MYWM_NOTIFYICON',['../wi_npo_s-_app_8cpp.html#a255be3b2e0d4ed68a0f5a35ed30ac9e2',1,'wiNpoS-App.cpp']]]
 ];

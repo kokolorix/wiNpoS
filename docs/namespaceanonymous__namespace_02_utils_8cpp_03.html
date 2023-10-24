@@ -113,6 +113,8 @@ Functions</h2></td></tr>
 <tr class="separator:a3e36aa8018bd7df30929d3af45d069a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af53c07dc6e7ee9776a7ea823490f3d30" id="r_af53c07dc6e7ee9776a7ea823490f3d30"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#af53c07dc6e7ee9776a7ea823490f3d30">initExeName</a> ()</td></tr>
 <tr class="separator:af53c07dc6e7ee9776a7ea823490f3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d45eaaa675853b604170ad6ff0bb356" id="r_a9d45eaaa675853b604170ad6ff0bb356"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a9d45eaaa675853b604170ad6ff0bb356">initBinDir</a> ()</td></tr>
+<tr class="separator:a9d45eaaa675853b604170ad6ff0bb356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93de0f4cd5b604498deff24571ac5f85" id="r_a93de0f4cd5b604498deff24571ac5f85"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a> (_In_ HWND hwnd, _In_ LPARAM lParam)</td></tr>
 <tr class="separator:a93de0f4cd5b604498deff24571ac5f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56891ad55436366351fef991050aae78" id="r_a56891ad55436366351fef991050aae78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78">GetDesktopWnds</a> ()</td></tr>
@@ -130,12 +132,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::DesktopNameVector = typedef std::vector&lt;string&gt;</td>
+          <td class="memname">using anonymous_namespace{Utils.cpp}::DesktopNameVector = typedef std::vector&lt;string&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00155">155</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00163">163</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -146,12 +148,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::WndVector = typedef std::vector&lt;HWND&gt;</td>
+          <td class="memname">using anonymous_namespace{Utils.cpp}::WndVector = typedef std::vector&lt;HWND&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00106">106</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00114">114</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -163,7 +165,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BOOL CALLBACK anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::EnumDesktopProcA </td>
+          <td class="memname">BOOL CALLBACK anonymous_namespace{Utils.cpp}::EnumDesktopProcA </td>
           <td>(</td>
           <td class="paramtype">_In_ LPSTR&#160;</td>
           <td class="paramname"><em>lpszDesktop</em>, </td>
@@ -182,13 +184,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00156">156</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  157</span>    {</div>
-<div class="line"><span class="lineno">  158</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>&amp; desktopNames = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
-<div class="line"><span class="lineno">  159</span>        desktopNames.push_back(<span class="keywordtype">string</span>(lpszDesktop));</div>
-<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">  161</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ae47370d940d705276a88e70d4c06087a"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">anonymous_namespace{Utils.cpp}::DesktopNameVector</a></div><div class="ttdeci">std::vector&lt; string &gt; DesktopNameVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00155">Utils.cpp:155</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00164">164</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  165</span>    {</div>
+<div class="line"><span class="lineno">  166</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>&amp; desktopNames = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
+<div class="line"><span class="lineno">  167</span>        desktopNames.push_back(<span class="keywordtype">string</span>(lpszDesktop));</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><span class="lineno">  169</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ae47370d940d705276a88e70d4c06087a"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">anonymous_namespace{Utils.cpp}::DesktopNameVector</a></div><div class="ttdeci">std::vector&lt; string &gt; DesktopNameVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00163">Utils.cpp:163</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -209,7 +211,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">BOOL CALLBACK anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::EnumWindowsProc </td>
+          <td class="memname">BOOL CALLBACK anonymous_namespace{Utils.cpp}::EnumWindowsProc </td>
           <td>(</td>
           <td class="paramtype">_In_ HWND&#160;</td>
           <td class="paramname"><em>hwnd</em>, </td>
@@ -228,13 +230,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00107">107</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  108</span>    {</div>
-<div class="line"><span class="lineno">  109</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&amp; hWnds = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
-<div class="line"><span class="lineno">  110</span>        hWnds.push_back(hwnd);</div>
-<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">  112</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ac6e2b9676759e0fe2c0f639f27729f38"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">anonymous_namespace{Utils.cpp}::WndVector</a></div><div class="ttdeci">std::vector&lt; HWND &gt; WndVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00106">Utils.cpp:106</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00115">115</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>    {</div>
+<div class="line"><span class="lineno">  117</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&amp; hWnds = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
+<div class="line"><span class="lineno">  118</span>        hWnds.push_back(hwnd);</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><span class="lineno">  120</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ac6e2b9676759e0fe2c0f639f27729f38"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">anonymous_namespace{Utils.cpp}::WndVector</a></div><div class="ttdeci">std::vector&lt; HWND &gt; WndVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00114">Utils.cpp:114</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -259,7 +261,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::GetDesktopWnds </td>
+          <td class="memname"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> anonymous_namespace{Utils.cpp}::GetDesktopWnds </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -267,19 +269,19 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00114">114</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>    {</div>
-<div class="line"><span class="lineno">  116</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> hWnds;</div>
-<div class="line"><span class="lineno">  117</span>        <span class="keyword">auto</span> threadId = GetCurrentThreadId();</div>
-<div class="line"><span class="lineno">  118</span>        <span class="keyword">auto</span> hDesktop = GetThreadDesktop(threadId);</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>        <span class="keyword">auto</span> res = EnumDesktopWindows(hDesktop, <a class="code hl_function" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a>, (LPARAM)&amp;hWnds);</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> hWnds;   <span class="comment">//EnumDesktopWindows()</span></div>
-<div class="line"><span class="lineno">  123</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_a93de0f4cd5b604498deff24571ac5f85"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a></div><div class="ttdeci">BOOL CALLBACK EnumWindowsProc(_In_ HWND hwnd, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00107">Utils.cpp:107</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00122">122</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>    {</div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> hWnds;</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keyword">auto</span> threadId = GetCurrentThreadId();</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keyword">auto</span> hDesktop = GetThreadDesktop(threadId);</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>        <span class="keyword">auto</span> res = EnumDesktopWindows(hDesktop, <a class="code hl_function" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a>, (LPARAM)&amp;hWnds);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">return</span> hWnds;   <span class="comment">//EnumDesktopWindows()</span></div>
+<div class="line"><span class="lineno">  131</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_a93de0f4cd5b604498deff24571ac5f85"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a></div><div class="ttdeci">BOOL CALLBACK EnumWindowsProc(_In_ HWND hwnd, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00115">Utils.cpp:115</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00107">EnumWindowsProc()</a>.</p>
+<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00115">EnumWindowsProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -303,6 +305,34 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a9d45eaaa675853b604170ad6ff0bb356" name="a9d45eaaa675853b604170ad6ff0bb356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d45eaaa675853b604170ad6ff0bb356">&#9670;&#160;</a></span>initBinDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string anonymous_namespace{Utils.cpp}::initBinDir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00052">52</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>    {</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">   55</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   56</span>        PathRemoveFileSpecA(buffer);</div>
+<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><span class="lineno">   58</span>    }</div>
+<div class="ttc" id="a_utils_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_app_8cpp_source.html#l00023">wiNpoS-App.cpp:23</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">hInstance</a>.</p>
+
+</div>
+</div>
 <a id="af53c07dc6e7ee9776a7ea823490f3d30" name="af53c07dc6e7ee9776a7ea823490f3d30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af53c07dc6e7ee9776a7ea823490f3d30">&#9670;&#160;</a></span>initExeName()</h2>
 
@@ -310,7 +340,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::initExeName </td>
+          <td class="memname">string anonymous_namespace{Utils.cpp}::initExeName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -335,7 +365,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string anonymous_namespace{<a class="el" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils.cpp</a>}::initLogFile </td>
+          <td class="memname">string anonymous_namespace{Utils.cpp}::initLogFile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -347,7 +377,7 @@ Here is the caller graph for this function:</div>
 <div class="fragment"><div class="line"><span class="lineno">   24</span>    {</div>
 <div class="line"><span class="lineno">   25</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
 <div class="line"><span class="lineno">   26</span><span class="preprocessor">#ifdef _USRDLL</span></div>
-<div class="line"><span class="lineno">   27</span>        GetModuleFileNameA(<a class="code hl_variable" href="wi_npo_s-_app_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   27</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
 <div class="line"><span class="lineno">   28</span><span class="preprocessor">#else</span></div>
 <div class="line"><span class="lineno">   29</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
 <div class="line"><span class="lineno">   30</span><span class="preprocessor">#endif </span><span class="comment">// _USRDLL</span></div>
@@ -363,9 +393,8 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   40</span> </div>
 <div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> logPath;</div>
 <div class="line"><span class="lineno">   42</span>    }</div>
-<div class="ttc" id="awi_npo_s-_app_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="wi_npo_s-_app_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_app_8cpp_source.html#l00020">wiNpoS-App.cpp:20</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00020">hInstance</a>.</p>
+<p class="reference">References <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">hInstance</a>.</p>
 
 </div>
 </div>

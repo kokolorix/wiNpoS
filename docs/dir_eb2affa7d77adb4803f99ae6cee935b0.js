@@ -8,5 +8,7 @@ var dir_eb2affa7d77adb4803f99ae6cee935b0 =
     [ "pch.h", "wi_npo_s-_hook_2pch_8h.html", null ],
     [ "Resource.h", "wi_npo_s-_hook_2resource_8h.html", "wi_npo_s-_hook_2resource_8h" ],
     [ "TaskToolbar.cpp", "_task_toolbar_8cpp.html", null ],
-    [ "TaskToolbar.h", "_task_toolbar_8h.html", "_task_toolbar_8h" ]
+    [ "TaskToolbar.h", "_task_toolbar_8h.html", "_task_toolbar_8h" ],
+    [ "WinPosWnd.cpp", "_win_pos_wnd_8cpp.html", "_win_pos_wnd_8cpp" ],
+    [ "WinPosWnd.h", "_win_pos_wnd_8h.html", "_win_pos_wnd_8h" ]
 ];

@@ -1,0 +1,5 @@
+<map id="WinPosWnd::WndProcStatic" name="WinPosWnd::WndProcStatic">
+<area shape="rect" id="Node000001" title="static WNDPROC. Forwards to the WinPosWnd instances." alt="" coords="5,5,196,32"/>
+<area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#a5ad8686caf3b8310fff6d4bec255f898" title="get the instance of WinPosWnd to a window handle" alt="" coords="244,5,437,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,16,228,16,228,21,196,21"/>
+</map>

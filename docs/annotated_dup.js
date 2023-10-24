@@ -7,5 +7,6 @@ var annotated_dup =
     [ "HooksImpl", "class_hooks_impl.html", "class_hooks_impl" ],
     [ "HooksMgr", "class_hooks_mgr.html", "class_hooks_mgr" ],
     [ "TaskToolbar", "class_task_toolbar.html", "class_task_toolbar" ],
-    [ "WinPosWnd", "class_win_pos_wnd.html", "class_win_pos_wnd" ]
+    [ "WinPosWnd", "class_win_pos_wnd.html", "class_win_pos_wnd" ],
+    [ "WinPosWndConfig", "class_win_pos_wnd_config.html", "class_win_pos_wnd_config" ]
 ];

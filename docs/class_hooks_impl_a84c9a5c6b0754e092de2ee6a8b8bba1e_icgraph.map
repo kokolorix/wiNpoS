@@ -1,0 +1,7 @@
+<map id="HooksImpl::onIncrementWindow" name="HooksImpl::onIncrementWindow">
+<area shape="rect" id="Node000001" title="method to change the size of a window in steps" alt="" coords="231,31,438,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5" title="do the work, if necessary" alt="" coords="5,5,183,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,34,183,31,183,25,215,29"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="11,56,177,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,59,178,63,177,58,215,54"/>
+</map>

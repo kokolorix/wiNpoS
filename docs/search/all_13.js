@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['win32_5flean_5fand_5fmean_0',['win32_lean_and_mean',['../wi_npo_s-_app_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_hook_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_support_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h']]],
-  ['winpos_1',['winpos',['../md__r_e_a_d_m_e.html',1,'wiNpoS'],['../index.html',1,'wiNpoS']]],
-  ['winpos_2dapp_2ecpp_2',['wiNpoS-App.cpp',['../wi_npo_s-_app_8cpp.html',1,'']]],
-  ['winpos_2dapp_2eh_3',['wiNpoS-App.h',['../wi_npo_s-_app_8h.html',1,'']]],
-  ['winpos_2edox_4',['wiNpoS.dox',['../wi_npo_s_8dox.html',1,'']]],
-  ['winpos_2emd_5',['wiNpoS.md',['../wi_npo_s_8md.html',1,'']]],
-  ['winposwnd_6',['WinPosWnd',['../class_win_pos_wnd.html',1,'']]],
-  ['winposwnd_2ecpp_7',['WinPosWnd.cpp',['../_win_pos_wnd_8cpp.html',1,'']]],
-  ['winposwnd_2eh_8',['WinPosWnd.h',['../_win_pos_wnd_8h.html',1,'']]],
-  ['wndclass_9',['wndClass',['../class_win_pos_wnd.html#a60dd921f2b9f4f810f3169c98239405b',1,'WinPosWnd']]],
-  ['wndposwndproc_10',['WndPosWndProc',['../class_win_pos_wnd.html#acb834a55d7390f9ab8bf76b62ae36633',1,'WinPosWnd']]],
-  ['wndproc_11',['wndproc',['../class_win_pos_wnd.html#a0d04adea97275251d99b3ea1be00a6bc',1,'WinPosWnd::WndProc()'],['../wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f',1,'WndProc():&#160;wiNpoS-App.cpp']]],
-  ['wndthreadid_12',['wndThreadId',['../struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6',1,'Utils::MainWndRes']]],
-  ['wndvector_13',['WndVector',['../namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38',1,'anonymous_namespace{Utils.cpp}']]],
-  ['write_5fdebug_5flog_14',['WRITE_DEBUG_LOG',['../_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_15',['WRITE_DEBUG_LOG_DETAIL',['../_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_5fduration_16',['WRITE_DEBUG_LOG_DETAIL_DURATION',['../_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fduration_17',['WRITE_DEBUG_LOG_DURATION',['../_utils_8h.html#a11191e674f9190988d8d3002f487e6a5',1,'Utils.h']]],
-  ['writeconfig_18',['writeConfig',['../class_config.html#aab0ab085dc15e32882dcb6c96c88f56f',1,'Config']]],
-  ['writedebuglog_19',['WriteDebugLog',['../namespace_utils.html#abdc36608727de989652b34f84852737c',1,'Utils']]],
-  ['wwinmain_20',['wWinMain',['../wi_npo_s-_app_8cpp.html#a1e683c5a19c00d05cd803e46b805e339',1,'wiNpoS-App.cpp']]]
+  ['vertical_0',['Vertical',['../class_hooks_impl.html#a01d6af706c6e837140f0888031611ef7a06ce2a25e5d12c166a36f654dbea6012',1,'HooksImpl']]]
 ];

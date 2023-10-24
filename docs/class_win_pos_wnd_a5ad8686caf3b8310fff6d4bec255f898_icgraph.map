@@ -1,0 +1,15 @@
+<map id="WinPosWnd::getWinPosWnd" name="WinPosWnd::getWinPosWnd">
+<area shape="rect" id="Node000001" title="get the instance of WinPosWnd to a window handle" alt="" coords="1117,31,1310,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#aac5c36e6987b75db9ec6f06bae9b27e9" title=" " alt="" coords="880,5,1068,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1101,35,1068,31,1068,26,1102,29"/>
+<area shape="rect" id="Node000003" href="$class_win_pos_wnd.html#a104a18975fac2ac85a75eabda629ddb2" title="static WNDPROC. Forwards to the WinPosWnd instances." alt="" coords="879,56,1069,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1102,58,1070,62,1069,57,1101,53"/>
+<area shape="rect" id="Node000004" href="$class_win_pos_wnd.html#a86ca33ea895961e25e6c1601e420f40e" title="initialize the WNDCLASS structure" alt="" coords="651,56,831,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="863,72,831,72,831,67,863,67"/>
+<area shape="rect" id="Node000005" href="$class_win_pos_wnd.html#abec2e67db5543a717d59b02ab8dbb930" title="create the required windows for monitor preview and all configured positions" alt="" coords="465,56,603,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="636,72,604,72,604,67,636,67"/>
+<area shape="rect" id="Node000006" href="$class_hooks_impl.html#ab6696c1ccc12ebdd892883485456ed3c" title=" " alt="" coords="231,56,417,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="450,72,417,72,417,67,450,67"/>
+<area shape="rect" id="Node000007" href="$class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5" title="do the work, if necessary" alt="" coords="5,56,183,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="215,72,183,72,183,67,215,67"/>
+</map>

@@ -1,11 +1,22 @@
 var searchData=
 [
   ['_5f_5ffile_5fline_5f_5f_0',['__FILE_LINE__',['../_utils_8h.html#a3643aeb18f882054ffc581b35036e172',1,'Utils.h']]],
-  ['_5fhhkcallwndproc_1',['_hhkCallWndProc',['../class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de',1,'HooksMgr']]],
-  ['_5fhhkgetmessage_2',['_hhkGetMessage',['../class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074',1,'HooksMgr']]],
-  ['_5fhhkshellhookproc_3',['_hhkShellHookProc',['../class_hooks_mgr.html#af64a31bf5d12fc97a20e16dc93ab2958',1,'HooksMgr']]],
-  ['_5fhmodule_4',['_hModule',['../class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9',1,'HooksMgr']]],
-  ['_5fhwnds_5',['_hWnds',['../class_win_pos_wnd.html#a75da66f6768cad99bd960a1f4a390d4b',1,'WinPosWnd']]],
-  ['_5fptaskbarlist_6',['_pTaskbarList',['../class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f',1,'TaskToolbar']]],
-  ['_5fwinposwnd_7',['_winPosWnd',['../class_hooks_impl.html#a3868baa8fba488f67b305ec2a9083d70',1,'HooksImpl']]]
+  ['_5fcaptiondblclick_1',['_captionDblClick',['../class_hooks_impl.html#af36a8e04c0345d22a616fbd8c173b388',1,'HooksImpl']]],
+  ['_5fchildprocessinfo_2',['_childProcessInfo',['../class_hooks_mgr.html#a27914e1bf8161797f4aa7338e54b6618',1,'HooksMgr']]],
+  ['_5fclosetimeout_3',['_closetimeout',['../class_win_pos_wnd.html#a4afb837f39e4f4a24d28f4a43eb28d49',1,'WinPosWnd::_closeTimeout'],['../class_win_pos_wnd_config.html#ab9c0125043ecd7dc5c3e612ad1f2920d',1,'WinPosWndConfig::_closeTimeout']]],
+  ['_5fhhkcallwndproc_4',['_hhkCallWndProc',['../class_hooks_mgr.html#a7d8f70f725110c1b8f97d17870dd17de',1,'HooksMgr']]],
+  ['_5fhhkgetmessage_5',['_hhkGetMessage',['../class_hooks_mgr.html#a127ba67580ee9ae34c7d4241b7d9c074',1,'HooksMgr']]],
+  ['_5fhhkshellhookproc_6',['_hhkShellHookProc',['../class_hooks_mgr.html#af64a31bf5d12fc97a20e16dc93ab2958',1,'HooksMgr']]],
+  ['_5fhmodule_7',['_hModule',['../class_hooks_mgr.html#ae25e0775cdd1092cf37dd9233694a0b9',1,'HooksMgr']]],
+  ['_5fhwnds_8',['_hWnds',['../class_win_pos_wnd.html#a75da66f6768cad99bd960a1f4a390d4b',1,'WinPosWnd']]],
+  ['_5flastlbuttondown_9',['_lastLButtonDown',['../class_hooks_impl.html#a03a9b5e4e10bfec99c917da5f23f5fe5',1,'HooksImpl']]],
+  ['_5flastrect_10',['_lastRect',['../class_hooks_impl.html#ac6b4af90f25c9c900b017cf5c0de42b1',1,'HooksImpl']]],
+  ['_5flbuttonupmsg_11',['_lButtonUpMsg',['../class_hooks_impl.html#ab5d149ff8c0790325ed840738c9fc37f',1,'HooksImpl']]],
+  ['_5fmonitors_12',['_monitors',['../class_win_pos_wnd_config.html#a3de0dc050fad8aeb9c9074fa8a655363',1,'WinPosWndConfig']]],
+  ['_5fnclbuttonupmsg_13',['_ncLButtonUpMsg',['../class_hooks_impl.html#a29c1d1771e909ea8ac6d21a4afccfb87',1,'HooksImpl']]],
+  ['_5fpreviews_14',['_previews',['../class_win_pos_wnd.html#a0ea8ea08571351c99393ae9141738dbe',1,'WinPosWnd']]],
+  ['_5fptaskbarlist_15',['_pTaskbarList',['../class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f',1,'TaskToolbar']]],
+  ['_5fscale_16',['_scale',['../class_win_pos_wnd.html#af9c617148eb1038c79d7df5fb33575dd',1,'WinPosWnd::_scale'],['../class_win_pos_wnd_config.html#add48fe3afc9344d6f38c8d1bba152267',1,'WinPosWndConfig::_scale']]],
+  ['_5ftotalrect_17',['_totalRect',['../class_win_pos_wnd.html#a8176110082f060d9bebe6a49876dd98a',1,'WinPosWnd']]],
+  ['_5fwinposwnd_18',['_winPosWnd',['../class_hooks_impl.html#a3868baa8fba488f67b305ec2a9083d70',1,'HooksImpl']]]
 ];
