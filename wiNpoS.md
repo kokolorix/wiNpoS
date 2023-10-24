@@ -19,6 +19,9 @@ App that displays a configurable positioning window starting from the title bar 
 - HooksMgr
 - HooksImpl
 - Config
+- WinPosWndConfig
+- WinPosWnd
+
 
 ### Namespaces
 
