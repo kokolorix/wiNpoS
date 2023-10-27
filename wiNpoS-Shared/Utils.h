@@ -104,20 +104,6 @@ throw exception(dformat("AssertTrue: {}\t{}\t{}\t{}", "", __FILE__, __LINE__, (m
 { if((condition)) { WRITE_DEBUG_LOG(dformat("{}, {}", (#condition), message)); \
 throw exception(dformat("AssertFalse: {}\t{}\t{}\t{}", "", __FILE__, __LINE__, (message)).c_str()); }  }
 
-	/**
-	 * dynamic format
-	 */
-	template <typename... Args>
-	string dformat(std::string_view rt_fmt_str, Args&&... args)
-	{
-		return std::vformat(rt_fmt_str, std::make_format_args(args...));
-	}
-	template <typename... Args>
-	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args)
-	{
-		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
-	}
-
 	inline void ShowLastError(const string fmtStr)
 	{
 		LPSTR errorText = NULL;
