@@ -1,5 +1,4 @@
 #include "pch.h"
-#include "Config.h"
 #include <format>
 #include <cstdio>
 #include <processenv.h>
@@ -17,6 +16,10 @@
 #include <writer.h>
 #include <shellapi.h>
 #include <Utils.h>
+
+#include "DebugNew.h"
+#include "Config.h"
+
 #include "WinPosWndConfig.h"
 /**
  * @brief Read the general config

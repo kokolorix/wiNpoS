@@ -1,5 +1,4 @@
 #include "pch.h"
-#include "WinPosWndConfig.h"
 #include <format>
 #pragma warning(push)
 #pragma warning( disable : 33010 26451 26495 26819 )
@@ -12,6 +11,8 @@
 #include <codecvt>
 #include <tuple>
 #include <Shlwapi.h>
+#include "DebugNew.h"
+#include "WinPosWndConfig.h"
 
 namespace
 {
@@ -241,7 +242,7 @@ void WinPosWndConfig::writeConfig()
 	string configPath = getConfigPath();
 	FILE* fp = nullptr;
 	errno_t res = fopen_s(&fp, configPath.c_str(), "wb"); // non-Windows use "w"
-	assert(fp);
+	AssertTrue(fp, dformat("File {} should be open here", configPath));
 
 	char buffer[4096];
 	FileWriteStream os(fp, buffer, sizeof(buffer));

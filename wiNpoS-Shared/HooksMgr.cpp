@@ -1,6 +1,6 @@
 #include "pch.h"
+#include "DebugNew.h"
 #include "HooksMgr.h"
-#include <cassert>
 #include <regex>
 #include "Utils.h"
 #include <Shlwapi.h>
@@ -27,7 +27,7 @@ HMODULE HooksMgr::load()
 void HooksMgr::unloadHook(HMODULE hModule)
 {
 	BOOL libraryFreed = FreeLibrary(hModule);
-	assert(libraryFreed);
+	AssertTrue(libraryFreed, "Library not freed");
 }
 
 /**
@@ -62,16 +62,16 @@ void HooksMgr::attach()
 void HooksMgr::setHooks(HMODULE hModule)
 {
 	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(CallWndProc));
-	assert(hkCallWndProc);
+	AssertTrue(hkCallWndProc, "Procedure adress should not be NULL");
 
 	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(GetMsgProc));
-	assert(hkGetMsgProc);
+	AssertTrue(hkGetMsgProc, "Procedure adress should not be NULL");
 
 	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, GetCurrentThreadId());
-	assert(_hhkCallWndProc);
+	AssertTrue(_hhkCallWndProc, "Hook handle should not be NULL");
 
 	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());
-	assert(_hhkGetMessage);
+	AssertTrue(_hhkGetMessage, "Hook handle should not be NULL");
 }
 
 /**
@@ -91,11 +91,11 @@ void HooksMgr::unhookHooks()
 {
 	if (_hhkGetMessage && UnhookWindowsHookEx(_hhkGetMessage))
 		_hhkGetMessage = NULL;
-	assert(_hhkGetMessage == NULL);
+	AssertTrue(_hhkGetMessage == NULL, "Hook handle should be NULL");
 
 	if (_hhkCallWndProc && UnhookWindowsHookEx(_hhkCallWndProc))
 		_hhkCallWndProc = NULL;
-	assert(_hhkCallWndProc == NULL);
+	AssertTrue(_hhkCallWndProc == NULL, "Hook handle should be NULL");
 
 	//if (_hhkShellHookProc && UnhookWindowsHookEx(_hhkShellHookProc))
 	//	_hhkShellHookProc = NULL;
@@ -113,19 +113,19 @@ void HooksMgr::install()
 	//assert(hkShellHookProc);
 
 	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(CallWndProc));
-	assert(hkCallWndProc);
+	AssertTrue(hkCallWndProc, "Procedure adress should not be NULL");
 
 	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(GetMsgProc));
-	assert(hkGetMsgProc);
+	AssertTrue(hkGetMsgProc, "Procedure adress should not be NULL");
 
 	//_hhkShellHookProc = SetWindowsHookEx(WH_SHELL, hkShellHookProc, _hModule, NULL);
 	//assert(_hhkShellHookProc);
 
 	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, _hModule, NULL);
-	assert(_hhkCallWndProc);
+	AssertTrue(_hhkCallWndProc, "Hook handle should not be NULL");
 
 	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, _hModule, NULL);
-	assert(_hhkGetMessage);
+	AssertTrue(_hhkGetMessage, "Hook handle should not be NULL");
 }
 
 /**
@@ -181,15 +181,15 @@ void HooksMgr::startOtherBitInstance()
 		// Create the child process
 		BOOL succeed = CreateProcessA(
 			exePath,						 // Replace with the actual child process name or path
-			arguments,						 // Command line (optional)
+			arguments,					 // Command line (optional)
 			NULL,							 // Process handle not inheritable
 			NULL,							 // Thread handle not inheritable
-			FALSE,							 // Set handle inheritance to FALSE
+			FALSE,						 // Set handle inheritance to FALSE
 			0,								 // No creation flags
 			NULL,							 // Use parent's environment block
 			NULL,							 // Use parent's starting directory
 			&si,							 // Pointer to STARTUPINFO structure
-			&_childProcessInfo				 // Pointer to PROCESS_INFORMATION structure
+			&_childProcessInfo		 // Pointer to PROCESS_INFORMATION structure
 		);
 	}
 }

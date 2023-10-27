@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "DebugNew.h"
 #include "HooksImpl.h"
 #include "HooksMgr.h"
 #include "Utils.h"

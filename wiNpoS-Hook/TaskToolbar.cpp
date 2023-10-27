@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "DebugNew.h"
 #include "TaskToolbar.h"
 #include "resource.h"
 
