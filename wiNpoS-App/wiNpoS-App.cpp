@@ -2,13 +2,12 @@
 //
 
 #include "pch.h"
+#include "Utils.h"
 #include "framework.h"
 #include <windowsx.h>
 #include "wiNpoS-App.h"
-#include "Utils.h"
 #include "HooksMgr.h"
-#include "Config.h"
-#include "Utils.h"
+#include "config.h"
 #include <assert.h>
 #include <Shlwapi.h>
 #include <future>
@@ -24,8 +23,9 @@ HINSTANCE hInstance;                            // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 NOTIFYICONDATAA nid = { 0 };							// the Tray Icon struct
-HooksMgr hooks;                                 // the hooks manager
-Config config;                                  // the config manager
+
+ConfigPtr config = std::make_unique<Config>();      ///> the config manager
+HooksMgrPtr hooks = std::make_unique<HooksMgr>();   ///> the hooks manager
 
 // Forward declarations of functions included in this code module:
 ATOM						MyRegisterClass(HINSTANCE hInstance);
@@ -58,7 +58,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
     LoadStringW(hInst, IDC_WINPOSAPP, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInst);
 
-	 config.readConfig();
+	 config->readConfig();
 
     // Perform application initialization:
     if (!InitInstance (hInst, nCmdShow))
@@ -80,7 +80,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
         }
     }
 
-	 config.writeConfig();
+	 config->writeConfig();
 
 	 Shell_NotifyIconA(NIM_DELETE, &nid);
 
@@ -130,7 +130,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
    ::hInstance = hInst; // Store instance handle in our global variable
 
 	using namespace std;
-	
+
 	string cmdLine = toLowerCase(string(GetCommandLineA()));
 	bool installHook = cmdLine.find("not-install") == string::npos;
 	bool showWnd = cmdLine.find("not-hidden") != string::npos;
@@ -227,6 +227,34 @@ namespace
 	//bool targetingWindow = false;
 	HWND hTargetingCurrentWnd = NULL;
 }
+/**
+* @def IDM_FILE_ATTACH
+* @brief @ref IDM_FILE_ATTACH "Attach to Window"
+* @msc
+* 
+* WndProc[label="WndProc(...)", URL="@ref WndProc"],
+* GetMsgProc[label="GetMsgProc(...)", URL="@ref GetMsgProc"],
+* Menu;
+* 
+* WndProc->GetMsgProc[label="PostMessage", URL="@ref MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK"];
+* ...;
+* WndProc=>>Menu[label="CheckMenuItem"];
+* WndProc=>>Menu[label="EnableMenuItem"];
+* 
+* @endmsc
+*/
+
+/**
+ * @brief the main window procedure of this app
+ * @param hWnd 
+ * @param message 
+ * @param wParam 
+ * @param lParam 
+ * 
+ * @copydoc IDM_FILE_ATTACH
+ * 
+ * @return 
+*/
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
@@ -244,12 +272,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				case IDM_TRAYMENU_EXIT:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
 					Sleep(1000);
-					hooks.stopOtherBitInstance();
-					hooks.uninstall();
+					hooks->stopOtherBitInstance();
+					hooks->uninstall();
 					DestroyWindow(hWnd);
 					break;
 				case IDM_FILE_ATTACH:
-					hooks.loadHook();
+					hooks->loadHook();
 					PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
@@ -266,10 +294,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					PostMessage(hWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					PostMessage(hWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
-					//hooks.detach();
+					//hooks->detach();
 					break;
 				case IDM_FILE_INSTALL:
-					hooks.install();
+					hooks->install();
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_CHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_DISABLED);
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
@@ -278,7 +306,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					break;
 				case IDM_FILE_UNINSTALL:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
-					hooks.uninstall();
+					hooks->uninstall();
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
@@ -313,13 +341,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
 					break;
 				case IDM_FILE_OPEN_CONFIG_DIR:
-					config.openFolder();
+					config->openFolder();
 					break;
 				case IDM_FILE_OPEN_WINPOS_CONFIG:
-					config.openWinPosConfig();
+					config->openWinPosConfig();
 					break;
 				case IDM_START_32_64_BIT:
-					hooks.startOtherBitInstance();
+					hooks->startOtherBitInstance();
 					break;
 				case IDM_FILE_MINIMIZE_TO_TRAY:
 					ShowWindow(hWnd, SW_HIDE);
@@ -440,7 +468,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 		case WM_DESTROY:
-			GetWindowRect(hWnd, &config.Rect);
+			GetWindowRect(hWnd, &config->Rect);
 			SendMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_UNINSTALL), 0);
 			PostQuitMessage(0);
 			break;
@@ -480,7 +508,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				HWND hSrcWnd = (HWND)wParam;
 				if (hWnd == hSrcWnd)
 				{
-					hooks.unloadHook();
+					hooks->unloadHook();
 				}
 				else
 				{
@@ -502,7 +530,28 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
+	 {
+		 //HRSRC hResource = FindResource(NULL, MAKEINTRESOURCE(VS_VERSION_INFO), RT_VERSION);
+		 //if(hResource == NULL)
+			// return (INT_PTR)FALSE;
+
+		 //HGLOBAL hResourceData = LoadResource(NULL, hResource);
+		 //if(hResourceData == NULL)
+			// return (INT_PTR)FALSE;
+
+		 //VS_FIXEDFILEINFO* vi = (VS_FIXEDFILEINFO*)LockResource(hResourceData);
+		 //if(vi == NULL)
+			// return (INT_PTR)FALSE;
+
+		 HWND hStatic = GetDlgItem(hDlg, IDC_STATIC_VERSION); // Get the handle of the static control
+		 if (hStatic == NULL) 
+			 return (INT_PTR)FALSE;
+
+		 string text = format("{}, Version {}", Utils::ProductName, Utils::ProductVersion);
+		 SetWindowTextA(hStatic, text.c_str()); // Set the text for the static control
+
+		 return (INT_PTR)TRUE;
+	 }
 
     case WM_COMMAND:
         if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
@@ -539,10 +588,10 @@ HWND CreateNewWindow()
 		szWindowClass,
 		title.c_str(),
 		WS_OVERLAPPEDWINDOW,
-		config.Rect.left,
-		config.Rect.top,
-		config.Rect.right - config.Rect.left,
-		config.Rect.bottom - config.Rect.top,
+		config->Rect.left,
+		config->Rect.top,
+		config->Rect.right - config->Rect.left,
+		config->Rect.bottom - config->Rect.top,
 		nullptr,
 		nullptr,
 		hInstance,

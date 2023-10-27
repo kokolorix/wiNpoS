@@ -44,4 +44,3 @@ private:
 	void onClosePosWnd(MSG* pMsg, POINT pt);
 	HWND onShowPosWnd(MSG* pMsg, POINT pt);
 };
-

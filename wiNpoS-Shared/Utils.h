@@ -1,4 +1,14 @@
 #pragma once
+
+#ifdef _DOXYGEN_RUNNING
+namespace std 
+{
+     template<class T> class auto_ptr { T *dummy; operator T* () {return dummy;} T* operator -> () {return dummy;} };
+     template<class T> class unique_ptr { T *dummy; operator T* () {return dummy;} T* operator -> () {return dummy;} };
+     template<class T> class shared_ptr { T *dummy; operator T* () {return dummy;} T* operator -> () {return dummy;} };
+ }
+#endif
+
 #include <string>
 #include <xstring>
 #include <format>
@@ -15,6 +25,8 @@ namespace Utils
 {
 	extern string ExeName;
 	extern string BinDir;
+	extern string ProductVersion;
+	extern string ProductName;
 #ifdef _USRDLL
 	extern string DllName;
 #endif // _USRDLL
@@ -67,12 +79,12 @@ namespace Utils
 	 * dynamic format
 	 */
 	template <typename... Args>
-	string dformat(std::string_view rt_fmt_str, Args&&... args) 
+	string dformat(std::string_view rt_fmt_str, Args&&... args)
 	{
 		return std::vformat(rt_fmt_str, std::make_format_args(args...));
 	}
 	template <typename... Args>
-	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args) 
+	std::wstring dwformat(std::wstring_view rt_fmt_str, Args&&... args)
 	{
 		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
 	}
@@ -117,24 +129,24 @@ namespace Utils
 		return is_each_of(t, p1) && is_each_of(t, px...);
 	}
 
-	template<typename T = uint32_t, typename M = T, typename F = T>	
-	inline bool check_bits(M bitmask, F val) 
-	{ 
-		return ((T)val & (T)bitmask) == bitmask; 
-	}
-	template<typename T = uint32_t, typename M = T, typename F = T>	
-	inline bool check_one_bit(M bitmask, F val) 
-	{ 
-		return (((T)val) & ((T)bitmask)) != 0; 
-	}
-	template<typename T = uint32_t, typename M = T, typename F = T>	
-	inline M set_bits(M bitmask, F val = 0) 
+	template<typename T = uint32_t, typename M = T, typename F = T>
+	inline bool check_bits(M bitmask, F val)
 	{
-		return ((T)val |= (T)bitmask); 
+		return ((T)val & (T)bitmask) == bitmask;
 	}
-	template<typename T = uint32_t, typename M = T, typename F = T>	
+	template<typename T = uint32_t, typename M = T, typename F = T>
+	inline bool check_one_bit(M bitmask, F val)
+	{
+		return (((T)val) & ((T)bitmask)) != 0;
+	}
+	template<typename T = uint32_t, typename M = T, typename F = T>
+	inline M set_bits(M bitmask, F val = 0)
+	{
+		return ((T)val |= (T)bitmask);
+	}
+	template<typename T = uint32_t, typename M = T, typename F = T>
 	inline M clear_bits(M bitmask, F val = 0)
-	{ 
+	{
 		return (T)val &= ~(T)bitmask;
 	}
 }
@@ -179,7 +191,7 @@ namespace Utils
 using Utils::MainWindResVector;
 using Utils::GetMainWnds;
 using Utils::MainWndRes;
-using Utils::GetMainWnd; 
+using Utils::GetMainWnd;
 
 namespace Utils
 {
@@ -201,5 +213,6 @@ namespace Utils
 using Utils::Units;
 using Utils::Percent;
 using Utils::Pixels;
-using Utils::ScaleRect; 
+using Utils::ScaleRect;
 using Utils::operator==;
+

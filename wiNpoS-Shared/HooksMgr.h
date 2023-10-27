@@ -1,4 +1,5 @@
 #pragma once
+#include "Utils.h"
 
 #define MT_HOOK_MSG_CREATE_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.CreateTaskToolbar")
 #define MT_HOOK_MSG_DESTROY_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.DestroyTaskToolbar")
@@ -44,3 +45,9 @@ public:
 	void stopOtherBitInstance();
 };
 
+
+
+using HooksMgrPtr = std::unique_ptr<HooksMgr>;
+#ifdef _DOXYGEN_RUNNING
+namespace std { template<> class unique_ptr<HooksMgr> { HooksMgr* p; operator HooksMgr* () { return p; } HooksMgr* operator -> () { return p; } }; }
+#endif

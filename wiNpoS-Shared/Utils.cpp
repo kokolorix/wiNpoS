@@ -7,7 +7,10 @@
 #include <format>
 #include <vector>
 #include <winuser.h>
+#include <winver.h>
+#include <strsafe.h>
 #pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "version.lib")
 
 using std::ofstream;
 using std::wstring;
@@ -56,6 +59,38 @@ namespace
 		PathRemoveFileSpecA(buffer);
 		return buffer;
 	}
+	/**
+	* Get file infos from version resources
+	* Possible Values from infop are:
+	* Comments 				InternalName 			ProductName
+	* CompanyName 			LegalCopyright 		ProductVersion
+	* FileDescription 	LegalTrademarks 		PrivateBuild
+	* FileVersion 			OriginalFilename 		SpecialBuild
+	*/
+	string initVersionInfo(string info)
+	{
+		DWORD laenge = 0;
+		laenge = GetFileVersionInfoSizeA(Utils::ExeName.c_str(), &laenge);
+
+		if (laenge > 0)
+		{
+			auto buf = std::make_unique<char[]>(laenge);
+			GetFileVersionInfoA(Utils::ExeName.c_str(), 0, laenge, buf.get());
+
+			struct LANGANDCODEPAGE {
+				WORD wLanguage;
+				WORD wCodePage;
+			} *lpTranslate;
+
+			UINT len;
+			VerQueryValueA(buf.get(), R"(\VarFileInfo\Translation)", reinterpret_cast<void**>(&lpTranslate), &len);
+			string subblock = dformat(R"(\StringFileInfo\{:04x}{:04x}\{})", lpTranslate[0].wLanguage, lpTranslate[0].wCodePage, info);
+			char* value;
+			if (VerQueryValueA(buf.get(), subblock.c_str(), reinterpret_cast<void**>(&value), &len))
+				return value;
+		}
+		return "";
+	}
 
 #ifdef _USRDLL
 	string initDllName()
@@ -70,6 +105,8 @@ namespace
 }
 string Utils::ExeName = initExeName();
 string Utils::BinDir = initBinDir();
+string Utils::ProductVersion = initVersionInfo("ProductVersion");
+string Utils::ProductName = initVersionInfo("ProductName");
  
 #ifdef _USRDLL
 string Utils::DllName = initDllName();

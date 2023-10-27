@@ -102,6 +102,11 @@
                 "Index": 1,
                 "Positions": [
                     {
+                        "WndRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 94},
+                        "PrvRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 93},
+                        "Name": "Center Big",
+                    },
+                    {
                         "WndRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 46},
                         "PrvRect": {"Left": 6,"Top": 3,"Width": 92,"Height": 45},
                         "Name": "Top Half",
@@ -203,6 +208,16 @@
                         "WndRect": {"Left": 6,"Top": 68,"Width": 92,"Height": 32},
                         "PrvRect": {"Left": 6,"Top": 68,"Width": 92,"Height": 29},
                         "Name": "Bottom-Third",
+                    },
+                    {
+                        "WndRect": {"Left": 10,"Top": 20,"Width": 85,"Height": 65},
+                        "PrvRect": {"Left": 15,"Top": 20,"Width": 75,"Height": 65},
+                        "Name": "Center-Middle",
+                    },
+                    {
+                        "WndRect": {"Left": 15,"Top": 25,"Width": 75,"Height": 50},
+                        "PrvRect": {"Left": 25,"Top": 30,"Width": 55,"Height": 45},
+                        "Name": "Center-Small",
                     },
              ]
             },
