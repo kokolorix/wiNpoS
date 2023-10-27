@@ -122,7 +122,7 @@ void WinPosWndConfig::readConfig()
 		char sampleConfig[MAX_PATH] = { 0 };
 		strcpy_s(sampleConfig, Utils::BinDir.c_str());
 		PathRemoveFileSpecA(sampleConfig);
-		PathAppendA(sampleConfig, "WndConfig.jsonc");
+		PathAppendA(sampleConfig, "WndConfig.jsonl");
 
 		DWORD fileAttributes = GetFileAttributesA(sampleConfig);
 		if (fileAttributes != INVALID_FILE_ATTRIBUTES && !(fileAttributes & FILE_ATTRIBUTE_DIRECTORY)) 
@@ -258,6 +258,6 @@ string WinPosWndConfig::getConfigPath(const string& configName /*= "WndConfig"*/
 {
 	using std::format;
 	char configPath[MAX_PATH];
-	ExpandEnvironmentStringsA(format(R"(%APPDATA%\wiNpoS\{}.jsonc)", configName).c_str(), configPath, MAX_PATH);
+	ExpandEnvironmentStringsA(format(R"(%APPDATA%\wiNpoS\{}.jsonl)", configName).c_str(), configPath, MAX_PATH);
 	return configPath;
 }

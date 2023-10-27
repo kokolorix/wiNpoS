@@ -136,6 +136,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 	bool installHook = cmdLine.find("not-install") == string::npos;
 	bool showWnd = cmdLine.find("not-hidden") != string::npos;
 	bool trayIcon = cmdLine.find("no-tray") == string::npos;
+	bool noChildProcess = cmdLine.find("no-child") != string::npos;
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
@@ -143,6 +144,8 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 
    ShowWindow(hWnd, showWnd ? nCmdShow : SW_HIDE);
    UpdateWindow(hWnd);
+
+	HMENU hFileMenu = GetSubMenu(GetMenu(hWnd), 0);
 
 	if(trayIcon)
 	{
@@ -153,6 +156,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 		nid.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINPOSAPP)); // Set the icon
 		if (lstrcpynA(nid.szTip, "wiNpoS, click to show more ...", sizeof(nid.szTip)))
 			Shell_NotifyIconA(NIM_ADD, &nid);
+		BOOL res = ModifyMenuA(hFileMenu, IDM_FILE_MINIMIZE_TO_TRAY, MF_STRING | MF_ENABLED | MF_BYCOMMAND, IDM_FILE_MINIMIZE_TO_TRAY, "&Minimize to tray");
 	}
 
 	if(installHook)
@@ -162,14 +166,13 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 			});
 	}
 
-	if(trayIcon)
+	if(trayIcon &&  !noChildProcess)
 	{
 		auto resFuture = std::async(std::launch::async, [hWnd]() {
 			PostMessage(hWnd, WM_COMMAND, MAKEWPARAM(IDM_START_32_64_BIT, 0), MAKELPARAM(0, 0));
 			});
 	}
 
-	HMENU hFileMenu = GetSubMenu(GetMenu(hWnd), 0);
 	int itemIndex = [hFileMenu](int itemCount)
 		{
 			for (int i = 0; i < itemCount; i++)
@@ -310,11 +313,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					WRITE_DEBUG_LOG(format("Send message {}(IDM_FILE_SEND_DESTROY_TASK_TOOLBAR) to all Windows", MT_HOOK_MSG_DESTROY_TASK_TOOLBAR));
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
 					break;
-				case IDM_FILE_OPEN_CINFIG_DIR:
+				case IDM_FILE_OPEN_CONFIG_DIR:
 					config.openFolder();
+					break;
+				case IDM_FILE_OPEN_WINPOS_CONFIG:
+					config.openWinPosConfig();
 					break;
 				case IDM_START_32_64_BIT:
 					hooks.startOtherBitInstance();
+					break;
+				case IDM_FILE_MINIMIZE_TO_TRAY:
+					ShowWindow(hWnd, SW_HIDE);
 					break;
 
 				default:

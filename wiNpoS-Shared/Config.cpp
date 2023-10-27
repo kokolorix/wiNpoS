@@ -20,6 +20,10 @@
 #include "DebugNew.h"
 #include "Config.h"
 
+#include "WinPosWndConfig.h"
+/**
+ * @brief Read the general config
+*/
 void Config::readConfig()
 {
 	using namespace rapidjson;
@@ -40,7 +44,7 @@ void Config::readConfig()
 	string exeName = PathFindFileNameA(filePath);
 	char buffer[4096] = { 0 };
 	char configPath[MAX_PATH];
-	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonc)", exeName).c_str(), configPath, MAX_PATH);
+	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonl)", exeName).c_str(), configPath, MAX_PATH);
 	WRITE_DEBUG_LOG(format("Read config for {} from {}", exeName, configPath));
 
 	FILE* fp = nullptr;
@@ -63,7 +67,9 @@ void Config::readConfig()
 			Rect.bottom = d["bottom"].GetInt();
 	}
 }
-
+/**
+ * @brief Save the general config
+*/
 void Config::writeConfig()
 {
 	char filePath[MAX_PATH];
@@ -71,7 +77,7 @@ void Config::writeConfig()
 	string exeName = PathFindFileNameA(filePath);
 	//wchar_t buffer[4096] = { 0 };
 	char configPath[MAX_PATH];
-	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonc)", exeName).c_str(), configPath, MAX_PATH);
+	ExpandEnvironmentStringsA(std::format(R"(%APPDATA%\wiNpoS\{}.jsonl)", exeName).c_str(), configPath, MAX_PATH);
 	WRITE_DEBUG_LOG(format("Write config for {} to {}", exeName, configPath));
 
 	{
@@ -96,7 +102,9 @@ Rect.bottom) << std::endl;
 		}
 	}
 }
-
+/**
+ * @brief open the cofig folder
+*/
 void Config::openFolder()
 {
 	wchar_t dir[MAX_PATH];
@@ -108,6 +116,24 @@ void Config::openFolder()
 		dir,
 		NULL,
 		dir,
+		SW_SHOW
+	);
+
+}
+/**
+ * @brief open the wiNpoS config in editor
+*/
+void Config::openWinPosConfig()
+{
+	string configPath = WinPosWndConfig::getConfigPath();
+	char configDir[MAX_PATH];
+	ExpandEnvironmentStringsA(R"(%APPDATA%\wiNpoS)", configDir, MAX_PATH);
+	HINSTANCE hConfig = ShellExecuteA(
+		NULL,
+		"open",
+		configPath.c_str(),
+		NULL,
+		configDir,
 		SW_SHOW
 	);
 

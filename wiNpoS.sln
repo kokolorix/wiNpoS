@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		pages\docs\wiNpoS.gif = pages\docs\wiNpoS.gif
 		wiNpoS.md = wiNpoS.md
 		wiNpoS.png = wiNpoS.png
-		WndConfig.jsonc = WndConfig.jsonc
+		WndConfig.jsonl = WndConfig.jsonl
 	EndProjectSection
 EndProject
 Global
