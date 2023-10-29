@@ -25,8 +25,10 @@ WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
 NOTIFYICONDATAA nid = { 0 };							// the Tray Icon struct
 
-ConfigPtr config = std::make_unique<Config>();      ///> the config manager
-HooksMgrPtr hooks = std::make_unique<HooksMgr>();   ///> the hooks manager
+ConfigPtr _config = std::make_unique<Config>();      ///> the config manager
+HooksMgrPtr _hooks = std::make_unique<HooksMgr>();   ///> the hooks manager
+
+bool _trayIcon = false;
 
 // Forward declarations of functions included in this code module:
 ATOM						MyRegisterClass(HINSTANCE hInstance);
@@ -60,7 +62,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
     LoadStringW(hInst, IDC_WINPOSAPP, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInst);
 
-	 config->readConfig();
+	 _config->readConfig();
 
     // Perform application initialization:
     if (!InitInstance (hInst, nCmdShow))
@@ -75,14 +77,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
     // Main message loop:
     while (GetMessage(&msg, nullptr, 0, 0))
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+		 if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
     }
 
-	 config->writeConfig();
+	 _config->writeConfig();
 
 	 Shell_NotifyIconA(NIM_DELETE, &nid);
 
@@ -147,7 +149,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
    UpdateWindow(hWnd);
 
 	HMENU hFileMenu = GetSubMenu(GetMenu(hWnd), 0);
-
+	_trayIcon = trayIcon;
 	if(trayIcon)
 	{
 		nid = { sizeof(NOTIFYICONDATAA), hWnd, 0 };
@@ -274,12 +276,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				case IDM_TRAYMENU_EXIT:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
 					Sleep(1000);
-					hooks->stopOtherBitInstance();
-					hooks->uninstall();
+					_hooks->stopOtherBitInstance();
+					_hooks->uninstall();
 					DestroyWindow(hWnd);
 					break;
 				case IDM_FILE_ATTACH:
-					hooks->loadHook();
+					_hooks->loadHook();
 					PostMessage(hWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_CHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_ATTACH, MF_DISABLED);
@@ -299,7 +301,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					//hooks->detach();
 					break;
 				case IDM_FILE_INSTALL:
-					hooks->install();
+					_hooks->install();
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_CHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_DISABLED);
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
@@ -308,7 +310,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					break;
 				case IDM_FILE_UNINSTALL:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
-					hooks->uninstall();
+					_hooks->uninstall();
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_UNCHECKED);
 					EnableMenuItem(GetMenu(hWnd), IDM_FILE_INSTALL, MF_ENABLED);
 					CheckMenuItem(GetMenu(hWnd), IDM_FILE_UNINSTALL, MF_UNCHECKED);
@@ -343,13 +345,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, 0, 0);
 					break;
 				case IDM_FILE_OPEN_CONFIG_DIR:
-					config->openFolder();
+					_config->openFolder();
 					break;
 				case IDM_FILE_OPEN_WINPOS_CONFIG:
-					config->openWinPosConfig();
+					_config->openWinPosConfig();
 					break;
 				case IDM_START_32_64_BIT:
-					hooks->startOtherBitInstance();
+					_hooks->startOtherBitInstance();
 					break;
 				case IDM_FILE_MINIMIZE_TO_TRAY:
 					ShowWindow(hWnd, SW_HIDE);
@@ -359,6 +361,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					return DefWindowProc(hWnd, message, wParam, lParam);
 			}
 		}
+		break;
+
+		case WM_SYSCOMMAND:
+		{
+			if(_trayIcon)
+			{
+				if (wParam == SC_CLOSE)
+				{
+					ShowWindow(hWnd, SW_HIDE);
+					return 0;
+				}
+			}
+		}
+		return DefWindowProc(hWnd, message, wParam, lParam);
 		break;
 
 		case WM_LBUTTONDOWN:
@@ -470,7 +486,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 
 		case WM_DESTROY:
-			GetWindowRect(hWnd, &config->Rect);
+			GetWindowRect(hWnd, &_config->Rect);
 			SendMessage(hWnd, WM_COMMAND, MAKEWPARAM(0, IDM_FILE_UNINSTALL), 0);
 			PostQuitMessage(0);
 			break;
@@ -510,7 +526,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				HWND hSrcWnd = (HWND)wParam;
 				if (hWnd == hSrcWnd)
 				{
-					hooks->unloadHook();
+					_hooks->unloadHook();
 				}
 				else
 				{
@@ -590,10 +606,10 @@ HWND CreateNewWindow()
 		szWindowClass,
 		title.c_str(),
 		WS_OVERLAPPEDWINDOW,
-		config->Rect.left,
-		config->Rect.top,
-		config->Rect.right - config->Rect.left,
-		config->Rect.bottom - config->Rect.top,
+		_config->Rect.left,
+		_config->Rect.top,
+		_config->Rect.right - _config->Rect.left,
+		_config->Rect.bottom - _config->Rect.top,
 		nullptr,
 		nullptr,
 		hInstance,

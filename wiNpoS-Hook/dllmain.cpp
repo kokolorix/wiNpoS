@@ -11,7 +11,7 @@
 
 HINSTANCE hInstance = NULL;   // current instance
 
-thread_local HooksMgr hooks;
+thread_local HooksMgr _hooks;
 thread_local HHOOK hhShellHookProc = NULL;
 
 LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam);

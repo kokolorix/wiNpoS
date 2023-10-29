@@ -13,8 +13,8 @@
 extern HINSTANCE hInstance;
 thread_local HRESULT coInit /*= S_FALSE*/;
 
-thread_local TaskToolbar thumbnailToolbar;
-thread_local HooksImpl hooks;
+thread_local TaskToolbar _thumbnailToolbar;
+thread_local HooksImpl _hooks;
 
 namespace
 {
@@ -100,7 +100,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 				//	break;
 				case WM_WINDOWPOSCHANGED:
 					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
-					hooks.onWindowPosChanged(pMsg);
+					_hooks.onWindowPosChanged(pMsg);
 					break;
 				default:
 					break;
@@ -153,32 +153,32 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
-						hooks.onNcLButtonDown(pMsg);
+						_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
+						_hooks.onNcLButtonDown(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						hooks.onNCLButtonUp(pMsg);
+						_hooks.onNCLButtonUp(pMsg);
 						break;
 					case WM_NCLBUTTONDBLCLK:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDBLCLK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						hooks.onNcLButtonDblClick(pMsg);
+						_hooks.onNcLButtonDblClick(pMsg);
 						break;
 					case WM_LBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_LBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
+						_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
 						break;
 					case WM_LBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_LBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						//SetTimer(pMsg->hwnd, TI_NCLBUTTONUP, USER_TIMER_MINIMUM, (TIMERPROC)nullptr);
 						//PostMessage(pMsg->hwnd, DO_THE_WORK, (WPARAM)GetCurrentThreadId(), 0);
-						hooks.onLButtonUp(pMsg);
+						_hooks.onLButtonUp(pMsg);
 						break;
 					case WM_KEYDOWN:
 						//WRITE_DEBUG_LOG(dformat("WM_KEYDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						if (pMsg->wParam == VK_ESCAPE)
 						{
-							hooks.onClosePosWnd(pMsg, { 0 });
+							_hooks.onClosePosWnd(pMsg, { 0 });
 						}
 						break;
 					case WM_TIMER:
@@ -186,7 +186,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						{
 							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 							KillTimer(pMsg->hwnd, TI_LBUTTONUP);
-							MSG msg = *hooks.getLButtonUpMsg();
+							MSG msg = *_hooks.getLButtonUpMsg();
 
 							// extract the exact click point from lParam
 							POINT pt = { GET_X_LPARAM(msg.lParam), GET_Y_LPARAM(msg.lParam) };
@@ -198,13 +198,13 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 							msg.lParam = MAKELPARAM(pt.x, pt.y);
 							msg.wParam = hitTest;
 
-							hooks.onCaptionClick(&msg);
+							_hooks.onCaptionClick(&msg);
 						}
 						else if (pMsg->wParam == TI_NCLBUTTONUP)
 						{
 							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 							KillTimer(pMsg->hwnd, TI_NCLBUTTONUP);
-							hooks.onCaptionClick(hooks.getNcLButtonUpMsg());
+							_hooks.onCaptionClick(_hooks.getNcLButtonUpMsg());
 						}
 						break;
 
@@ -218,16 +218,16 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						switch (wmId)
 						{
 							case ID_SYSMENU_INCREMENTWINDOWSIZE:
-								hooks.onIncrementWindow(pMsg, 10);
+								_hooks.onIncrementWindow(pMsg, 10);
 								break;
 							case ID_SYSMENU_DECREMENTWINDOWSIZE:
-								hooks.onIncrementWindow(pMsg, -10);
+								_hooks.onIncrementWindow(pMsg, -10);
 								break;
 							case ID_SYSMENU_SHOWPOSWINDOW:
 							{
 								POINT pt = { 0 };
 								GetCursorPos(&pt);
-								HWND hWnd = hooks.onShowPosWnd(pMsg, pt);
+								HWND hWnd = _hooks.onShowPosWnd(pMsg, pt);
 								break;
 							}
 							default:
@@ -243,11 +243,11 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 
 							HWND hMainWnd = pMsg->hwnd; // GetAncestor(pMsg->hwnd, GA_ROOT);
 
-							HRESULT hr = thumbnailToolbar.initialize(hInstance, hMainWnd);
+							HRESULT hr = _thumbnailToolbar.initialize(hInstance, hMainWnd);
 							if (hr == 0x800401f0)//0x800401f0 : CoInitialize has not been called.
 							{
 								coInit = CoInitialize(NULL);
-								hr = thumbnailToolbar.initialize(hInstance, hMainWnd);
+								hr = _thumbnailToolbar.initialize(hInstance, hMainWnd);
 							}
 						}
 
@@ -255,7 +255,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						{
 							WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_DESTROY_TASK_TOOLBAR: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 							HWND hMainWnd = pMsg->hwnd; // GetAncestor(pMsg->hwnd, GA_ROOT);
-							thumbnailToolbar.uninitialize(hInstance, hMainWnd);
+							_thumbnailToolbar.uninitialize(hInstance, hMainWnd);
 						}
 						break;
 					}
