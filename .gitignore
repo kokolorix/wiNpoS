@@ -49,3 +49,5 @@
 wiNpoS-Support/Debug/
 wiNpoS-Support/Win32/
 wiNpoS-Support/x64/
+
+*.lnk

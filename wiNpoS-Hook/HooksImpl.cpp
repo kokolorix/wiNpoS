@@ -153,8 +153,8 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) });
-						_hooks.onNcLButtonDown(pMsg);
+						if(!_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) }))
+							_hooks.onNcLButtonDown(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
@@ -377,7 +377,11 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))
 	{
-		_lastLButtonDown = pt;
+		RECT rcCaption = { 0 };
+		GetWindowRect(pMsg->hwnd, &rcCaption);
+		rcCaption.bottom = rcCaption.top + GetSystemMetrics(SM_CYCAPTION);
+		if(hitTest == HTCAPTION || PtInRect(&rcCaption, pt))
+			_lastLButtonDown = pt;
 	}
 }
 /**
@@ -619,11 +623,13 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
  * @param pMsg 
  * @param pt 
 */
-void HooksImpl::onClosePosWnd(MSG* pMsg, POINT pt)
+bool HooksImpl::onClosePosWnd(MSG* pMsg, POINT pt)
 {
 	if (WinPosWnd* winPosWnd = _winPosWnd.getWinPosWnd(pMsg ? pMsg->hwnd : NULL))
-		return;		
+		return false;
+	bool wasOpen = _winPosWnd.getWndHandle() != NULL;
 	_winPosWnd.destroy();
+	return wasOpen;
 }
 
 /**

@@ -41,6 +41,6 @@ private:
 	void onCaptionClick(MSG* pMsg);
 
 	void onLButtonUp(MSG* pMsg);
-	void onClosePosWnd(MSG* pMsg, POINT pt);
+	bool onClosePosWnd(MSG* pMsg, POINT pt);
 	HWND onShowPosWnd(MSG* pMsg, POINT pt);
 };
