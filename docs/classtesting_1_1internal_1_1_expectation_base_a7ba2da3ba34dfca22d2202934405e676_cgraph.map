@@ -1,9 +1,0 @@
-<map id="testing::internal::ExpectationBase::ExpectationBase" name="testing::internal::ExpectationBase::ExpectationBase">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,21,233,64"/>
-<area shape="rect" id="Node000002" href="$namespacetesting.html#aa9b1b32ba9e8d3db8ac0af0fc8785c8d" title=" " alt="" coords="281,29,393,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="233,40,266,40,266,45,233,45"/>
-<area shape="poly" id="edge4_Node000002_Node000002" title=" " alt="" coords="309,30,304,21,307,11,318,5,337,3,357,6,368,13,365,17,356,11,337,8,320,10,311,15,309,20,313,28"/>
-<area shape="rect" id="Node000003" href="$namespacetesting.html#a3bb2d3cdd3fdf5b4be1480fce549918e" title=" " alt="" coords="441,29,559,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="393,40,426,40,426,45,393,45"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="472,30,467,21,470,11,482,5,500,3,521,6,531,13,528,17,519,11,500,8,483,10,474,15,472,20,477,28"/>
-</map>

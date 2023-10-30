@@ -1,7 +1,0 @@
-<map id="MacroNamingTestNonParametrized" name="MacroNamingTestNonParametrized">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,204,232,231"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1_test.html" title=" " alt="" coords="72,128,165,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,169,121,204,116,204,116,169"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="28,5,209,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,79,121,128,116,128,116,79"/>
-</map>

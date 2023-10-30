@@ -1,7 +1,0 @@
-<map id="PredFunction4Int" name="PredFunction4Int">
-<area shape="rect" id="Node000001" title=" " alt="" coords="122,31,241,57"/>
-<area shape="rect" id="Node000002" href="$gtest__pred__impl__unittest_8cc.html#a036a7d32fdb4da1b6db4966f4b8fa711" title=" " alt="" coords="5,5,74,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,33,74,27,74,22,108,28"/>
-<area shape="rect" id="Node000003" href="$gtest__pred__impl__unittest_8cc.html#a15e705507c885f4d89c6f9d9d1601c96" title=" " alt="" coords="5,56,74,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,60,74,66,74,61,107,55"/>
-</map>

@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -100,40 +100,7 @@ $(document).ready(function(){initNavTree('struct_win_pos_wnd_1_1_win_pos_preview
 <div class="dynheader">
 Collaboration diagram for WinPosWnd::WinPosPreview:</div>
 <div class="dyncontent">
-<div class="center"><img src="struct_win_pos_wnd_1_1_win_pos_preview__coll__graph.png" border="0" usemap="#a_win_pos_wnd_1_1_win_pos_preview_coll__map" alt="Collaboration graph"/></div>
-<map name="a_win_pos_wnd_1_1_win_pos_preview_coll__map" id="a_win_pos_wnd_1_1_win_pos_preview_coll__map">
-<area shape="rect" title=" " alt="" coords="343,125,536,152"/>
-<area shape="rect" title=" " alt="" coords="641,125,863,152"/>
-<area shape="poly" title=" " alt="" coords="552,136,640,136,640,141,552,141"/>
-<area shape="rect" title=" " alt="" coords="180,100,259,127"/>
-<area shape="poly" title=" " alt="" coords="275,119,284,120,343,127,342,132,283,125,275,124"/>
-<area shape="rect" href="struct_win_pos_wnd_1_1_monitor_preview.html" title=" " alt="" coords="1038,76,1227,103"/>
-<area shape="poly" title=" " alt="" coords="275,105,283,104,495,94,704,88,1038,86,1038,91,705,94,495,99,283,109,275,110"/>
-<area shape="rect" title=" " alt="" coords="5,92,131,135"/>
-<area shape="poly" title=" " alt="" coords="146,111,179,111,179,116,146,116"/>
-<area shape="rect" title=" " alt="" coords="1294,156,1479,199"/>
-<area shape="poly" title=" " alt="" coords="1279,182,990,181,816,176,640,167,534,155,534,150,641,161,816,171,990,176,1279,176"/>
-<area shape="poly" title=" " alt="" coords="1189,106,1323,153,1322,158,1187,111"/>
-<area shape="rect" title=" " alt="" coords="1305,84,1468,127"/>
-<area shape="poly" title=" " alt="" coords="1243,94,1304,98,1304,103,1243,99"/>
-<area shape="rect" href="class_win_pos_wnd.html" title=" " alt="" coords="1874,71,1968,97"/>
-<area shape="poly" title=" " alt="" coords="1865,69,1850,65,1808,61,1766,61,1633,60,1530,62,1294,75,1252,77,1228,80,1227,74,1251,72,1294,69,1530,57,1633,54,1766,56,1808,56,1850,60,1866,63"/>
-<area shape="rect" title=" " alt="" coords="2139,71,2366,97"/>
-<area shape="poly" title=" " alt="" coords="1984,81,2139,81,2139,87,1984,87"/>
-<area shape="poly" title=" " alt="" coords="2170,103,2084,112,2038,112,1992,108,1960,101,1961,95,1993,103,2038,107,2084,106,2169,98"/>
-<area shape="rect" title=" " alt="" coords="1610,71,1756,97"/>
-<area shape="poly" title=" " alt="" coords="1771,81,1874,81,1874,87,1771,87"/>
-<area shape="rect" title=" " alt="" coords="1600,121,1766,164"/>
-<area shape="poly" title=" " alt="" coords="1780,120,1849,103,1875,95,1877,100,1851,108,1782,125"/>
-<area shape="poly" title=" " alt="" coords="1484,115,1599,130,1599,135,1483,120"/>
-<area shape="rect" title=" " alt="" coords="660,5,844,48"/>
-<area shape="poly" title=" " alt="" coords="859,41,1014,67,1050,73,1049,78,1014,72,858,46"/>
-<area shape="rect" title=" " alt="" coords="370,12,509,39"/>
-<area shape="poly" title=" " alt="" coords="525,23,660,24,660,29,525,28"/>
-<area shape="rect" title=" " alt="" coords="200,12,239,39"/>
-<area shape="poly" title=" " alt="" coords="255,23,369,23,369,28,255,28"/>
-<area shape="poly" title=" " alt="" coords="878,134,946,129,1013,120,1090,101,1091,106,1015,125,946,134,879,139"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="struct_win_pos_wnd_1_1_win_pos_preview__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -199,21 +166,21 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00581">581</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  582</span>{</div>
-<div class="line"><span class="lineno">  583</span>    HWND hParent = GetParent(hWnd);</div>
-<div class="line"><span class="lineno">  584</span> </div>
-<div class="line"><span class="lineno">  585</span>    WINDOWPLACEMENT wp = { <span class="keyword">sizeof</span>(WINDOWPLACEMENT) };</div>
-<div class="line"><span class="lineno">  586</span>    GetWindowPlacement(hParent, &amp;wp);</div>
-<div class="line"><span class="lineno">  587</span>    wp.flags = WPF_ASYNCWINDOWPLACEMENT;</div>
-<div class="line"><span class="lineno">  588</span>    wp.rcNormalPosition = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#af6c79468dab82a62194992c0e56317ca">wndRect</a>;</div>
-<div class="line"><span class="lineno">  589</span>    <a class="code hl_typedef" href="class_win_pos_wnd.html#a37ced6f8a9a6fcb11ebbe33b3f72d59d">MonitorPreviewPtr</a> mp = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e">monitorPreview</a>.lock();</div>
-<div class="line"><span class="lineno">  590</span>    RECT mr = mp-&gt;monitorRect;</div>
-<div class="line"><span class="lineno">  591</span>    OffsetRect(&amp;wp.rcNormalPosition, mr.left, mr.top);</div>
-<div class="line"><span class="lineno">  592</span>    wp.showCmd = SW_NORMAL;</div>
-<div class="line"><span class="lineno">  593</span>    BOOL wndReplaced = SetWindowPlacement(hParent, &amp;wp);</div>
-<div class="line"><span class="lineno">  594</span>    assert(wndReplaced);</div>
-<div class="line"><span class="lineno">  595</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00582">582</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  583</span>{</div>
+<div class="line"><span class="lineno">  584</span>    HWND hParent = GetParent(hWnd);</div>
+<div class="line"><span class="lineno">  585</span> </div>
+<div class="line"><span class="lineno">  586</span>    WINDOWPLACEMENT wp = { <span class="keyword">sizeof</span>(WINDOWPLACEMENT) };</div>
+<div class="line"><span class="lineno">  587</span>    GetWindowPlacement(hParent, &amp;wp);</div>
+<div class="line"><span class="lineno">  588</span>    wp.flags = WPF_ASYNCWINDOWPLACEMENT;</div>
+<div class="line"><span class="lineno">  589</span>    wp.rcNormalPosition = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#af6c79468dab82a62194992c0e56317ca">wndRect</a>;</div>
+<div class="line"><span class="lineno">  590</span>    <a class="code hl_typedef" href="class_win_pos_wnd.html#a37ced6f8a9a6fcb11ebbe33b3f72d59d">MonitorPreviewPtr</a> mp = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e">monitorPreview</a>.lock();</div>
+<div class="line"><span class="lineno">  591</span>    RECT mr = mp-&gt;monitorRect;</div>
+<div class="line"><span class="lineno">  592</span>    OffsetRect(&amp;wp.rcNormalPosition, mr.left, mr.top);</div>
+<div class="line"><span class="lineno">  593</span>    wp.showCmd = SW_NORMAL;</div>
+<div class="line"><span class="lineno">  594</span>    BOOL wndReplaced = SetWindowPlacement(hParent, &amp;wp);</div>
+<div class="line"><span class="lineno">  595</span>    assert(wndReplaced);</div>
+<div class="line"><span class="lineno">  596</span>}</div>
 <div class="ttc" id="aclass_win_pos_wnd_html_a37ced6f8a9a6fcb11ebbe33b3f72d59d"><div class="ttname"><a href="class_win_pos_wnd.html#a37ced6f8a9a6fcb11ebbe33b3f72d59d">WinPosWnd::MonitorPreviewPtr</a></div><div class="ttdeci">std::shared_ptr&lt; MonitorPreview &gt; MonitorPreviewPtr</div><div class="ttdef"><b>Definition</b> <a href="_win_pos_wnd_8h_source.html#l00025">WinPosWnd.h:25</a></div></div>
 <div class="ttc" id="astruct_win_pos_wnd_1_1_win_pos_preview_html_a1668fd477bae43a3159e24b043055a9e"><div class="ttname"><a href="struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e">WinPosWnd::WinPosPreview::monitorPreview</a></div><div class="ttdeci">std::weak_ptr&lt; MonitorPreview &gt; monitorPreview</div><div class="ttdef"><b>Definition</b> <a href="_win_pos_wnd_8h_source.html#l00032">WinPosWnd.h:32</a></div></div>
 <div class="ttc" id="astruct_win_pos_wnd_1_1_win_pos_preview_html_af6c79468dab82a62194992c0e56317ca"><div class="ttname"><a href="struct_win_pos_wnd_1_1_win_pos_preview.html#af6c79468dab82a62194992c0e56317ca">WinPosWnd::WinPosPreview::wndRect</a></div><div class="ttdeci">RECT wndRect</div><div class="ttdef"><b>Definition</b> <a href="_win_pos_wnd_8h_source.html#l00029">WinPosWnd.h:29</a></div></div>
@@ -256,10 +223,10 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00571">571</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  572</span>{</div>
-<div class="line"><span class="lineno">  573</span> </div>
-<div class="line"><span class="lineno">  574</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00572">572</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  573</span>{</div>
+<div class="line"><span class="lineno">  574</span> </div>
+<div class="line"><span class="lineno">  575</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -305,61 +272,61 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00510">510</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  511</span>{</div>
-<div class="line"><span class="lineno">  512</span>    <span class="keyword">auto</span> mp = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e">monitorPreview</a>.lock();</div>
-<div class="line"><span class="lineno">  513</span> </div>
-<div class="line"><span class="lineno">  514</span>    HWND hParent = GetParent(hWnd);</div>
-<div class="line"><span class="lineno">  515</span>    RECT rcRealWnd = { 0 };</div>
-<div class="line"><span class="lineno">  516</span>    GetWindowRect(hParent, &amp;rcRealWnd);</div>
-<div class="line"><span class="lineno">  517</span>    RECT mr = mp-&gt;monitorRect;</div>
-<div class="line"><span class="lineno">  518</span>    OffsetRect(&amp;rcRealWnd, -mr.left, -mr.top);</div>
-<div class="line"><span class="lineno">  519</span> </div>
-<div class="line"><span class="lineno">  520</span>    <span class="comment">// Create a semi-transparent color using ALPHA</span></div>
-<div class="line"><span class="lineno">  521</span>    BLENDFUNCTION blendFunction = { 0 };</div>
-<div class="line"><span class="lineno">  522</span>    blendFunction.AlphaFormat = AC_SRC_ALPHA;</div>
-<div class="line"><span class="lineno">  523</span>    blendFunction.BlendFlags = 0;</div>
-<div class="line"><span class="lineno">  524</span>    blendFunction.BlendOp = AC_SRC_ALPHA;</div>
-<div class="line"><span class="lineno">  525</span>    blendFunction.SourceConstantAlpha = 128; <span class="comment">// 0 (transparent) to 255 (opaque)</span></div>
-<div class="line"><span class="lineno">  526</span> </div>
-<div class="line"><span class="lineno">  527</span>    <span class="comment">// Draw the half-transparent rectangle</span></div>
-<div class="line"><span class="lineno">  528</span>    HDC memDC = CreateCompatibleDC(hDc);</div>
-<div class="line"><span class="lineno">  529</span>    HBITMAP memBitmap = CreateCompatibleBitmap(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top);</div>
-<div class="line"><span class="lineno">  530</span>    HBITMAP hOldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);</div>
-<div class="line"><span class="lineno">  531</span> </div>
-<div class="line"><span class="lineno">  532</span>    <span class="keywordflow">if</span> (rcRealWnd == <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#af6c79468dab82a62194992c0e56317ca">wndRect</a>)</div>
-<div class="line"><span class="lineno">  533</span>    {</div>
-<div class="line"><span class="lineno">  534</span>        FillRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_GRADIENTINACTIVECAPTION));</div>
-<div class="line"><span class="lineno">  535</span>    }</div>
-<div class="line"><span class="lineno">  536</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  537</span>    {</div>
-<div class="line"><span class="lineno">  538</span>        FillRect(memDC, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_INACTIVECAPTION));</div>
-<div class="line"><span class="lineno">  539</span>    }</div>
-<div class="line"><span class="lineno">  540</span>    AlphaBlend(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, memDC, 0, 0, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, blendFunction);</div>
-<div class="line"><span class="lineno">  541</span> </div>
-<div class="line"><span class="lineno">  542</span>    SelectObject(memDC, hOldBitmap);</div>
-<div class="line"><span class="lineno">  543</span>    DeleteObject(memBitmap);</div>
-<div class="line"><span class="lineno">  544</span>    DeleteDC(memDC);</div>
-<div class="line"><span class="lineno">  545</span> </div>
-<div class="line"><span class="lineno">  546</span>    <span class="keywordflow">if</span>(mp-&gt;activeWinPosPreview.get() == <span class="keyword">this</span>)</div>
-<div class="line"><span class="lineno">  547</span>    {</div>
-<div class="line"><span class="lineno">  548</span>        FillRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_ACTIVECAPTION));</div>
-<div class="line"><span class="lineno">  549</span>        RECT rc = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>;</div>
-<div class="line"><span class="lineno">  550</span>        RECT rcText = rc;</div>
-<div class="line"><span class="lineno">  551</span> </div>
-<div class="line"><span class="lineno">  552</span>        <span class="keywordtype">int</span> oldBkMode = SetBkMode(hDc, TRANSPARENT);</div>
-<div class="line"><span class="lineno">  553</span>        COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT));</div>
-<div class="line"><span class="lineno">  554</span> </div>
-<div class="line"><span class="lineno">  555</span>        <span class="keywordtype">int</span> textHeight = DrawTextA(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.c_str(), <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.length(), &amp;rcText, DT_CALCRECT | DT_CENTER | DT_VCENTER | DT_WORDBREAK);</div>
-<div class="line"><span class="lineno">  556</span>        OffsetRect(&amp;rc, 0, (rc.bottom - rc.top - textHeight) / 2);</div>
-<div class="line"><span class="lineno">  557</span>        DrawTextA(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.c_str(), <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.length(), &amp;rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);</div>
-<div class="line"><span class="lineno">  558</span> </div>
-<div class="line"><span class="lineno">  559</span>        SetBkMode(hDc, oldBkMode);</div>
-<div class="line"><span class="lineno">  560</span>        SetTextColor(hDc, oldColor);</div>
-<div class="line"><span class="lineno">  561</span>    }</div>
-<div class="line"><span class="lineno">  562</span> </div>
-<div class="line"><span class="lineno">  563</span>    FrameRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_HOTLIGHT));</div>
-<div class="line"><span class="lineno">  564</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_win_pos_wnd_8cpp_source.html#l00511">511</a> of file <a class="el" href="_win_pos_wnd_8cpp_source.html">WinPosWnd.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  512</span>{</div>
+<div class="line"><span class="lineno">  513</span>    <span class="keyword">auto</span> mp = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a1668fd477bae43a3159e24b043055a9e">monitorPreview</a>.lock();</div>
+<div class="line"><span class="lineno">  514</span> </div>
+<div class="line"><span class="lineno">  515</span>    HWND hParent = GetParent(hWnd);</div>
+<div class="line"><span class="lineno">  516</span>    RECT rcRealWnd = { 0 };</div>
+<div class="line"><span class="lineno">  517</span>    GetWindowRect(hParent, &amp;rcRealWnd);</div>
+<div class="line"><span class="lineno">  518</span>    RECT mr = mp-&gt;monitorRect;</div>
+<div class="line"><span class="lineno">  519</span>    OffsetRect(&amp;rcRealWnd, -mr.left, -mr.top);</div>
+<div class="line"><span class="lineno">  520</span> </div>
+<div class="line"><span class="lineno">  521</span>    <span class="comment">// Create a semi-transparent color using ALPHA</span></div>
+<div class="line"><span class="lineno">  522</span>    BLENDFUNCTION blendFunction = { 0 };</div>
+<div class="line"><span class="lineno">  523</span>    blendFunction.AlphaFormat = AC_SRC_ALPHA;</div>
+<div class="line"><span class="lineno">  524</span>    blendFunction.BlendFlags = 0;</div>
+<div class="line"><span class="lineno">  525</span>    blendFunction.BlendOp = AC_SRC_ALPHA;</div>
+<div class="line"><span class="lineno">  526</span>    blendFunction.SourceConstantAlpha = 128; <span class="comment">// 0 (transparent) to 255 (opaque)</span></div>
+<div class="line"><span class="lineno">  527</span> </div>
+<div class="line"><span class="lineno">  528</span>    <span class="comment">// Draw the half-transparent rectangle</span></div>
+<div class="line"><span class="lineno">  529</span>    HDC memDC = CreateCompatibleDC(hDc);</div>
+<div class="line"><span class="lineno">  530</span>    HBITMAP memBitmap = CreateCompatibleBitmap(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top);</div>
+<div class="line"><span class="lineno">  531</span>    HBITMAP hOldBitmap = (HBITMAP)SelectObject(memDC, memBitmap);</div>
+<div class="line"><span class="lineno">  532</span> </div>
+<div class="line"><span class="lineno">  533</span>    <span class="keywordflow">if</span> (rcRealWnd == <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#af6c79468dab82a62194992c0e56317ca">wndRect</a>)</div>
+<div class="line"><span class="lineno">  534</span>    {</div>
+<div class="line"><span class="lineno">  535</span>        FillRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_GRADIENTINACTIVECAPTION));</div>
+<div class="line"><span class="lineno">  536</span>    }</div>
+<div class="line"><span class="lineno">  537</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  538</span>    {</div>
+<div class="line"><span class="lineno">  539</span>        FillRect(memDC, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_INACTIVECAPTION));</div>
+<div class="line"><span class="lineno">  540</span>    }</div>
+<div class="line"><span class="lineno">  541</span>    AlphaBlend(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, memDC, 0, 0, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.right - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.left, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.bottom - <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>.top, blendFunction);</div>
+<div class="line"><span class="lineno">  542</span> </div>
+<div class="line"><span class="lineno">  543</span>    SelectObject(memDC, hOldBitmap);</div>
+<div class="line"><span class="lineno">  544</span>    DeleteObject(memBitmap);</div>
+<div class="line"><span class="lineno">  545</span>    DeleteDC(memDC);</div>
+<div class="line"><span class="lineno">  546</span> </div>
+<div class="line"><span class="lineno">  547</span>    <span class="keywordflow">if</span>(mp-&gt;activeWinPosPreview.get() == <span class="keyword">this</span>)</div>
+<div class="line"><span class="lineno">  548</span>    {</div>
+<div class="line"><span class="lineno">  549</span>        FillRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_ACTIVECAPTION));</div>
+<div class="line"><span class="lineno">  550</span>        RECT rc = <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>;</div>
+<div class="line"><span class="lineno">  551</span>        RECT rcText = rc;</div>
+<div class="line"><span class="lineno">  552</span> </div>
+<div class="line"><span class="lineno">  553</span>        <span class="keywordtype">int</span> oldBkMode = SetBkMode(hDc, TRANSPARENT);</div>
+<div class="line"><span class="lineno">  554</span>        COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT));</div>
+<div class="line"><span class="lineno">  555</span> </div>
+<div class="line"><span class="lineno">  556</span>        <span class="keywordtype">int</span> textHeight = DrawTextA(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.c_str(), <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.length(), &amp;rcText, DT_CALCRECT | DT_CENTER | DT_VCENTER | DT_WORDBREAK);</div>
+<div class="line"><span class="lineno">  557</span>        OffsetRect(&amp;rc, 0, (rc.bottom - rc.top - textHeight) / 2);</div>
+<div class="line"><span class="lineno">  558</span>        DrawTextA(hDc, <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.c_str(), <a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">name</a>.length(), &amp;rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);</div>
+<div class="line"><span class="lineno">  559</span> </div>
+<div class="line"><span class="lineno">  560</span>        SetBkMode(hDc, oldBkMode);</div>
+<div class="line"><span class="lineno">  561</span>        SetTextColor(hDc, oldColor);</div>
+<div class="line"><span class="lineno">  562</span>    }</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>    FrameRect(hDc, &amp;<a class="code hl_variable" href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">prvRect</a>, GetSysColorBrush(COLOR_HOTLIGHT));</div>
+<div class="line"><span class="lineno">  565</span>}</div>
 <div class="ttc" id="astruct_win_pos_wnd_1_1_win_pos_preview_html_a05472b0a58b4d0b13ec01456aa688945"><div class="ttname"><a href="struct_win_pos_wnd_1_1_win_pos_preview.html#a05472b0a58b4d0b13ec01456aa688945">WinPosWnd::WinPosPreview::prvRect</a></div><div class="ttdeci">RECT prvRect</div><div class="ttdef"><b>Definition</b> <a href="_win_pos_wnd_8h_source.html#l00030">WinPosWnd.h:30</a></div></div>
 <div class="ttc" id="astruct_win_pos_wnd_1_1_win_pos_preview_html_a8b9c8e23aad64d6d310b7691a28603ee"><div class="ttname"><a href="struct_win_pos_wnd_1_1_win_pos_preview.html#a8b9c8e23aad64d6d310b7691a28603ee">WinPosWnd::WinPosPreview::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition</b> <a href="_win_pos_wnd_8h_source.html#l00031">WinPosWnd.h:31</a></div></div>
 </div><!-- fragment -->

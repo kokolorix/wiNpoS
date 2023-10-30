@@ -1,9 +1,0 @@
-<map id="testing::Test::HasNonfatalFailure" name="testing::Test::HasNonfatalFailure">
-<area shape="rect" id="Node000001" title=" " alt="" coords="322,23,493,65"/>
-<area shape="rect" id="Node000002" href="$gtest__unittest_8cc.html#ac6eb4ad0064e248acc8f01b6f4353b95" title=" " alt="" coords="107,31,274,57"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,47,274,47,274,41,307,41"/>
-<area shape="rect" id="Node000003" href="$gtest__unittest_8cc.html#a97a31bbf9d4d1f7f36021db7efed056a" title=" " alt="" coords="5,5,59,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,31,59,25,59,20,92,26"/>
-<area shape="rect" id="Node000004" href="$gtest__unittest_8cc.html#a1d352f5ce3c51840695c59733f8f642a" title=" " alt="" coords="5,56,59,83"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="92,62,59,68,59,63,91,57"/>
-</map>

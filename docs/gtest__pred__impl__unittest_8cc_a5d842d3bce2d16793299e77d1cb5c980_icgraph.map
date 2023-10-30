@@ -1,7 +1,0 @@
-<map id="PredFunction4Bool" name="PredFunction4Bool">
-<area shape="rect" id="Node000001" title=" " alt="" coords="122,31,253,57"/>
-<area shape="rect" id="Node000002" href="$gtest__pred__impl__unittest_8cc.html#a952a5460f9f761948d852ce164241e0f" title=" " alt="" coords="5,5,74,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,33,74,27,75,22,107,28"/>
-<area shape="rect" id="Node000003" href="$gtest__pred__impl__unittest_8cc.html#a666c4a544439533ef0fbac4fad0b3cf4" title=" " alt="" coords="5,56,74,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,60,75,66,74,61,106,55"/>
-</map>

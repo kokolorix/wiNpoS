@@ -1,9 +1,0 @@
-<map id="testing::internal::MatchMatrix::SetEdge" name="testing::internal::MatchMatrix::SetEdge">
-<area shape="rect" id="Node000001" title=" " alt="" coords="506,51,657,93"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_unordered_elements_are_matcher_impl.html#a163e5008bd9181fb0276ce07d678e3c0" title=" " alt="" coords="256,5,458,64"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="491,60,458,54,459,49,492,54"/>
-<area shape="rect" id="Node000004" href="$namespacetesting_1_1gmock__matchers__test.html#a7d2395b1cb6a90bdc8d46ae06f99f6c7" title=" " alt="" coords="273,88,441,131"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="492,90,442,98,441,93,491,84"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_unordered_elements_are_matcher_impl.html#a4031291eef9be8c1e9e1effdd02c4334" title=" " alt="" coords="5,5,208,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="241,37,208,37,208,32,241,32"/>
-</map>

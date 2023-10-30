@@ -1,9 +1,0 @@
-<map id="test3" name="test3">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,56,83"/>
-<area shape="rect" id="Node000002" href="$class_canvas.html#a277e4e60f5ec3ea16efd7ce9e1fb654b" title=" " alt="" coords="111,5,243,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,58,122,35,124,40,57,63"/>
-<area shape="rect" id="Node000003" href="$class_json_writer.html#a69d5a42b3c5a94f5f05bb48d2489b281" title="Obtains the serialized JSON string." alt="" coords="104,56,250,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="56,67,89,67,89,72,56,72"/>
-<area shape="rect" id="Node000004" href="$class_canvas.html#acf5c8e6bbc490927df36e3c30583800e" title=" " alt="" coords="128,107,226,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="57,75,124,99,122,104,55,80"/>
-</map>

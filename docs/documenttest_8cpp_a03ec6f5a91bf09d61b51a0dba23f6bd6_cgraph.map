@@ -1,7 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,59,57"/>
-<area shape="rect" id="Node000002" href="$schemavalidator_8cpp.html#a6d90bf6105415d941d0ee014f2aa79c0" title=" " alt="" coords="107,5,183,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,36,92,28,93,33,59,41"/>
-<area shape="rect" id="Node000003" href="$unittest_8h.html#a8d8e3cf93e9b811c207711d0b353de02" title=" " alt="" coords="112,56,178,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="59,47,98,56,97,61,58,52"/>
-</map>

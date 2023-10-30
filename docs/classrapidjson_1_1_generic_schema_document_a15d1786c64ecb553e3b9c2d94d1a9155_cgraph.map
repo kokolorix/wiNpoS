@@ -1,7 +1,0 @@
-<map id="rapidjson::GenericSchemaDocument::AddErrorInstanceLocation" name="rapidjson::GenericSchemaDocument::AddErrorInstanceLocation">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,243,81"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_string_buffer.html#a9d830ec37a4ba0fba3b523c90aaf8b42" title="Get the size of string in bytes in the string buffer." alt="" coords="291,5,451,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,41,275,37,276,42,243,47"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_string_buffer.html#a138330b64d530a2c35f702d4e207ac2f" title=" " alt="" coords="291,72,451,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="243,73,276,78,275,83,243,79"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,59,73"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_native_array.html#a3046d93cfa23097e7b7c91f5f982dc78" title=" " alt="" coords="107,5,233,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,51,91,43,93,48,59,56"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_native_array.html#af96a4a5ca0cdd5d163c47a081f08bd89" title=" " alt="" coords="110,72,230,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="59,64,96,73,95,78,58,69"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$class_prime_table.html" title=" " alt="" coords="5,31,92,57"/>
-<area shape="rect" id="Node000001" href="$class_on_the_fly_prime_table.html" title=" " alt="" coords="152,5,295,32"/>
-<area shape="poly" id="edge86_Node000000_Node000001" title=" " alt="" coords="106,33,151,26,152,32,106,38"/>
-<area shape="rect" id="Node000002" href="$class_pre_calculated_prime_table.html" title=" " alt="" coords="140,56,307,83"/>
-<area shape="poly" id="edge87_Node000000_Node000002" title=" " alt="" coords="107,50,140,55,139,60,106,55"/>
-</map>

@@ -1,0 +1,10 @@
+<map id="HooksCfg::getAppConfigPath" name="HooksCfg::getAppConfigPath">
+<area shape="rect" id="Node000001" title="the path to the config file for this app" alt="" coords="354,31,543,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_cfg.html#afcb787461ef5ba011f6307c321223af6" title="read the config for this app" alt="" coords="136,5,305,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="339,35,305,31,306,25,340,29"/>
+<area shape="rect" id="Node000004" href="$class_hooks_cfg.html#a985dd80af3b2ced9ffb520fb7e79a122" title="save the config for this app" alt="" coords="135,56,306,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="340,59,307,62,306,57,339,53"/>
+<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,36,87,41,87,36,121,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="120,57,87,53,88,47,120,52"/>
+</map>

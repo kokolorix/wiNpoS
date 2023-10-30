@@ -1,7 +1,0 @@
-<map id="RapidJson::SetUp" name="RapidJson::SetUp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,131,73"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_document.html#a7607bb42b51547e44bfd4cab35d8f20e" title="Whether a parse error has occurred in the last parsing." alt="" coords="179,5,364,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,47,163,42,164,47,132,52"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_document.html#aa54ac886c9e93102216c4e1b4126cb76" title="Parse JSON text from a read&#45;only string (with Encoding conversion)" alt="" coords="179,72,364,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="132,68,164,73,163,78,131,73"/>
-</map>

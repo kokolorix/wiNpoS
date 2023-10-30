@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericUri::GetBaseString" name="rapidjson::GenericUri::GetBaseString">
-<area shape="rect" id="Node000001" title=" " alt="" coords="249,80,391,123"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_schema_document.html#a10d885295e03a610a560e6d255611f65" title="Find the first subschema with a resolved &#39;id&#39; that matches the specified URI." alt="" coords="16,5,190,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,77,200,63,167,51,168,46,202,57,243,72"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_i_generic_remote_schema_document_provider.html#aaa4d95da60f84a6b78d916f88e492fa6" title=" " alt="" coords="16,72,190,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="234,104,191,104,191,99,234,99"/>
-<area shape="rect" id="Node000004" href="$classrapidjson_1_1_generic_schema_document.html#a090125064f1ebe489f04b7c41bf947dc" title=" " alt="" coords="5,155,201,197"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,131,202,145,168,157,167,152,200,140,242,126"/>
-</map>

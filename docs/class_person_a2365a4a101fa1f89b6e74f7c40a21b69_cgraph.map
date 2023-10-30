@@ -1,7 +1,0 @@
-<map id="Person::Serialize" name="Person::Serialize">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,126,69"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_writer.html#a3cddcb5176054f559d0d552a3ff8789b" title=" " alt="" coords="185,5,310,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,44,170,36,171,42,126,49"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_writer.html#a49f2dd265ab15ee065f0506a8d3efac9" title=" " alt="" coords="174,72,321,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,63,159,68,159,74,126,68"/>
-</map>

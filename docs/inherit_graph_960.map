@@ -1,9 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,56,117,83"/>
-<area shape="rect" id="Node000001" href="$class_comment_test.html" title=" " alt="" coords="199,5,301,32"/>
-<area shape="poly" id="edge471_Node000000_Node000001" title=" " alt="" coords="127,49,198,30,199,35,128,54"/>
-<area shape="rect" id="Node000002" href="$class_custom_struct_naming_test.html" title=" " alt="" coords="165,56,335,83"/>
-<area shape="poly" id="edge472_Node000000_Node000002" title=" " alt="" coords="132,67,164,67,164,72,132,72"/>
-<area shape="rect" id="Node000003" href="$classanonymous__namespace_02sample7__unittest_8cc_03_1_1_prime_table_test_smpl7.html" title=" " alt="" coords="169,107,331,165"/>
-<area shape="poly" id="edge473_Node000000_Node000003" title=" " alt="" coords="116,86,169,105,167,110,114,91"/>
-</map>

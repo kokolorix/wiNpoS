@@ -1,4 +1,0 @@
-var namespacetesting_1_1gmock__matchers__test_1_1anonymous__namespace_02gmock_matchers__test_8cc_03 =
-[
-    [ "BacktrackingMaxBPMState", "classtesting_1_1gmock__matchers__test_1_1anonymous__namespace_02gmock-matchers__test_8cc_03_1_1_backtracking_max_b_p_m_state.html", "classtesting_1_1gmock__matchers__test_1_1anonymous__namespace_02gmock-matchers__test_8cc_03_1_1_backtracking_max_b_p_m_state" ]
-];

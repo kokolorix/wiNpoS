@@ -1,8 +1,0 @@
-<map id="testing::internal::MaxBipartiteMatchState::TryAugment" name="testing::internal::MaxBipartiteMatchState::TryAugment">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,167,89"/>
-<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="45,30,46,20,54,12,67,6,86,4,108,7,121,14,119,19,106,12,86,9,68,11,57,16,51,22,51,31"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_match_matrix.html#a94c7641a932739734cb2207b1bca4036" title=" " alt="" coords="215,5,369,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,44,200,39,200,44,167,50"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_match_matrix.html#aff068e9fed3a42466c5da8766ac43134" title=" " alt="" coords="217,72,367,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,70,203,76,202,81,167,76"/>
-</map>

@@ -1,7 +1,17 @@
 <map id="DllMain" name="DllMain">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,70,32"/>
-<area shape="rect" id="Node000002" href="$_hooks_impl_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title="the exported hook for the shell procedure" alt="" coords="118,5,225,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,16,102,16,102,21,70,21"/>
-<area shape="rect" id="Node000003" href="$class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f" title=" " alt="" coords="273,5,447,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,16,257,16,257,21,226,21"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,56,70,83"/>
+<area shape="rect" id="Node000002" href="$_hooks_impl_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title="the exported hook for the shell procedure" alt="" coords="118,56,225,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="70,67,103,67,103,72,70,72"/>
+<area shape="rect" id="Node000003" href="$class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913" title="check if someone has disabled stored in config" alt="" coords="288,31,433,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,59,273,53,273,58,226,65"/>
+<area shape="rect" id="Node000008" href="$class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f" title=" " alt="" coords="273,81,447,108"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="226,74,258,78,258,84,225,79"/>
+<area shape="rect" id="Node000004" href="$class_hooks_cfg.html#a9642afc6c6fe88141770403a09cdfc4b" title="read the global config for all apps" alt="" coords="495,31,642,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="433,41,481,41,481,47,433,47"/>
+<area shape="rect" id="Node000005" href="$class_hooks_cfg.html#a808e4e4a7bc43b89c87ef172fa8caf6a" title="the path to the global config, for all apps" alt="" coords="709,5,876,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="642,33,694,27,695,32,643,38"/>
+<area shape="rect" id="Node000007" href="$class_hooks_cfg.html#ab8fd861156e6b389e43bbda021f42c50" title="read a JSON config from given path" alt="" coords="690,56,895,83"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="643,50,675,53,674,59,642,55"/>
+<area shape="rect" id="Node000006" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="943,5,1098,32"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="876,16,928,16,928,21,876,21"/>
 </map>

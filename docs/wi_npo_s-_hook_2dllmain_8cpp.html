@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -97,48 +97,16 @@ $(document).ready(function(){initNavTree('wi_npo_s-_hook_2dllmain_8cpp.html','')
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="wi_npo_s-_hook_2pch_8h_source.html">pch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_debug_new_8h_source.html">DebugNew.h</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;<a class="el" href="_utils_8h_source.html">Utils.h</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>&quot;</code><br />
 <code>#include &lt;Shlwapi.h&gt;</code><br />
-<code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_task_toolbar_8h_source.html">TaskToolbar.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for dllmain.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="wi_npo_s-_hook_2dllmain_8cpp__incl.png" border="0" usemap="#awi_npo_s-_hook_2dllmain_8cpp" alt=""/></div>
-<map name="awi_npo_s-_hook_2dllmain_8cpp" id="awi_npo_s-_hook_2dllmain_8cpp">
-<area shape="rect" title=" " alt="" coords="281,5,450,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2pch_8h.html" title=" " alt="" coords="47,80,100,107"/>
-<area shape="poly" title=" " alt="" coords="315,35,116,84,115,79,314,30"/>
-<area shape="rect" title=" " alt="" coords="121,155,176,181"/>
-<area shape="poly" title=" " alt="" coords="325,35,276,54,227,82,194,112,168,144,163,140,190,109,224,78,274,49,323,30"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="238,80,296,107"/>
-<area shape="poly" title=" " alt="" coords="350,35,298,73,295,69,347,30"/>
-<area shape="rect" href="_hooks_mgr_8h.html" title=" " alt="" coords="320,80,411,107"/>
-<area shape="poly" title=" " alt="" coords="368,33,368,64,363,64,363,33"/>
-<area shape="rect" title=" " alt="" coords="435,80,512,107"/>
-<area shape="poly" title=" " alt="" coords="386,30,444,69,441,73,383,35"/>
-<area shape="rect" title=" " alt="" coords="537,80,605,107"/>
-<area shape="poly" title=" " alt="" coords="402,30,523,72,521,77,401,35"/>
-<area shape="rect" href="_task_toolbar_8h.html" title=" " alt="" coords="629,80,732,107"/>
-<area shape="poly" title=" " alt="" coords="421,30,615,74,614,79,420,35"/>
-<area shape="rect" href="wi_npo_s-_hook_2framework_8h.html" title=" " alt="" coords="5,155,97,181"/>
-<area shape="poly" title=" " alt="" coords="72,108,62,141,57,139,67,106"/>
-<area shape="rect" title=" " alt="" coords="10,229,92,256"/>
-<area shape="poly" title=" " alt="" coords="54,182,54,214,48,214,48,182"/>
-<area shape="poly" title=" " alt="" coords="248,109,183,149,181,144,245,105"/>
-<area shape="rect" title=" " alt="" coords="200,155,254,181"/>
-<area shape="poly" title=" " alt="" coords="262,109,244,142,239,140,258,106"/>
-<area shape="rect" title=" " alt="" coords="278,155,339,181"/>
-<area shape="poly" title=" " alt="" coords="277,106,296,140,291,143,272,109"/>
-<area shape="rect" title=" " alt="" coords="362,155,420,181"/>
-<area shape="poly" title=" " alt="" coords="290,105,358,144,355,149,287,110"/>
-<area shape="rect" title=" " alt="" coords="444,155,528,181"/>
-<area shape="poly" title=" " alt="" coords="297,102,434,147,432,152,296,107"/>
-<area shape="rect" title=" " alt="" coords="553,155,627,181"/>
-<area shape="poly" title=" " alt="" coords="297,101,309,104,422,128,538,151,537,157,420,134,308,109,296,106"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="wi_npo_s-_hook_2dllmain_8cpp__incl.svg" width="100%" height="496"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="wi_npo_s-_hook_2dllmain_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -155,8 +123,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a74029128723095e7bf00a71d46af8b24" id="r_a74029128723095e7bf00a71d46af8b24"><td class="memItemLeft" align="right" valign="top">HINSTANCE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wi_npo_s-_hook_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a> = NULL</td></tr>
 <tr class="separator:a74029128723095e7bf00a71d46af8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9763dc7ce06c91d4163b706cf4051c61" id="r_a9763dc7ce06c91d4163b706cf4051c61"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_hooks_mgr.html">HooksMgr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wi_npo_s-_hook_2dllmain_8cpp.html#a9763dc7ce06c91d4163b706cf4051c61">hooks</a></td></tr>
-<tr class="separator:a9763dc7ce06c91d4163b706cf4051c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0e764bfa2cd8f142329e91e32733a9" id="r_a0f0e764bfa2cd8f142329e91e32733a9"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_hooks_mgr.html">HooksMgr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wi_npo_s-_hook_2dllmain_8cpp.html#a0f0e764bfa2cd8f142329e91e32733a9">_hooksMgr</a></td></tr>
+<tr class="separator:a0f0e764bfa2cd8f142329e91e32733a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7b2c3f06ef8d6a270c095e3645c65df" id="r_aa7b2c3f06ef8d6a270c095e3645c65df"><td class="memItemLeft" align="right" valign="top">thread_local HHOOK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> = NULL</td></tr>
 <tr class="separator:aa7b2c3f06ef8d6a270c095e3645c65df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -195,72 +163,67 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00019">19</a> of file <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   23</span>{</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">switch</span> ((<span class="keywordtype">int</span>)ul_reason_for_call)</div>
-<div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">case</span> DLL_PROCESS_ATTACH:</div>
-<div class="line"><span class="lineno">   27</span>        {</div>
-<div class="line"><span class="lineno">   28</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a> = hModule;</div>
-<div class="line"><span class="lineno">   29</span>            <a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> mainWnds = <a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">GetMainWnds</a>(0, GetCurrentProcessId());</div>
-<div class="line"><span class="lineno">   30</span>            <span class="keywordflow">for</span> (<a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a> mainWnd : mainWnds)</div>
-<div class="line"><span class="lineno">   31</span>            {</div>
-<div class="line"><span class="lineno">   32</span>                PostMessage(mainWnd.hMainWnd, <a class="code hl_define" href="_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a>, (WPARAM)0, (LPARAM)0);</div>
-<div class="line"><span class="lineno">   33</span>            }</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> =</div>
-<div class="line"><span class="lineno">   36</span>                SetWindowsHookEx(WH_SHELL, <a class="code hl_function" href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a>, NULL, GetCurrentThreadId());</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Attach {} to {}&quot;</span>, Utils::DllName, <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>));</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   41</span>        }</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">case</span> DLL_THREAD_ATTACH:</div>
-<div class="line"><span class="lineno">   44</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> =</div>
-<div class="line"><span class="lineno">   45</span>                SetWindowsHookEx(WH_SHELL, <a class="code hl_function" href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a>, NULL, GetCurrentThreadId());</div>
-<div class="line"><span class="lineno">   46</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">case</span> DLL_THREAD_DETACH:</div>
-<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a>))</div>
-<div class="line"><span class="lineno">   50</span>                <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> = NULL;</div>
-<div class="line"><span class="lineno">   51</span>            assert(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> == NULL);</div>
-<div class="line"><span class="lineno">   52</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">case</span> DLL_PROCESS_DETACH:</div>
-<div class="line"><span class="lineno">   55</span>        {</div>
-<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a>))</div>
-<div class="line"><span class="lineno">   57</span>                <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> = NULL;</div>
-<div class="line"><span class="lineno">   58</span>            assert(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> == NULL);</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Detach {} from {}&quot;</span>, Utils::DllName, <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>));</div>
-<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   62</span>        }</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">   64</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   65</span>    }</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">   67</span>}</div>
-<div class="ttc" id="a_hooks_mgr_8h_html_a7b3a3fa53875c9ef81425ffd0be226fc"><div class="ttname"><a href="_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a></div><div class="ttdeci">#define MT_HOOK_MSG_CREATE_TASK_TOOLBAR</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00003">HooksMgr.h:3</a></div></div>
-<div class="ttc" id="a_utils_8h_html_ae88a29d949fb0fe5dad728fa6e9522de"><div class="ttname"><a href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a></div><div class="ttdeci">#define WRITE_DEBUG_LOG(msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00055">Utils.h:55</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00071">Utils.cpp:71</a></div></div>
-<div class="ttc" id="anamespace_utils_html_aefbf8eb72aa82ae8ad287e32d201133e"><div class="ttname"><a href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a></div><div class="ttdeci">MainWindResVector GetMainWnds(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00172">Utils.cpp:172</a></div></div>
-<div class="ttc" id="anamespace_utils_html_af7a6e5399669e9a9c0e9b90a88c3d746"><div class="ttname"><a href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a></div><div class="ttdeci">std::vector&lt; MainWndRes &gt; MainWindResVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00176">Utils.h:176</a></div></div>
-<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a></div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00165">Utils.h:166</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2dllmain_8cpp_html_a2d95eeaf5ead86287ab88b2065c28d1a"><div class="ttname"><a href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a></div><div class="ttdeci">LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)</div><div class="ttdoc">the exported hook for the shell procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00034">HooksImpl.cpp:34</a></div></div>
+<div class="line"><span class="lineno">   24</span>    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">switch</span> ((<span class="keywordtype">int</span>)ul_reason_for_call)</div>
+<div class="line"><span class="lineno">   26</span>    {</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keywordflow">case</span> DLL_PROCESS_ATTACH:</div>
+<div class="line"><span class="lineno">   28</span>        {</div>
+<div class="line"><span class="lineno">   29</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a> = hModule;</div>
+<div class="line"><span class="lineno">   30</span>            <a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> mainWnds = <a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">GetMainWnds</a>(0, GetCurrentProcessId());</div>
+<div class="line"><span class="lineno">   31</span>            <span class="keywordflow">for</span> (<a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a> mainWnd : mainWnds)</div>
+<div class="line"><span class="lineno">   32</span>            {</div>
+<div class="line"><span class="lineno">   33</span>                PostMessage(mainWnd.hMainWnd, <a class="code hl_define" href="_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a>, (WPARAM)0, (LPARAM)0);</div>
+<div class="line"><span class="lineno">   34</span>            }</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> =</div>
+<div class="line"><span class="lineno">   37</span>                SetWindowsHookEx(WH_SHELL, <a class="code hl_function" href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a>, NULL, GetCurrentThreadId());</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Attach {} to {}&quot;</span>, Utils::DllName, <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>));</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   42</span>        }</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">case</span> DLL_THREAD_ATTACH:</div>
+<div class="line"><span class="lineno">   45</span>            <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> =</div>
+<div class="line"><span class="lineno">   46</span>                SetWindowsHookEx(WH_SHELL, <a class="code hl_function" href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a>, NULL, GetCurrentThreadId());</div>
+<div class="line"><span class="lineno">   47</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">case</span> DLL_THREAD_DETACH:</div>
+<div class="line"><span class="lineno">   50</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a>))</div>
+<div class="line"><span class="lineno">   51</span>                <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> = NULL;</div>
+<div class="line"><span class="lineno">   52</span>            <a class="code hl_define" href="_utils_8h.html#af75d0d50e60d22438ab0502180ca9f56">AssertTrue</a>(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> == NULL, <span class="stringliteral">&quot;Hook handle should be NULL&quot;</span>);</div>
+<div class="line"><span class="lineno">   53</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">case</span> DLL_PROCESS_DETACH:</div>
+<div class="line"><span class="lineno">   56</span>        {</div>
+<div class="line"><span class="lineno">   57</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> &amp;&amp; UnhookWindowsHookEx(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a>))</div>
+<div class="line"><span class="lineno">   58</span>                <a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> = NULL;</div>
+<div class="line"><span class="lineno">   59</span>            <a class="code hl_define" href="_utils_8h.html#af75d0d50e60d22438ab0502180ca9f56">AssertTrue</a>(<a class="code hl_variable" href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a> == NULL, <span class="stringliteral">&quot;Hook handle should be NULL&quot;</span>);</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(format(<span class="stringliteral">&quot;Detach {} from {}&quot;</span>, Utils::DllName, <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>));</div>
+<div class="line"><span class="lineno">   62</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   63</span>        }</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><span class="lineno">   68</span>}</div>
+<div class="ttc" id="a_hooks_mgr_8h_html_a7b3a3fa53875c9ef81425ffd0be226fc"><div class="ttname"><a href="_hooks_mgr_8h.html#a7b3a3fa53875c9ef81425ffd0be226fc">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a></div><div class="ttdeci">#define MT_HOOK_MSG_CREATE_TASK_TOOLBAR</div><div class="ttdef"><b>Definition</b> <a href="_hooks_mgr_8h_source.html#l00004">HooksMgr.h:4</a></div></div>
+<div class="ttc" id="a_utils_8h_html_ae88a29d949fb0fe5dad728fa6e9522de"><div class="ttname"><a href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a></div><div class="ttdeci">#define WRITE_DEBUG_LOG(msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00083">Utils.h:83</a></div></div>
+<div class="ttc" id="a_utils_8h_html_af75d0d50e60d22438ab0502180ca9f56"><div class="ttname"><a href="_utils_8h.html#af75d0d50e60d22438ab0502180ca9f56">AssertTrue</a></div><div class="ttdeci">#define AssertTrue(condition, message)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00099">Utils.h:99</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00107">Utils.cpp:107</a></div></div>
+<div class="ttc" id="anamespace_utils_html_aefbf8eb72aa82ae8ad287e32d201133e"><div class="ttname"><a href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a></div><div class="ttdeci">MainWindResVector GetMainWnds(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00210">Utils.cpp:210</a></div></div>
+<div class="ttc" id="anamespace_utils_html_af7a6e5399669e9a9c0e9b90a88c3d746"><div class="ttname"><a href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a></div><div class="ttdeci">std::vector&lt; MainWndRes &gt; MainWindResVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00203">Utils.h:203</a></div></div>
+<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a></div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00192">Utils.h:193</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2dllmain_8cpp_html_a2d95eeaf5ead86287ab88b2065c28d1a"><div class="ttname"><a href="wi_npo_s-_hook_2dllmain_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a">ShellHookProc</a></div><div class="ttdeci">LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)</div><div class="ttdoc">the exported hook for the shell procedure</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00038">HooksImpl.cpp:38</a></div></div>
 <div class="ttc" id="awi_npo_s-_hook_2dllmain_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="wi_npo_s-_hook_2dllmain_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00012">dllmain.cpp:12</a></div></div>
 <div class="ttc" id="awi_npo_s-_hook_2dllmain_8cpp_html_aa7b2c3f06ef8d6a270c095e3645c65df"><div class="ttname"><a href="wi_npo_s-_hook_2dllmain_8cpp.html#aa7b2c3f06ef8d6a270c095e3645c65df">hhShellHookProc</a></div><div class="ttdeci">thread_local HHOOK hhShellHookProc</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00015">dllmain.cpp:15</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00071">Utils::ExeName</a>, <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00015">hhShellHookProc</a>, <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00012">hInstance</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00003">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00034">ShellHookProc()</a>, and <a class="el" href="_utils_8h_source.html#l00055">WRITE_DEBUG_LOG</a>.</p>
+<p class="reference">References <a class="el" href="_utils_8h_source.html#l00099">AssertTrue</a>, <a class="el" href="_utils_8cpp_source.html#l00107">Utils::ExeName</a>, <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00015">hhShellHookProc</a>, <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00012">hInstance</a>, <a class="el" href="_hooks_mgr_8h_source.html#l00004">MT_HOOK_MSG_CREATE_TASK_TOOLBAR</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00038">ShellHookProc()</a>, and <a class="el" href="_utils_8h_source.html#l00083">WRITE_DEBUG_LOG</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="wi_npo_s-_hook_2dllmain_8cpp_a26e64fb39b69bcd9d1274d279f1561b9_cgraph.png" border="0" usemap="#awi_npo_s-_hook_2dllmain_8cpp_a26e64fb39b69bcd9d1274d279f1561b9_cgraph" alt=""/></div>
-<map name="awi_npo_s-_hook_2dllmain_8cpp_a26e64fb39b69bcd9d1274d279f1561b9_cgraph" id="awi_npo_s-_hook_2dllmain_8cpp_a26e64fb39b69bcd9d1274d279f1561b9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,70,32"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#a2d95eeaf5ead86287ab88b2065c28d1a" title="the exported hook for the shell procedure" alt="" coords="118,5,225,32"/>
-<area shape="poly" title=" " alt="" coords="70,16,102,16,102,21,70,21"/>
-<area shape="rect" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f" title=" " alt="" coords="273,5,447,32"/>
-<area shape="poly" title=" " alt="" coords="226,16,257,16,257,21,226,21"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="wi_npo_s-_hook_2dllmain_8cpp_a26e64fb39b69bcd9d1274d279f1561b9_cgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -308,37 +271,47 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00034">34</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>{</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   37</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_aa3b88c7817f9b5f54c2a0cfc8215c45f"><div class="ttname"><a href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a></div><div class="ttdeci">static LRESULT CALLBACK shellHookProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00068">HooksImpl.cpp:68</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00038">38</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a>-&gt;<a class="code hl_function" href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">isDisabled</a>())</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+<div class="ttc" id="a_hooks_impl_8cpp_html_aba5f1c2148a940df3f64ebbd52530c7a"><div class="ttname"><a href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a></div><div class="ttdeci">thread_local HooksCfgPtr _hooksCfg</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00019">HooksImpl.cpp:19</a></div></div>
+<div class="ttc" id="aclass_hooks_cfg_html_ab994ae67a05ce4decf5b7af5314eb913"><div class="ttname"><a href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">HooksCfg::isDisabled</a></div><div class="ttdeci">bool isDisabled()</div><div class="ttdoc">check if someone has disabled stored in config</div><div class="ttdef"><b>Definition</b> <a href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg.cpp:203</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_aa3b88c7817f9b5f54c2a0cfc8215c45f"><div class="ttname"><a href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a></div><div class="ttdeci">static LRESULT CALLBACK shellHookProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00077">HooksImpl.cpp:77</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00068">HooksImpl::shellHookProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00019">_hooksCfg</a>, <a class="el" href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg::isDisabled()</a>, and <a class="el" href="_hooks_impl_8cpp_source.html#l00077">HooksImpl::shellHookProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="wi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph.png" border="0" usemap="#awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph" alt=""/></div>
-<map name="awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph" id="awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph">
-<area shape="rect" title="the exported hook for the shell procedure" alt="" coords="5,5,113,32"/>
-<area shape="rect" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f" title=" " alt="" coords="161,5,335,32"/>
-<area shape="poly" title=" " alt="" coords="113,16,145,16,145,21,113,21"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="wi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="wi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph.png" border="0" usemap="#awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph" alt=""/></div>
-<map name="awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph" id="awi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph">
-<area shape="rect" title="the exported hook for the shell procedure" alt="" coords="118,5,225,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="5,5,70,32"/>
-<area shape="poly" title=" " alt="" coords="102,21,70,21,70,16,102,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="wi_npo_s-_hook_2dllmain_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph.svg" width="231" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a0f0e764bfa2cd8f142329e91e32733a9" name="a0f0e764bfa2cd8f142329e91e32733a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f0e764bfa2cd8f142329e91e32733a9">&#9670;&#160;</a></span>_hooksMgr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread_local <a class="el" href="class_hooks_mgr.html">HooksMgr</a> _hooksMgr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00014">14</a> of file <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
+
+</div>
+</div>
 <a id="aa7b2c3f06ef8d6a270c095e3645c65df" name="aa7b2c3f06ef8d6a270c095e3645c65df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7b2c3f06ef8d6a270c095e3645c65df">&#9670;&#160;</a></span>hhShellHookProc</h2>
 
@@ -368,22 +341,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00012">12</a> of file <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a9763dc7ce06c91d4163b706cf4051c61" name="a9763dc7ce06c91d4163b706cf4051c61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9763dc7ce06c91d4163b706cf4051c61">&#9670;&#160;</a></span>hooks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local <a class="el" href="class_hooks_mgr.html">HooksMgr</a> hooks</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html#l00014">14</a> of file <a class="el" href="wi_npo_s-_hook_2dllmain_8cpp_source.html">dllmain.cpp</a>.</p>
 
 </div>
 </div>

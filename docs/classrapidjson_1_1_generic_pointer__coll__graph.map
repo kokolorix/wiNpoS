@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericPointer&lt; ValueType, Allocator &gt;" name="rapidjson::GenericPointer&lt; ValueType, Allocator &gt;">
-<area shape="rect" id="Node000001" title="Represents a JSON Pointer. Use Pointer for UTF8 encoding and default allocator." alt="" coords="326,75,493,117"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_crt_allocator.html" title="C&#45;runtime library allocator." alt="" coords="14,16,164,43"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,44,326,76,325,81,171,49"/>
-<area shape="rect" id="Node000003" href="$structrapidjson_1_1_generic_pointer_1_1_token.html" title="A token is the basic units of internal representation." alt="" coords="5,67,173,125"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,93,325,93,325,99,188,99"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="61,149,117,176"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="131,157,211,148,301,131,352,115,353,120,302,136,211,153,132,162"/>
-</map>

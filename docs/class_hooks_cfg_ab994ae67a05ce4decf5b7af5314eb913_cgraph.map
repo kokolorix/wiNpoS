@@ -1,0 +1,11 @@
+<map id="HooksCfg::isDisabled" name="HooksCfg::isDisabled">
+<area shape="rect" id="Node000001" title="check if someone has disabled stored in config" alt="" coords="5,31,151,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_cfg.html#a9642afc6c6fe88141770403a09cdfc4b" title="read the global config for all apps" alt="" coords="199,31,345,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,41,184,41,184,47,151,47"/>
+<area shape="rect" id="Node000003" href="$class_hooks_cfg.html#a808e4e4a7bc43b89c87ef172fa8caf6a" title="the path to the global config, for all apps" alt="" coords="413,5,579,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="345,33,397,27,398,32,346,38"/>
+<area shape="rect" id="Node000005" href="$class_hooks_cfg.html#ab8fd861156e6b389e43bbda021f42c50" title="read a JSON config from given path" alt="" coords="393,56,598,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="346,50,378,53,378,59,345,55"/>
+<area shape="rect" id="Node000004" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="646,5,802,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="579,16,632,16,632,21,579,21"/>
+</map>

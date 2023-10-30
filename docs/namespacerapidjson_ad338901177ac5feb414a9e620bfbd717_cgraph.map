@@ -1,8 +1,0 @@
-<map id="rapidjson::PutUnsafe" name="rapidjson::PutUnsafe">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,147,81"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_string_buffer.html#a35733ffe70f63b28857b8d738b2ffad7" title=" " alt="" coords="195,5,355,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,51,179,44,181,49,144,57"/>
-<area shape="rect" id="Node000003" href="$namespacerapidjson.html#a0a774dcffe8ae07686f459ae017d2f20" title="Write character to a stream, presuming buffer is reserved." alt="" coords="204,96,346,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,79,194,90,192,95,143,85"/>
-<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="241,97,235,87,239,78,253,71,275,69,300,72,312,79,309,84,298,77,275,75,254,77,243,81,240,87,245,94"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,59,32"/>
-<area shape="rect" id="Node000002" href="$gtest__unittest_8cc.html#ad6f57748fc42d01bbb006a116cd1a984" title=" " alt="" coords="107,5,227,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,16,92,16,92,21,59,21"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1_test.html#a7a00be7dd0a6bfdc8d47a1b784623613" title=" " alt="" coords="275,5,438,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="227,16,260,16,260,21,227,21"/>
-</map>

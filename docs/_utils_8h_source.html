@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -99,262 +99,299 @@ $(document).ready(function(){initNavTree('_utils_8h_source.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <a href="_utils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;xstring&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;format&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;debugapi.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span>std::string;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::format;</div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespace_utils.html">   14</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">ExeName</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">BinDir</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifdef _USRDLL</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> DllName;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">// _USRDLL</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb">   24</a></span><span class="preprocessor">#define STRINGIZE(x) #x</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_utils_8h.html#a18d295a837ac71add5578860b55e5502">   25</a></span><span class="preprocessor">#define STR(x) STRINGIZE(x)</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_utils_8h.html#a3643aeb18f882054ffc581b35036e172">   26</a></span><span class="preprocessor">#define __FILE_LINE__ __FILE__ &quot;(&quot; STR(__LINE__) &quot;)&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#ifdef _DEBUG</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(format(&quot;{}\t{}\n&quot;, msg, __FUNCTION__ &quot;\t\t&quot; __FILE_LINE__))</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(format(&quot;{}\t{}\t{}\n&quot;, msg, __FUNCTION__ &quot;\t\t&quot; __FILE_LINE__, dtl))</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DURATION(msg, methodCall) \</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">{ \</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">    TDateTime before = Now(); \</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    methodCall; \</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">    int duration = MilliSecondsBetween(before, Now()); \</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">    Utils::WriteDebugLog(format(&quot;{}\t{}\n&quot;&quot;, msg, format(&quot;{}\t{}\t{}, __FUNCTION__, duration, __FILE_LINE__))); \</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">} \</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL_DURATION(msg, dtl, methodCall) \</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">{ \</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    TDateTime before = Now(); \</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    methodCall; \</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    int duration = MilliSecondsBetween(before, Now()); \</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">    Utils::WriteDebugLog(format(&quot;{}\t{}\t{}\n&quot;, msg, format(&quot;{}\t{}\t{}&quot;, __FUNCTION__, duration, __FILE_LINE__)), dtl); \</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">} \</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#abdc36608727de989652b34f84852737c">WriteDebugLog</a>(<span class="keywordtype">string</span> msg);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">   55</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG(msg)</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320">   56</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL(msg, dtl)</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="_utils_8h.html#a11191e674f9190988d8d3002f487e6a5">   57</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DURATION(msg, methodCall) { methodCall; }</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16">   58</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL_DURATION(msg, dtl, methodCall)  { methodCall; }</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifdef _DOXYGEN_RUNNING</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>auto_ptr { T *dummy; <span class="keyword">operator</span> T* () {<span class="keywordflow">return</span> dummy;} T* operator -&gt; () {<span class="keywordflow">return</span> dummy;} };</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>unique_ptr { T *dummy; <span class="keyword">operator</span> T* () {<span class="keywordflow">return</span> dummy;} T* operator -&gt; () {<span class="keywordflow">return</span> dummy;} };</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>     <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>shared_ptr { T *dummy; <span class="keyword">operator</span> T* () {<span class="keywordflow">return</span> dummy;} T* operator -&gt; () {<span class="keywordflow">return</span> dummy;} };</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;xstring&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;format&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;debugapi.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vcruntime_exception.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">using </span>std::string;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using </span>std::format;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">using </span>std::exception;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespace_utils.html">   26</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">ExeName</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">BinDir</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#af521c3828d9903beb908696c24f84688">ProductVersion</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> <a class="code hl_variable" href="namespace_utils.html#ae8e370e98ad0e045f1eb07bab655006a">ProductName</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#ifdef _USRDLL</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">extern</span> <span class="keywordtype">string</span> DllName;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// _USRDLL</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="_utils_8h.html#a10ac188773fb50afe1826ac684d2a7ca">   36</a></span><span class="preprocessor">#define STRINGIZE(asString) STRINGIZE_A((asString))</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="_utils_8h.html#a32118253cfc3d7af410ff4046baff007">   37</a></span><span class="preprocessor">#define STRINGIZE_A(arg) STRINGIZE_I arg</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="_utils_8h.html#a53357e28276229ec4eaba3577b87c5a0">   38</a></span><span class="preprocessor">#define STRINGIZE_I(asString) #asString</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_utils_8h.html#a65573e68b6e92274ccad7caeed5bb365">   39</a></span><span class="preprocessor">#define S(asString)  STRINGIZE(asString)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">   45</a></span>    <span class="keywordtype">string</span> <a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(std::string_view rt_fmt_str, Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> std::vformat(rt_fmt_str, std::make_format_args(args...));</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">   50</a></span>    std::wstring <a class="code hl_function" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">dwformat</a>(std::wstring_view rt_fmt_str, Args&amp;&amp;... args)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">return</span> std::vformat(rt_fmt_str, std::make_wformat_args(args...));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_utils_8h.html#a3643aeb18f882054ffc581b35036e172">   54</a></span><span class="preprocessor">#define __FILE_LINE__ __FILE__ &quot;(&quot; S(__LINE__) &quot;)&quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifdef _DEBUG</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(format(&quot;{}\t{}\n&quot;, msg, __FUNCTION__ &quot;\t\t&quot; __FILE_LINE__))</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespace_utils.html#abdc36608727de989652b34f84852737c">   60</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#abdc36608727de989652b34f84852737c">WriteDebugLog</a>(<span class="keywordtype">string</span> msg)</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        ::OutputDebugStringA(msg.c_str());</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// !_DEBUG</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    template &lt;typename... Args&gt;</div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">   70</a></span>    <span class="keywordtype">string</span> <a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(std::string_view rt_fmt_str, Args&amp;&amp;... args) </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordflow">return</span> std::vformat(rt_fmt_str, std::make_format_args(args...));</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
-</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">   75</a></span>    std::wstring <a class="code hl_function" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">dwformat</a>(std::wstring_view rt_fmt_str, Args&amp;&amp;... args) </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> std::vformat(rt_fmt_str, std::make_wformat_args(args...));</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
-</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(format(&quot;{}\t{}\t{}\n&quot;, msg, __FUNCTION__ &quot;\t\t&quot; __FILE_LINE__, dtl))</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DURATION(msg, methodCall) \</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">{ \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">    TDateTime before = Now(); \</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">    methodCall; \</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">    int duration = MilliSecondsBetween(before, Now()); \</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    Utils::WriteDebugLog(format(&quot;{}\t{}\n&quot;&quot;, msg, format(&quot;{}\t{}\t{}, __FUNCTION__, duration, __FILE_LINE__))); \</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">} \</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL_DURATION(msg, dtl, methodCall) \</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">{ \</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">    TDateTime before = Now(); \</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">    methodCall; \</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">    int duration = MilliSecondsBetween(before, Now()); \</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">    Utils::WriteDebugLog(format(&quot;{}\t{}\t{}\n&quot;, msg, format(&quot;{}\t{}\t{}&quot;, __FUNCTION__, duration, __FILE_LINE__)), dtl); \</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">} \</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#abdc36608727de989652b34f84852737c">WriteDebugLog</a>(<span class="keywordtype">string</span> msg);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">   80</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">ShowLastError</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> fmtStr)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        LPSTR errorText = NULL;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        FormatMessageA(</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            NULL,</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            GetLastError(),</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            (LPSTR)&amp;errorText,</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            0,</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            NULL);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">const</span> <span class="keywordtype">string</span> errorStr = errorText;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">   83</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG(msg)</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320">   84</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL(msg, dtl)</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="_utils_8h.html#a11191e674f9190988d8d3002f487e6a5">   85</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DURATION(msg, methodCall) { methodCall; }</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16">   86</a></span><span class="preprocessor">#define WRITE_DEBUG_LOG_DETAIL_DURATION(msg, dtl, methodCall)  { methodCall; }</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespace_utils.html#abdc36608727de989652b34f84852737c">   88</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#abdc36608727de989652b34f84852737c">WriteDebugLog</a>(<span class="keywordtype">string</span> msg)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        ::OutputDebugStringA(msg.c_str());</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordtype">string</span> msg = <a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(fmtStr, errorStr);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        MessageBoxA(NULL, msg.c_str(), <span class="stringliteral">&quot;Error&quot;</span>, MB_ICONERROR | MB_OK);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        LocalFree(errorText);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// !_DEBUG</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="" data-end="">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="_utils_8h.html#a13f2424e3faac7bb38cc6fa1acb3cfe7">   95</a></span><span class="preprocessor">#define AssertFail(message) \</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor"> { WRITE_DEBUG_LOG(message); \</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor"> throw exception(dformat(&quot;AssertFail: {}\t{}\t{}\t{}&quot;, &quot;&quot;, __FILE__, __LINE__, (message)).c_str()); }</span></div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Tx&gt;</div>
-<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">   99</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(T t, Tx&amp;&amp; p1)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">return</span> t == p1;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00099" data-start="" data-end="">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="_utils_8h.html#af75d0d50e60d22438ab0502180ca9f56">   99</a></span><span class="preprocessor">#define AssertTrue(condition, message) \</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">{ if(!(condition)) { WRITE_DEBUG_LOG(dformat(&quot;{}, {}&quot;, (#condition), message)); \</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">throw exception(dformat(&quot;AssertTrue: {}\t{}\t{}\t{}&quot;, &quot;&quot;, __FILE__, __LINE__, (message)).c_str()); }  }</span></div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> T1, <span class="keyword">typename</span>... Tx&gt;</div>
-<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespace_utils.html#a2dfa0d16c0461a00fde6bd7e78e80b1e">  105</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(T t, T1&amp;&amp; p1, Tx&amp;&amp;... px) {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, p1) || <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, px...);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="" data-end="">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="_utils_8h.html#a05a417f49d453b522cf1527ab7d51a80">  103</a></span><span class="preprocessor">#define AssertFalse(condition, message) \</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">{ if((condition)) { WRITE_DEBUG_LOG(dformat(&quot;{}, {}&quot;, (#condition), message)); \</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">throw exception(dformat(&quot;AssertFalse: {}\t{}\t{}\t{}&quot;, &quot;&quot;, __FILE__, __LINE__, (message)).c_str()); }  }</span></div>
 </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Tx&gt;</div>
-<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">  110</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(T t, Tx&amp;&amp; p1)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> t == p1;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
-</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> T1, <span class="keyword">typename</span>... Tx&gt;</div>
-<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespace_utils.html#a896381b1d0efed49040e943db2dbb2ae">  116</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(T t, T1&amp;&amp; p1, Tx&amp;&amp;... px) {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, p1) &amp;&amp; <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, px...);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
-</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">  107</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">ShowLastError</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> fmtStr)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        LPSTR errorText = NULL;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        FormatMessageA(</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            NULL,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            GetLastError(),</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            (LPSTR)&amp;errorText,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            0,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            NULL);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keyword">const</span> <span class="keywordtype">string</span> errorStr = errorText;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt; </div>
-<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">  121</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">check_bits</a>(M bitmask, F val) </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    { </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> ((T)val &amp; (T)bitmask) == bitmask; </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordtype">string</span> msg = <a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(fmtStr, errorStr);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        MessageBoxA(NULL, msg.c_str(), <span class="stringliteral">&quot;Error&quot;</span>, MB_ICONERROR | MB_OK);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        LocalFree(errorText);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
 </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt; </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Tx&gt;</div>
 <div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">  126</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">check_one_bit</a>(M bitmask, F val) </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    { </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> (((T)val) &amp; ((T)bitmask)) != 0; </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">  126</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(T t, Tx&amp;&amp; p1)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> t == p1;</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
 </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt; </div>
-<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">  131</a></span>    <span class="keyword">inline</span> M <a class="code hl_function" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">set_bits</a>(M bitmask, F val = 0) </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> ((T)val |= (T)bitmask); </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> T1, <span class="keyword">typename</span>... Tx&gt;</div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="namespace_utils.html#a2dfa0d16c0461a00fde6bd7e78e80b1e">  132</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(T t, T1&amp;&amp; p1, Tx&amp;&amp;... px) {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, p1) || <a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">is_one_of</a>(t, px...);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
 </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt; </div>
-<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">  136</a></span>    <span class="keyword">inline</span> M <a class="code hl_function" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">clear_bits</a>(M bitmask, F val = 0)</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    { </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">return</span> (T)val &amp;= ~(T)bitmask;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Tx&gt;</div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">  137</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(T t, Tx&amp;&amp; p1)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">return</span> t == p1;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    }</div>
 </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> T1, <span class="keyword">typename</span>... Tx&gt;</div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="namespace_utils.html#a896381b1d0efed49040e943db2dbb2ae">  143</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(T t, T1&amp;&amp; p1, Tx&amp;&amp;... px) {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, p1) &amp;&amp; <a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">is_each_of</a>(t, px...);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
 </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a>;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">Utils::dwformat</a>;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a>;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">Utils::is_each_of</a>;</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">Utils::check_bits</a>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils::check_one_bit</a>;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">Utils::set_bits</a>;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">Utils::clear_bits</a>;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>{</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> StrT&gt;</div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">  155</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">toLowerCase</a>(<span class="keyword">const</span> StrT&amp; str) {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        StrT result = str;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        std::transform(result.begin(), result.end(), result.begin(), ::tolower);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt;</div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">  148</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">check_bits</a>(M bitmask, F val)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> ((T)val &amp; (T)bitmask) == bitmask;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
 </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>}</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">Utils::toLowerCase</a>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>{</div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="};">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html">  165</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">  167</a></span>        HWND <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a>;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">  168</a></span>        uint32_t <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">wndThreadId</a>;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#ab8227f119ab02271269652f29cd5549d">  170</a></span>        <span class="keyword">operator</span> HWND ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a>; }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#a3a3cd78f5f1a22fa0232e40e45ea86c3">  171</a></span>        <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a> != NULL; }</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    };</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt;</div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">  153</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">check_one_bit</a>(M bitmask, F val)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">return</span> (((T)val) &amp; ((T)bitmask)) != 0;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
 </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt;</div>
+<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">  158</a></span>    <span class="keyword">inline</span> M <a class="code hl_function" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">set_bits</a>(M bitmask, F val = 0)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">return</span> ((T)val |= (T)bitmask);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T = u<span class="keywordtype">int</span>32_t, <span class="keyword">typename</span> M = T, <span class="keyword">typename</span> F = T&gt;</div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">  163</a></span>    <span class="keyword">inline</span> M <a class="code hl_function" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">clear_bits</a>(M bitmask, F val = 0)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> (T)val &amp;= ~(T)bitmask;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">Utils::dwformat</a>;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">Utils::is_each_of</a>;</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a> GetMainWnd(DWORD threadId = 0, DWORD processId = 0);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">  176</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> = std::vector&lt;MainWndRes&gt;;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> <a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">GetMainWnds</a>(DWORD threadId = 0, DWORD processId = 0);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">using </span><a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a>;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a>;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keyword">using </span><a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a>;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68">Utils::GetMainWnd</a>; </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>{</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">  186</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Units</a> { <a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Percent</a>, <a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Pixels</a> };</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    RECT ScaleRect(<span class="keyword">const</span> RECT&amp; in, FLOAT f);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="foldopen" id="foldopen00189" data-start="{" data-end="}">
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="namespace_utils.html#aba1e4263e69daaa39ce59c8f886e920c">  189</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> POINT&amp; x, <span class="keyword">const</span> POINT&amp; y)</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keyword">using </span>std::make_tuple;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keywordflow">return</span> make_tuple(x.x, x.y) == make_tuple(y.x, y.y);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">Utils::check_bits</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils::check_one_bit</a>;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">Utils::set_bits</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">Utils::clear_bits</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>{</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> StrT&gt;</div>
+<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">  182</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">toLowerCase</a>(<span class="keyword">const</span> StrT&amp; str) {</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        StrT result = str;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        std::transform(result.begin(), result.end(), result.begin(), ::tolower);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
 </div>
-<div class="foldopen" id="foldopen00194" data-start="{" data-end="}">
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="namespace_utils.html#aaa4094884532d86fb266ea80598993d2">  194</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> RECT&amp; x, <span class="keyword">const</span> RECT&amp; y)</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keyword">using </span>std::make_tuple;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordflow">return</span> make_tuple(x.left, x.top, x.right, x.bottom) == make_tuple(y.left, y.top, y.right, y.bottom);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">Utils::toLowerCase</a>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>{</div>
+<div class="foldopen" id="foldopen00192" data-start="{" data-end="};">
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html">  192</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">  194</a></span>        HWND <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">  195</a></span>        uint32_t <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">wndThreadId</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#ab8227f119ab02271269652f29cd5549d">  197</a></span>        <span class="keyword">operator</span> HWND ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a>; }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="struct_utils_1_1_main_wnd_res.html#a3a3cd78f5f1a22fa0232e40e45ea86c3">  198</a></span>        <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">hMainWnd</a> != NULL; }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    };</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>}</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">using </span><a class="code hl_enumeration" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Utils::Units</a>;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">using </span><a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Utils::Percent</a>;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword">using </span><a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Utils::Pixels</a>;</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a359e1089d465c28529bba63d115174ed">Utils::ScaleRect</a>; </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">using </span>Utils::operator==;</div>
-<div class="ttc" id="anamespace_utils_html"><div class="ttname"><a href="namespace_utils.html">Utils</a></div><div class="ttdoc">Some helper constructs.</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00014">Utils.h:15</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a0f9798ea79de82575873145e791c74db"><div class="ttname"><a href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">Utils::dwformat</a></div><div class="ttdeci">std::wstring dwformat(std::wstring_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00075">Utils.h:75</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00071">Utils.cpp:71</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a1be1e6106c4ac75be529963a672f3038"><div class="ttname"><a href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a></div><div class="ttdeci">string dformat(std::string_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00070">Utils.h:70</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a2a769bbb1284de09ef460684deb5de0a"><div class="ttname"><a href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a></div><div class="ttdeci">bool is_one_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00099">Utils.h:99</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a3102a2f3f02edf6de04d8324aee842e9"><div class="ttname"><a href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">Utils::BinDir</a></div><div class="ttdeci">string BinDir</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00072">Utils.cpp:72</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a359e1089d465c28529bba63d115174ed"><div class="ttname"><a href="namespace_utils.html#a359e1089d465c28529bba63d115174ed">Utils::ScaleRect</a></div><div class="ttdeci">RECT ScaleRect(const RECT &amp;in, FLOAT f)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00198">Utils.cpp:198</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a6c7f0050acff0a017f8c65b5af8b5b89"><div class="ttname"><a href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">Utils::set_bits</a></div><div class="ttdeci">M set_bits(M bitmask, F val=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00131">Utils.h:131</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a795971fe1c865d91d4f436c0abf6a147"><div class="ttname"><a href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">Utils::check_bits</a></div><div class="ttdeci">bool check_bits(M bitmask, F val)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00121">Utils.h:121</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a7e696129ddd52ce1360b387efd2decfd"><div class="ttname"><a href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">Utils::toLowerCase</a></div><div class="ttdeci">std::string toLowerCase(const StrT &amp;str)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00155">Utils.h:155</a></div></div>
-<div class="ttc" id="anamespace_utils_html_aad1c305219375bf7d3fc42f22b325710"><div class="ttname"><a href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">Utils::ShowLastError</a></div><div class="ttdeci">void ShowLastError(const string fmtStr)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00080">Utils.h:80</a></div></div>
-<div class="ttc" id="anamespace_utils_html_ab14703b5ec22bc4ca2de4f2372ad8f68"><div class="ttname"><a href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68">Utils::GetMainWnd</a></div><div class="ttdeci">MainWndRes GetMainWnd(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00139">Utils.cpp:139</a></div></div>
-<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Utils::Units</a></div><div class="ttdeci">Units</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00186">Utils.h:186</a></div></div>
-<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Utils::Percent</a></div><div class="ttdeci">@ Percent</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00186">Utils.h:186</a></div></div>
-<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Utils::Pixels</a></div><div class="ttdeci">@ Pixels</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00186">Utils.h:186</a></div></div>
-<div class="ttc" id="anamespace_utils_html_abdc36608727de989652b34f84852737c"><div class="ttname"><a href="namespace_utils.html#abdc36608727de989652b34f84852737c">Utils::WriteDebugLog</a></div><div class="ttdeci">void WriteDebugLog(string msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00060">Utils.h:60</a></div></div>
-<div class="ttc" id="anamespace_utils_html_ad4b2cccca2ee094b39494b224d528f64"><div class="ttname"><a href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils::check_one_bit</a></div><div class="ttdeci">bool check_one_bit(M bitmask, F val)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00126">Utils.h:126</a></div></div>
-<div class="ttc" id="anamespace_utils_html_ae22cd134d7088505ab53a60489e74654"><div class="ttname"><a href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">Utils::clear_bits</a></div><div class="ttdeci">M clear_bits(M bitmask, F val=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00136">Utils.h:136</a></div></div>
-<div class="ttc" id="anamespace_utils_html_aefbf8eb72aa82ae8ad287e32d201133e"><div class="ttname"><a href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a></div><div class="ttdeci">MainWindResVector GetMainWnds(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00172">Utils.cpp:172</a></div></div>
-<div class="ttc" id="anamespace_utils_html_af7a6e5399669e9a9c0e9b90a88c3d746"><div class="ttname"><a href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a></div><div class="ttdeci">std::vector&lt; MainWndRes &gt; MainWindResVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00176">Utils.h:176</a></div></div>
-<div class="ttc" id="anamespace_utils_html_af8e5c5f8404717acbb753a3111d1c716"><div class="ttname"><a href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">Utils::is_each_of</a></div><div class="ttdeci">bool is_each_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00110">Utils.h:110</a></div></div>
-<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a></div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00165">Utils.h:166</a></div></div>
-<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html_abd7c528fd1cc08b80eecb088ad943ddd"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">Utils::MainWndRes::hMainWnd</a></div><div class="ttdeci">HWND hMainWnd</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00167">Utils.h:167</a></div></div>
-<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html_ad6b1ba721fac31b78201e225805e7eb6"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">Utils::MainWndRes::wndThreadId</a></div><div class="ttdeci">uint32_t wndThreadId</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00168">Utils.h:168</a></div></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">MainWndRes</a> GetMainWnd(DWORD threadId = 0, DWORD processId = 0);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">  203</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> = std::vector&lt;MainWndRes&gt;;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">MainWindResVector</a> <a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">GetMainWnds</a>(DWORD threadId = 0, DWORD processId = 0);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">using </span><a class="code hl_typedef" href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">using </span><a class="code hl_struct" href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68">Utils::GetMainWnd</a>;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_utils.html">Utils</a></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">  213</a></span>    <span class="keyword">enum</span> <a class="code hl_enumeration" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Units</a> { <a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Percent</a>, <a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Pixels</a> };</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    RECT ScaleRect(<span class="keyword">const</span> RECT&amp; in, FLOAT f);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="namespace_utils.html#aba1e4263e69daaa39ce59c8f886e920c">  216</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> POINT&amp; x, <span class="keyword">const</span> POINT&amp; y)</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keyword">using </span>std::make_tuple;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keywordflow">return</span> make_tuple(x.x, x.y) == make_tuple(y.x, y.y);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
+</div>
+<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="namespace_utils.html#aaa4094884532d86fb266ea80598993d2">  221</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> RECT&amp; x, <span class="keyword">const</span> RECT&amp; y)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keyword">using </span>std::make_tuple;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">return</span> make_tuple(x.left, x.top, x.right, x.bottom) == make_tuple(y.left, y.top, y.right, y.bottom);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">using </span><a class="code hl_enumeration" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Utils::Units</a>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="keyword">using </span><a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Utils::Percent</a>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keyword">using </span><a class="code hl_enumvalue" href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Utils::Pixels</a>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="keyword">using </span><a class="code hl_function" href="namespace_utils.html#a359e1089d465c28529bba63d115174ed">Utils::ScaleRect</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword">using </span>Utils::operator==;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="ttc" id="anamespace_utils_html"><div class="ttname"><a href="namespace_utils.html">Utils</a></div><div class="ttdoc">Some helper constructs.</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00026">Utils.h:27</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a0f9798ea79de82575873145e791c74db"><div class="ttname"><a href="namespace_utils.html#a0f9798ea79de82575873145e791c74db">Utils::dwformat</a></div><div class="ttdeci">std::wstring dwformat(std::wstring_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00050">Utils.h:50</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00107">Utils.cpp:107</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a1be1e6106c4ac75be529963a672f3038"><div class="ttname"><a href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a></div><div class="ttdeci">string dformat(std::string_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00045">Utils.h:45</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a2a769bbb1284de09ef460684deb5de0a"><div class="ttname"><a href="namespace_utils.html#a2a769bbb1284de09ef460684deb5de0a">Utils::is_one_of</a></div><div class="ttdeci">bool is_one_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00126">Utils.h:126</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a3102a2f3f02edf6de04d8324aee842e9"><div class="ttname"><a href="namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9">Utils::BinDir</a></div><div class="ttdeci">string BinDir</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00108">Utils.cpp:108</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a359e1089d465c28529bba63d115174ed"><div class="ttname"><a href="namespace_utils.html#a359e1089d465c28529bba63d115174ed">Utils::ScaleRect</a></div><div class="ttdeci">RECT ScaleRect(const RECT &amp;in, FLOAT f)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00236">Utils.cpp:236</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a6c7f0050acff0a017f8c65b5af8b5b89"><div class="ttname"><a href="namespace_utils.html#a6c7f0050acff0a017f8c65b5af8b5b89">Utils::set_bits</a></div><div class="ttdeci">M set_bits(M bitmask, F val=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00158">Utils.h:158</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a795971fe1c865d91d4f436c0abf6a147"><div class="ttname"><a href="namespace_utils.html#a795971fe1c865d91d4f436c0abf6a147">Utils::check_bits</a></div><div class="ttdeci">bool check_bits(M bitmask, F val)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00148">Utils.h:148</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a7e696129ddd52ce1360b387efd2decfd"><div class="ttname"><a href="namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd">Utils::toLowerCase</a></div><div class="ttdeci">std::string toLowerCase(const StrT &amp;str)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00182">Utils.h:182</a></div></div>
+<div class="ttc" id="anamespace_utils_html_aad1c305219375bf7d3fc42f22b325710"><div class="ttname"><a href="namespace_utils.html#aad1c305219375bf7d3fc42f22b325710">Utils::ShowLastError</a></div><div class="ttdeci">void ShowLastError(const string fmtStr)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00107">Utils.h:107</a></div></div>
+<div class="ttc" id="anamespace_utils_html_ab14703b5ec22bc4ca2de4f2372ad8f68"><div class="ttname"><a href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68">Utils::GetMainWnd</a></div><div class="ttdeci">MainWndRes GetMainWnd(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00177">Utils.cpp:177</a></div></div>
+<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606">Utils::Units</a></div><div class="ttdeci">Units</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00213">Utils.h:213</a></div></div>
+<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606a39c13cab60abde1910d76ba2167bd191">Utils::Percent</a></div><div class="ttdeci">@ Percent</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00213">Utils.h:213</a></div></div>
+<div class="ttc" id="anamespace_utils_html_abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a"><div class="ttname"><a href="namespace_utils.html#abbed7df7657e15235cbba72f4c582606aaa7ba05234c67a6f646b8ee00ae9116a">Utils::Pixels</a></div><div class="ttdeci">@ Pixels</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00213">Utils.h:213</a></div></div>
+<div class="ttc" id="anamespace_utils_html_abdc36608727de989652b34f84852737c"><div class="ttname"><a href="namespace_utils.html#abdc36608727de989652b34f84852737c">Utils::WriteDebugLog</a></div><div class="ttdeci">void WriteDebugLog(string msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00088">Utils.h:88</a></div></div>
+<div class="ttc" id="anamespace_utils_html_ad4b2cccca2ee094b39494b224d528f64"><div class="ttname"><a href="namespace_utils.html#ad4b2cccca2ee094b39494b224d528f64">Utils::check_one_bit</a></div><div class="ttdeci">bool check_one_bit(M bitmask, F val)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00153">Utils.h:153</a></div></div>
+<div class="ttc" id="anamespace_utils_html_ae22cd134d7088505ab53a60489e74654"><div class="ttname"><a href="namespace_utils.html#ae22cd134d7088505ab53a60489e74654">Utils::clear_bits</a></div><div class="ttdeci">M clear_bits(M bitmask, F val=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00163">Utils.h:163</a></div></div>
+<div class="ttc" id="anamespace_utils_html_ae8e370e98ad0e045f1eb07bab655006a"><div class="ttname"><a href="namespace_utils.html#ae8e370e98ad0e045f1eb07bab655006a">Utils::ProductName</a></div><div class="ttdeci">string ProductName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00110">Utils.cpp:110</a></div></div>
+<div class="ttc" id="anamespace_utils_html_aefbf8eb72aa82ae8ad287e32d201133e"><div class="ttname"><a href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e">Utils::GetMainWnds</a></div><div class="ttdeci">MainWindResVector GetMainWnds(DWORD threadId=0, DWORD processId=0)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00210">Utils.cpp:210</a></div></div>
+<div class="ttc" id="anamespace_utils_html_af521c3828d9903beb908696c24f84688"><div class="ttname"><a href="namespace_utils.html#af521c3828d9903beb908696c24f84688">Utils::ProductVersion</a></div><div class="ttdeci">string ProductVersion</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00109">Utils.cpp:109</a></div></div>
+<div class="ttc" id="anamespace_utils_html_af7a6e5399669e9a9c0e9b90a88c3d746"><div class="ttname"><a href="namespace_utils.html#af7a6e5399669e9a9c0e9b90a88c3d746">Utils::MainWindResVector</a></div><div class="ttdeci">std::vector&lt; MainWndRes &gt; MainWindResVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00203">Utils.h:203</a></div></div>
+<div class="ttc" id="anamespace_utils_html_af8e5c5f8404717acbb753a3111d1c716"><div class="ttname"><a href="namespace_utils.html#af8e5c5f8404717acbb753a3111d1c716">Utils::is_each_of</a></div><div class="ttdeci">bool is_each_of(T t, Tx &amp;&amp;p1)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00137">Utils.h:137</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
+<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html">Utils::MainWndRes</a></div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00192">Utils.h:193</a></div></div>
+<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html_abd7c528fd1cc08b80eecb088ad943ddd"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html#abd7c528fd1cc08b80eecb088ad943ddd">Utils::MainWndRes::hMainWnd</a></div><div class="ttdeci">HWND hMainWnd</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00194">Utils.h:194</a></div></div>
+<div class="ttc" id="astruct_utils_1_1_main_wnd_res_html_ad6b1ba721fac31b78201e225805e7eb6"><div class="ttname"><a href="struct_utils_1_1_main_wnd_res.html#ad6b1ba721fac31b78201e225805e7eb6">Utils::MainWndRes::wndThreadId</a></div><div class="ttdeci">uint32_t wndThreadId</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00195">Utils.h:195</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,0 +1,9 @@
+<map id="std::unique_ptr&lt; HooksCfg &gt;" name="std::unique_ptr&lt; HooksCfg &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,187,193,213"/>
+<area shape="rect" id="Node000002" href="$class_hooks_cfg.html" title=" " alt="" coords="60,96,138,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,138,102,186,96,186,96,138"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="34,5,89,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="70,45,78,71,92,95,88,97,74,73,65,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="114,5,159,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="128,47,107,96,102,94,123,45"/>
+</map>

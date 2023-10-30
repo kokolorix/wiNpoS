@@ -1,7 +1,0 @@
-<map id="testing::internal::MatchMatrix" name="testing::internal::MatchMatrix">
-<area shape="rect" id="Node000001" title=" " alt="" coords="37,112,155,155"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,62,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="31,47,31,67,37,87,58,110,54,113,33,89,26,68,26,47"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="95,5,225,32"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,47,133,89,116,113,112,110,129,87,148,45"/>
-</map>

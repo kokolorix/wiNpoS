@@ -1,7 +1,7 @@
 <map id="HooksImpl::onWindowPosChanged" name="HooksImpl::onWindowPosChanged">
 <area shape="rect" id="Node000001" title="here we react to position changes of the main window" alt="" coords="5,43,230,69"/>
 <area shape="rect" id="Node000002" href="$class_hooks_impl.html#a8ef5405a747979c1f5197848e4a8e684" title=" " alt="" coords="278,5,452,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,40,262,36,262,41,230,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="230,40,262,36,263,41,230,45"/>
 <area shape="rect" id="Node000003" href="$class_hooks_impl.html#a7a48621aa5b57024ae963b861fd508cb" title=" " alt="" coords="283,72,447,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,67,268,71,267,76,230,72"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="230,67,268,71,268,77,230,72"/>
 </map>

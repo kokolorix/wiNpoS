@@ -1,4 +1,0 @@
-var structstd_1_1tr1_1_1tuple__size_3_01tuple_3_01_t0_00_01_t1_00_01_t2_00_01_t3_00_01_t4_00_01_t5_0ddcbca082516b2a77f5ddebf97e8e338 =
-[
-    [ "value", "structstd_1_1tr1_1_1tuple__size_3_01tuple_3_01_t0_00_01_t1_00_01_t2_00_01_t3_00_01_t4_00_01_t5_0ddcbca082516b2a77f5ddebf97e8e338.html#a200f3c0fabecd8ee8e32e3d19a72982a", null ]
-];

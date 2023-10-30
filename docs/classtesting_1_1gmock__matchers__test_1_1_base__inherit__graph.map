@@ -1,7 +1,0 @@
-<map id="testing::gmock_matchers_test::Base" name="testing::gmock_matchers_test::Base">
-<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,270,48"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1gmock__matchers__test_1_1_derived.html" title=" " alt="" coords="5,96,174,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,60,113,98,110,94,151,56"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1gmock__matchers__test_1_1_other_derived.html" title=" " alt="" coords="197,96,366,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,56,261,94,258,98,217,60"/>
-</map>

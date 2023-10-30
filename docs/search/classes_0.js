@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config_0',['Config',['../class_config.html',1,'']]]
+  ['genericdocument_0',['GenericDocument',['../classrapidjson_1_1_generic_document.html',1,'rapidjson']]]
 ];

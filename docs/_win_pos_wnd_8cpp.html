@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -97,67 +97,20 @@ $(document).ready(function(){initNavTree('_win_pos_wnd_8cpp.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="wi_npo_s-_hook_2pch_8h_source.html">pch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_debug_new_8h_source.html">DebugNew.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_win_pos_wnd_8h_source.html">WinPosWnd.h</a>&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;ranges&gt;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
-<code>#include &quot;<a class="el" href="_win_pos_wnd_config_8h_source.html">WinPosWndConfig.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_win_pos_wnd_cfg_8h_source.html">WinPosWndCfg.h</a>&quot;</code><br />
 <code>#include &lt;corecrt_math.h&gt;</code><br />
 <code>#include &lt;windowsx.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for WinPosWnd.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_win_pos_wnd_8cpp__incl.png" border="0" usemap="#awi_npo_s-_hook_2_win_pos_wnd_8cpp" alt=""/></div>
-<map name="awi_npo_s-_hook_2_win_pos_wnd_8cpp" id="awi_npo_s-_hook_2_win_pos_wnd_8cpp">
-<area shape="rect" title=" " alt="" coords="477,5,678,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2pch_8h.html" title=" " alt="" coords="72,80,126,107"/>
-<area shape="poly" title=" " alt="" coords="494,35,141,88,141,83,493,30"/>
-<area shape="rect" href="_win_pos_wnd_8h.html" title=" " alt="" coords="244,80,349,107"/>
-<area shape="poly" title=" " alt="" coords="529,35,361,78,360,73,528,30"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="422,229,480,256"/>
-<area shape="poly" title=" " alt="" coords="570,34,536,81,496,154,465,216,461,214,491,151,531,79,565,31"/>
-<area shape="rect" title=" " alt="" coords="522,304,575,331"/>
-<area shape="poly" title=" " alt="" coords="579,33,554,289,548,288,574,32"/>
-<area shape="rect" title=" " alt="" coords="599,304,674,331"/>
-<area shape="poly" title=" " alt="" coords="583,32,634,288,628,289,577,33"/>
-<area shape="rect" href="_win_pos_wnd_config_8h.html" title=" " alt="" coords="272,155,414,181"/>
-<area shape="poly" title=" " alt="" coords="559,35,377,149,374,144,556,30"/>
-<area shape="rect" title=" " alt="" coords="641,80,701,107"/>
-<area shape="poly" title=" " alt="" coords="596,30,645,68,641,73,592,35"/>
-<area shape="rect" title=" " alt="" coords="725,80,833,107"/>
-<area shape="poly" title=" " alt="" coords="614,30,730,72,729,77,612,35"/>
-<area shape="rect" title=" " alt="" coords="858,80,946,107"/>
-<area shape="poly" title=" " alt="" coords="635,30,843,76,842,81,634,35"/>
-<area shape="rect" title=" " alt="" coords="970,80,1039,107"/>
-<area shape="poly" title=" " alt="" coords="675,30,804,50,956,77,955,82,803,55,674,35"/>
-<area shape="rect" href="wi_npo_s-_hook_2framework_8h.html" title=" " alt="" coords="5,155,97,181"/>
-<area shape="poly" title=" " alt="" coords="93,109,70,143,65,140,88,106"/>
-<area shape="rect" title=" " alt="" coords="10,229,92,256"/>
-<area shape="poly" title=" " alt="" coords="54,182,54,214,48,214,48,182"/>
-<area shape="rect" title=" " alt="" coords="241,229,314,256"/>
-<area shape="poly" title=" " alt="" coords="288,109,274,130,263,155,261,185,269,214,263,215,256,186,258,154,269,127,284,106"/>
-<area shape="rect" title=" " alt="" coords="171,229,217,256"/>
-<area shape="poly" title=" " alt="" coords="290,109,256,156,213,218,208,215,251,153,285,106"/>
-<area shape="rect" title=" " alt="" coords="169,304,224,331"/>
-<area shape="poly" title=" " alt="" coords="277,109,248,129,215,157,184,191,162,230,159,246,162,261,177,291,173,293,157,263,153,246,156,228,180,188,212,153,245,125,274,105"/>
-<area shape="poly" title=" " alt="" coords="348,105,390,123,410,137,428,153,444,183,451,213,446,215,439,185,424,156,407,141,388,128,346,110"/>
-<area shape="poly" title=" " alt="" coords="307,106,329,140,325,143,302,109"/>
-<area shape="poly" title=" " alt="" coords="422,255,240,305,238,300,421,249"/>
-<area shape="poly" title=" " alt="" coords="470,254,521,293,518,297,466,259"/>
-<area shape="rect" title=" " alt="" coords="248,304,308,331"/>
-<area shape="poly" title=" " alt="" coords="422,259,323,300,321,295,420,254"/>
-<area shape="rect" title=" " alt="" coords="332,304,389,331"/>
-<area shape="poly" title=" " alt="" coords="437,259,389,296,386,292,434,254"/>
-<area shape="rect" title=" " alt="" coords="413,304,497,331"/>
-<area shape="poly" title=" " alt="" coords="454,256,456,288,451,289,449,257"/>
-<area shape="poly" title=" " alt="" coords="482,253,591,296,589,301,480,258"/>
-<area shape="poly" title=" " alt="" coords="334,184,301,220,297,216,330,180"/>
-<area shape="poly" title=" " alt="" coords="318,184,232,226,230,221,316,179"/>
-<area shape="poly" title=" " alt="" coords="347,182,344,218,338,239,328,258,313,270,291,282,239,304,237,299,289,277,310,265,324,254,333,237,339,217,341,182"/>
-<area shape="poly" title=" " alt="" coords="363,180,421,218,418,222,360,184"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_win_pos_wnd_8cpp__incl.svg" width="100%" height="552"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_win_pos_wnd_8cpp_source.html">Go to the source code of this file.</a></p>

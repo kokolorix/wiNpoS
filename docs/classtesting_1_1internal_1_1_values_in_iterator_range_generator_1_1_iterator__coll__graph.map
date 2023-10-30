@@ -1,9 +1,0 @@
-<map id="testing::internal::ValuesInIteratorRangeGenerator&lt; T &gt;::Iterator" name="testing::internal::ValuesInIteratorRangeGenerator&lt; T &gt;::Iterator">
-<area shape="rect" id="Node000001" title=" " alt="" coords="284,64,489,123"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_param_iterator_interface.html" title=" " alt="" coords="5,5,185,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,48,284,67,283,72,199,53"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="19,72,171,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,91,283,91,283,96,186,96"/>
-<area shape="rect" id="Node000004" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="19,139,171,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,137,283,114,284,119,186,142"/>
-</map>

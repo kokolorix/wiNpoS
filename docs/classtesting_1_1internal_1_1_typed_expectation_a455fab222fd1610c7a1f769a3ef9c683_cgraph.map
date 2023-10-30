@@ -1,9 +1,0 @@
-<map id="testing::internal::TypedExpectation::After" name="testing::internal::TypedExpectation::After">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,166,77"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_typed_expectation.html#a1084760480aaf161f9191506ab7dedee" title=" " alt="" coords="214,35,374,77"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,53,199,53,199,59,166,59"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1_expectation_set.html#ad7b8b900ef3f3e35a5d93aecd452504c" title=" " alt="" coords="437,5,594,48"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,43,421,36,422,42,374,48"/>
-<area shape="rect" id="Node000004" href="$classtesting_1_1_expectation_set.html#aac2a004529006c827e4d3420c4d4187a" title=" " alt="" coords="422,72,608,99"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="374,64,408,68,407,74,374,69"/>
-</map>

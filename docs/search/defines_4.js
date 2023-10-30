@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['win32_5flean_5fand_5fmean_0',['win32_lean_and_mean',['../wi_npo_s-_app_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_hook_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h'],['../wi_npo_s-_support_2framework_8h.html#ac7bef5d85e3dcd73eef56ad39ffc84a9',1,'WIN32_LEAN_AND_MEAN:&#160;framework.h']]],
-  ['write_5fdebug_5flog_1',['WRITE_DEBUG_LOG',['../_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_2',['WRITE_DEBUG_LOG_DETAIL',['../_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fdetail_5fduration_3',['WRITE_DEBUG_LOG_DETAIL_DURATION',['../_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16',1,'Utils.h']]],
-  ['write_5fdebug_5flog_5fduration_4',['WRITE_DEBUG_LOG_DURATION',['../_utils_8h.html#a11191e674f9190988d8d3002f487e6a5',1,'Utils.h']]]
+  ['s_0',['S',['../_utils_8h.html#a65573e68b6e92274ccad7caeed5bb365',1,'Utils.h']]],
+  ['stringize_1',['STRINGIZE',['../_utils_8h.html#a10ac188773fb50afe1826ac684d2a7ca',1,'Utils.h']]],
+  ['stringize_5fa_2',['STRINGIZE_A',['../_utils_8h.html#a32118253cfc3d7af410ff4046baff007',1,'Utils.h']]],
+  ['stringize_5fi_3',['STRINGIZE_I',['../_utils_8h.html#a53357e28276229ec4eaba3577b87c5a0',1,'Utils.h']]]
 ];

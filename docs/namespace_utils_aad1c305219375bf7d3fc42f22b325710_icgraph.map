@@ -1,14 +1,14 @@
 <map id="Utils::ShowLastError" name="Utils::ShowLastError">
 <area shape="rect" id="Node000001" title=" " alt="" coords="615,31,755,57"/>
 <area shape="rect" id="Node000002" href="$wi_npo_s-_app_8cpp.html#a14fd7ace25a44831aa57b9ac432860e0" title=" " alt="" coords="436,5,557,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="599,35,557,29,558,24,600,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="600,35,557,29,558,24,600,30"/>
 <area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#a3257690457ad75cd36bc864f91f8b9c3" title=" " alt="" coords="426,56,567,83"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="600,58,567,63,567,57,599,53"/>
-<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="303,31,378,57"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="421,34,379,41,378,35,420,28"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="600,58,567,63,567,57,600,53"/>
+<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="303,31,378,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,33,379,41,378,35,421,28"/>
 <area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="287,47,255,47,255,41,287,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,47,255,47,255,41,288,41"/>
 <area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
-<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="411,58,378,53,379,47,411,53"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="411,58,378,53,379,47,412,53"/>
 </map>

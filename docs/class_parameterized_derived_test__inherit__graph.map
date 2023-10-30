@@ -1,9 +1,0 @@
-<map id="ParameterizedDerivedTest" name="ParameterizedDerivedTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="114,171,286,197"/>
-<area shape="rect" id="Node000002" href="$class_non_parameterized_base_test.html" title=" " alt="" coords="5,88,189,115"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,122,185,168,182,172,123,126"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1_test.html" title=" " alt="" coords="50,5,144,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,47,100,88,94,88,94,47"/>
-<area shape="rect" id="Node000004" href="$classtesting_1_1_with_param_interface.html" title=" " alt="" coords="213,80,395,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="267,134,218,172,214,168,264,130"/>
-</map>

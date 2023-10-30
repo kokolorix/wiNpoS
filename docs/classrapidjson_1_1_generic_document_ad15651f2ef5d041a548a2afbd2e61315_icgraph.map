@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericDocument::ParseInsitu" name="rapidjson::GenericDocument::ParseInsitu">
-<area shape="rect" id="Node000001" title="Parse JSON text from a mutable string." alt="" coords="122,48,307,91"/>
-<area shape="rect" id="Node000002" href="$tutorial_8cpp.html#a81ce304348a420752ee080480d2b3095" title=" " alt="" coords="15,5,64,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,46,64,28,65,23,125,41"/>
-<area shape="rect" id="Node000003" href="$rapidjsontest_8cpp.html#ad9d53fcc8e563a41554c5c24b05bb885" title=" " alt="" coords="5,56,74,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,72,74,72,74,67,107,67"/>
-<area shape="rect" id="Node000004" href="$rapidjsontest_8cpp.html#a5b7af5a679f469787e24e5c639214df6" title=" " alt="" coords="5,107,74,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="125,98,75,113,73,108,124,93"/>
-</map>

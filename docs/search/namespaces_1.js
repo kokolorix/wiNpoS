@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utils_0',['Utils',['../namespace_utils.html',1,'']]]
+  ['rapidjson_0',['rapidjson',['../namespacerapidjson.html',1,'']]]
 ];

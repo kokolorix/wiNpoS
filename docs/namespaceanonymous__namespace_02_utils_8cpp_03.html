@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -115,6 +115,8 @@ Functions</h2></td></tr>
 <tr class="separator:af53c07dc6e7ee9776a7ea823490f3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d45eaaa675853b604170ad6ff0bb356" id="r_a9d45eaaa675853b604170ad6ff0bb356"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a9d45eaaa675853b604170ad6ff0bb356">initBinDir</a> ()</td></tr>
 <tr class="separator:a9d45eaaa675853b604170ad6ff0bb356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d881eb924f0a095e424954a344ffd68" id="r_a7d881eb924f0a095e424954a344ffd68"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a7d881eb924f0a095e424954a344ffd68">initVersionInfo</a> (string info)</td></tr>
+<tr class="separator:a7d881eb924f0a095e424954a344ffd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93de0f4cd5b604498deff24571ac5f85" id="r_a93de0f4cd5b604498deff24571ac5f85"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a> (_In_ HWND hwnd, _In_ LPARAM lParam)</td></tr>
 <tr class="separator:a93de0f4cd5b604498deff24571ac5f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56891ad55436366351fef991050aae78" id="r_a56891ad55436366351fef991050aae78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78">GetDesktopWnds</a> ()</td></tr>
@@ -137,7 +139,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00163">163</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00201">201</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -153,7 +155,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00114">114</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00152">152</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
 
 </div>
 </div>
@@ -184,22 +186,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00164">164</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  165</span>    {</div>
-<div class="line"><span class="lineno">  166</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>&amp; desktopNames = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
-<div class="line"><span class="lineno">  167</span>        desktopNames.push_back(<span class="keywordtype">string</span>(lpszDesktop));</div>
-<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">  169</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ae47370d940d705276a88e70d4c06087a"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">anonymous_namespace{Utils.cpp}::DesktopNameVector</a></div><div class="ttdeci">std::vector&lt; string &gt; DesktopNameVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00163">Utils.cpp:163</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00202">202</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  203</span>    {</div>
+<div class="line"><span class="lineno">  204</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>&amp; desktopNames = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">DesktopNameVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
+<div class="line"><span class="lineno">  205</span>        desktopNames.push_back(<span class="keywordtype">string</span>(lpszDesktop));</div>
+<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><span class="lineno">  207</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ae47370d940d705276a88e70d4c06087a"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ae47370d940d705276a88e70d4c06087a">anonymous_namespace{Utils.cpp}::DesktopNameVector</a></div><div class="ttdeci">std::vector&lt; string &gt; DesktopNameVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00201">Utils.cpp:201</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceanonymous__namespace_02_utils_8cpp_03_a22b1f611333509d9c72eaae66db0405e_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02_utils_8cpp_03_a22b1f611333509d9c72eaae66db0405e_icgraph" alt=""/></div>
-<map name="anamespaceanonymous__namespace_02_utils_8cpp_03_a22b1f611333509d9c72eaae66db0405e_icgraph" id="anamespaceanonymous__namespace_02_utils_8cpp_03_a22b1f611333509d9c72eaae66db0405e_icgraph">
-<area shape="rect" title=" " alt="" coords="192,5,402,48"/>
-<area shape="rect" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e" title=" " alt="" coords="5,13,144,40"/>
-<area shape="poly" title=" " alt="" coords="176,29,144,29,144,24,176,24"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceanonymous__namespace_02_utils_8cpp_03_a22b1f611333509d9c72eaae66db0405e_icgraph.svg" width="408" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -230,26 +227,17 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00115">115</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  116</span>    {</div>
-<div class="line"><span class="lineno">  117</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&amp; hWnds = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
-<div class="line"><span class="lineno">  118</span>        hWnds.push_back(hwnd);</div>
-<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">return</span> TRUE;</div>
-<div class="line"><span class="lineno">  120</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ac6e2b9676759e0fe2c0f639f27729f38"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">anonymous_namespace{Utils.cpp}::WndVector</a></div><div class="ttdeci">std::vector&lt; HWND &gt; WndVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00114">Utils.cpp:114</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00153">153</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  154</span>    {</div>
+<div class="line"><span class="lineno">  155</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&amp; hWnds = *<span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>*<span class="keyword">&gt;</span>(lParam);</div>
+<div class="line"><span class="lineno">  156</span>        hWnds.push_back(hwnd);</div>
+<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">return</span> TRUE;</div>
+<div class="line"><span class="lineno">  158</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_ac6e2b9676759e0fe2c0f639f27729f38"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">anonymous_namespace{Utils.cpp}::WndVector</a></div><div class="ttdeci">std::vector&lt; HWND &gt; WndVector</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00152">Utils.cpp:152</a></div></div>
 </div><!-- fragment --><div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceanonymous__namespace_02_utils_8cpp_03_a93de0f4cd5b604498deff24571ac5f85_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02_utils_8cpp_03_a93de0f4cd5b604498deff24571ac5f85_icgraph" alt=""/></div>
-<map name="anamespaceanonymous__namespace_02_utils_8cpp_03_a93de0f4cd5b604498deff24571ac5f85_icgraph" id="anamespaceanonymous__namespace_02_utils_8cpp_03_a93de0f4cd5b604498deff24571ac5f85_icgraph">
-<area shape="rect" title=" " alt="" coords="428,35,634,77"/>
-<area shape="rect" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78" title=" " alt="" coords="185,5,380,48"/>
-<area shape="poly" title=" " alt="" coords="412,45,380,41,381,36,413,39"/>
-<area shape="rect" href="namespace_utils.html#aefbf8eb72aa82ae8ad287e32d201133e" title=" " alt="" coords="213,72,352,99"/>
-<area shape="poly" title=" " alt="" coords="413,73,352,80,352,75,412,67"/>
-<area shape="rect" href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68" title=" " alt="" coords="5,13,137,40"/>
-<area shape="poly" title=" " alt="" coords="170,29,137,29,137,24,170,24"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceanonymous__namespace_02_utils_8cpp_03_a93de0f4cd5b604498deff24571ac5f85_icgraph.svg" width="640" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -269,38 +257,28 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00122">122</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>    {</div>
-<div class="line"><span class="lineno">  124</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> hWnds;</div>
-<div class="line"><span class="lineno">  125</span>        <span class="keyword">auto</span> threadId = GetCurrentThreadId();</div>
-<div class="line"><span class="lineno">  126</span>        <span class="keyword">auto</span> hDesktop = GetThreadDesktop(threadId);</div>
-<div class="line"><span class="lineno">  127</span> </div>
-<div class="line"><span class="lineno">  128</span>        <span class="keyword">auto</span> res = EnumDesktopWindows(hDesktop, <a class="code hl_function" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a>, (LPARAM)&amp;hWnds);</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">return</span> hWnds;   <span class="comment">//EnumDesktopWindows()</span></div>
-<div class="line"><span class="lineno">  131</span>    }</div>
-<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_a93de0f4cd5b604498deff24571ac5f85"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a></div><div class="ttdeci">BOOL CALLBACK EnumWindowsProc(_In_ HWND hwnd, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00115">Utils.cpp:115</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00160">160</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  161</span>    {</div>
+<div class="line"><span class="lineno">  162</span>        <a class="code hl_typedef" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a> hWnds;</div>
+<div class="line"><span class="lineno">  163</span>        <span class="keyword">auto</span> threadId = GetCurrentThreadId();</div>
+<div class="line"><span class="lineno">  164</span>        <span class="keyword">auto</span> hDesktop = GetThreadDesktop(threadId);</div>
+<div class="line"><span class="lineno">  165</span> </div>
+<div class="line"><span class="lineno">  166</span>        <span class="keyword">auto</span> res = EnumDesktopWindows(hDesktop, <a class="code hl_function" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">EnumWindowsProc</a>, (LPARAM)&amp;hWnds);</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span> hWnds;   <span class="comment">//EnumDesktopWindows()</span></div>
+<div class="line"><span class="lineno">  169</span>    }</div>
+<div class="ttc" id="anamespaceanonymous__namespace_02_utils_8cpp_03_html_a93de0f4cd5b604498deff24571ac5f85"><div class="ttname"><a href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a></div><div class="ttdeci">BOOL CALLBACK EnumWindowsProc(_In_ HWND hwnd, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00153">Utils.cpp:153</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00115">EnumWindowsProc()</a>.</p>
+<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00153">EnumWindowsProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_cgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_cgraph" alt=""/></div>
-<map name="anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_cgraph" id="anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,201,48"/>
-<area shape="rect" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85" title=" " alt="" coords="249,5,455,48"/>
-<area shape="poly" title=" " alt="" coords="201,24,233,24,233,29,201,29"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_cgraph.svg" width="460" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="namespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_icgraph.png" border="0" usemap="#anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_icgraph" alt=""/></div>
-<map name="anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_icgraph" id="anamespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_icgraph">
-<area shape="rect" title=" " alt="" coords="185,5,380,48"/>
-<area shape="rect" href="namespace_utils.html#ab14703b5ec22bc4ca2de4f2372ad8f68" title=" " alt="" coords="5,13,137,40"/>
-<area shape="poly" title=" " alt="" coords="170,29,137,29,137,24,170,24"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespaceanonymous__namespace_02_utils_8cpp_03_a56891ad55436366351fef991050aae78_icgraph.svg" width="386" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -320,13 +298,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00052">52</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   53</span>    {</div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
-<div class="line"><span class="lineno">   55</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
-<div class="line"><span class="lineno">   56</span>        PathRemoveFileSpecA(buffer);</div>
-<div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> buffer;</div>
-<div class="line"><span class="lineno">   58</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00056">56</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>    {</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">   59</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   60</span>        PathRemoveFileSpecA(buffer);</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><span class="lineno">   62</span>    }</div>
 <div class="ttc" id="a_utils_8cpp_html_a74029128723095e7bf00a71d46af8b24"><div class="ttname"><a href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a></div><div class="ttdeci">HINSTANCE hInstance</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_app_8cpp_source.html#l00023">wiNpoS-App.cpp:23</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">hInstance</a>.</p>
@@ -348,13 +326,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00045">45</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>    {</div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
-<div class="line"><span class="lineno">   48</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordtype">string</span>  exeName = PathFindFileNameA(buffer);</div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> exeName;</div>
-<div class="line"><span class="lineno">   51</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00049">49</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">   52</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordtype">string</span>  exeName = PathFindFileNameA(buffer);</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> exeName;</div>
+<div class="line"><span class="lineno">   55</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -373,28 +351,75 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00023">23</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>    {</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
-<div class="line"><span class="lineno">   26</span><span class="preprocessor">#ifdef _USRDLL</span></div>
-<div class="line"><span class="lineno">   27</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
-<div class="line"><span class="lineno">   28</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">   29</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
-<div class="line"><span class="lineno">   30</span><span class="preprocessor">#endif </span><span class="comment">// _USRDLL</span></div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordtype">string</span> moduleName = PathFindFileNameA(buffer);</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>        <span class="keywordtype">char</span> logPath[MAX_PATH];</div>
-<div class="line"><span class="lineno">   36</span>        ExpandEnvironmentStringsA(format(R<span class="stringliteral">&quot;(%APPDATA%\wiNpoS\{}-debug1.log)&quot;, moduleName).c_str(), logPath, MAX_PATH);</span></div>
-<div class="line"><span class="lineno">   37</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">   38</span><span class="stringliteral">        ofstream fs(logPath);</span></div>
-<div class="line"><span class="lineno">   39</span><span class="stringliteral">        fs &lt;&lt; </span><span class="stringliteral">&quot;Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> logPath;</div>
-<div class="line"><span class="lineno">   42</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00027">27</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>    {</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordtype">char</span> buffer[MAX_PATH] = { 0 };</div>
+<div class="line"><span class="lineno">   30</span><span class="preprocessor">#ifdef _USRDLL</span></div>
+<div class="line"><span class="lineno">   31</span>        GetModuleFileNameA(<a class="code hl_variable" href="_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24">hInstance</a>, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   32</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">   33</span>        GetModuleFileNameA(NULL, buffer, MAX_PATH);</div>
+<div class="line"><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// _USRDLL</span></div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordtype">string</span> moduleName = PathFindFileNameA(buffer);</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordtype">char</span> logPath[MAX_PATH];</div>
+<div class="line"><span class="lineno">   40</span>        ExpandEnvironmentStringsA(format(R<span class="stringliteral">&quot;(%APPDATA%\wiNpoS\{}-debug1.log)&quot;, moduleName).c_str(), logPath, MAX_PATH);</span></div>
+<div class="line"><span class="lineno">   41</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">   42</span><span class="stringliteral">        ofstream fs(logPath);</span></div>
+<div class="line"><span class="lineno">   43</span><span class="stringliteral">        fs &lt;&lt; </span><span class="stringliteral">&quot;Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> logPath;</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">hInstance</a>.</p>
+
+</div>
+</div>
+<a id="a7d881eb924f0a095e424954a344ffd68" name="a7d881eb924f0a095e424954a344ffd68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d881eb924f0a095e424954a344ffd68">&#9670;&#160;</a></span>initVersionInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string anonymous_namespace{Utils.cpp}::initVersionInfo </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>info</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get file infos from version resources Possible Values from infop are: Comments InternalName ProductName CompanyName LegalCopyright ProductVersion FileDescription LegalTrademarks PrivateBuild FileVersion OriginalFilename SpecialBuild </p>
+
+<p class="definition">Definition at line <a class="el" href="_utils_8cpp_source.html#l00071">71</a> of file <a class="el" href="_utils_8cpp_source.html">Utils.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>    {</div>
+<div class="line"><span class="lineno">   73</span>        DWORD laenge = 0;</div>
+<div class="line"><span class="lineno">   74</span>        laenge = GetFileVersionInfoSizeA(<a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>.c_str(), &amp;laenge);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">if</span> (laenge &gt; 0)</div>
+<div class="line"><span class="lineno">   77</span>        {</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keyword">auto</span> buf = std::make_unique&lt;char[]&gt;(laenge);</div>
+<div class="line"><span class="lineno">   79</span>            GetFileVersionInfoA(<a class="code hl_variable" href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a>.c_str(), 0, laenge, buf.get());</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>            <span class="keyword">struct </span>LANGANDCODEPAGE {</div>
+<div class="line"><span class="lineno">   82</span>                WORD wLanguage;</div>
+<div class="line"><span class="lineno">   83</span>                WORD wCodePage;</div>
+<div class="line"><span class="lineno">   84</span>            } *lpTranslate;</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>            UINT len;</div>
+<div class="line"><span class="lineno">   87</span>            VerQueryValueA(buf.get(), R<span class="stringliteral">&quot;(\VarFileInfo\Translation)&quot;, </span><span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;lpTranslate), &amp;len);</div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordtype">string</span> subblock = dformat(R<span class="stringliteral">&quot;(\StringFileInfo\{:04x}{:04x}\{})&quot;, lpTranslate[0].wLanguage, lpTranslate[0].wCodePage, info);</span></div>
+<div class="line"><span class="lineno">   89</span><span class="stringliteral">            </span><span class="keywordtype">char</span>* value;</div>
+<div class="line"><span class="lineno">   90</span>            <span class="keywordflow">if</span> (VerQueryValueA(buf.get(), subblock.c_str(), <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>**<span class="keyword">&gt;</span>(&amp;value), &amp;len))</div>
+<div class="line"><span class="lineno">   91</span>                <span class="keywordflow">return</span> value;</div>
+<div class="line"><span class="lineno">   92</span>        }</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><span class="lineno">   94</span>    }</div>
+<div class="ttc" id="anamespace_utils_html_a15790a9bc9887c45b6728c6b8ef150ae"><div class="ttname"><a href="namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae">Utils::ExeName</a></div><div class="ttdeci">string ExeName</div><div class="ttdef"><b>Definition</b> <a href="_utils_8cpp_source.html#l00107">Utils.cpp:107</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="_utils_8cpp_source.html#l00107">Utils::ExeName</a>.</p>
 
 </div>
 </div>

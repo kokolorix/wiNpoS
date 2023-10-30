@@ -1,9 +1,0 @@
-<map id="testing::internal::EachMatcherImpl&lt; Container &gt;" name="testing::internal::EachMatcherImpl&lt; Container &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,293,207,336"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1_quantifier_matcher_impl.html" title=" " alt="" coords="32,187,180,245"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,260,109,293,103,293,103,260"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1_matcher_interface.html" title=" " alt="" coords="24,96,188,139"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,153,109,186,103,186,103,153"/>
-<area shape="rect" id="Node000004" href="$classtesting_1_1_matcher_describer_interface.html" title=" " alt="" coords="21,5,191,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="109,63,109,96,103,96,103,63"/>
-</map>

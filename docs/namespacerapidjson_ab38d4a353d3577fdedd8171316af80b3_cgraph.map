@@ -1,8 +1,0 @@
-<map id="rapidjson::PutReserve" name="rapidjson::PutReserve">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,59,153,85"/>
-<area shape="rect" id="Node000002" href="$namespacerapidjson.html#a820f77efccfbb749bd15fe4822d2c740" title="Reserve n characters for writing to a stream." alt="" coords="207,29,355,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,59,192,53,193,58,153,64"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_string_buffer.html#ae70a632053e258c7c431e0e35b095c84" title=" " alt="" coords="201,80,361,123"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="153,80,186,85,185,90,152,85"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="247,30,240,21,245,11,258,5,281,3,306,6,319,13,316,17,304,11,281,8,260,10,248,15,246,20,251,27"/>
-</map>

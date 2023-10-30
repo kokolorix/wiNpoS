@@ -1,0 +1,19 @@
+<map id="HooksCfg::writeConfigDocument" name="HooksCfg::writeConfigDocument">
+<area shape="rect" id="Node000001" title="save the JSON document to the given path" alt="" coords="893,31,1100,57"/>
+<area shape="rect" id="Node000002" href="$class_hooks_cfg.html#a985dd80af3b2ced9ffb520fb7e79a122" title="save the config for this app" alt="" coords="303,5,474,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="878,42,474,25,475,20,878,36"/>
+<area shape="rect" id="Node000004" href="$class_hooks_cfg.html#ac448d3ff024be030d38bafcb0e841a60" title="save global config for all apps" alt="" coords="697,56,845,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="879,60,846,64,845,58,878,55"/>
+<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,29,87,44,87,38,288,23"/>
+<area shape="rect" id="Node000005" href="$class_hooks_cfg.html#a22af3c96dcf5d97e276a10872e212cd3" title="stores disabled in config" alt="" coords="522,56,649,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="682,72,649,72,649,67,682,67"/>
+<area shape="rect" id="Node000008" href="$class_hooks_cfg.html#a6b7aaaea554488711f35909aac7a9dba" title="remove disabled from config" alt="" coords="524,107,647,133"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="706,90,638,109,636,103,705,85"/>
+<area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="351,56,426,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="508,72,427,72,427,67,508,67"/>
+<area shape="rect" id="Node000007" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,56,255,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="336,72,255,72,255,67,336,67"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="119,59,87,54,88,48,120,54"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="516,105,426,82,427,76,517,100"/>
+</map>

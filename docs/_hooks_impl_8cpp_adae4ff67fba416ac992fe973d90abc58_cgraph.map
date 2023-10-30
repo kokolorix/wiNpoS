@@ -1,5 +1,21 @@
 <map id="CallWndProc" name="CallWndProc">
-<area shape="rect" id="Node000001" title="the exported hook for the main window procedure" alt="" coords="5,5,103,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="151,5,315,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,16,135,16,135,21,103,21"/>
+<area shape="rect" id="Node000001" title="the exported hook for the main window procedure" alt="" coords="5,97,103,124"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="151,72,315,99"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,101,135,96,136,102,103,106"/>
+<area shape="rect" id="Node000006" href="$class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913" title="check if someone has disabled stored in config" alt="" coords="160,123,306,149"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="103,115,146,121,145,126,103,120"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="363,72,587,99"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="316,83,348,83,348,88,316,88"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#a8ef5405a747979c1f5197848e4a8e684" title=" " alt="" coords="651,5,825,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="538,69,636,47,637,52,539,74"/>
+<area shape="rect" id="Node000005" href="$class_hooks_impl.html#a7a48621aa5b57024ae963b861fd508cb" title=" " alt="" coords="656,72,820,99"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="588,83,641,83,641,88,588,88"/>
+<area shape="rect" id="Node000007" href="$class_hooks_cfg.html#a9642afc6c6fe88141770403a09cdfc4b" title="read the global config for all apps" alt="" coords="402,123,548,149"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="306,133,387,133,387,139,306,139"/>
+<area shape="rect" id="Node000008" href="$class_hooks_cfg.html#a808e4e4a7bc43b89c87ef172fa8caf6a" title="the path to the global config, for all apps" alt="" coords="655,123,821,149"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="549,133,640,133,640,139,549,139"/>
+<area shape="rect" id="Node000010" href="$class_hooks_cfg.html#ab8fd861156e6b389e43bbda021f42c50" title="read a JSON config from given path" alt="" coords="635,173,841,200"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="549,147,652,167,651,173,548,153"/>
+<area shape="rect" id="Node000009" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="889,123,1044,149"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="821,133,874,133,874,139,821,139"/>
 </map>

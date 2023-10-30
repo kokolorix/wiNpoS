@@ -1,6 +1,0 @@
-<map id="TEST" name="TEST">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,37,59,64"/>
-<area shape="rect" id="Node000002" href="$namespacerapidjson_1_1internal.html#a38324bed779bdf6a285676fc7d4f73b0" title=" " alt="" coords="107,29,230,72"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,48,92,48,92,53,59,53"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="141,29,140,19,145,11,154,5,168,3,184,5,193,12,190,16,182,10,168,8,156,10,149,14,146,20,147,28"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="rapidjson::MemoryPoolAllocator::Malloc" name="rapidjson::MemoryPoolAllocator::Malloc">
-<area shape="rect" id="Node000001" title="Allocates a memory block. (concept Allocator)" alt="" coords="107,23,312,65"/>
-<area shape="rect" id="Node000002" href="$allocatorstest_8cpp.html#a6c62971a03e9b1a19a8af8aff9dc5ab6" title=" " alt="" coords="5,5,59,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,30,59,25,59,20,93,25"/>
-<area shape="rect" id="Node000003" href="$allocatorstest_8cpp.html#ad5345031f496e39463414822249c6480" title=" " alt="" coords="5,56,59,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="93,63,59,68,59,63,92,58"/>
-</map>

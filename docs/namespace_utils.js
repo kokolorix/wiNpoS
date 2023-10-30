@@ -25,5 +25,7 @@ var namespace_utils =
     [ "toLowerCase", "namespace_utils.html#a7e696129ddd52ce1360b387efd2decfd", null ],
     [ "WriteDebugLog", "namespace_utils.html#abdc36608727de989652b34f84852737c", null ],
     [ "BinDir", "namespace_utils.html#a3102a2f3f02edf6de04d8324aee842e9", null ],
-    [ "ExeName", "namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae", null ]
+    [ "ExeName", "namespace_utils.html#a15790a9bc9887c45b6728c6b8ef150ae", null ],
+    [ "ProductName", "namespace_utils.html#ae8e370e98ad0e045f1eb07bab655006a", null ],
+    [ "ProductVersion", "namespace_utils.html#af521c3828d9903beb908696c24f84688", null ]
 ];

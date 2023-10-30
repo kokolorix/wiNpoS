@@ -1,7 +1,0 @@
-<map id="Canvas" name="Canvas">
-<area shape="rect" id="Node000001" title=" " alt="" coords="49,187,113,213"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,157,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,138,84,186,78,186,78,138"/>
-<area shape="rect" id="Node000003" href="$class_shape.html" title=" " alt="" coords="52,5,110,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,47,84,95,78,95,78,47"/>
-</map>

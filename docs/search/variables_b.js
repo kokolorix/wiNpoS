@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rect_0',['Rect',['../class_config.html#ad7a98f3ab6370e1028f967c96b5d27b3',1,'Config']]]
+  ['rect_0',['Rect',['../class_hooks_cfg.html#ad95f8c49b7964407dd18ff5eb51b9e55',1,'HooksCfg']]]
 ];

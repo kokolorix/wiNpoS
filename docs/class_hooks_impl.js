@@ -16,7 +16,7 @@ var class_hooks_impl =
     [ "hasCaptionDblClicked", "class_hooks_impl.html#a8ef5405a747979c1f5197848e4a8e684", null ],
     [ "hasLastRect", "class_hooks_impl.html#a7a48621aa5b57024ae963b861fd508cb", null ],
     [ "onCaptionClick", "class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5", null ],
-    [ "onClosePosWnd", "class_hooks_impl.html#aac5c36e6987b75db9ec6f06bae9b27e9", null ],
+    [ "onClosePosWnd", "class_hooks_impl.html#a924c5db32f07636c8acbc9421c216112", null ],
     [ "onIncrementWindow", "class_hooks_impl.html#a84c9a5c6b0754e092de2ee6a8b8bba1e", null ],
     [ "onLButtonUp", "class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde", null ],
     [ "onNcLButtonDblClick", "class_hooks_impl.html#afe7a8e2c13ab2abe83b4f3d0c462e761", null ],

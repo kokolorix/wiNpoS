@@ -1,9 +1,0 @@
-<map id="testing::TestWithParam&lt; T &gt;" name="testing::TestWithParam&lt; T &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="133,204,322,231"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1_test.html" title=" " alt="" coords="49,128,142,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,160,206,201,204,206,129,164"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="5,5,186,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="98,79,98,128,93,128,93,79"/>
-<area shape="rect" id="Node000004" href="$classtesting_1_1_with_param_interface.html" title=" " alt="" coords="166,128,380,155"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="260,168,237,205,233,202,256,166"/>
-</map>

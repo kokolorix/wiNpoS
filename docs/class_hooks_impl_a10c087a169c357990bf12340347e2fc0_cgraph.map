@@ -1,5 +1,9 @@
 <map id="HooksImpl::callWndProc" name="HooksImpl::callWndProc">
-<area shape="rect" id="Node000001" title="here we follow the main message loop of the application" alt="" coords="5,5,170,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="218,5,442,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,16,203,16,203,21,170,21"/>
+<area shape="rect" id="Node000001" title="here we follow the main message loop of the application" alt="" coords="5,43,170,69"/>
+<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a1022c4a7b4012228b83b0b89ee790f89" title="here we react to position changes of the main window" alt="" coords="218,43,442,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,53,203,53,203,59,170,59"/>
+<area shape="rect" id="Node000003" href="$class_hooks_impl.html#a8ef5405a747979c1f5197848e4a8e684" title=" " alt="" coords="490,5,664,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="442,40,475,36,475,41,443,45"/>
+<area shape="rect" id="Node000004" href="$class_hooks_impl.html#a7a48621aa5b57024ae963b861fd508cb" title=" " alt="" coords="496,72,659,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="443,67,481,71,480,77,442,72"/>
 </map>

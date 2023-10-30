@@ -1,7 +1,10 @@
 var wi_npo_s__app_2resource_8h =
 [
+    [ "ID_TRAYMENU_DISABLE", "wi_npo_s-_app_2resource_8h.html#ac41bba52d331df7fd833e029a90e669d", null ],
     [ "IDC_MYICON", "wi_npo_s-_app_2resource_8h.html#abb326bd165140b31acf04b893ef655ca", null ],
     [ "IDC_STATIC", "wi_npo_s-_app_2resource_8h.html#ac93033490bc8943cfc82ec3b40e5cd74", null ],
+    [ "IDC_STATIC_COPYRIGHT", "wi_npo_s-_app_2resource_8h.html#a32f0dfacad10ffe654cc6c5875b6bb98", null ],
+    [ "IDC_STATIC_VERSION", "wi_npo_s-_app_2resource_8h.html#ad4cfd6eec24f48e88da4c63a22df0190", null ],
     [ "IDC_WINPOSAPP", "wi_npo_s-_app_2resource_8h.html#add8ec82d095d3928503572c9896754cc", null ],
     [ "IDD_ABOUTBOX", "wi_npo_s-_app_2resource_8h.html#a77a06326b569136edbb6c766bc98c33c", null ],
     [ "IDD_WINPOSAPP_DIALOG", "wi_npo_s-_app_2resource_8h.html#a487566d9d6b784c0e4744d26b8b5fbc9", null ],
@@ -23,6 +26,8 @@ var wi_npo_s__app_2resource_8h =
     [ "IDM_FILE_SEND_UNLOAD", "wi_npo_s-_app_2resource_8h.html#af812dd1556602fb3a684a3b5ceee11ec", null ],
     [ "IDM_FILE_UNINSTALL", "wi_npo_s-_app_2resource_8h.html#a9d416e3e80d189e388fd5407ed16c097", null ],
     [ "IDM_START_32_64_BIT", "wi_npo_s-_app_2resource_8h.html#adfb017d5dea0033f45e9d1cea7aedb1c", null ],
+    [ "IDM_TRAYMENU_DISABLE", "wi_npo_s-_app_2resource_8h.html#aa4a0cc57a0a3d95c77826aab932d6c50", null ],
+    [ "IDM_TRAYMENU_ENABLE", "wi_npo_s-_app_2resource_8h.html#a0e14152a32953f79deed69a5efe609a1", null ],
     [ "IDM_TRAYMENU_EXIT", "wi_npo_s-_app_2resource_8h.html#aa4def06c26969ae340b3b5ff559d156a", null ],
     [ "IDR_ACCELERATOR1", "wi_npo_s-_app_2resource_8h.html#acc152ca0c70c0429c11b604f4eace390", null ],
     [ "IDR_MAINFRAME", "wi_npo_s-_app_2resource_8h.html#a9772c84d39896ad00b9aeb34b15d324d", null ],

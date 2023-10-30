@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -98,8 +98,10 @@ $(document).ready(function(){initNavTree('_hooks_impl_8cpp.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="wi_npo_s-_hook_2pch_8h_source.html">pch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_debug_new_8h_source.html">DebugNew.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_hooks_impl_8h_source.html">HooksImpl.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_hooks_cfg_8h_source.html">HooksCfg.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_task_toolbar_8h_source.html">TaskToolbar.h</a>&quot;</code><br />
 <code>#include &lt;Shlwapi.h&gt;</code><br />
@@ -110,60 +112,7 @@ $(document).ready(function(){initNavTree('_hooks_impl_8cpp.html',''); initResiza
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for HooksImpl.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp__incl.png" border="0" usemap="#awi_npo_s-_hook_2_hooks_impl_8cpp" alt=""/></div>
-<map name="awi_npo_s-_hook_2_hooks_impl_8cpp" id="awi_npo_s-_hook_2_hooks_impl_8cpp">
-<area shape="rect" title=" " alt="" coords="658,5,847,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2pch_8h.html" title=" " alt="" coords="226,80,279,107"/>
-<area shape="poly" title=" " alt="" coords="658,33,492,53,304,83,295,84,294,79,303,77,491,48,657,27"/>
-<area shape="rect" href="_hooks_impl_8h.html" title=" " alt="" coords="315,80,409,107"/>
-<area shape="poly" title=" " alt="" coords="685,35,424,83,423,78,684,30"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="413,304,471,331"/>
-<area shape="poly" title=" " alt="" coords="658,26,622,32,585,43,550,59,520,82,500,105,484,131,461,188,450,244,445,289,440,288,445,243,456,186,479,128,496,101,516,78,548,55,583,38,621,27,657,21"/>
-<area shape="rect" href="_hooks_mgr_8h.html" title=" " alt="" coords="530,80,621,107"/>
-<area shape="poly" title=" " alt="" coords="723,35,621,76,619,71,721,30"/>
-<area shape="rect" href="_task_toolbar_8h.html" title=" " alt="" coords="646,80,748,107"/>
-<area shape="poly" title=" " alt="" coords="745,34,718,69,713,66,741,31"/>
-<area shape="rect" title=" " alt="" coords="771,80,849,107"/>
-<area shape="poly" title=" " alt="" coords="765,31,793,66,789,69,761,34"/>
-<area shape="rect" title=" " alt="" coords="873,80,961,107"/>
-<area shape="poly" title=" " alt="" coords="782,30,875,71,873,76,780,35"/>
-<area shape="rect" href="wi_npo_s-_hook_2resource_8h.html" title=" " alt="" coords="985,80,1067,107"/>
-<area shape="poly" title=" " alt="" coords="801,30,970,75,969,80,800,35"/>
-<area shape="rect" title=" " alt="" coords="1092,80,1160,107"/>
-<area shape="poly" title=" " alt="" coords="831,30,1077,77,1076,82,830,35"/>
-<area shape="rect" title=" " alt="" coords="1185,80,1238,107"/>
-<area shape="poly" title=" " alt="" coords="848,27,996,45,1170,77,1169,82,995,51,847,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2framework_8h.html" title=" " alt="" coords="75,155,166,181"/>
-<area shape="poly" title=" " alt="" coords="231,110,158,149,155,145,228,105"/>
-<area shape="rect" title=" " alt="" coords="5,229,87,256"/>
-<area shape="poly" title=" " alt="" coords="110,184,71,221,68,217,106,180"/>
-<area shape="rect" href="_win_pos_wnd_8h.html" title=" " alt="" coords="219,155,324,181"/>
-<area shape="poly" title=" " alt="" coords="348,109,300,147,297,143,345,105"/>
-<area shape="rect" title=" " alt="" coords="163,304,236,331"/>
-<area shape="poly" title=" " alt="" coords="268,183,215,291,210,289,263,181"/>
-<area shape="rect" title=" " alt="" coords="260,304,307,331"/>
-<area shape="poly" title=" " alt="" coords="267,183,255,216,252,236,254,255,269,289,264,292,249,257,247,236,250,215,262,181"/>
-<area shape="rect" title=" " alt="" coords="202,379,258,405"/>
-<area shape="poly" title=" " alt="" coords="256,184,201,232,173,266,152,305,149,317,152,329,169,351,191,368,187,372,165,355,148,332,144,318,148,303,169,263,197,229,252,180"/>
-<area shape="poly" title=" " alt="" coords="325,177,374,195,398,209,419,228,435,257,443,288,438,289,430,259,415,231,395,214,372,200,323,182"/>
-<area shape="rect" href="_win_pos_wnd_config_8h.html" title=" " alt="" coords="263,229,405,256"/>
-<area shape="poly" title=" " alt="" coords="284,180,315,216,311,219,280,184"/>
-<area shape="poly" title=" " alt="" coords="413,331,273,379,272,374,412,326"/>
-<area shape="rect" title=" " alt="" coords="654,379,707,405"/>
-<area shape="poly" title=" " alt="" coords="472,325,640,375,639,380,471,330"/>
-<area shape="rect" title=" " alt="" coords="281,379,342,405"/>
-<area shape="poly" title=" " alt="" coords="421,334,349,373,346,368,418,329"/>
-<area shape="rect" title=" " alt="" coords="365,379,423,405"/>
-<area shape="poly" title=" " alt="" coords="436,333,413,367,408,364,431,330"/>
-<area shape="rect" title=" " alt="" coords="447,379,531,405"/>
-<area shape="poly" title=" " alt="" coords="452,330,475,364,470,367,448,333"/>
-<area shape="rect" title=" " alt="" coords="556,379,630,405"/>
-<area shape="poly" title=" " alt="" coords="469,329,554,369,552,374,467,334"/>
-<area shape="poly" title=" " alt="" coords="312,259,238,299,235,294,309,254"/>
-<area shape="poly" title=" " alt="" coords="327,258,303,293,298,290,323,255"/>
-<area shape="poly" title=" " alt="" coords="337,256,335,292,329,313,320,332,299,356,273,374,270,369,295,352,316,329,324,311,329,291,332,256"/>
-<area shape="poly" title=" " alt="" coords="354,254,412,293,409,297,351,259"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp__incl.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_hooks_impl_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -171,6 +120,10 @@ Include dependency graph for HooksImpl.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceanonymous__namespace_02_hooks_impl_8cpp_03" id="r_namespaceanonymous__namespace_02_hooks_impl_8cpp_03"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html">anonymous_namespace{HooksImpl.cpp}</a></td></tr>
+<tr class="memdesc:namespaceanonymous__namespace_02_hooks_impl_8cpp_03"><td class="mdescLeft">&#160;</td><td class="mdescRight"><blockquote class="doxtable">
+<p>&zwj;the hooks config </p>
+</blockquote>
+<br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -191,10 +144,12 @@ Variables</h2></td></tr>
 <tr class="separator:a74029128723095e7bf00a71d46af8b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f85e3a35a03a77f565aade3e25eaf10" id="r_a5f85e3a35a03a77f565aade3e25eaf10"><td class="memItemLeft" align="right" valign="top">thread_local HRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#a5f85e3a35a03a77f565aade3e25eaf10">coInit</a></td></tr>
 <tr class="separator:a5f85e3a35a03a77f565aade3e25eaf10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1e6ba86f8b0c7d17051b33a3df80e74" id="r_ad1e6ba86f8b0c7d17051b33a3df80e74"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_task_toolbar.html">TaskToolbar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#ad1e6ba86f8b0c7d17051b33a3df80e74">thumbnailToolbar</a></td></tr>
-<tr class="separator:ad1e6ba86f8b0c7d17051b33a3df80e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e1293c07883fb4c0726fc7b7d11fe6" id="r_ae3e1293c07883fb4c0726fc7b7d11fe6"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_hooks_impl.html">HooksImpl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#ae3e1293c07883fb4c0726fc7b7d11fe6">hooks</a></td></tr>
-<tr class="separator:ae3e1293c07883fb4c0726fc7b7d11fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60dd1f991e064e4de77c6a2ce3119bc3" id="r_a60dd1f991e064e4de77c6a2ce3119bc3"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_task_toolbar.html">TaskToolbar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#a60dd1f991e064e4de77c6a2ce3119bc3">_thumbnailToolbar</a></td></tr>
+<tr class="separator:a60dd1f991e064e4de77c6a2ce3119bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b9e708bd2f83eafd7f3b5bd6d002d02" id="r_a8b9e708bd2f83eafd7f3b5bd6d002d02"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="class_hooks_impl.html">HooksImpl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#a8b9e708bd2f83eafd7f3b5bd6d002d02">_hooks</a></td></tr>
+<tr class="separator:a8b9e708bd2f83eafd7f3b5bd6d002d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba5f1c2148a940df3f64ebbd52530c7a" id="r_aba5f1c2148a940df3f64ebbd52530c7a"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="_hooks_cfg_8h.html#a7e4473108378d8e3b8b99bb7025707a0">HooksCfgPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a> = std::make_unique&lt;<a class="el" href="class_hooks_cfg.html">HooksCfg</a>&gt;()</td></tr>
+<tr class="separator:aba5f1c2148a940df3f64ebbd52530c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa191373eb043adc279b4fdc21058bb8a" id="r_aa191373eb043adc279b4fdc21058bb8a"><td class="memItemLeft" align="right" valign="top">const UINT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_hooks_impl_8cpp_03.html#aa191373eb043adc279b4fdc21058bb8a">anonymous_namespace{HooksImpl.cpp}::TI_LBUTTONUP</a> = 0x40</td></tr>
 <tr class="memdesc:aa191373eb043adc279b4fdc21058bb8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID from close timer.  <br /></td></tr>
 <tr class="separator:aa191373eb043adc279b4fdc21058bb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,42 +200,26 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00045">45</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   48</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_a10c087a169c357990bf12340347e2fc0"><div class="ttname"><a href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a></div><div class="ttdeci">static LRESULT CALLBACK callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here we follow the main message loop of the application</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00084">HooksImpl.cpp:84</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00051">51</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a>-&gt;<a class="code hl_function" href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">isDisabled</a>())</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="a_hooks_impl_8cpp_html_aba5f1c2148a940df3f64ebbd52530c7a"><div class="ttname"><a href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a></div><div class="ttdeci">thread_local HooksCfgPtr _hooksCfg</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00019">HooksImpl.cpp:19</a></div></div>
+<div class="ttc" id="aclass_hooks_cfg_html_ab994ae67a05ce4decf5b7af5314eb913"><div class="ttname"><a href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">HooksCfg::isDisabled</a></div><div class="ttdeci">bool isDisabled()</div><div class="ttdoc">check if someone has disabled stored in config</div><div class="ttdef"><b>Definition</b> <a href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg.cpp:203</a></div></div>
+<div class="ttc" id="aclass_hooks_impl_html_a10c087a169c357990bf12340347e2fc0"><div class="ttname"><a href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0">HooksImpl::callWndProc</a></div><div class="ttdeci">static LRESULT CALLBACK callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here we follow the main message loop of the application</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00093">HooksImpl.cpp:93</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00084">HooksImpl::callWndProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00019">_hooksCfg</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00093">HooksImpl::callWndProc()</a>, and <a class="el" href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg::isDisabled()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph.png" border="0" usemap="#a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph" id="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph">
-<area shape="rect" title="the exported hook for the main window procedure" alt="" coords="5,5,103,32"/>
-<area shape="rect" href="class_hooks_impl.html#a10c087a169c357990bf12340347e2fc0" title="here we follow the main message loop of the application" alt="" coords="151,5,315,32"/>
-<area shape="poly" title=" " alt="" coords="103,16,135,16,135,21,103,21"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_cgraph.svg" width="100%" height="454"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph.png" border="0" usemap="#a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph" id="a_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph">
-<area shape="rect" title="the exported hook for the main window procedure" alt="" coords="667,31,764,57"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,5,608,32"/>
-<area shape="poly" title=" " alt="" coords="651,37,608,31,609,25,652,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,56,619,83"/>
-<area shape="poly" title=" " alt="" coords="652,56,619,61,619,56,651,51"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="328,5,403,32"/>
-<area shape="poly" title=" " alt="" coords="470,21,403,21,403,16,470,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="312,21,255,21,255,16,312,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,56,427,83"/>
-<area shape="poly" title=" " alt="" coords="460,72,428,72,428,67,460,67"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_adae4ff67fba416ac992fe973d90abc58_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -328,47 +267,24 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00056">56</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_a07053e18c49265e300fe89b2a5bc28de"><div class="ttname"><a href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a></div><div class="ttdeci">static LRESULT CALLBACK getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here the Windows messages are picked up, which do not appear in the main message loop</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00120">HooksImpl.cpp:120</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00064">64</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a>-&gt;<a class="code hl_function" href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">isDisabled</a>())</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   69</span>}</div>
+<div class="ttc" id="aclass_hooks_impl_html_a07053e18c49265e300fe89b2a5bc28de"><div class="ttname"><a href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de">HooksImpl::getMsgProc</a></div><div class="ttdeci">static LRESULT CALLBACK getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdoc">here the Windows messages are picked up, which do not appear in the main message loop</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00129">HooksImpl.cpp:129</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00120">HooksImpl::getMsgProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00019">_hooksCfg</a>, <a class="el" href="_hooks_impl_8cpp_source.html#l00129">HooksImpl::getMsgProc()</a>, and <a class="el" href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg::isDisabled()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph.png" border="0" usemap="#a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph" id="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph">
-<area shape="rect" title="the exported hook for the windows&#45;message procedure" alt="" coords="5,31,100,57"/>
-<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="148,31,308,57"/>
-<area shape="poly" title=" " alt="" coords="100,41,132,41,132,47,100,47"/>
-<area shape="rect" href="class_task_toolbar.html#a3159b1e31199ee3691bf2bcf5ec21100" title=" " alt="" coords="363,5,509,32"/>
-<area shape="poly" title=" " alt="" coords="308,32,347,27,348,32,308,37"/>
-<area shape="rect" href="class_task_toolbar.html#a2304586dd147f754c7040f781eda1270" title=" " alt="" coords="356,56,516,83"/>
-<area shape="poly" title=" " alt="" coords="308,51,341,55,340,60,308,56"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph.png" border="0" usemap="#a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph" id="a_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph">
-<area shape="rect" title="the exported hook for the windows&#45;message procedure" alt="" coords="667,31,761,57"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,5,608,32"/>
-<area shape="poly" title=" " alt="" coords="651,37,608,31,609,25,652,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,56,619,83"/>
-<area shape="poly" title=" " alt="" coords="652,56,620,61,619,56,651,51"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="328,5,403,32"/>
-<area shape="poly" title=" " alt="" coords="470,21,403,21,403,16,470,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="312,21,255,21,255,16,312,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,56,427,83"/>
-<area shape="poly" title=" " alt="" coords="460,72,428,72,428,67,460,67"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_ab9f4b48939788d5aa0f404323b16a957_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -416,37 +332,77 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00034">34</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>{</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a>(nCode, wParam, lParam);</div>
-<div class="line"><span class="lineno">   37</span>}</div>
-<div class="ttc" id="aclass_hooks_impl_html_aa3b88c7817f9b5f54c2a0cfc8215c45f"><div class="ttname"><a href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a></div><div class="ttdeci">static LRESULT CALLBACK shellHookProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00068">HooksImpl.cpp:68</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00038">38</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="_hooks_impl_8cpp.html#aba5f1c2148a940df3f64ebbd52530c7a">_hooksCfg</a>-&gt;<a class="code hl_function" href="class_hooks_cfg.html#ab994ae67a05ce4decf5b7af5314eb913">isDisabled</a>())</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> CallNextHookEx(NULL, nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a>(nCode, wParam, lParam);</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+<div class="ttc" id="aclass_hooks_impl_html_aa3b88c7817f9b5f54c2a0cfc8215c45f"><div class="ttname"><a href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f">HooksImpl::shellHookProc</a></div><div class="ttdeci">static LRESULT CALLBACK shellHookProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)</div><div class="ttdef"><b>Definition</b> <a href="_hooks_impl_8cpp_source.html#l00077">HooksImpl.cpp:77</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00068">HooksImpl::shellHookProc()</a>.</p>
+<p class="reference">References <a class="el" href="_hooks_impl_8cpp_source.html#l00019">_hooksCfg</a>, <a class="el" href="_hooks_cfg_8cpp_source.html#l00203">HooksCfg::isDisabled()</a>, and <a class="el" href="_hooks_impl_8cpp_source.html#l00077">HooksImpl::shellHookProc()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph.png" border="0" usemap="#a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph" id="a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph">
-<area shape="rect" title="the exported hook for the shell procedure" alt="" coords="5,5,113,32"/>
-<area shape="rect" href="class_hooks_impl.html#aa3b88c7817f9b5f54c2a0cfc8215c45f" title=" " alt="" coords="161,5,335,32"/>
-<area shape="poly" title=" " alt="" coords="113,16,145,16,145,21,113,21"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_cgraph.svg" width="100%" height="385"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph.png" border="0" usemap="#a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph" alt=""/></div>
-<map name="a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph" id="a_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph">
-<area shape="rect" title="the exported hook for the shell procedure" alt="" coords="118,5,225,32"/>
-<area shape="rect" href="wi_npo_s-_hook_2dllmain_8cpp.html#a26e64fb39b69bcd9d1274d279f1561b9" title=" " alt="" coords="5,5,70,32"/>
-<area shape="poly" title=" " alt="" coords="102,21,70,21,70,16,102,16"/>
-</map>
+<div class="center"><iframe scrolling="no" frameborder="0" src="_hooks_impl_8cpp_a2d95eeaf5ead86287ab88b2065c28d1a_icgraph.svg" width="231" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a8b9e708bd2f83eafd7f3b5bd6d002d02" name="a8b9e708bd2f83eafd7f3b5bd6d002d02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b9e708bd2f83eafd7f3b5bd6d002d02">&#9670;&#160;</a></span>_hooks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread_local <a class="el" href="class_hooks_impl.html">HooksImpl</a> _hooks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00018">18</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aba5f1c2148a940df3f64ebbd52530c7a" name="aba5f1c2148a940df3f64ebbd52530c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5f1c2148a940df3f64ebbd52530c7a">&#9670;&#160;</a></span>_hooksCfg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread_local <a class="el" href="_hooks_cfg_8h.html#a7e4473108378d8e3b8b99bb7025707a0">HooksCfgPtr</a> _hooksCfg = std::make_unique&lt;<a class="el" href="class_hooks_cfg.html">HooksCfg</a>&gt;()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00019">19</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a60dd1f991e064e4de77c6a2ce3119bc3" name="a60dd1f991e064e4de77c6a2ce3119bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60dd1f991e064e4de77c6a2ce3119bc3">&#9670;&#160;</a></span>_thumbnailToolbar</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread_local <a class="el" href="class_task_toolbar.html">TaskToolbar</a> _thumbnailToolbar</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00017">17</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a5f85e3a35a03a77f565aade3e25eaf10" name="a5f85e3a35a03a77f565aade3e25eaf10"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f85e3a35a03a77f565aade3e25eaf10">&#9670;&#160;</a></span>coInit</h2>
 
@@ -459,7 +415,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00013">13</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00015">15</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
 
 </div>
 </div>
@@ -484,38 +440,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="wi_npo_s-_app_8cpp_source.html#l00023">23</a> of file <a class="el" href="wi_npo_s-_app_8cpp_source.html">wiNpoS-App.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae3e1293c07883fb4c0726fc7b7d11fe6" name="ae3e1293c07883fb4c0726fc7b7d11fe6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3e1293c07883fb4c0726fc7b7d11fe6">&#9670;&#160;</a></span>hooks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local <a class="el" href="class_hooks_impl.html">HooksImpl</a> hooks</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00016">16</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ad1e6ba86f8b0c7d17051b33a3df80e74" name="ad1e6ba86f8b0c7d17051b33a3df80e74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1e6ba86f8b0c7d17051b33a3df80e74">&#9670;&#160;</a></span>thumbnailToolbar</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local <a class="el" href="class_task_toolbar.html">TaskToolbar</a> thumbnailToolbar</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_hooks_impl_8cpp_source.html#l00015">15</a> of file <a class="el" href="_hooks_impl_8cpp_source.html">HooksImpl.cpp</a>.</p>
 
 </div>
 </div>

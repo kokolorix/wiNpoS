@@ -1,5 +1,0 @@
-<map id="HooksImpl::onShowPosWnd" name="HooksImpl::onShowPosWnd">
-<area shape="rect" id="Node000001" title=" " alt="" coords="219,5,405,32"/>
-<area shape="rect" id="Node000002" href="$class_hooks_impl.html#a7628ad89b3625fcd9e8538d94d7b2cde" title="processes the WM_LBUTTONUP event" alt="" coords="5,5,171,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,21,171,21,171,16,203,16"/>
-</map>

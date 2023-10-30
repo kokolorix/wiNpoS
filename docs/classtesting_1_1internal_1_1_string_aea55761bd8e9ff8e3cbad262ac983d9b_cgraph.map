@@ -1,9 +1,0 @@
-<map id="testing::internal::String::CloneCString" name="testing::internal::String::CloneCString">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,145,56"/>
-<area shape="rect" id="Node000002" href="$namespacetesting_1_1internal.html#aebfd0cd34de52d7973a5b2d03ba848cf" title=" " alt="" coords="193,13,387,56"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,32,178,32,178,37,145,37"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1_string.html#a116ca435d63306927ba19f90a3596787" title=" " alt="" coords="435,5,631,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="387,32,420,32,420,37,387,37"/>
-<area shape="rect" id="Node000004" href="$namespacetesting_1_1internal_1_1posix.html#a1ef2385a7f8e4c706054da35967e76bd" title=" " alt="" coords="679,13,814,56"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="632,32,665,32,665,37,632,37"/>
-</map>

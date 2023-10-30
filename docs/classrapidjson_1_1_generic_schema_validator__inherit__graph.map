@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;" name="rapidjson::GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;">
-<area shape="rect" id="Node000001" title="JSON Schema Validator." alt="" coords="318,96,541,155"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1internal_1_1_i_schema_state_factory.html" title=" " alt="" coords="49,5,226,80"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,69,324,93,322,98,239,74"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1internal_1_1_i_schema_validator.html" title=" " alt="" coords="72,104,203,147"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="218,123,317,123,317,128,218,128"/>
-<area shape="rect" id="Node000004" href="$classrapidjson_1_1internal_1_1_i_validation_error_handler.html" title=" " alt="" coords="5,171,270,229"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="268,164,317,151,318,157,270,169"/>
-</map>

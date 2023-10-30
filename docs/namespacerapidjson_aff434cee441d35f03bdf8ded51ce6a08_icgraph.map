@@ -1,8 +1,0 @@
-<map id="rapidjson::Free" name="rapidjson::Free">
-<area shape="rect" id="Node000001" title=" " alt="" coords="196,47,303,73"/>
-<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="279,35,269,28,249,25,231,27,222,32,220,37,224,45,220,48,214,38,218,28,230,22,249,20,271,23,282,30"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_generic_uri.html#abb9f1e1d6d3cb85ec9fcafa28c5d59ef" title="Assignment operator." alt="" coords="5,5,148,48"/>
-<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="180,49,148,43,149,38,181,44"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_uri.html#a8add2c681f1fd8d4c1e39115ea63a1a7" title="Destructor." alt="" coords="5,72,148,115"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="181,76,149,82,148,77,180,71"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="TEST_F" name="TEST_F">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,80,74,107"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_file_read_stream.html#ac1ae71d3abf9de0da0fcd02f4a4a91e1" title=" " alt="" coords="122,5,296,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,77,121,58,136,51,138,56,123,62,75,82"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_file_read_stream.html#a96ccdf2feca81ad57ccfd489ffeaf84b" title=" " alt="" coords="122,72,296,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="74,91,107,91,107,96,74,96"/>
-<area shape="rect" id="Node000004" href="$classrapidjson_1_1_file_read_stream.html#a100ae611dab44b2533e3a13d409c8234" title=" " alt="" coords="122,139,296,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="75,105,123,124,138,130,136,135,121,129,73,110"/>
-</map>

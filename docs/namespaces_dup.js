@@ -15,7 +15,8 @@ var namespaces_dup =
       [ "GetDesktopWnds", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78", null ],
       [ "initBinDir", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a9d45eaaa675853b604170ad6ff0bb356", null ],
       [ "initExeName", "namespaceanonymous__namespace_02_utils_8cpp_03.html#af53c07dc6e7ee9776a7ea823490f3d30", null ],
-      [ "initLogFile", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a3e36aa8018bd7df30929d3af45d069a2", null ]
+      [ "initLogFile", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a3e36aa8018bd7df30929d3af45d069a2", null ],
+      [ "initVersionInfo", "namespaceanonymous__namespace_02_utils_8cpp_03.html#a7d881eb924f0a095e424954a344ffd68", null ]
     ] ],
     [ "anonymous_namespace{wiNpoS-App.cpp}", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html", [
       [ "hTargetingCurrentWnd", "namespaceanonymous__namespace_02wi_npo_s-_app_8cpp_03.html#a091bbc1fe65a0762c35c869e832e8d0e", null ],
@@ -24,9 +25,11 @@ var namespaces_dup =
     [ "anonymous_namespace{WinPosWnd.cpp}", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html", [
       [ "CLOSE_TIMER", "namespaceanonymous__namespace_02_win_pos_wnd_8cpp_03.html#afb175292384d77c8a2b7fa266d3c91b2", null ]
     ] ],
-    [ "anonymous_namespace{WinPosWndConfig.cpp}", "namespaceanonymous__namespace_02_win_pos_wnd_config_8cpp_03.html", [
-      [ "MonitorInfos", "namespaceanonymous__namespace_02_win_pos_wnd_config_8cpp_03.html#ada167851c6e327dc1463cb3bed2b4524", null ],
-      [ "Monitorenumproc", "namespaceanonymous__namespace_02_win_pos_wnd_config_8cpp_03.html#a243323cde2e687357bfa4faf6863489c", null ]
+    [ "anonymous_namespace{WinPosWndCfg.cpp}", "namespaceanonymous__namespace_02_win_pos_wnd_cfg_8cpp_03.html", [
+      [ "MonitorInfos", "namespaceanonymous__namespace_02_win_pos_wnd_cfg_8cpp_03.html#a0118fa1adea569d36d0e42cd738706fc", null ],
+      [ "Monitorenumproc", "namespaceanonymous__namespace_02_win_pos_wnd_cfg_8cpp_03.html#a0460baa840e6d710cbfc3d0c7b5399df", null ]
     ] ],
+    [ "rapidjson", "namespacerapidjson.html", "namespacerapidjson" ],
+    [ "std", "namespacestd.html", "namespacestd" ],
     [ "Utils", "namespace_utils.html", "namespace_utils" ]
 ];

@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericSchemaValidator::Reset" name="rapidjson::GenericSchemaValidator::Reset">
-<area shape="rect" id="Node000001" title="Reset the internal states." alt="" coords="122,48,296,91"/>
-<area shape="rect" id="Node000002" href="$unittest_2schematest_8cpp.html#ac186f00696812780b761e09d26c1dc14" title=" " alt="" coords="13,5,66,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,46,66,29,67,24,122,41"/>
-<area shape="rect" id="Node000003" href="$unittest_2schematest_8cpp.html#ad5dcf99ad5149b042298ea200495c701" title=" " alt="" coords="13,56,66,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,72,66,72,66,67,107,67"/>
-<area shape="rect" id="Node000004" href="$perftest_2schematest_8cpp.html#a2c5e22c20fbad50bc8a47803b79d552e" title=" " alt="" coords="5,107,74,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="123,98,75,112,73,107,121,93"/>
-</map>

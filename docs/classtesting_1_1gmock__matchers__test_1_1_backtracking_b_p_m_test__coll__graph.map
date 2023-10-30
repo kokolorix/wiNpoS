@@ -1,7 +1,0 @@
-<map id="testing::gmock_matchers_test::BacktrackingBPMTest" name="testing::gmock_matchers_test::BacktrackingBPMTest">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,204,194,247"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1_test.html" title=" " alt="" coords="53,128,146,155"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,169,102,204,97,204,97,169"/>
-<area shape="rect" id="Node000003" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="9,5,190,64"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,79,102,128,97,128,97,79"/>
-</map>

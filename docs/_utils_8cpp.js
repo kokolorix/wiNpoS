@@ -8,5 +8,6 @@ var _utils_8cpp =
     [ "initBinDir", "_utils_8cpp.html#a9d45eaaa675853b604170ad6ff0bb356", null ],
     [ "initExeName", "_utils_8cpp.html#af53c07dc6e7ee9776a7ea823490f3d30", null ],
     [ "initLogFile", "_utils_8cpp.html#a3e36aa8018bd7df30929d3af45d069a2", null ],
+    [ "initVersionInfo", "_utils_8cpp.html#a7d881eb924f0a095e424954a344ffd68", null ],
     [ "hInstance", "_utils_8cpp.html#a74029128723095e7bf00a71d46af8b24", null ]
 ];

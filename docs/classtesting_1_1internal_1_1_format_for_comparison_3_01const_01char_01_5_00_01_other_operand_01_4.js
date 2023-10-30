@@ -1,4 +1,0 @@
-var classtesting_1_1internal_1_1_format_for_comparison_3_01const_01char_01_5_00_01_other_operand_01_4 =
-[
-    [ "Format", "classtesting_1_1internal_1_1_format_for_comparison_3_01const_01char_01_5_00_01_other_operand_01_4.html#a643d495c59bdf3e87b7c96cc80f84e76", null ]
-];

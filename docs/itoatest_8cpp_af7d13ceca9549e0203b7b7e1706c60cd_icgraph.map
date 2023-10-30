@@ -1,9 +1,0 @@
-<map id="u64toa_naive" name="u64toa_naive">
-<area shape="rect" id="Node000001" title=" " alt="" coords="247,31,343,57"/>
-<area shape="rect" id="Node000002" href="$itoatest_8cpp.html#a4a800afc4f98c5f641f832d76665c036" title=" " alt="" coords="107,5,199,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,35,199,30,200,24,233,30"/>
-<area shape="rect" id="Node000004" href="$itoatest_8cpp.html#a05a08c46e0e982a8422e45fbd0e39763" title=" " alt="" coords="126,56,180,83"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,58,180,67,179,62,232,52"/>
-<area shape="rect" id="Node000003" href="$itoatest_8cpp.html#aa8c214271fbd243add7527072da63e2f" title=" " alt="" coords="5,5,59,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,21,59,21,59,16,92,16"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="testing::AssertionResult" name="testing::AssertionResult">
-<area shape="rect" id="Node000001" title=" " alt="" coords="13,295,173,321"/>
-<area shape="rect" id="Node000002" href="$classtesting_1_1internal_1_1scoped__ptr.html" title=" " alt="" coords="5,188,181,231"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,246,96,294,90,294,90,246"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="53,97,133,124"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,139,96,187,90,187,90,139"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="30,5,156,48"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="96,63,96,97,90,97,90,63"/>
-</map>

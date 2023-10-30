@@ -1,0 +1,23 @@
+<map id="WinPosWndCfg::MonitorConfig" name="WinPosWndCfg::MonitorConfig">
+<area shape="rect" id="Node000001" title=" " alt="" coords="54,417,255,444"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,97,61,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,139,41,214,49,259,63,302,81,336,103,368,144,415,140,419,98,371,76,339,58,304,44,260,36,215,30,139"/>
+<area shape="rect" id="Node000007" href="$struct_win_pos_wnd_cfg_1_1_pos_preview_config.html" title=" " alt="" coords="158,204,346,247"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="57,132,86,156,119,178,174,201,172,206,116,182,83,160,54,136"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="96,97,175,124"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,139,141,233,148,353,155,417,150,417,142,354,136,234,133,139"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="161,133,232,202,229,205,157,136"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="73,5,198,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="138,63,138,97,133,97,133,63"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="157,327,224,353"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="182,368,162,418,157,416,177,366"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="248,327,456,353"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="311,362,184,419,181,414,309,357"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="278,257,315,301,339,324,336,328,311,304,274,260"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="226,97,277,124"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="254,139,254,204,249,204,249,139"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="370,212,483,239"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="413,252,362,328,358,325,408,249"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="407,97,446,124"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="429,139,429,212,424,212,424,139"/>
+</map>

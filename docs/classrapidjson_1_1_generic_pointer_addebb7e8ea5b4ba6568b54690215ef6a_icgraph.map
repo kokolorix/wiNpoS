@@ -1,9 +1,0 @@
-<map id="rapidjson::GenericPointer::Swap" name="rapidjson::GenericPointer::Swap">
-<area shape="rect" id="Node000001" title="Swap the content of this pointer with an other." alt="" coords="257,48,424,91"/>
-<area shape="rect" id="Node000002" href="$namespacerapidjson.html#accb589dfd96df5c44635d5d80d1301ce" title=" " alt="" coords="5,5,209,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,51,171,35,173,30,243,45"/>
-<area shape="rect" id="Node000003" href="$namespacerapidjson.html#a1bbb84d097f4205f81f1a7865ce838d9" title=" " alt="" coords="5,56,209,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="242,72,209,72,209,67,242,67"/>
-<area shape="rect" id="Node000004" href="$pointertest_8cpp.html#a850b5ef6bb119da1eaec4bfb06bd3a83" title=" " alt="" coords="80,107,134,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="243,93,134,117,133,112,242,88"/>
-</map>

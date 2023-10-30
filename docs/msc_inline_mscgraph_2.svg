@@ -1,0 +1,58 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+ width="600px" height="123px"
+ viewBox="0 0 600 123"
+ xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"
+ stroke-width="1" text-rendering="geometricPrecision">
+<polygon fill="white" points="65,7 133,7 133,16 65,16"/>
+<text x="100" y="16" textLength="67" font-family="Helvetica" font-size="12" fill="blue" text-anchor="middle">
+
+WndProc(...)
+</text>
+<polygon fill="white" points="256,7 342,7 342,16 256,16"/>
+<text x="300" y="16" textLength="85" font-family="Helvetica" font-size="12" fill="blue" text-anchor="middle">
+
+GetMsgProc(...)
+</text>
+<polygon fill="white" points="483,7 515,7 515,16 483,16"/>
+<text x="500" y="16" textLength="30" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+Menu
+</text>
+<line x1="100" y1="22" x2="100" y2="50" stroke="black"/>
+<line x1="300" y1="22" x2="300" y2="50" stroke="black"/>
+<line x1="500" y1="22" x2="500" y2="50" stroke="black"/>
+<line x1="100" y1="33" x2="300" y2="33" stroke="black"/>
+<line x1="300" y1="33" x2="290" y2="39" stroke="black"/>
+<polygon fill="white" points="162,23 237,23 237,32 162,32"/>
+<text x="163" y="32" textLength="73" font-family="Helvetica" font-size="12" fill="blue">
+PostMessage
+</text>
+<line x1="100" y1="50" x2="100" y2="67" stroke="black" stroke-dasharray="2,2"/>
+<line x1="300" y1="50" x2="300" y2="67" stroke="black" stroke-dasharray="2,2"/>
+<line x1="500" y1="50" x2="500" y2="67" stroke="black" stroke-dasharray="2,2"/>
+<line x1="100" y1="67" x2="100" y2="95" stroke="black"/>
+<line x1="300" y1="67" x2="300" y2="95" stroke="black"/>
+<line x1="500" y1="67" x2="500" y2="95" stroke="black"/>
+<line x1="100" y1="78" x2="500" y2="78" stroke="black"/>
+<line x1="500" y1="78" x2="490" y2="84" stroke="black"/>
+<line x1="490" y1="72" x2="500" y2="78" stroke="black"/>
+<polygon fill="white" points="255,68 344,68 344,77 255,77"/>
+<text x="256" y="77" textLength="87" font-family="Helvetica" font-size="12" fill="black">
+CheckMenuItem
+</text>
+<line x1="100" y1="95" x2="100" y2="123" stroke="black"/>
+<line x1="300" y1="95" x2="300" y2="123" stroke="black"/>
+<line x1="500" y1="95" x2="500" y2="123" stroke="black"/>
+<line x1="100" y1="106" x2="500" y2="106" stroke="black"/>
+<line x1="500" y1="106" x2="490" y2="112" stroke="black"/>
+<line x1="490" y1="100" x2="500" y2="106" stroke="black"/>
+<polygon fill="white" points="253,96 346,96 346,105 253,105"/>
+<text x="254" y="105" textLength="91" font-family="Helvetica" font-size="12" fill="black">
+EnableMenuItem
+</text>
+<line x1="100" y1="117" x2="100" y2="123" stroke="black"/>
+<line x1="300" y1="117" x2="300" y2="123" stroke="black"/>
+<line x1="500" y1="117" x2="500" y2="123" stroke="black"/>
+</svg>

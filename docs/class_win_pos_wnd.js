@@ -4,7 +4,7 @@ var class_win_pos_wnd =
     [ "WinPosPreview", "struct_win_pos_wnd_1_1_win_pos_preview.html", "struct_win_pos_wnd_1_1_win_pos_preview" ],
     [ "MonitorPreviewPtr", "class_win_pos_wnd.html#a37ced6f8a9a6fcb11ebbe33b3f72d59d", null ],
     [ "MonitorPreviews", "class_win_pos_wnd.html#a705830ef206fad00f50d1e5e1a974616", null ],
-    [ "PosPreviewConfigs", "class_win_pos_wnd.html#af3baba592bc6ef004e7baf7a636c3b6c", null ],
+    [ "PosPreviewCfgs", "class_win_pos_wnd.html#a104f7109595e66222f5a17db9acbc0c7", null ],
     [ "RectVector", "class_win_pos_wnd.html#a40846a3b859eeb36e8eb6d8202142c9a", null ],
     [ "WinPosPreviewPtr", "class_win_pos_wnd.html#a3e9c093fd5c42a5f8856e87661292386", null ],
     [ "WinPosPreviews", "class_win_pos_wnd.html#ab3fcf8da4ef677e70faf9ac8a6314fa8", null ],

@@ -1,9 +1,0 @@
-<map id="RemoteSchemaDocumentProvider::RemoteSchemaDocumentProvider" name="RemoteSchemaDocumentProvider::RemoteSchemaDocumentProvider">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,72,233,115"/>
-<area shape="rect" id="Node000002" href="$classrapidjson_1_1_memory_pool_allocator.html#a199ce203dde7f2b364b6b844a8af04ec" title="Frees a memory block (concept Allocator)" alt="" coords="281,5,486,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,69,281,50,283,55,207,74"/>
-<area shape="rect" id="Node000003" href="$classrapidjson_1_1_generic_document.html#aa54ac886c9e93102216c4e1b4126cb76" title="Parse JSON text from a read&#45;only string (with Encoding conversion)" alt="" coords="291,72,476,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,91,276,91,276,96,233,96"/>
-<area shape="rect" id="Node000004" href="$unittest_2schematest_8cpp.html#ad01086bd6b2393833066329df62ecdca" title=" " alt="" coords="347,139,420,165"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="219,113,333,138,332,144,218,118"/>
-</map>

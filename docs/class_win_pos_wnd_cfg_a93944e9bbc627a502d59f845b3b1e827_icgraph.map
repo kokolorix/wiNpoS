@@ -1,0 +1,35 @@
+<map id="WinPosWndCfg::getConfigPath" name="WinPosWndCfg::getConfigPath">
+<area shape="rect" id="Node000001" title=" " alt="" coords="2139,56,2341,83"/>
+<area shape="rect" id="Node000002" href="$class_hooks_cfg.html#a8b233f05628799d6d8e141b1b87254ff" title="open the wiNpoS config in editor" alt="" coords="1663,5,1859,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2124,60,1859,32,1859,26,2124,54"/>
+<area shape="rect" id="Node000006" href="$class_win_pos_wnd_cfg.html#a038475d40481960d701d09f6e39467c8" title=" " alt="" coords="1670,93,1852,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="2124,81,1907,97,1853,102,1853,96,1906,92,2124,75"/>
+<area shape="rect" id="Node000015" href="$class_win_pos_wnd_cfg.html#a2e024dd316be8cf377996f7be3017acd" title=" " alt="" coords="1907,107,2091,133"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="2159,89,2066,109,2065,103,2158,84"/>
+<area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="328,31,403,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1648,21,1337,21,713,21,539,29,404,42,403,37,539,24,712,16,1337,16,1648,16"/>
+<area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="313,47,255,47,255,41,313,41"/>
+<area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
+<area shape="poly" id="edge16_Node000006_Node000006" title=" " alt="" coords="1798,81,1786,75,1761,72,1738,74,1726,79,1723,84,1729,91,1725,94,1718,85,1723,75,1737,69,1761,67,1788,69,1801,77"/>
+<area shape="rect" id="Node000007" href="$class_win_pos_wnd.html#abec2e67db5543a717d59b02ab8dbb930" title="create the required windows for monitor preview and all configured positions" alt="" coords="1477,93,1615,120"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1655,109,1616,109,1616,104,1655,104"/>
+<area shape="rect" id="Node000008" href="$class_hooks_impl.html#ab6696c1ccc12ebdd892883485456ed3c" title=" " alt="" coords="1243,93,1429,120"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1462,109,1429,109,1429,104,1462,104"/>
+<area shape="rect" id="Node000009" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="809,93,969,120"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1228,109,970,109,970,104,1228,104"/>
+<area shape="rect" id="Node000014" href="$class_hooks_impl.html#ae0d26e76e300b5392e64fb070aafe8d5" title="do the work, if necessary" alt="" coords="1017,119,1195,145"/>
+<area shape="poly" id="edge14_Node000008_Node000014" title=" " alt="" coords="1228,121,1196,125,1195,120,1228,116"/>
+<area shape="rect" id="Node000010" href="$_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="667,93,761,120"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="794,109,761,109,761,104,794,104"/>
+<area shape="rect" id="Node000011" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,56,608,83"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="652,96,608,86,609,80,653,90"/>
+<area shape="rect" id="Node000012" href="$class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,107,619,133"/>
+<area shape="poly" id="edge12_Node000010_Node000012" title=" " alt="" coords="652,114,620,117,619,112,652,109"/>
+<area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="471,61,403,52,404,47,472,56"/>
+<area shape="rect" id="Node000013" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,107,427,133"/>
+<area shape="poly" id="edge13_Node000012_Node000013" title=" " alt="" coords="460,123,428,123,428,117,460,117"/>
+<area shape="poly" id="edge15_Node000014_Node000009" title=" " alt="" coords="1002,123,970,119,970,113,1003,117"/>
+<area shape="poly" id="edge18_Node000015_Node000006" title=" " alt="" coords="1892,117,1853,114,1853,109,1892,111"/>
+</map>

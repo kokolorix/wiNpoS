@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -99,6 +99,7 @@ $(document).ready(function(){initNavTree('_utils_8cpp.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;pch.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_debug_new_8h_source.html">DebugNew.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iosfwd&gt;</code><br />
@@ -107,41 +108,12 @@ $(document).ready(function(){initNavTree('_utils_8cpp.html',''); initResizable()
 <code>#include &lt;format&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;winuser.h&gt;</code><br />
+<code>#include &lt;winver.h&gt;</code><br />
+<code>#include &lt;strsafe.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Utils.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="_utils_8cpp__incl.png" border="0" usemap="#awi_npo_s-_shared_2_utils_8cpp" alt=""/></div>
-<map name="awi_npo_s-_shared_2_utils_8cpp" id="awi_npo_s-_shared_2_utils_8cpp">
-<area shape="rect" title=" " alt="" coords="297,5,462,32"/>
-<area shape="rect" title=" " alt="" coords="86,80,139,107"/>
-<area shape="poly" title=" " alt="" coords="334,35,155,83,154,78,332,30"/>
-<area shape="rect" href="_utils_8h.html" title=" " alt="" coords="214,80,273,107"/>
-<area shape="poly" title=" " alt="" coords="357,35,282,75,279,70,354,30"/>
-<area shape="rect" title=" " alt="" coords="5,155,63,181"/>
-<area shape="poly" title=" " alt="" coords="337,35,273,56,203,82,153,109,73,150,71,145,150,104,201,78,271,51,335,30"/>
-<area shape="rect" title=" " alt="" coords="457,155,512,181"/>
-<area shape="poly" title=" " alt="" coords="367,34,352,49,339,68,333,87,338,105,350,113,377,125,444,150,442,155,375,130,348,118,333,108,328,87,334,65,348,46,363,30"/>
-<area shape="rect" title=" " alt="" coords="347,80,412,107"/>
-<area shape="poly" title=" " alt="" coords="382,33,382,64,377,64,377,33"/>
-<area shape="rect" title=" " alt="" coords="436,80,493,107"/>
-<area shape="poly" title=" " alt="" coords="396,31,440,68,437,72,392,35"/>
-<area shape="rect" title=" " alt="" coords="518,80,595,107"/>
-<area shape="poly" title=" " alt="" coords="411,30,513,71,511,76,409,35"/>
-<area shape="rect" title=" " alt="" coords="620,80,680,107"/>
-<area shape="poly" title=" " alt="" coords="429,30,605,77,604,82,428,35"/>
-<area shape="rect" title=" " alt="" coords="704,80,780,107"/>
-<area shape="poly" title=" " alt="" coords="451,30,689,77,688,82,450,35"/>
-<area shape="rect" title=" " alt="" coords="87,155,141,181"/>
-<area shape="poly" title=" " alt="" coords="222,110,151,149,149,144,220,105"/>
-<area shape="rect" title=" " alt="" coords="165,155,226,181"/>
-<area shape="poly" title=" " alt="" coords="237,109,214,143,210,140,233,106"/>
-<area shape="poly" title=" " alt="" coords="215,107,78,154,76,149,213,102"/>
-<area shape="rect" title=" " alt="" coords="249,155,334,181"/>
-<area shape="poly" title=" " alt="" coords="254,106,277,140,272,143,249,109"/>
-<area shape="poly" title=" " alt="" coords="274,101,443,151,441,156,272,106"/>
-<area shape="rect" title=" " alt="" coords="358,155,433,181"/>
-<area shape="poly" title=" " alt="" coords="271,105,356,145,354,150,269,110"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_utils_8cpp__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_utils_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -167,6 +139,8 @@ Functions</h2></td></tr>
 <tr class="separator:af53c07dc6e7ee9776a7ea823490f3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d45eaaa675853b604170ad6ff0bb356" id="r_a9d45eaaa675853b604170ad6ff0bb356"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a9d45eaaa675853b604170ad6ff0bb356">anonymous_namespace{Utils.cpp}::initBinDir</a> ()</td></tr>
 <tr class="separator:a9d45eaaa675853b604170ad6ff0bb356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d881eb924f0a095e424954a344ffd68" id="r_a7d881eb924f0a095e424954a344ffd68"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a7d881eb924f0a095e424954a344ffd68">anonymous_namespace{Utils.cpp}::initVersionInfo</a> (string info)</td></tr>
+<tr class="separator:a7d881eb924f0a095e424954a344ffd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93de0f4cd5b604498deff24571ac5f85" id="r_a93de0f4cd5b604498deff24571ac5f85"><td class="memItemLeft" align="right" valign="top">BOOL CALLBACK&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a93de0f4cd5b604498deff24571ac5f85">anonymous_namespace{Utils.cpp}::EnumWindowsProc</a> (_In_ HWND hwnd, _In_ LPARAM lParam)</td></tr>
 <tr class="separator:a93de0f4cd5b604498deff24571ac5f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56891ad55436366351fef991050aae78" id="r_a56891ad55436366351fef991050aae78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#ac6e2b9676759e0fe2c0f639f27729f38">WndVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceanonymous__namespace_02_utils_8cpp_03.html#a56891ad55436366351fef991050aae78">anonymous_namespace{Utils.cpp}::GetDesktopWnds</a> ()</td></tr>

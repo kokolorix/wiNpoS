@@ -2,8 +2,13 @@ var _utils_8h =
 [
     [ "Utils::MainWndRes", "struct_utils_1_1_main_wnd_res.html", "struct_utils_1_1_main_wnd_res" ],
     [ "__FILE_LINE__", "_utils_8h.html#a3643aeb18f882054ffc581b35036e172", null ],
-    [ "STR", "_utils_8h.html#a18d295a837ac71add5578860b55e5502", null ],
-    [ "STRINGIZE", "_utils_8h.html#a3428692efe6051ef30016ffde1a9f7bb", null ],
+    [ "AssertFail", "_utils_8h.html#a13f2424e3faac7bb38cc6fa1acb3cfe7", null ],
+    [ "AssertFalse", "_utils_8h.html#a05a417f49d453b522cf1527ab7d51a80", null ],
+    [ "AssertTrue", "_utils_8h.html#af75d0d50e60d22438ab0502180ca9f56", null ],
+    [ "S", "_utils_8h.html#a65573e68b6e92274ccad7caeed5bb365", null ],
+    [ "STRINGIZE", "_utils_8h.html#a10ac188773fb50afe1826ac684d2a7ca", null ],
+    [ "STRINGIZE_A", "_utils_8h.html#a32118253cfc3d7af410ff4046baff007", null ],
+    [ "STRINGIZE_I", "_utils_8h.html#a53357e28276229ec4eaba3577b87c5a0", null ],
     [ "WRITE_DEBUG_LOG", "_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de", null ],
     [ "WRITE_DEBUG_LOG_DETAIL", "_utils_8h.html#a49bf99ee705b148a8bdd7e389dac7320", null ],
     [ "WRITE_DEBUG_LOG_DETAIL_DURATION", "_utils_8h.html#a7c91b82695e71e9145fbf5bda150bf16", null ],
@@ -32,5 +37,7 @@ var _utils_8h =
     [ "toLowerCase", "_utils_8h.html#a7e696129ddd52ce1360b387efd2decfd", null ],
     [ "WriteDebugLog", "_utils_8h.html#abdc36608727de989652b34f84852737c", null ],
     [ "BinDir", "_utils_8h.html#a3102a2f3f02edf6de04d8324aee842e9", null ],
-    [ "ExeName", "_utils_8h.html#a15790a9bc9887c45b6728c6b8ef150ae", null ]
+    [ "ExeName", "_utils_8h.html#a15790a9bc9887c45b6728c6b8ef150ae", null ],
+    [ "ProductName", "_utils_8h.html#ae8e370e98ad0e045f1eb07bab655006a", null ],
+    [ "ProductVersion", "_utils_8h.html#af521c3828d9903beb908696c24f84688", null ]
 ];

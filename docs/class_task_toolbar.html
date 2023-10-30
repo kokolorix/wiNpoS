@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -99,6 +99,11 @@ $(document).ready(function(){initNavTree('class_task_toolbar.html',''); initResi
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_task_toolbar_8h_source.html">TaskToolbar.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for TaskToolbar:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_task_toolbar__coll__graph.svg" width="150" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -135,10 +140,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00011">11</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00012">12</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -157,10 +162,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00016">16</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
-<div class="line"><span class="lineno">   18</span> </div>
-<div class="line"><span class="lineno">   19</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00017">17</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
+<div class="line"><span class="lineno">   19</span> </div>
+<div class="line"><span class="lineno">   20</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -191,90 +196,71 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00021">21</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>{</div>
-<div class="line"><span class="lineno">   23</span>    HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&amp;<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(<a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(<span class="stringliteral">&quot;hWnd: {:#018x}, pTaskbarList: {:#018x}&quot;</span>, (uint64_t)hWnd, (uint64_t)<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
-<div class="line"><span class="lineno">   26</span>    {</div>
-<div class="line"><span class="lineno">   27</span>        hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;HrInit();</div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
-<div class="line"><span class="lineno">   29</span>        {</div>
-<div class="line"><span class="lineno">   30</span>            HICON hWin      = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a5a95abf12132933d67caf035367c0a51">IDI_ICON_WIN</a>));</div>
-<div class="line"><span class="lineno">   31</span>            HICON hWinInc   = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a10f2dfb707556cf6f9485ec9eefe4bc3">IDI_ICON_WIN_INC</a>));</div>
-<div class="line"><span class="lineno">   32</span>            HICON hWinDec   = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a627bf159fe0f398bba4048b867567d42">IDI_ICON_WIN_DEC</a>));</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>            <span class="keywordflow">if</span> (hWin &amp;&amp; hWinInc &amp;&amp; hWinDec)</div>
-<div class="line"><span class="lineno">   35</span>            {</div>
-<div class="line"><span class="lineno">   36</span>                THUMBBUTTON buttons[3] = {};</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>                <span class="comment">// First button</span></div>
-<div class="line"><span class="lineno">   39</span>                buttons[0].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
-<div class="line"><span class="lineno">   40</span>                buttons[0].dwFlags = THBF_ENABLED;</div>
-<div class="line"><span class="lineno">   41</span>                buttons[0].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a>;</div>
-<div class="line"><span class="lineno">   42</span>                buttons[0].hIcon = hWinInc;</div>
-<div class="line"><span class="lineno">   43</span>                StringCchCopy(buttons[0].szTip, ARRAYSIZE(buttons[0].szTip), L<span class="stringliteral">&quot;Increment Window Size&quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>                <span class="comment">// Second button</span></div>
-<div class="line"><span class="lineno">   46</span>                buttons[1].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
-<div class="line"><span class="lineno">   47</span>                buttons[1].dwFlags = THBF_ENABLED;</div>
-<div class="line"><span class="lineno">   48</span>                buttons[1].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a>;</div>
-<div class="line"><span class="lineno">   49</span>                buttons[1].hIcon = hWinDec;</div>
-<div class="line"><span class="lineno">   50</span>                StringCchCopy(buttons[1].szTip, ARRAYSIZE(buttons[1].szTip), L<span class="stringliteral">&quot;Decrement Window Size&quot;</span>);</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>                <span class="comment">// Third button</span></div>
-<div class="line"><span class="lineno">   53</span>                buttons[2].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
-<div class="line"><span class="lineno">   54</span>                buttons[2].dwFlags = THBF_ENABLED | THBF_DISMISSONCLICK;</div>
-<div class="line"><span class="lineno">   55</span>                buttons[2].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a492a7bed122b7f0cc9f53cc9e26509c9">ID_SYSMENU_SHOWPOSWINDOW</a>;</div>
-<div class="line"><span class="lineno">   56</span>                buttons[2].hIcon = hWin;</div>
-<div class="line"><span class="lineno">   57</span>                StringCchCopy(buttons[2].szTip, ARRAYSIZE(buttons[2].szTip), L<span class="stringliteral">&quot;Open Positioning Window&quot;</span>);</div>
-<div class="line"><span class="lineno">   58</span> </div>
-<div class="line"><span class="lineno">   59</span>                <span class="comment">// Set the buttons to be the thumbnail toolbar</span></div>
-<div class="line"><span class="lineno">   60</span>                hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;ThumbBarAddButtons(hWnd, ARRAYSIZE(buttons), buttons);</div>
-<div class="line"><span class="lineno">   61</span>            }</div>
-<div class="line"><span class="lineno">   62</span>        }</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>        <span class="comment">// It&#39;s OK to release ITaskbarList3 here; the thumbnail toolbar will remain.</span></div>
-<div class="line"><span class="lineno">   65</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;Release();</div>
-<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">   67</span>    }</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> hr;</div>
-<div class="line"><span class="lineno">   69</span>    <span class="comment">//assert(SUCCEEDED(hr));o</span></div>
-<div class="line"><span class="lineno">   70</span>}</div>
-<div class="ttc" id="a_utils_8h_html_ae88a29d949fb0fe5dad728fa6e9522de"><div class="ttname"><a href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a></div><div class="ttdeci">#define WRITE_DEBUG_LOG(msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00055">Utils.h:55</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00022">22</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>{</div>
+<div class="line"><span class="lineno">   24</span>    HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&amp;<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(<a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(<span class="stringliteral">&quot;hWnd: {:#018x}, pTaskbarList: {:#018x}&quot;</span>, (uint64_t)hWnd, (uint64_t)<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
+<div class="line"><span class="lineno">   27</span>    {</div>
+<div class="line"><span class="lineno">   28</span>        hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;HrInit();</div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
+<div class="line"><span class="lineno">   30</span>        {</div>
+<div class="line"><span class="lineno">   31</span>            HICON hWin      = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a5a95abf12132933d67caf035367c0a51">IDI_ICON_WIN</a>));</div>
+<div class="line"><span class="lineno">   32</span>            HICON hWinInc   = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a10f2dfb707556cf6f9485ec9eefe4bc3">IDI_ICON_WIN_INC</a>));</div>
+<div class="line"><span class="lineno">   33</span>            HICON hWinDec   = LoadIcon(hInst, MAKEINTRESOURCE(<a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a627bf159fe0f398bba4048b867567d42">IDI_ICON_WIN_DEC</a>));</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>            <span class="keywordflow">if</span> (hWin &amp;&amp; hWinInc &amp;&amp; hWinDec)</div>
+<div class="line"><span class="lineno">   36</span>            {</div>
+<div class="line"><span class="lineno">   37</span>                THUMBBUTTON buttons[3] = {};</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>                <span class="comment">// First button</span></div>
+<div class="line"><span class="lineno">   40</span>                buttons[0].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
+<div class="line"><span class="lineno">   41</span>                buttons[0].dwFlags = THBF_ENABLED;</div>
+<div class="line"><span class="lineno">   42</span>                buttons[0].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a>;</div>
+<div class="line"><span class="lineno">   43</span>                buttons[0].hIcon = hWinInc;</div>
+<div class="line"><span class="lineno">   44</span>                StringCchCopy(buttons[0].szTip, ARRAYSIZE(buttons[0].szTip), L<span class="stringliteral">&quot;Increment Window Size&quot;</span>);</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>                <span class="comment">// Second button</span></div>
+<div class="line"><span class="lineno">   47</span>                buttons[1].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
+<div class="line"><span class="lineno">   48</span>                buttons[1].dwFlags = THBF_ENABLED;</div>
+<div class="line"><span class="lineno">   49</span>                buttons[1].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a>;</div>
+<div class="line"><span class="lineno">   50</span>                buttons[1].hIcon = hWinDec;</div>
+<div class="line"><span class="lineno">   51</span>                StringCchCopy(buttons[1].szTip, ARRAYSIZE(buttons[1].szTip), L<span class="stringliteral">&quot;Decrement Window Size&quot;</span>);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>                <span class="comment">// Third button</span></div>
+<div class="line"><span class="lineno">   54</span>                buttons[2].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;</div>
+<div class="line"><span class="lineno">   55</span>                buttons[2].dwFlags = THBF_ENABLED | THBF_DISMISSONCLICK;</div>
+<div class="line"><span class="lineno">   56</span>                buttons[2].iId = <a class="code hl_define" href="wi_npo_s-_hook_2resource_8h.html#a492a7bed122b7f0cc9f53cc9e26509c9">ID_SYSMENU_SHOWPOSWINDOW</a>;</div>
+<div class="line"><span class="lineno">   57</span>                buttons[2].hIcon = hWin;</div>
+<div class="line"><span class="lineno">   58</span>                StringCchCopy(buttons[2].szTip, ARRAYSIZE(buttons[2].szTip), L<span class="stringliteral">&quot;Open Positioning Window&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>                <span class="comment">// Set the buttons to be the thumbnail toolbar</span></div>
+<div class="line"><span class="lineno">   61</span>                hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;ThumbBarAddButtons(hWnd, ARRAYSIZE(buttons), buttons);</div>
+<div class="line"><span class="lineno">   62</span>            }</div>
+<div class="line"><span class="lineno">   63</span>        }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>        <span class="comment">// It&#39;s OK to release ITaskbarList3 here; the thumbnail toolbar will remain.</span></div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;Release();</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">   68</span>    }</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> hr;</div>
+<div class="line"><span class="lineno">   70</span>    <span class="comment">//assert(SUCCEEDED(hr));o</span></div>
+<div class="line"><span class="lineno">   71</span>}</div>
+<div class="ttc" id="a_utils_8h_html_ae88a29d949fb0fe5dad728fa6e9522de"><div class="ttname"><a href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a></div><div class="ttdeci">#define WRITE_DEBUG_LOG(msg)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00083">Utils.h:83</a></div></div>
 <div class="ttc" id="aclass_task_toolbar_html_aa7631c366155463108045fd26cee7b0f"><div class="ttname"><a href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">TaskToolbar::_pTaskbarList</a></div><div class="ttdeci">ITaskbarList3 * _pTaskbarList</div><div class="ttdef"><b>Definition</b> <a href="_task_toolbar_8h_source.html#l00014">TaskToolbar.h:14</a></div></div>
-<div class="ttc" id="anamespace_utils_html_a1be1e6106c4ac75be529963a672f3038"><div class="ttname"><a href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a></div><div class="ttdeci">string dformat(std::string_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00070">Utils.h:70</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a10f2dfb707556cf6f9485ec9eefe4bc3"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a10f2dfb707556cf6f9485ec9eefe4bc3">IDI_ICON_WIN_INC</a></div><div class="ttdeci">#define IDI_ICON_WIN_INC</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00008">Resource.h:8</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a326348d8f8e9a93186c0c270b1779e0a"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_DECREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00010">Resource.h:10</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a492a7bed122b7f0cc9f53cc9e26509c9"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a492a7bed122b7f0cc9f53cc9e26509c9">ID_SYSMENU_SHOWPOSWINDOW</a></div><div class="ttdeci">#define ID_SYSMENU_SHOWPOSWINDOW</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00012">Resource.h:12</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a5a95abf12132933d67caf035367c0a51"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a5a95abf12132933d67caf035367c0a51">IDI_ICON_WIN</a></div><div class="ttdeci">#define IDI_ICON_WIN</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00006">Resource.h:6</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a627bf159fe0f398bba4048b867567d42"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a627bf159fe0f398bba4048b867567d42">IDI_ICON_WIN_DEC</a></div><div class="ttdeci">#define IDI_ICON_WIN_DEC</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00007">Resource.h:7</a></div></div>
-<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_aeb92da27a02de250ef490c0b550c78d4"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_INCREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00011">Resource.h:11</a></div></div>
+<div class="ttc" id="anamespace_utils_html_a1be1e6106c4ac75be529963a672f3038"><div class="ttname"><a href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">Utils::dformat</a></div><div class="ttdeci">string dformat(std::string_view rt_fmt_str, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_utils_8h_source.html#l00045">Utils.h:45</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a10f2dfb707556cf6f9485ec9eefe4bc3"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a10f2dfb707556cf6f9485ec9eefe4bc3">IDI_ICON_WIN_INC</a></div><div class="ttdeci">#define IDI_ICON_WIN_INC</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00008">resource.h:8</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a326348d8f8e9a93186c0c270b1779e0a"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a">ID_SYSMENU_DECREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_DECREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00010">resource.h:10</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a492a7bed122b7f0cc9f53cc9e26509c9"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a492a7bed122b7f0cc9f53cc9e26509c9">ID_SYSMENU_SHOWPOSWINDOW</a></div><div class="ttdeci">#define ID_SYSMENU_SHOWPOSWINDOW</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00012">resource.h:12</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a5a95abf12132933d67caf035367c0a51"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a5a95abf12132933d67caf035367c0a51">IDI_ICON_WIN</a></div><div class="ttdeci">#define IDI_ICON_WIN</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00006">resource.h:6</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_a627bf159fe0f398bba4048b867567d42"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#a627bf159fe0f398bba4048b867567d42">IDI_ICON_WIN_DEC</a></div><div class="ttdeci">#define IDI_ICON_WIN_DEC</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00007">resource.h:7</a></div></div>
+<div class="ttc" id="awi_npo_s-_hook_2resource_8h_html_aeb92da27a02de250ef490c0b550c78d4"><div class="ttname"><a href="wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4">ID_SYSMENU_INCREMENTWINDOWSIZE</a></div><div class="ttdeci">#define ID_SYSMENU_INCREMENTWINDOWSIZE</div><div class="ttdef"><b>Definition</b> <a href="wi_npo_s-_hook_2resource_8h_source.html#l00011">resource.h:11</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_task_toolbar_8h_source.html#l00014">_pTaskbarList</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00010">ID_SYSMENU_DECREMENTWINDOWSIZE</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00011">ID_SYSMENU_INCREMENTWINDOWSIZE</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00012">ID_SYSMENU_SHOWPOSWINDOW</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00006">IDI_ICON_WIN</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00007">IDI_ICON_WIN_DEC</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00008">IDI_ICON_WIN_INC</a>, and <a class="el" href="_utils_8h_source.html#l00055">WRITE_DEBUG_LOG</a>.</p>
+<p class="reference">References <a class="el" href="_task_toolbar_8h_source.html#l00014">_pTaskbarList</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00010">ID_SYSMENU_DECREMENTWINDOWSIZE</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00011">ID_SYSMENU_INCREMENTWINDOWSIZE</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00012">ID_SYSMENU_SHOWPOSWINDOW</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00006">IDI_ICON_WIN</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00007">IDI_ICON_WIN_DEC</a>, <a class="el" href="wi_npo_s-_hook_2resource_8h_source.html#l00008">IDI_ICON_WIN_INC</a>, and <a class="el" href="_utils_8h_source.html#l00083">WRITE_DEBUG_LOG</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_task_toolbar_a3159b1e31199ee3691bf2bcf5ec21100_icgraph.png" border="0" usemap="#aclass_task_toolbar_a3159b1e31199ee3691bf2bcf5ec21100_icgraph" alt=""/></div>
-<map name="aclass_task_toolbar_a3159b1e31199ee3691bf2bcf5ec21100_icgraph" id="aclass_task_toolbar_a3159b1e31199ee3691bf2bcf5ec21100_icgraph">
-<area shape="rect" title=" " alt="" coords="1017,31,1164,57"/>
-<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="809,31,969,57"/>
-<area shape="poly" title=" " alt="" coords="1002,47,970,47,970,41,1002,41"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="667,31,761,57"/>
-<area shape="poly" title=" " alt="" coords="793,47,761,47,761,41,793,41"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,5,608,32"/>
-<area shape="poly" title=" " alt="" coords="651,37,608,31,609,25,652,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,56,619,83"/>
-<area shape="poly" title=" " alt="" coords="652,56,620,61,619,56,651,51"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="328,5,403,32"/>
-<area shape="poly" title=" " alt="" coords="470,21,403,21,403,16,470,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="312,21,255,21,255,16,312,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,56,427,83"/>
-<area shape="poly" title=" " alt="" coords="460,72,428,72,428,67,460,67"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_task_toolbar_a3159b1e31199ee3691bf2bcf5ec21100_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -305,66 +291,47 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00072">72</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   73</span>{</div>
-<div class="line"><span class="lineno">   74</span>    HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&amp;<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
-<div class="line"><span class="lineno">   75</span>    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(<a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(<span class="stringliteral">&quot;hWnd: {:#018x}, pTaskbarList: {:#018x}&quot;</span>, (uint64_t)hWnd, (uint64_t)<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;HrInit();</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
-<div class="line"><span class="lineno">   80</span>        {</div>
-<div class="line"><span class="lineno">   81</span>            <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;DeleteTab(hWnd);</div>
-<div class="line"><span class="lineno">   82</span>            <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;AddTab(hWnd);</div>
-<div class="line"><span class="lineno">   83</span>            <span class="comment">//struct THUMBBUTTON</span></div>
-<div class="line"><span class="lineno">   84</span>            <span class="comment">//{</span></div>
-<div class="line"><span class="lineno">   85</span>            <span class="comment">//  THUMBBUTTONMASK dwMask;</span></div>
-<div class="line"><span class="lineno">   86</span>            <span class="comment">//  UINT iId;</span></div>
-<div class="line"><span class="lineno">   87</span>            <span class="comment">//  UINT iBitmap;</span></div>
-<div class="line"><span class="lineno">   88</span>            <span class="comment">//  HICON hIcon;</span></div>
-<div class="line"><span class="lineno">   89</span>            <span class="comment">//  WCHAR szTip[260];</span></div>
-<div class="line"><span class="lineno">   90</span>            <span class="comment">//  THUMBBUTTONFLAGS dwFlags;</span></div>
-<div class="line"><span class="lineno">   91</span>            <span class="comment">//}</span></div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>            <span class="comment">//THUMBBUTTON buttons[3] = {</span></div>
-<div class="line"><span class="lineno">   94</span>            <span class="comment">//   {THB_FLAGS, ID_SYSMENU_INCREMENTWINDOWSIZE, 0, 0, 0, THBF_HIDDEN }</span></div>
-<div class="line"><span class="lineno">   95</span>            <span class="comment">//  ,{THB_FLAGS, ID_SYSMENU_DECREMENTWINDOWSIZE, 0, 0, 0, THBF_HIDDEN }</span></div>
-<div class="line"><span class="lineno">   96</span>            <span class="comment">//  ,{THB_FLAGS, ID_SYSMENU_SHOWPOSWINDOW,          0, 0, 0, THBF_HIDDEN }</span></div>
-<div class="line"><span class="lineno">   97</span>            <span class="comment">//};</span></div>
-<div class="line"><span class="lineno">   98</span>            <span class="comment">//hr = _pTaskbarList-&gt;ThumbBarUpdateButtons(hWnd, ARRAYSIZE(buttons), buttons);</span></div>
-<div class="line"><span class="lineno">   99</span>            </div>
-<div class="line"><span class="lineno">  100</span>        }</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>        <span class="comment">// It&#39;s OK to release ITaskbarList3 here; the thumbnail toolbar will remain.</span></div>
-<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;Release();</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><span class="lineno">  105</span>    }</div>
-<div class="line"><span class="lineno">  106</span>}</div>
+<p class="definition">Definition at line <a class="el" href="_task_toolbar_8cpp_source.html#l00073">73</a> of file <a class="el" href="_task_toolbar_8cpp_source.html">TaskToolbar.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
+<div class="line"><span class="lineno">   75</span>    HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&amp;<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
+<div class="line"><span class="lineno">   76</span>    <a class="code hl_define" href="_utils_8h.html#ae88a29d949fb0fe5dad728fa6e9522de">WRITE_DEBUG_LOG</a>(<a class="code hl_function" href="namespace_utils.html#a1be1e6106c4ac75be529963a672f3038">dformat</a>(<span class="stringliteral">&quot;hWnd: {:#018x}, pTaskbarList: {:#018x}&quot;</span>, (uint64_t)hWnd, (uint64_t)<a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>));</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
+<div class="line"><span class="lineno">   78</span>    {</div>
+<div class="line"><span class="lineno">   79</span>        hr = <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;HrInit();</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> (SUCCEEDED(hr))</div>
+<div class="line"><span class="lineno">   81</span>        {</div>
+<div class="line"><span class="lineno">   82</span>            <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;DeleteTab(hWnd);</div>
+<div class="line"><span class="lineno">   83</span>            <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;AddTab(hWnd);</div>
+<div class="line"><span class="lineno">   84</span>            <span class="comment">//struct THUMBBUTTON</span></div>
+<div class="line"><span class="lineno">   85</span>            <span class="comment">//{</span></div>
+<div class="line"><span class="lineno">   86</span>            <span class="comment">//  THUMBBUTTONMASK dwMask;</span></div>
+<div class="line"><span class="lineno">   87</span>            <span class="comment">//  UINT iId;</span></div>
+<div class="line"><span class="lineno">   88</span>            <span class="comment">//  UINT iBitmap;</span></div>
+<div class="line"><span class="lineno">   89</span>            <span class="comment">//  HICON hIcon;</span></div>
+<div class="line"><span class="lineno">   90</span>            <span class="comment">//  WCHAR szTip[260];</span></div>
+<div class="line"><span class="lineno">   91</span>            <span class="comment">//  THUMBBUTTONFLAGS dwFlags;</span></div>
+<div class="line"><span class="lineno">   92</span>            <span class="comment">//}</span></div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>            <span class="comment">//THUMBBUTTON buttons[3] = {</span></div>
+<div class="line"><span class="lineno">   95</span>            <span class="comment">//   {THB_FLAGS, ID_SYSMENU_INCREMENTWINDOWSIZE, 0, 0, 0, THBF_HIDDEN }</span></div>
+<div class="line"><span class="lineno">   96</span>            <span class="comment">//  ,{THB_FLAGS, ID_SYSMENU_DECREMENTWINDOWSIZE, 0, 0, 0, THBF_HIDDEN }</span></div>
+<div class="line"><span class="lineno">   97</span>            <span class="comment">//  ,{THB_FLAGS, ID_SYSMENU_SHOWPOSWINDOW,          0, 0, 0, THBF_HIDDEN }</span></div>
+<div class="line"><span class="lineno">   98</span>            <span class="comment">//};</span></div>
+<div class="line"><span class="lineno">   99</span>            <span class="comment">//hr = _pTaskbarList-&gt;ThumbBarUpdateButtons(hWnd, ARRAYSIZE(buttons), buttons);</span></div>
+<div class="line"><span class="lineno">  100</span>            </div>
+<div class="line"><span class="lineno">  101</span>        }</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>        <span class="comment">// It&#39;s OK to release ITaskbarList3 here; the thumbnail toolbar will remain.</span></div>
+<div class="line"><span class="lineno">  104</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a>-&gt;Release();</div>
+<div class="line"><span class="lineno">  105</span>        <a class="code hl_variable" href="class_task_toolbar.html#aa7631c366155463108045fd26cee7b0f">_pTaskbarList</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="lineno">  106</span>    }</div>
+<div class="line"><span class="lineno">  107</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="_task_toolbar_8h_source.html#l00014">_pTaskbarList</a>, and <a class="el" href="_utils_8h_source.html#l00055">WRITE_DEBUG_LOG</a>.</p>
+<p class="reference">References <a class="el" href="_task_toolbar_8h_source.html#l00014">_pTaskbarList</a>, and <a class="el" href="_utils_8h_source.html#l00083">WRITE_DEBUG_LOG</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_task_toolbar_a2304586dd147f754c7040f781eda1270_icgraph.png" border="0" usemap="#aclass_task_toolbar_a2304586dd147f754c7040f781eda1270_icgraph" alt=""/></div>
-<map name="aclass_task_toolbar_a2304586dd147f754c7040f781eda1270_icgraph" id="aclass_task_toolbar_a2304586dd147f754c7040f781eda1270_icgraph">
-<area shape="rect" title=" " alt="" coords="1017,31,1178,57"/>
-<area shape="rect" href="class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="809,31,969,57"/>
-<area shape="poly" title=" " alt="" coords="1002,47,970,47,970,41,1002,41"/>
-<area shape="rect" href="_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="667,31,761,57"/>
-<area shape="poly" title=" " alt="" coords="793,47,761,47,761,41,793,41"/>
-<area shape="rect" href="class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,5,608,32"/>
-<area shape="poly" title=" " alt="" coords="651,37,608,31,609,25,652,32"/>
-<area shape="rect" href="class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,56,619,83"/>
-<area shape="poly" title=" " alt="" coords="652,56,620,61,619,56,651,51"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a9135ea2a0d6fce68ba3b858226a31a4f" title=" " alt="" coords="328,5,403,32"/>
-<area shape="poly" title=" " alt="" coords="470,21,403,21,403,16,470,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" title=" " alt="" coords="312,21,255,21,255,16,312,16"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
-<area shape="poly" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
-<area shape="rect" href="class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,56,427,83"/>
-<area shape="poly" title=" " alt="" coords="460,72,428,72,428,67,460,67"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_task_toolbar_a2304586dd147f754c7040f781eda1270_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

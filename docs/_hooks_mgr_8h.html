@@ -26,7 +26,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="wiNpoS.png"/></td>
   <td id="projectalign">
-   <div id="projectname">wiNpoS
+   <div id="projectname">wiNpoS<span id="projectnumber">&#160;1.0.102</span>
    </div>
   </td>
  </tr>
@@ -92,27 +92,22 @@ $(document).ready(function(){initNavTree('_hooks_mgr_8h.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">HooksMgr.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="_utils_8h_source.html">Utils.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for HooksMgr.h:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_mgr_8h__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_hooks_mgr_8h__dep__incl.png" border="0" usemap="#awi_npo_s-_shared_2_hooks_mgr_8hdep" alt=""/></div>
-<map name="awi_npo_s-_shared_2_hooks_mgr_8hdep" id="awi_npo_s-_shared_2_hooks_mgr_8hdep">
-<area shape="rect" title=" " alt="" coords="428,5,612,32"/>
-<area shape="rect" href="wi_npo_s-_app_8cpp.html" title=" " alt="" coords="5,80,198,107"/>
-<area shape="poly" title=" " alt="" coords="432,38,175,82,174,77,431,33"/>
-<area shape="rect" href="_hooks_impl_8cpp.html" title=" " alt="" coords="222,80,411,107"/>
-<area shape="poly" title=" " alt="" coords="471,40,353,82,351,77,469,35"/>
-<area shape="rect" href="wi_npo_s-_hook_2dllmain_8cpp.html" title=" " alt="" coords="436,80,605,107"/>
-<area shape="poly" title=" " alt="" coords="523,48,523,80,518,80,518,48"/>
-<area shape="rect" href="_hooks_mgr_8cpp.html" title=" " alt="" coords="629,80,827,107"/>
-<area shape="poly" title=" " alt="" coords="571,35,693,77,691,82,570,40"/>
-<area shape="rect" href="wi_npo_s-_support_2dllmain_8cpp.html" title=" " alt="" coords="852,80,1036,107"/>
-<area shape="poly" title=" " alt="" coords="610,33,870,77,869,82,609,38"/>
-</map>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="_hooks_mgr_8h__dep__incl.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="_hooks_mgr_8h_source.html">Go to the source code of this file.</a></p>
@@ -121,6 +116,14 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hooks_mgr.html">HooksMgr</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manage the Hooks install / uninstall.  <a href="class_hooks_mgr.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstd_1_1unique__ptr_3_01_hooks_mgr_01_4.html">std::unique_ptr&lt; HooksMgr &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacestd" id="r_namespacestd"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd.html">std</a></td></tr>
+<tr class="memdesc:namespacestd"><td class="mdescLeft">&#160;</td><td class="mdescRight">STL namespace. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -141,6 +144,11 @@ Macros</h2></td></tr>
 <tr class="separator:aa509a169a13ecd422073dd9ca7ed83b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aeda444aa9b46b4b0fe7324ef064afe" id="r_a4aeda444aa9b46b4b0fe7324ef064afe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_mgr_8h.html#a4aeda444aa9b46b4b0fe7324ef064afe">MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK</a>&#160;&#160;&#160;RegisterWindowMessageA(&quot;wiNpoS-Hook.UnregisterWndThreadHook&quot;)</td></tr>
 <tr class="separator:a4aeda444aa9b46b4b0fe7324ef064afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a1f59991f3f37d5a5228aa3517db6019e" id="r_a1f59991f3f37d5a5228aa3517db6019e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_hooks_mgr_8h.html#a1f59991f3f37d5a5228aa3517db6019e">HooksMgrPtr</a> = std::unique_ptr&lt; <a class="el" href="class_hooks_mgr.html">HooksMgr</a> &gt;</td></tr>
+<tr class="separator:a1f59991f3f37d5a5228aa3517db6019e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a7b3a3fa53875c9ef81425ffd0be226fc" name="a7b3a3fa53875c9ef81425ffd0be226fc"></a>
@@ -155,7 +163,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00003">3</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00004">4</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -171,7 +179,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00004">4</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00005">5</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +195,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00006">6</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00007">7</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +211,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00009">9</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00010">10</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -219,7 +227,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00008">8</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00009">9</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +243,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00005">5</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00006">6</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +259,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00007">7</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00008">8</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>
@@ -267,7 +275,24 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00010">10</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00011">11</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a1f59991f3f37d5a5228aa3517db6019e" name="a1f59991f3f37d5a5228aa3517db6019e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f59991f3f37d5a5228aa3517db6019e">&#9670;&#160;</a></span>HooksMgrPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="_hooks_mgr_8h.html#a1f59991f3f37d5a5228aa3517db6019e">HooksMgrPtr</a> =  std::unique_ptr&lt;<a class="el" href="class_hooks_mgr.html">HooksMgr</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_hooks_mgr_8h_source.html#l00051">51</a> of file <a class="el" href="_hooks_mgr_8h_source.html">HooksMgr.h</a>.</p>
 
 </div>
 </div>

@@ -1,9 +1,0 @@
-<map id="testing::StringMatchResultListener::Clear" name="testing::StringMatchResultListener::Clear">
-<area shape="rect" id="Node000001" title=" " alt="" coords="222,72,397,115"/>
-<area shape="rect" id="Node000002" href="$namespacetesting_1_1gmock__matchers__test.html#a45d11b31944031c232a0de0f47f0538a" title=" " alt="" coords="5,5,174,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,70,162,51,163,46,224,65"/>
-<area shape="rect" id="Node000003" href="$namespacetesting_1_1gmock__matchers__test.html#aa0e49e413718410f6c218a8cea29efb5" title=" " alt="" coords="5,72,174,115"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,96,174,96,174,91,207,91"/>
-<area shape="rect" id="Node000004" href="$namespacetesting_1_1gmock__matchers__test.html#a7bc21ec910c3861034d1336fecfcc260" title=" " alt="" coords="5,139,174,181"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,122,163,141,162,135,222,117"/>
-</map>
