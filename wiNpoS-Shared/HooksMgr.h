@@ -29,6 +29,7 @@ private:
 public:
 	static HMODULE load();
 	static void unloadHook(HMODULE hModule);
+
 	void loadHook();
 	void unloadHook();
 

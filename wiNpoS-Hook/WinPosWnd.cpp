@@ -5,7 +5,7 @@
 #include <ranges>
 #include "Utils.h"
 #include <algorithm>
-#include "WinPosWndConfig.h"
+#include "WinPosWndCfg.h"
 #include <corecrt_math.h>
 #include <windowsx.h>
 #include <assert.h>
@@ -224,14 +224,14 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 {
 	using std::views::transform;
 	using std::ranges::to;
-	using MonitorConfig = WinPosWndConfig::MonitorConfig;
+	using MonitorConfig = WinPosWndCfg::MonitorConfig;
 
 	if (wndClass == nullptr)
 		wndClass = initWndClass();
 
 	destroy();
 
-	WinPosWndConfig config;
+	WinPosWndCfg config;
 	config.readConfig();
 
 	_closeTimeout = config.getCloseTimeout();
@@ -294,11 +294,11 @@ void WinPosWnd::MonitorPreview::offsetToPt(POINT pt, RECT totalRect)
  * @param pcs PosPreviewConfigs
  * @param mp pointer to monitor preview instance 
 */
-void WinPosWnd::MonitorPreview::createWinPosPreviews(const PosPreviewConfigs& pcs, MonitorPreviewPtr mp)
+void WinPosWnd::MonitorPreview::createWinPosPreviews(const PosPreviewCfgs& pcs, MonitorPreviewPtr mp)
 {
 	using std::views::transform;
 	using std::ranges::to;
-	using PosPreviewConfig = WinPosWndConfig::PosPreviewConfig;
+	using PosPreviewConfig = WinPosWndCfg::PosPreviewConfig;
 
 
 	previews = pcs | transform([this, mp](const PosPreviewConfig& pc)

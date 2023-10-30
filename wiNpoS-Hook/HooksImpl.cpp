@@ -2,6 +2,7 @@
 #include "DebugNew.h"
 #include "HooksImpl.h"
 #include "HooksMgr.h"
+#include "HooksCfg.h"
 #include "Utils.h"
 #include "TaskToolbar.h"
 #include <Shlwapi.h>
@@ -15,6 +16,8 @@ thread_local HRESULT coInit /*= S_FALSE*/;
 
 thread_local TaskToolbar _thumbnailToolbar;
 thread_local HooksImpl _hooks;
+thread_local HooksCfgPtr _hooksCfg = std::make_unique<HooksCfg>();	///> the hooks config
+//extern HooksMgrPtr _hooksMgr;
 
 namespace
 {
@@ -34,6 +37,8 @@ namespace
 */
 LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
+	if (_hooksCfg->isDisabled())
+		return CallNextHookEx(NULL, nCode, wParam, lParam);
 	return HooksImpl::shellHookProc(nCode, wParam, lParam);
 }
 /**
@@ -45,6 +50,8 @@ LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 */
 LRESULT CALLBACK CallWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)
 {
+	if (_hooksCfg->isDisabled())
+		return CallNextHookEx(NULL, nCode, wParam, lParam);
 	return HooksImpl::callWndProc(nCode, wParam, lParam);
 }
 /**
@@ -56,8 +63,9 @@ LRESULT CALLBACK CallWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lPa
 */
 LRESULT CALLBACK GetMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ LPARAM lParam)
 {
+	if (_hooksCfg->isDisabled())
+		return CallNextHookEx(NULL, nCode, wParam, lParam);
 	return HooksImpl::getMsgProc(nCode, wParam, lParam);
-
 }
 /**
  * @brief 

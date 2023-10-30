@@ -3,7 +3,7 @@
 #include <map>
 #include <vector>
 #include "Utils.h"
-#include "WinPosWndConfig.h"
+#include "WinPosWndCfg.h"
 
 /**
  * @brief 
@@ -20,7 +20,7 @@ public:
 	static WinPosWnd* getWinPosWnd(HWND hWnd);
 
 private:
-	using PosPreviewConfigs = WinPosWndConfig::PosPreviewConfigs;
+	using PosPreviewCfgs = WinPosWndCfg::PosPreviewCfgs;
 	struct MonitorPreview;
 	using MonitorPreviewPtr = std::shared_ptr<MonitorPreview>;
 
@@ -48,7 +48,7 @@ private:
 		WinPosPreviews previews;
 		WinPosPreviewPtr activeWinPosPreview;
 		void offsetToPt(POINT pt, RECT totalRect);
-		void createWinPosPreviews(const PosPreviewConfigs& pcs, MonitorPreviewPtr mp);
+		void createWinPosPreviews(const PosPreviewCfgs& pcs, MonitorPreviewPtr mp);
 		RECT getCrossRect();
 		HWND create(HWND hParentWnd);
 		WinPosPreviewPtr findPreview(POINT pt);

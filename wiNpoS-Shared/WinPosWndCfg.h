@@ -7,7 +7,7 @@
 /**
  * @brief 
 */
-class WinPosWndConfig
+class WinPosWndCfg
 {
 public:
 	struct PosPreviewConfig
@@ -17,7 +17,7 @@ public:
 		string name;
 		Units units;
 	};
-	using PosPreviewConfigs = std::vector<PosPreviewConfig>;
+	using PosPreviewCfgs = std::vector<PosPreviewConfig>;
 
 	struct MonitorConfig
 	{
@@ -26,7 +26,7 @@ public:
 		string device;
 		string name;
 		uint32_t index;
-		PosPreviewConfigs previews;
+		PosPreviewCfgs previews;
 	};
 	using Monitors = std::vector<MonitorConfig>;
 
@@ -34,7 +34,7 @@ public:
 	void readConfig();
 	void writeConfig();
 
-	WinPosWndConfig::Monitors getMonitors() const { return _monitors; }
+	WinPosWndCfg::Monitors getMonitors() const { return _monitors; }
 	UINT getCloseTimeout() const { return _closeTimeout; }
 	FLOAT getScale() const { return _scale; }
 

@@ -14,14 +14,14 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Config.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)HooksCfg.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DebugNew.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)HooksMgr.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Utils.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)WinPosWndConfig.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)WinPosWndCfg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Config.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)HooksCfg.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)HooksMgr.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -29,7 +29,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Utils.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)WinPosWndConfig.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)WinPosWndCfg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\wiNpoS.md" />

@@ -12,7 +12,7 @@
 #include <tuple>
 #include <Shlwapi.h>
 #include "DebugNew.h"
-#include "WinPosWndConfig.h"
+#include "WinPosWndCfg.h"
 
 namespace
 {
@@ -27,7 +27,7 @@ namespace
 	}
 }
 
-void WinPosWndConfig::readConfig()
+void WinPosWndCfg::readConfig()
 {
 	using std::format;
 	string configPath = getConfigPath();
@@ -161,7 +161,7 @@ void WinPosWndConfig::readConfig()
 
 }
 
-void WinPosWndConfig::writeConfig()
+void WinPosWndCfg::writeConfig()
 {
 	using namespace rapidjson;
 	Document d;
@@ -254,7 +254,7 @@ void WinPosWndConfig::writeConfig()
 	WRITE_DEBUG_LOG(format("Write config to {}", configPath));
 }
 
-string WinPosWndConfig::getConfigPath(const string& configName /*= "WndConfig"*/)
+string WinPosWndCfg::getConfigPath(const string& configName /*= "WndConfig"*/)
 {
 	using std::format;
 	char configPath[MAX_PATH];
