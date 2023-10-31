@@ -9,6 +9,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wiNpoS-Hook", "wiNpoS-Hook\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wiNpoS-Shared", "wiNpoS-Shared\wiNpoS-Shared.vcxitems", "{F605C128-7CE4-4367-927C-EDB77A4DD489}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wiNpoS-Support", "wiNpoS-Support\wiNpoS-Support.vcxproj", "{D065C08E-511C-4A26-AD2E-205356B62A62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E39755F6-9506-4F3E-937B-82EC24577C59}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		wiNpoS.dox = wiNpoS.dox
+		pages\docs\wiNpoS.gif = pages\docs\wiNpoS.gif
+		wiNpoS.md = wiNpoS.md
+		wiNpoS.png = wiNpoS.png
+		WndConfig.jsonl = WndConfig.jsonl
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,6 +45,14 @@ Global
 		{22DAC167-C241-4FC4-ADB5-0F31EDDB5D6A}.Release|x64.Build.0 = Release|x64
 		{22DAC167-C241-4FC4-ADB5-0F31EDDB5D6A}.Release|x86.ActiveCfg = Release|Win32
 		{22DAC167-C241-4FC4-ADB5-0F31EDDB5D6A}.Release|x86.Build.0 = Release|Win32
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Debug|x64.ActiveCfg = Debug|x64
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Debug|x64.Build.0 = Debug|x64
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Debug|x86.ActiveCfg = Debug|Win32
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Debug|x86.Build.0 = Debug|Win32
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Release|x64.ActiveCfg = Release|x64
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Release|x64.Build.0 = Release|x64
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Release|x86.ActiveCfg = Release|Win32
+		{D065C08E-511C-4A26-AD2E-205356B62A62}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +63,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		wiNpoS-Shared\wiNpoS-Shared.vcxitems*{04e1b907-664b-46c4-8a01-f2674e2251c5}*SharedItemsImports = 4
 		wiNpoS-Shared\wiNpoS-Shared.vcxitems*{22dac167-c241-4fc4-adb5-0f31eddb5d6a}*SharedItemsImports = 4
+		wiNpoS-Shared\wiNpoS-Shared.vcxitems*{d065c08e-511c-4a26-ad2e-205356b62a62}*SharedItemsImports = 4
 		wiNpoS-Shared\wiNpoS-Shared.vcxitems*{f605c128-7ce4-4367-927c-edb77a4dd489}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

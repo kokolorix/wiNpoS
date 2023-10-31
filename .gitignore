@@ -44,3 +44,14 @@
 /wiNpoS-Hook/x64/Release
 /wiNpoS-Hook/*.user
 /wiNpoS-App/*.user
+/wiNpoS-App/wiNpoS-App.aps
+*.user
+wiNpoS-Support/Debug/
+wiNpoS-Support/Win32/
+wiNpoS-Support/x64/
+
+*.lnk
+
+Update.bcpkg
+
+wndsync.ini

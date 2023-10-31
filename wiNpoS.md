@@ -1,34 +1,47 @@
 
-# Documentation
+# wiNpoS
 
-## Short description
+[Source code on GitHub](https://github.com/kokolorix/wiNpoS#wiNpoS)
+
+## Description
 
 App that displays a configurable positioning window starting from the title bar to move the window to specific positions and sizes.
 
-[Source code on GitHub](https://github.com/kokolorix/wiNpoS)
-
 ## Entrance points
 
-- dllmain.cpp
-- wiNpoS-App.cpp
+### Functions
 
-### Interfaces
-
+- @ref WndProc
+- @ref wWinMain
+- @ref CallWndProc
+- @ref GetMsgProc
+- @ref ShellHookProc
 
 
 ### Classes
 
-- Hooks
+- HooksMgr
+- HooksImpl
+- HooksCfg
+- WinPosWndCfg
+- WinPosWnd
 
 
-<!-- ### Helpers -->
+### Files
 
+- wiNpoS-Hook/dllmain.cpp
+- wiNpoS-App.cpp
+
+
+### Namespaces
+
+- Utils
 
 
 ## Overviews
 
 - [Go to the class list](annotated.html)
-- [Go to the graphical class hierarchy](inherits.html)
+<!-- - [Go to the graphical class hierarchy](inherits.html) -->
 - [Go to the files list](files.html)
 
 ## External documentations
@@ -37,8 +50,9 @@ App that displays a configurable positioning window starting from the title bar 
 - [Win32 Api](https://docs.microsoft.com/en-us/windows/win32/api/_winmsg/)
 - [doxygen special commands](http://doxygen.nl/manual/commands.html)
 - [graphviz documentation](https://graphviz.org/documentation/)
+- [free online animated GIF editor](https://ezgif.com/resize)
 - [markdown help](https://commonmark.org/help/)
 
-## The App
-![image](wiNpoS.gif)
+## In Action
+![image](images/wiNpoS.gif)
 
