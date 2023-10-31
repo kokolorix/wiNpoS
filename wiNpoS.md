@@ -9,18 +9,28 @@ App that displays a configurable positioning window starting from the title bar 
 
 ## Entrance points
 
-### Files
+### Functions
 
-- wiNpoS-Hook/dllmain.cpp
-- wiNpoS-App.cpp
+- @ref WndProc
+- @ref wWinMain
+- @ref CallWndProc
+- @ref GetMsgProc
+- @ref ShellHookProc
+
 
 ### Classes
 
 - HooksMgr
 - HooksImpl
-- Config
-- WinPosWndConfig
+- HooksCfg
+- WinPosWndCfg
 - WinPosWnd
+
+
+### Files
+
+- wiNpoS-Hook/dllmain.cpp
+- wiNpoS-App.cpp
 
 
 ### Namespaces
@@ -40,8 +50,9 @@ App that displays a configurable positioning window starting from the title bar 
 - [Win32 Api](https://docs.microsoft.com/en-us/windows/win32/api/_winmsg/)
 - [doxygen special commands](http://doxygen.nl/manual/commands.html)
 - [graphviz documentation](https://graphviz.org/documentation/)
+- [free online animated GIF editor](https://ezgif.com/resize)
 - [markdown help](https://commonmark.org/help/)
 
 ## In Action
-![image](wiNpoS.gif)
+![image](images/wiNpoS.gif)
 

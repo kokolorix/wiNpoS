@@ -218,9 +218,16 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\folder.ico" />
+    <Image Include="Grow-H.ico" />
+    <Image Include="Grow-V.ico" />
+    <Image Include="Grow.ico" />
+    <Image Include="Shrink-H.ico" />
+    <Image Include="Shrink-V.ico" />
+    <Image Include="Shrink.ico" />
     <Image Include="Win.ico" />
     <Image Include="WinDec.ico" />
     <Image Include="WinInc.ico" />
+    <Image Include="WinPos.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wiNpoS-Hook32.def" />

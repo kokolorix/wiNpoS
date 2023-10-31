@@ -28,38 +28,33 @@ HRESULT TaskToolbar::initialize(HINSTANCE hInst, HWND hWnd)
 		hr = _pTaskbarList->HrInit();
 		if (SUCCEEDED(hr))
 		{
-			HICON hWin		= LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_WIN));
-			HICON hWinInc	= LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_WIN_INC));
-			HICON hWinDec	= LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_WIN_DEC));
+			//typedef struct THUMBBUTTON
+			//{
+			//	THUMBBUTTONMASK dwMask;
+			//	UINT iId;
+			//	UINT iBitmap;
+			//	HICON hIcon;
+			//	WCHAR szTip[260];
+			//	THUMBBUTTONFLAGS dwFlags;
+			//} 	THUMBBUTTON;
 
-			if (hWin && hWinInc && hWinDec)
+			static const THUMBBUTTONMASK mask = THB_ICON | THB_TOOLTIP | THB_FLAGS;
+			static const THUMBBUTTONFLAGS flags = THBF_ENABLED;
+			THUMBBUTTON buttons[] = 
 			{
-				THUMBBUTTON buttons[3] = {};
+				 {mask, ID_SYSMENU_GROW,		0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_GROW)),		L"Grow the window",					flags }
+				,{mask, ID_SYSMENU_SHRINK,		0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_SHRINK)),		L"Shrink the window",				flags }
+				,{mask, ID_SYSMENU_GROW_H,		0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_GROW_H)),		L"Grow the window horizontally", flags }
+				,{mask, ID_SYSMENU_SHRINK_H,	0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_SHRINK_H)),	L"Shrink the window horizontally",flags }
+				,{mask, ID_SYSMENU_GROW_V,		0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_GROW_V)),		L"Grow the window vertically",	flags }
+				,{mask, ID_SYSMENU_SHRINK_V,	0, LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_SHRINK_V)),	L"Shrink the window vertically",	flags }
+				,{mask, ID_SYSMENU_SHOWPOSWINDOW,	0,
+								LoadIcon(hInst, MAKEINTRESOURCE(IDI_ICON_WIN_POS)),	L"Shows the positioning window",		flags | THBF_DISMISSONCLICK }
+			};
 
-				// First button
-				buttons[0].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;
-				buttons[0].dwFlags = THBF_ENABLED;
-				buttons[0].iId = ID_SYSMENU_INCREMENTWINDOWSIZE;
-				buttons[0].hIcon = hWinInc;
-				StringCchCopy(buttons[0].szTip, ARRAYSIZE(buttons[0].szTip), L"Increment Window Size");
-
-				// Second button
-				buttons[1].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;
-				buttons[1].dwFlags = THBF_ENABLED;
-				buttons[1].iId = ID_SYSMENU_DECREMENTWINDOWSIZE;
-				buttons[1].hIcon = hWinDec;
-				StringCchCopy(buttons[1].szTip, ARRAYSIZE(buttons[1].szTip), L"Decrement Window Size");
-
-				// Third button
-				buttons[2].dwMask = THB_ICON | THB_TOOLTIP | THB_FLAGS;
-				buttons[2].dwFlags = THBF_ENABLED | THBF_DISMISSONCLICK;
-				buttons[2].iId = ID_SYSMENU_SHOWPOSWINDOW;
-				buttons[2].hIcon = hWin;
-				StringCchCopy(buttons[2].szTip, ARRAYSIZE(buttons[2].szTip), L"Open Positioning Window");
-
-				// Set the buttons to be the thumbnail toolbar
-				hr = _pTaskbarList->ThumbBarAddButtons(hWnd, ARRAYSIZE(buttons), buttons);
-			}
+			// Set the buttons to be the thumbnail toolbar
+			hr = _pTaskbarList->ThumbBarAddButtons(hWnd, ARRAYSIZE(buttons), buttons);
+			
 		}
 
 		// It's OK to release ITaskbarList3 here; the thumbnail toolbar will remain.

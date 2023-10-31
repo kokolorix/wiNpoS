@@ -51,3 +51,7 @@ wiNpoS-Support/Win32/
 wiNpoS-Support/x64/
 
 *.lnk
+
+Update.bcpkg
+
+wndsync.ini

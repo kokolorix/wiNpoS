@@ -24,14 +24,14 @@
     <ClInclude Include="HooksImpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TaskToolbar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WinPosWnd.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +61,27 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="WinInc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Grow.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Grow-H.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Grow-V.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Shrink.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Shrink-H.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Shrink-V.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="WinPos.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

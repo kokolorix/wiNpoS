@@ -225,11 +225,23 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 
 						switch (wmId)
 						{
-							case ID_SYSMENU_INCREMENTWINDOWSIZE:
+							case ID_SYSMENU_GROW:
 								_hooks.onIncrementWindow(pMsg, 10);
 								break;
-							case ID_SYSMENU_DECREMENTWINDOWSIZE:
+							case ID_SYSMENU_GROW_H:
+								_hooks.onIncrementWindow(pMsg, 10, IncWnd::Horizontal);
+								break;
+							case ID_SYSMENU_GROW_V:
+								_hooks.onIncrementWindow(pMsg, 10, IncWnd::Vertical);
+								break;
+							case ID_SYSMENU_SHRINK:
 								_hooks.onIncrementWindow(pMsg, -10);
+								break;
+							case ID_SYSMENU_SHRINK_H:
+								_hooks.onIncrementWindow(pMsg, -10, IncWnd::Horizontal);
+								break;
+							case ID_SYSMENU_SHRINK_V:
+								_hooks.onIncrementWindow(pMsg, -10, IncWnd::Vertical);
 								break;
 							case ID_SYSMENU_SHOWPOSWINDOW:
 							{
