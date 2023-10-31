@@ -1,16 +1,16 @@
 <map id="HooksMgr::load" name="HooksMgr::load">
 <area shape="rect" id="Node000001" title=" " alt="" coords="617,56,729,83"/>
 <area shape="rect" id="Node000002" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="435,5,560,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="609,54,546,35,547,30,611,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="608,54,546,35,547,30,610,48"/>
 <area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="436,56,559,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="602,72,559,72,559,67,602,67"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="601,72,559,72,559,67,601,67"/>
 <area shape="rect" id="Node000007" href="$class_hooks_mgr.html#a9f23bc9ed2833734602401ccba353a6a" title=" " alt="" coords="426,107,569,133"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="611,90,547,109,546,104,609,85"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="610,90,547,109,546,104,608,85"/>
 <area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="303,81,378,108"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="422,84,379,91,378,86,421,79"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="421,84,379,91,378,86,420,79"/>
 <area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,81,255,108"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="288,97,255,97,255,92,288,92"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="287,97,255,97,255,92,287,92"/>
 <area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,81,87,108"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="119,97,87,97,87,92,119,92"/>
-<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="411,109,379,103,379,98,412,103"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="411,109,379,103,379,98,411,103"/>
 </map>

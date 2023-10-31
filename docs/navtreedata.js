@@ -27,13 +27,14 @@ var NAVTREE =
   [ "wiNpoS", "index.html", [
     [ "Description", "index.html#autotoc_md4", null ],
     [ "Entrance points", "index.html#autotoc_md5", [
-      [ "Files", "index.html#autotoc_md6", null ],
+      [ "Functions", "index.html#autotoc_md6", null ],
       [ "Classes", "index.html#autotoc_md7", null ],
-      [ "Namespaces", "index.html#autotoc_md8", null ]
+      [ "Files", "index.html#autotoc_md8", null ],
+      [ "Namespaces", "index.html#autotoc_md9", null ]
     ] ],
-    [ "Overviews", "index.html#autotoc_md9", null ],
-    [ "External documentations", "index.html#autotoc_md10", null ],
-    [ "In Action", "index.html#autotoc_md11", null ],
+    [ "Overviews", "index.html#autotoc_md10", null ],
+    [ "External documentations", "index.html#autotoc_md11", null ],
+    [ "In Action", "index.html#autotoc_md12", null ],
     [ "wiNpoS", "md__r_e_a_d_m_e.html", [
       [ "Description", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "In Action", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
@@ -76,7 +77,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_debug_new_8h.html",
-"functions_vars.html"
+"functions_vars.html",
+"wi_npo_s-_support_2pch_8cpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

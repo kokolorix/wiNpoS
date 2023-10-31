@@ -1,9 +1,9 @@
 <map id="HooksCfg::readConfig" name="HooksCfg::readConfig">
 <area shape="rect" id="Node000001" title="read the global config for all apps" alt="" coords="5,31,152,57"/>
 <area shape="rect" id="Node000002" href="$class_hooks_cfg.html#a808e4e4a7bc43b89c87ef172fa8caf6a" title="the path to the global config, for all apps" alt="" coords="219,5,386,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,33,204,27,205,32,153,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,33,203,27,204,32,153,38"/>
 <area shape="rect" id="Node000004" href="$class_hooks_cfg.html#ab8fd861156e6b389e43bbda021f42c50" title="read a JSON config from given path" alt="" coords="200,56,405,83"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,50,185,53,184,59,152,55"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,50,184,53,184,59,152,55"/>
 <area shape="rect" id="Node000003" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="453,5,608,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,16,438,16,438,21,386,21"/>
 </map>

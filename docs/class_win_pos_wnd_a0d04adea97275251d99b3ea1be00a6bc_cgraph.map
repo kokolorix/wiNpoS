@@ -1,5 +1,5 @@
 <map id="WinPosWnd::WndProc" name="WinPosWnd::WndProc">
 <area shape="rect" id="Node000001" title="the main WNDPROC for the WinPosWnd instances" alt="" coords="5,5,162,32"/>
 <area shape="rect" id="Node000002" href="$class_win_pos_wnd.html#a8abc6edd027488d4f7242b9f12693af8" title="destroys every windows" alt="" coords="210,5,355,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,16,195,16,195,21,162,21"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,16,194,16,194,21,162,21"/>
 </map>

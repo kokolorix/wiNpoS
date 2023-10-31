@@ -1,17 +1,17 @@
 <map id="HooksImpl::onCaptionClick" name="HooksImpl::onCaptionClick">
 <area shape="rect" id="Node000001" title="do the work, if necessary" alt="" coords="1017,31,1195,57"/>
 <area shape="rect" id="Node000002" href="$class_hooks_impl.html#a07053e18c49265e300fe89b2a5bc28de" title="here the Windows messages are picked up, which do not appear in the main message loop" alt="" coords="809,31,969,57"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1003,47,970,47,970,41,1003,41"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1002,47,970,47,970,41,1002,41"/>
 <area shape="rect" id="Node000003" href="$_hooks_impl_8cpp.html#ab9f4b48939788d5aa0f404323b16a957" title="the exported hook for the windows&#45;message procedure" alt="" coords="667,31,761,57"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="794,47,761,47,761,41,794,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="793,47,761,47,761,41,793,41"/>
 <area shape="rect" id="Node000004" href="$class_hooks_mgr.html#a7cfb009127366d7236f5c05c2e4f9ab3" title=" " alt="" coords="486,5,608,32"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="651,37,608,31,609,25,652,32"/>
 <area shape="rect" id="Node000008" href="$class_hooks_mgr.html#a25aacc981b80470642a51175ee56ba01" title=" " alt="" coords="475,56,619,83"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="653,56,620,61,619,56,652,51"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="652,56,620,61,619,56,651,51"/>
 <area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="328,5,403,32"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="471,21,403,21,403,16,471,16"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="470,21,403,21,403,16,470,16"/>
 <area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,5,255,32"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="313,21,255,21,255,16,313,16"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="312,21,255,21,255,16,312,16"/>
 <area shape="rect" id="Node000007" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,5,87,32"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="119,21,87,21,87,16,119,16"/>
 <area shape="rect" id="Node000009" href="$class_hooks_mgr.html#a5f8aa4cd119cb5d489b0a6f1a2971a79" title=" " alt="" coords="303,56,427,83"/>

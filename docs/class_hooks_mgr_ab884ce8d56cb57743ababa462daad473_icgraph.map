@@ -1,13 +1,13 @@
 <map id="HooksMgr::unhookHooks" name="HooksMgr::unhookHooks">
 <area shape="rect" id="Node000001" title=" " alt="" coords="611,31,778,57"/>
 <area shape="rect" id="Node000002" href="$class_hooks_mgr.html#ae9a9a4faaa208c86a71cc564ea70840d" title=" " alt="" coords="431,5,558,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="596,34,558,29,559,24,597,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="595,34,558,29,559,24,596,29"/>
 <area shape="rect" id="Node000003" href="$class_hooks_mgr.html#a8d8a1f3354a8073433cb5365c6c8bcf5" title=" " alt="" coords="426,56,563,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="597,59,563,63,563,58,596,54"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="596,59,563,63,563,58,595,54"/>
 <area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="303,56,378,83"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,72,379,72,379,67,411,67"/>
 <area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,56,255,83"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="288,72,255,72,255,67,288,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="287,72,255,72,255,67,287,67"/>
 <area shape="rect" id="Node000006" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,56,87,83"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="119,72,87,72,87,67,119,67"/>
 </map>

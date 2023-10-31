@@ -1,7 +1,7 @@
 <map id="HooksImpl::onLButtonUp" name="HooksImpl::onLButtonUp">
 <area shape="rect" id="Node000001" title="processes the WM_LBUTTONUP event" alt="" coords="5,43,171,69"/>
 <area shape="rect" id="Node000002" href="$class_hooks_impl.html#a8ef5405a747979c1f5197848e4a8e684" title=" " alt="" coords="235,5,410,48"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,43,220,37,221,42,171,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,43,219,37,220,42,171,48"/>
 <area shape="rect" id="Node000003" href="$class_hooks_impl.html#a84c9a5c6b0754e092de2ee6a8b8bba1e" title="method to change the size of a window in steps" alt="" coords="219,72,426,99"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,64,204,68,203,73,171,69"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,64,203,68,203,73,171,69"/>
 </map>

@@ -20,5 +20,5 @@ var searchData=
   ['operator_20hwnd_17',['operator HWND',['../struct_utils_1_1_main_wnd_res.html#ab8227f119ab02271269652f29cd5549d',1,'Utils::MainWndRes']]],
   ['operator_2d_3e_18',['operator-&gt;',['../classstd_1_1unique__ptr_3_01_hooks_cfg_01_4.html#accbee38bb1f4583b7dd0a600dbc2e67f',1,'std::unique_ptr&lt; HooksCfg &gt;::operator-&gt;()'],['../classstd_1_1unique__ptr_3_01_hooks_mgr_01_4.html#a27fa9a44a6839ba019bbd8c7e6d7deab',1,'std::unique_ptr&lt; HooksMgr &gt;::operator-&gt;()']]],
   ['operator_3d_3d_19',['operator==',['../namespace_utils.html#aba1e4263e69daaa39ce59c8f886e920c',1,'Utils::operator==(const POINT &amp;x, const POINT &amp;y)'],['../namespace_utils.html#aaa4094884532d86fb266ea80598993d2',1,'Utils::operator==(const RECT &amp;x, const RECT &amp;y)']]],
-  ['overviews_20',['Overviews',['../index.html#autotoc_md9',1,'']]]
+  ['overviews_20',['Overviews',['../index.html#autotoc_md10',1,'']]]
 ];

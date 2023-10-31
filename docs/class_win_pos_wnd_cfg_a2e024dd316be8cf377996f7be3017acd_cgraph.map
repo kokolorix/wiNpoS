@@ -1,9 +1,9 @@
 <map id="WinPosWndCfg::writeConfig" name="WinPosWndCfg::writeConfig">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,56,190,83"/>
 <area shape="rect" id="Node000002" href="$class_win_pos_wnd_cfg.html#afe04626c840dd23b6b063f58bcb06dce" title=" " alt="" coords="238,5,456,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,53,263,33,264,38,167,58"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,53,262,33,263,38,167,58"/>
 <area shape="rect" id="Node000003" href="$class_win_pos_wnd_cfg.html#a93944e9bbc627a502d59f845b3b1e827" title=" " alt="" coords="246,56,448,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,67,230,67,230,72,190,72"/>
 <area shape="rect" id="Node000004" href="$class_win_pos_wnd_cfg.html#a1fd1c1c55716a4697a044ae0671cf2aa" title=" " alt="" coords="261,107,433,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,81,264,101,263,106,166,86"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="167,81,263,100,262,106,166,86"/>
 </map>

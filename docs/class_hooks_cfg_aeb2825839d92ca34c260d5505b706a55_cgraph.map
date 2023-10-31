@@ -1,5 +1,5 @@
 <map id="HooksCfg::getAppConfigPath" name="HooksCfg::getAppConfigPath">
 <area shape="rect" id="Node000001" title="the path to the config file for this app" alt="" coords="5,5,195,32"/>
 <area shape="rect" id="Node000002" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="243,5,398,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,16,228,16,228,21,195,21"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,16,227,16,227,21,195,21"/>
 </map>

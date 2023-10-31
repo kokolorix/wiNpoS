@@ -1,11 +1,25 @@
 var wi_npo_s__hook_2resource_8h =
 [
     [ "ID_SYSMENU_DECREMENTWINDOWSIZE", "wi_npo_s-_hook_2resource_8h.html#a326348d8f8e9a93186c0c270b1779e0a", null ],
+    [ "ID_SYSMENU_GROW", "wi_npo_s-_hook_2resource_8h.html#a1ca9586027047d323a2d5379b77b14e2", null ],
+    [ "ID_SYSMENU_GROW_H", "wi_npo_s-_hook_2resource_8h.html#aaea4310d3ff37cb90002d948e36420dd", null ],
+    [ "ID_SYSMENU_GROW_V", "wi_npo_s-_hook_2resource_8h.html#affa3278939c712e9fb7369807b9a4151", null ],
     [ "ID_SYSMENU_INCREMENTWINDOWSIZE", "wi_npo_s-_hook_2resource_8h.html#aeb92da27a02de250ef490c0b550c78d4", null ],
     [ "ID_SYSMENU_SHOWPOSWINDOW", "wi_npo_s-_hook_2resource_8h.html#a492a7bed122b7f0cc9f53cc9e26509c9", null ],
+    [ "ID_SYSMENU_SHRINK", "wi_npo_s-_hook_2resource_8h.html#adc22e3e47ef74ca68f608c78df23f302", null ],
+    [ "ID_SYSMENU_SHRINK_H", "wi_npo_s-_hook_2resource_8h.html#aaa3cba4abc4e0ece44bd8b9921d515f1", null ],
+    [ "ID_SYSMENU_SHRINK_V", "wi_npo_s-_hook_2resource_8h.html#af2441daa05312afff5660ec9cd8ef1c5", null ],
     [ "IDI_ICON", "wi_npo_s-_hook_2resource_8h.html#a8b58cab14806de7fb85b9da0998d9b45", null ],
+    [ "IDI_ICON1", "wi_npo_s-_hook_2resource_8h.html#a455fef2a9349aae3af8ef8f24f6fc9d8", null ],
+    [ "IDI_ICON_GROW", "wi_npo_s-_hook_2resource_8h.html#a063db9127feed3b76da424e63e37ad37", null ],
+    [ "IDI_ICON_GROW_H", "wi_npo_s-_hook_2resource_8h.html#aed7241435b6c8628c27453a656543133", null ],
+    [ "IDI_ICON_GROW_V", "wi_npo_s-_hook_2resource_8h.html#a6819fa3963b4df22df24e1881b7ef60a", null ],
+    [ "IDI_ICON_SHRINK", "wi_npo_s-_hook_2resource_8h.html#a1a2022ca932dded75ef966c0f6033886", null ],
+    [ "IDI_ICON_SHRINK_H", "wi_npo_s-_hook_2resource_8h.html#a8dc998e6ca2ac729a499b39424c4b061", null ],
+    [ "IDI_ICON_SHRINK_V", "wi_npo_s-_hook_2resource_8h.html#abb9766b8d0e43499459638a3e57d7e03", null ],
     [ "IDI_ICON_WIN", "wi_npo_s-_hook_2resource_8h.html#a5a95abf12132933d67caf035367c0a51", null ],
     [ "IDI_ICON_WIN_DEC", "wi_npo_s-_hook_2resource_8h.html#a627bf159fe0f398bba4048b867567d42", null ],
     [ "IDI_ICON_WIN_INC", "wi_npo_s-_hook_2resource_8h.html#a10f2dfb707556cf6f9485ec9eefe4bc3", null ],
+    [ "IDI_ICON_WIN_POS", "wi_npo_s-_hook_2resource_8h.html#a41d8c5fc40b05b2ea8a092f120310213", null ],
     [ "IDR_SYSMENU", "wi_npo_s-_hook_2resource_8h.html#aa7a72c946c2dfa58094914e59bc89155", null ]
 ];

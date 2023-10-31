@@ -1,11 +1,11 @@
 <map id="HooksCfg::enable" name="HooksCfg::enable">
 <area shape="rect" id="Node000001" title="remove disabled from config" alt="" coords="5,31,129,57"/>
 <area shape="rect" id="Node000002" href="$class_hooks_cfg.html#ac448d3ff024be030d38bafcb0e841a60" title="save global config for all apps" alt="" coords="177,31,325,57"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,41,162,41,162,47,129,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,41,161,41,161,47,129,47"/>
 <area shape="rect" id="Node000003" href="$class_hooks_cfg.html#a808e4e4a7bc43b89c87ef172fa8caf6a" title="the path to the global config, for all apps" alt="" coords="394,5,560,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="325,33,379,27,379,32,326,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="325,33,378,27,379,32,326,38"/>
 <area shape="rect" id="Node000005" href="$class_hooks_cfg.html#a1f2bef2687260c67b923e4838a0cdb1e" title="save the JSON document to the given path" alt="" coords="373,56,580,83"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="326,50,359,53,358,59,325,55"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="326,50,358,53,357,59,325,55"/>
 <area shape="rect" id="Node000004" href="$class_hooks_cfg.html#a437c5768d5246cf980d1be5ea6f272c6" title="the directory, where store the configs and logs" alt="" coords="628,5,784,32"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="560,16,613,16,613,21,560,21"/>
 </map>

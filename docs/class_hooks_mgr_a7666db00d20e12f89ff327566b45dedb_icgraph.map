@@ -1,12 +1,12 @@
 <map id="HooksMgr::stopOtherBitInstance" name="HooksMgr::stopOtherBitInstance">
 <area shape="rect" id="Node000001" title=" " alt="" coords="686,31,896,57"/>
 <area shape="rect" id="Node000002" href="$class_hooks_mgr.html#aa4f7bf5ffda4fef6c667c3656913cc5b" title=" " alt="" coords="426,5,638,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="671,35,638,32,639,26,671,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="670,35,638,32,639,26,671,30"/>
 <area shape="rect" id="Node000003" href="$wi_npo_s-_app_8cpp.html#a30a1e3b0304f1b083637664cbda94e72" title="the main window procedure of this app" alt="" coords="303,31,378,57"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="671,47,379,47,379,41,671,41"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="413,37,379,42,378,36,412,32"/>
+<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="670,47,379,47,379,41,670,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="412,37,379,42,378,36,412,32"/>
 <area shape="rect" id="Node000004" href="$wi_npo_s-_app_8cpp.html#aa0d0c9beb94350f8eac8fc4026a65375" title=" " alt="" coords="135,31,255,57"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,47,255,47,255,41,288,41"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="287,47,255,47,255,41,287,41"/>
 <area shape="rect" id="Node000005" href="$wi_npo_s-_app_8cpp.html#a8c6630df6bab43efe8254a603885b62e" title=" " alt="" coords="5,31,87,57"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="119,47,87,47,87,41,119,41"/>
 </map>
