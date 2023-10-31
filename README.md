@@ -8,5 +8,5 @@ App that displays a configurable positioning window starting from the title bar 
 
 
 ## In Action
-![image]pages/docs/wiNpoS.gif
+![image]pages/docs/images/wiNpoS.gif
 
