@@ -101,15 +101,21 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 				else if (pMsg->message == MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK)
 				{
 					WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_REGISTER_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-					_hooksMgr->setHooks();
-					allHookedThreads->count_down();
+					if(!_hooksMgr->areHooksSet())
+					{
+						_hooksMgr->setHooks();
+						allHookedThreads->count_down();
+					}
 				}
 
 				else if (pMsg->message == MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK)
 				{
 					WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-					_hooksMgr->unhookHooks();
-					allHookedThreads->count_down();
+					if(_hooksMgr->areHooksSet())
+					{
+						_hooksMgr->unhookHooks();
+						allHookedThreads->count_down();
+					}
 				}
 
 				//else if (pMsg->message == MT_HOOK_MSG_CREATE_TASK_TOOLBAR)

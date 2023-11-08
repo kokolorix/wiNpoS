@@ -1,5 +1,6 @@
 #pragma once
 #include "Utils.h"
+#include <map>
 
 #define MT_HOOK_MSG_CREATE_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.CreateTaskToolbar")
 #define MT_HOOK_MSG_DESTROY_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.DestroyTaskToolbar")
@@ -21,9 +22,15 @@ public:
 
 private:
 	HMODULE _hModule = NULL;
-	HHOOK _hhkShellHookProc = NULL;
-	HHOOK _hhkCallWndProc = NULL;
-	HHOOK _hhkGetMessage = NULL;
+	//HHOOK _hhkShellHookProc = NULL;
+	using HookMap = std::map<DWORD, HHOOK>;
+	using HookMapMutex = std::mutex;
+	using HookMapLock = std::lock_guard<HookMapMutex>;
+	HookMapMutex _mutex;
+	HookMap _callWndProcMap;
+	HookMap _getMessageMap;
+	//HHOOK _hhkCallWndProc = NULL;
+	//HHOOK _hhkGetMessage = NULL;
 	PROCESS_INFORMATION _childProcessInfo = { 0 };
 
 public:
@@ -38,10 +45,12 @@ public:
 	void setHooks(HMODULE hModule, DWORD threadId = GetCurrentThreadId());
 
 	void detach();
-	void unhookHooks();
+	void unhookHooks(DWORD threadId = GetCurrentThreadId());
 
-	void install();
+	void install(DWORD threadId = GetCurrentThreadId());
 	void uninstall();
+
+	bool areHooksSet(DWORD threadId = GetCurrentThreadId());
 
 	void startOtherBitInstance();
 	void stopOtherBitInstance();

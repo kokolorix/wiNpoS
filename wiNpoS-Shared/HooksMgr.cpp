@@ -86,11 +86,13 @@ void HooksMgr::setHooks(HMODULE hModule, DWORD threadId /*= GetCurrentThreadId()
 	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, S(GetMsgProc));
 	AssertTrue(hkGetMsgProc, "GetMsgProc adress should not be NULL");
 
-	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, threadId);
-	AssertTrue(_hhkCallWndProc, "CALLWNDPROC Hook handle should not be NULL");
+	HookMapLock lock(_mutex);
 
-	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, threadId);
-	AssertTrue(_hhkGetMessage, "GETMESSAGE Hook handle should not be NULL");
+	HHOOK _hhkCallWndProc = _callWndProcMap[threadId] = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, threadId);
+	AssertTrue(_hhkCallWndProc, "Hook handle should not be NULL");
+
+	HHOOK _hhkGetMessage = _getMessageMap[threadId] = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, threadId);
+	AssertTrue(_hhkGetMessage, "Hook handle should not be NULL");
 }
 
 /**
@@ -106,15 +108,21 @@ void HooksMgr::detach()
 /**
  * @brief 
 */
-void HooksMgr::unhookHooks()
+void HooksMgr::unhookHooks(DWORD threadId /*= GetCurrentThreadId()*/)
 {
+	HookMapLock lock(_mutex);
+
+	HHOOK& _hhkGetMessage = _getMessageMap[threadId];
 	if (_hhkGetMessage && UnhookWindowsHookEx(_hhkGetMessage))
 		_hhkGetMessage = NULL;
 	AssertTrue(_hhkGetMessage == NULL, "Hook handle should be NULL");
+	_getMessageMap.erase(threadId);
 
+	HHOOK& _hhkCallWndProc = _callWndProcMap[threadId];
 	if (_hhkCallWndProc && UnhookWindowsHookEx(_hhkCallWndProc))
 		_hhkCallWndProc = NULL;
 	AssertTrue(_hhkCallWndProc == NULL, "Hook handle should be NULL");
+	_callWndProcMap.erase(threadId);
 
 	//if (_hhkShellHookProc && UnhookWindowsHookEx(_hhkShellHookProc))
 	//	_hhkShellHookProc = NULL;
@@ -124,7 +132,7 @@ void HooksMgr::unhookHooks()
 /**
  * @brief 
 */
-void HooksMgr::install()
+void HooksMgr::install(DWORD threadId /*= GetCurrentThreadId()*/)
 {
 	_hModule = load();
 
@@ -139,11 +147,12 @@ void HooksMgr::install()
 
 	//_hhkShellHookProc = SetWindowsHookEx(WH_SHELL, hkShellHookProc, _hModule, NULL);
 	//assert(_hhkShellHookProc);
+	HookMapLock lock(_mutex);
 
-	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, _hModule, NULL);
+	HHOOK _hhkCallWndProc = _callWndProcMap[threadId] = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, _hModule, NULL);
 	AssertTrue(_hhkCallWndProc, "Hook handle should not be NULL");
 
-	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, _hModule, NULL);
+	HHOOK _hhkGetMessage = _getMessageMap[threadId] = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, _hModule, NULL);
 	AssertTrue(_hhkGetMessage, "Hook handle should not be NULL");
 }
 
@@ -156,27 +165,21 @@ void HooksMgr::uninstall()
 	//PostMessage(HWND_BROADCAST, MT_HOOK_MSG_UNLOAD, NULL, NULL);
 	//detach();
 }
+
+/**
+ * @brief 
+ * @return 
+*/
+bool HooksMgr::areHooksSet(DWORD threadId /*= GetCurrentThreadId()*/)
+{
+	HookMapLock lock(_mutex);
+	return _callWndProcMap.find(threadId) != _callWndProcMap.end()
+		|| _getMessageMap.find(threadId) != _getMessageMap.end();
+}
+
 /**
  * @brief starts other instance, if possible
 */
-namespace
-{
-	void atExit()
-	{
-		using std::regex;
-		using std::regex_replace;
-	#ifdef _WIN64
-		string exeName = regex_replace(Utils::ExeName, regex("64"), "32");
-	#else
-		string exeName = regex_replace(Utils::ExeName, regex("32"), "64");
-	#endif // _WIN64
-		char exePath[MAX_PATH] = { 0 };
-		strcpy_s(exePath, Utils::BinDir.c_str());
-		PathAppendA(exePath, exeName.c_str());
-		std::system(format("taskkill /F /IM {}", exePath).c_str());
-
-	}
-}
 void HooksMgr::startOtherBitInstance()
 {
 	using std::regex;
