@@ -30,13 +30,14 @@ namespace Utils
 	extern string ProductVersion;
 	extern string ProductName;
 #ifdef _USRDLL
+	string getDllName(HMODULE hInst = NULL);
 	extern string DllName;
 #endif // _USRDLL
 
-#define STRINGIZE(asString) STRINGIZE_A((asString))
+//#define STRINGIZE(asString) STRINGIZE_A((asString))
 #define STRINGIZE_A(arg) STRINGIZE_I arg
 #define STRINGIZE_I(asString) #asString
-#define S(asString)  STRINGIZE(asString)
+#define S(asString)  STRINGIZE_I(asString)
 
 	/**
 	 * dynamic format
@@ -51,20 +52,20 @@ namespace Utils
 	{
 		return std::vformat(rt_fmt_str, std::make_wformat_args(args...));
 	}
-#define __FILE_LINE__ __FILE__ "(" S(__LINE__) ")"
+//#define __FILE_LINE__ __FILE__ "(" S(__LINE__) ")"
 
 #ifdef _DEBUG
 
-#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(format("{}\t{}\n", msg, __FUNCTION__ "\t\t" __FILE_LINE__))
+#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(format("{}\t{}({})\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__))
 
-#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(format("{}\t{}\t{}\n", msg, __FUNCTION__ "\t\t" __FILE_LINE__, dtl))
+#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(format("{}\t{}\t{}({})\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__, dtl))
 
 #define WRITE_DEBUG_LOG_DURATION(msg, methodCall) \
 { \
 	TDateTime before = Now(); \
 	methodCall; \
 	int duration = MilliSecondsBetween(before, Now()); \
-	Utils::WriteDebugLog(format("{}\t{}\n"", msg, format("{}\t{}\t{}, __FUNCTION__, duration, __FILE_LINE__))); \
+	Utils::WriteDebugLog(format("{}\t{}\n"", msg, format("{}\t{}\t{}({}), __FUNCTION__, duration, __FILE__,  __LINE__))); \
 } \
 
 #define WRITE_DEBUG_LOG_DETAIL_DURATION(msg, dtl, methodCall) \
@@ -72,7 +73,7 @@ namespace Utils
 	TDateTime before = Now(); \
 	methodCall; \
 	int duration = MilliSecondsBetween(before, Now()); \
-	Utils::WriteDebugLog(format("{}\t{}\t{}\n", msg, format("{}\t{}\t{}", __FUNCTION__, duration, __FILE_LINE__)), dtl); \
+	Utils::WriteDebugLog(format("{}\t{}\t{}\n", msg, format("{}\t{}\t{}({})", __FUNCTION__, duration, __FILE__, __LINE__)), dtl); \
 } \
 
 	void WriteDebugLog(string msg);

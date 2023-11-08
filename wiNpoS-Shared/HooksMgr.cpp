@@ -5,6 +5,8 @@
 #include "Utils.h"
 #include <Shlwapi.h>
 
+extern HINSTANCE hInstance;   // current instance
+
 /**
  * @brief 
  * @return 
@@ -12,11 +14,19 @@
 HMODULE HooksMgr::load()
 {
 	HMODULE hModule = NULL;
+
+	char path[MAX_PATH];
+	char buffer[MAX_PATH] = { 0 };
+	GetModuleFileNameA(hInstance, path, MAX_PATH);
+	PathRemoveFileSpecA(path);
+
 #ifdef _WIN64
-	hModule = LoadLibrary(L"wiNpoS-Hook64.dll");
+	PathAppendA(path, "wiNpoS-Hook64.dll");
 #else
-	hModule = LoadLibrary(L"wiNpoS-Hook32.dll");
+	PathAppendA(path, "wiNpoS-Hook32.dll");
 #endif // _WIN64
+
+	hModule = LoadLibraryA(path);
 	return hModule;
 }
 
@@ -57,21 +67,30 @@ void HooksMgr::attach()
 
 /**
  * @brief 
+ * @param threadId 
+*/
+void HooksMgr::setHooks(DWORD threadId /*= GetCurrentThreadId()*/)
+{
+	setHooks(_hModule, threadId);
+}
+
+/**
+ * @brief 
  * @param hModule 
 */
-void HooksMgr::setHooks(HMODULE hModule)
+void HooksMgr::setHooks(HMODULE hModule, DWORD threadId /*= GetCurrentThreadId()*/)
 {
-	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(CallWndProc));
-	AssertTrue(hkCallWndProc, "Procedure adress should not be NULL");
+	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(hModule, S(CallWndProc));
+	AssertTrue(hkCallWndProc, "CallWndProc adress should not be NULL");
 
-	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, STRINGIZE(GetMsgProc));
-	AssertTrue(hkGetMsgProc, "Procedure adress should not be NULL");
+	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(hModule, S(GetMsgProc));
+	AssertTrue(hkGetMsgProc, "GetMsgProc adress should not be NULL");
 
-	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, GetCurrentThreadId());
-	AssertTrue(_hhkCallWndProc, "Hook handle should not be NULL");
+	_hhkCallWndProc = SetWindowsHookEx(WH_CALLWNDPROC, hkCallWndProc, NULL, threadId);
+	AssertTrue(_hhkCallWndProc, "CALLWNDPROC Hook handle should not be NULL");
 
-	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, GetCurrentThreadId());
-	AssertTrue(_hhkGetMessage, "Hook handle should not be NULL");
+	_hhkGetMessage = SetWindowsHookEx(WH_GETMESSAGE, hkGetMsgProc, NULL, threadId);
+	AssertTrue(_hhkGetMessage, "GETMESSAGE Hook handle should not be NULL");
 }
 
 /**
@@ -109,13 +128,13 @@ void HooksMgr::install()
 {
 	_hModule = load();
 
-	//HOOKPROC hkShellHookProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(ShellHookProc));
+	//HOOKPROC hkShellHookProc = (HOOKPROC)GetProcAddress(_hModule, S(ShellHookProc));
 	//assert(hkShellHookProc);
 
-	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(CallWndProc));
+	HOOKPROC hkCallWndProc = (HOOKPROC)GetProcAddress(_hModule, S(CallWndProc));
 	AssertTrue(hkCallWndProc, "Procedure adress should not be NULL");
 
-	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, STRINGIZE(GetMsgProc));
+	HOOKPROC hkGetMsgProc = (HOOKPROC)GetProcAddress(_hModule, S(GetMsgProc));
 	AssertTrue(hkGetMsgProc, "Procedure adress should not be NULL");
 
 	//_hhkShellHookProc = SetWindowsHookEx(WH_SHELL, hkShellHookProc, _hModule, NULL);

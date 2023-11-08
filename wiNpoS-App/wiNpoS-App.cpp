@@ -281,7 +281,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				case IDM_EXIT:
 				case IDM_TRAYMENU_EXIT:
 					PostMessage(HWND_BROADCAST, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)0, (LPARAM)0);
-					Sleep(1000);
+					//Sleep(1000);
 					_hooksMgr->stopOtherBitInstance();
 					_hooksMgr->uninstall();
 					DestroyWindow(hWnd);
@@ -406,7 +406,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				ULONG processId = 0;
 				ULONG threadId = GetWindowThreadProcessId(hWndUnderMouse, &processId);
 				hWndUnderMouse = GetMainWnd(threadId, processId);
-				if (hWndUnderMouse != hWnd)
+				//if (hWndUnderMouse != hWnd)
 				{
 					//FlashWindow(windowUnderMouse, true);
 					DrawWindowBorderForTargeting(hWndUnderMouse);
@@ -418,7 +418,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		case WM_LBUTTONUP:
 		{
-			if (targetingWindowId && hTargetingCurrentWnd != hWnd)
+			if (targetingWindowId)
 			{
 				SetCursor(LoadCursor(NULL, IDC_ARROW));
 
@@ -436,9 +436,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				{
 					case IDM_FILE_ATTACH_TO_WND:
 						AttachToProcess(processId);
-						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
-						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						//WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
+						//PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						//PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
 						break;
 					case IDM_FILE_DETACH_FROM_WND:
 						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));

@@ -10,6 +10,7 @@
 #include <winuser.h>
 #include <winver.h>
 #include <strsafe.h>
+#include <set>
 #pragma comment(lib, "Shlwapi.lib")
 #pragma comment(lib, "version.lib")
 
@@ -46,14 +47,14 @@ namespace
 	}
 
 
-	string initExeName()
+	string getExeName()
 	{
 		char buffer[MAX_PATH] = { 0 };
 		GetModuleFileNameA(NULL, buffer, MAX_PATH);
 		string  exeName = PathFindFileNameA(buffer);
 		return exeName;
 	}
-	string initBinDir()
+	string getBinDir()
 	{
 		char buffer[MAX_PATH] = { 0 };
 		GetModuleFileNameA(hInstance, buffer, MAX_PATH);
@@ -68,7 +69,7 @@ namespace
 	* FileDescription 	LegalTrademarks 		PrivateBuild
 	* FileVersion 			OriginalFilename 		SpecialBuild
 	*/
-	string initVersionInfo(string info)
+	string getVersionInfo(string info)
 	{
 		DWORD laenge = 0;
 		laenge = GetFileVersionInfoSizeA(Utils::ExeName.c_str(), &laenge);
@@ -92,25 +93,22 @@ namespace
 		}
 		return "";
 	}
-
-#ifdef _USRDLL
-	string initDllName()
-	{
-		char buffer[MAX_PATH] = { 0 };
-		GetModuleFileNameA(hInstance, buffer, MAX_PATH);
-
-		string  dllName = PathFindFileNameA(buffer);
-		return dllName;
 }
-#endif // _USRDLL
-}
-string Utils::ExeName = initExeName();
-string Utils::BinDir = initBinDir();
-string Utils::ProductVersion = initVersionInfo("ProductVersion");
-string Utils::ProductName = initVersionInfo("ProductName");
+string Utils::ExeName = getExeName();
+string Utils::BinDir = getBinDir();
+string Utils::ProductVersion = getVersionInfo("ProductVersion");
+string Utils::ProductName = getVersionInfo("ProductName");
  
 #ifdef _USRDLL
-string Utils::DllName = initDllName();
+string Utils::getDllName(HMODULE hInst /*= NULL*/)
+{
+	char buffer[MAX_PATH] = { 0 };
+	GetModuleFileNameA(hInst == NULL ? hInstance : hInst, buffer, MAX_PATH);
+
+	string  dllName = PathFindFileNameA(buffer);
+	return dllName;
+}
+string Utils::DllName = Utils::getDllName();
 #endif // _USRDLL
 
 #ifdef _DEBUG
@@ -211,7 +209,7 @@ Utils::MainWindResVector Utils::GetMainWnds(DWORD threadId /*= 0*/, DWORD proces
 {
 	DesktopNameVector desktopNames;
 	EnumDesktopsA(nullptr, EnumDesktopProcA, (LPARAM)&desktopNames);
-
+	std::set<HWND> hWndSet;
 	MainWindResVector mainWnds;
 	for (const string dn : desktopNames)
 	{
@@ -226,7 +224,8 @@ Utils::MainWindResVector Utils::GetMainWnds(DWORD threadId /*= 0*/, DWORD proces
 			if (processId == wndProcessId && (threadId == 0 || wndThreadId == threadId))
 			{
 				HWND hMainWnd = GetAncestor(hWnd, GA_ROOTOWNER);
-				mainWnds.push_back({ hMainWnd, wndThreadId });
+				if(hWndSet.insert(hMainWnd).second) 
+					mainWnds.push_back({ hMainWnd, wndThreadId });
 			}
 		}
 	}

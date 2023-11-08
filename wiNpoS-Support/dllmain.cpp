@@ -3,11 +3,69 @@
 #include "Utils.h"
 #include "HooksMgr.h"
 #include <assert.h>
+#include <set>
+#include <latch>
+#include <future>
+#include <ranges>
 
 HINSTANCE hInstance = NULL;   // current instance
 
 thread_local HHOOK hhGetMessageHookProc = NULL;
-bool hookThreadInstalled = false;
+//bool hookThreadInstalled = false;
+
+HooksMgrPtr _hooksMgr = std::make_unique<HooksMgr>(); ///> the hooks manager
+
+//std::atomic<std::set<DWORD>> installedThreadIds;
+std::unique_ptr<std::latch> allHookedThreads;
+
+LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam);
+
+BOOL APIENTRY DllMain( HMODULE hModule,
+                       DWORD  ul_reason_for_call,
+                       LPVOID lpReserved
+                     )
+{
+	switch (ul_reason_for_call)
+	{
+		case DLL_PROCESS_ATTACH:
+		{
+			Utils::DllName = Utils::getDllName(hModule);
+			hInstance = hModule;
+			
+			//HMODULE hHookModule = _hooksMgr->load();
+			_hooksMgr->loadHook();
+
+			using std::ranges::views::filter;
+			using std::ranges::to;
+			std::set<DWORD> threadIds;
+			auto mainWnds = GetMainWnds(0, GetCurrentProcessId()) | filter([&threadIds](const MainWndRes& mw) { return threadIds.insert(mw.wndThreadId).second; }) | to<MainWindResVector>();
+			allHookedThreads = std::make_unique<std::latch>(mainWnds.size());
+			//auto future = std::async(std::launch::async, 
+			std::thread t(
+				[mainWnds]() 
+				{
+					for (MainWndRes mw : mainWnds)
+					{
+						hhGetMessageHookProc =
+							SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
+						PostMessage(mw.hMainWnd, MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK, 0, 0);
+					}
+					allHookedThreads->wait();
+					WRITE_DEBUG_LOG("All root windows hooked");
+				});
+			//future.wait();
+			t.detach();
+
+			WRITE_DEBUG_LOG(format("Attach {} to {}", Utils::getDllName(hInstance), Utils::ExeName));
+		}
+		break;
+		case DLL_THREAD_ATTACH:
+		case DLL_THREAD_DETACH:
+		case DLL_PROCESS_DETACH:
+			break;
+	}
+	return TRUE;
+}
 
 LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
@@ -23,10 +81,10 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 
 				if (pMsg->message == MT_HOOK_MSG_REGISTER_SUPPORT_THREAD_HOOK)
 				{
+
 					WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_REGISTER_SUPPORT_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 					hhGetMessageHookProc =
 						SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, GetCurrentThreadId());
-					hookThreadInstalled = true;
 				}
 
 				else if (pMsg->message == MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK)
@@ -35,22 +93,24 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 					if (hhGetMessageHookProc && UnhookWindowsHookEx(hhGetMessageHookProc))
 						hhGetMessageHookProc = NULL;
 					assert(hhGetMessageHookProc == NULL);
-					hookThreadInstalled = false;
+
 					HWND hSrcWnd = (HWND)pMsg->wParam;
 					PostMessage(hSrcWnd, MT_HOOK_MSG_SUPPORT_THREAD_HOOK_UNREGISTERED, (WPARAM)pMsg->hwnd, (LPARAM)hInstance);
 				}
 
-				//else if (pMsg->message == MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK)
-				//{
-				//	WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_REGISTER_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-				//	hooks.setHooks(hInstance);
-				//}
+				else if (pMsg->message == MT_HOOK_MSG_REGISTER_WND_THREAD_HOOK)
+				{
+					WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_REGISTER_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+					_hooksMgr->setHooks();
+					allHookedThreads->count_down();
+				}
 
-				//else if (pMsg->message == MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK)
-				//{
-				//	WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-				//	hooks.unhookHooks();
-				//}
+				else if (pMsg->message == MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK)
+				{
+					WRITE_DEBUG_LOG(dformat("MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+					_hooksMgr->unhookHooks();
+					allHookedThreads->count_down();
+				}
 
 				//else if (pMsg->message == MT_HOOK_MSG_CREATE_TASK_TOOLBAR)
 				//{
@@ -96,32 +156,5 @@ LRESULT CALLBACK GetMessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	}
 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
-}
-
-DWORD WINAPI ThreadProc(_In_ LPVOID lpParameter)
-{
-	MainWndRes mw = GetMainWnd();
-	hhGetMessageHookProc =
-		SetWindowsHookEx(WH_GETMESSAGE, GetMessageHookProc, NULL, mw.wndThreadId);
-	PostMessage(mw.hMainWnd, MT_HOOK_MSG_REGISTER_SUPPORT_THREAD_HOOK, 0, 0);
-	while (!hookThreadInstalled) // wait for GetMessageHookProc is installed
-		Sleep(200);
-	return 0;
-}
-
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-                     )
-{
-    switch (ul_reason_for_call)
-    {
-    case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
-        break;
-    }
-    return TRUE;
 }
 

@@ -34,7 +34,8 @@ public:
 	void unloadHook();
 
 	void attach();
-	void setHooks(HMODULE hModule);
+	void setHooks(DWORD threadId = GetCurrentThreadId());
+	void setHooks(HMODULE hModule, DWORD threadId = GetCurrentThreadId());
 
 	void detach();
 	void unhookHooks();
