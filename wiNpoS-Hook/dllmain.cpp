@@ -16,10 +16,7 @@ thread_local HHOOK hhShellHookProc = NULL;
 
 LRESULT CALLBACK ShellHookProc(int nCode, WPARAM wParam, LPARAM lParam);
 
-BOOL APIENTRY DllMain(HMODULE hModule,
-	DWORD  ul_reason_for_call,
-	LPVOID lpReserved
-)
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	switch ((int)ul_reason_for_call)
