@@ -1,5 +1,6 @@
 #pragma once
 #include "WinPosWnd.h"
+#include <chrono>
 
 class HooksImpl
 {
@@ -15,6 +16,8 @@ private:
 	WinPosWnd _winPosWnd;
 	MSG _lButtonUpMsg = { 0 };
 	MSG _ncLButtonUpMsg = { 0 };
+	static std::chrono::system_clock::time_point lastClick;
+
 
 	POINT _lastLButtonDown = { 0 };
 	RECT _lastRect = { 0 }; // last rect

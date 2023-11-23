@@ -10,6 +10,7 @@
 #include <resource.h>
 #include <assert.h>
 #include <future>
+#include <chrono>
 
 extern HINSTANCE hInstance;
 thread_local HRESULT coInit /*= S_FALSE*/;
@@ -288,6 +289,9 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
+
+std::chrono::system_clock::time_point HooksImpl::lastClick = std::chrono::system_clock::now();
+
 /**
  * @brief this procedure handles the double click in non-client area
  * @param pMsg 
@@ -401,7 +405,18 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 		GetWindowRect(pMsg->hwnd, &rcCaption);
 		rcCaption.bottom = rcCaption.top + GetSystemMetrics(SM_CYCAPTION);
 		if(hitTest == HTCAPTION || PtInRect(&rcCaption, pt))
-			_lastLButtonDown = pt;
+		{
+			if (_winPosWnd.getWinPosWnd(pMsg->hwnd))
+			{
+				_winPosWnd.destroy();
+				auto ct = std::chrono::system_clock::now();
+				auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
+				lastClick = std::chrono::system_clock::now();
+				auto dblClickTime = GetDoubleClickTime();
+			}
+			else
+				_lastLButtonDown = pt;
+		}
 	}
 }
 /**
@@ -410,8 +425,13 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 */
 void HooksImpl::onNCLButtonUp(MSG* pMsg)
 {
+	auto ct = std::chrono::system_clock::now();
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
+	auto dblClickTime = GetDoubleClickTime();
+	if (duration.count() < dblClickTime)
+		return;
+
 	_ncLButtonUpMsg = *pMsg;
-	UINT dblClickTime = GetDoubleClickTime();
 	SetTimer(pMsg->hwnd, TI_NCLBUTTONUP, dblClickTime, (TIMERPROC)nullptr);
 }
 /**
@@ -441,8 +461,13 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM) && !hasCaptionDblClicked())
 	{
+		auto ct = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
+		auto dblClickTime = GetDoubleClickTime();
+		if (duration.count() < dblClickTime)
+			return;
+
 		_lButtonUpMsg = *pMsg;
-		UINT dblClickTime = GetDoubleClickTime();
 		SetTimer(pMsg->hwnd, TI_LBUTTONUP, dblClickTime, (TIMERPROC)nullptr);
 
 		//static const int32_t TOL = 3; // tolerance
