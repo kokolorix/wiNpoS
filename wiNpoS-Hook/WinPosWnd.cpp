@@ -553,9 +553,9 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 		int oldBkMode = SetBkMode(hDc, TRANSPARENT);
 		COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT));
 
-		int textHeight = DrawTextA(hDc, name.c_str(), name.length(), &rcText, DT_CALCRECT | DT_CENTER | DT_VCENTER | DT_WORDBREAK);
+		int textHeight = DrawTextA(hDc, name.c_str(), (int)name.length(), &rcText, DT_CALCRECT | DT_CENTER | DT_VCENTER | DT_WORDBREAK);
 		OffsetRect(&rc, 0, (rc.bottom - rc.top - textHeight) / 2);
-		DrawTextA(hDc, name.c_str(), name.length(), &rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);
+		DrawTextA(hDc, name.c_str(), (int)name.length(), &rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK);
 
 		SetBkMode(hDc, oldBkMode);
 		SetTextColor(hDc, oldColor);

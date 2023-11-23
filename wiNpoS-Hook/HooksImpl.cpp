@@ -162,8 +162,8 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						break;
 					case WM_NCLBUTTONDOWN:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONDOWN: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-						if(!_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) }))
-							_hooks.onNcLButtonDown(pMsg);
+						//if(!_hooks.onClosePosWnd(pMsg, { GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam) }))
+						_hooks.onNcLButtonDown(pMsg);
 						break;
 					case WM_NCLBUTTONUP:
 						WRITE_DEBUG_LOG(dformat("WM_NCLBUTTONUP: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
@@ -290,7 +290,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
-std::chrono::system_clock::time_point HooksImpl::lastClick = std::chrono::system_clock::now();
+std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
 
 /**
  * @brief this procedure handles the double click in non-client area
@@ -397,6 +397,8 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 	int x = GET_X_LPARAM(pMsg->lParam);
 	int y = GET_Y_LPARAM(pMsg->lParam);
 	POINT pt = { x, y };
+	_hooks.onClosePosWnd(pMsg, pt);
+
 	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
 
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM))
@@ -406,16 +408,14 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 		rcCaption.bottom = rcCaption.top + GetSystemMetrics(SM_CYCAPTION);
 		if(hitTest == HTCAPTION || PtInRect(&rcCaption, pt))
 		{
-			if (_winPosWnd.getWinPosWnd(pMsg->hwnd))
-			{
-				_winPosWnd.destroy();
-				auto ct = std::chrono::system_clock::now();
-				auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
-				lastClick = std::chrono::system_clock::now();
-				auto dblClickTime = GetDoubleClickTime();
-			}
-			else
-				_lastLButtonDown = pt;
+			auto ct = std::chrono::system_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - _lastCaptionClick);
+			auto dblClickTime = GetDoubleClickTime();
+			if (duration.count() < dblClickTime)
+				return;
+
+			_lastCaptionClick = std::chrono::system_clock::now();
+			_lastLButtonDown = pt;
 		}
 	}
 }
@@ -426,9 +426,10 @@ void HooksImpl::onNcLButtonDown(MSG* pMsg)
 void HooksImpl::onNCLButtonUp(MSG* pMsg)
 {
 	auto ct = std::chrono::system_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - _lastCaptionClick);
 	auto dblClickTime = GetDoubleClickTime();
-	if (duration.count() < dblClickTime)
+
+	if (duration.count() < dblClickTime / 2)
 		return;
 
 	_ncLButtonUpMsg = *pMsg;
@@ -462,9 +463,10 @@ void HooksImpl::onLButtonUp(MSG* pMsg)
 	if (!is_one_of(hitTest, HTMINBUTTON, HTMAXBUTTON, HTCLOSE, HTSYSMENU, HTLEFT, HTRIGHT, HTTOP, HTBOTTOM) && !hasCaptionDblClicked())
 	{
 		auto ct = std::chrono::system_clock::now();
-		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - lastClick);
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(ct - _lastCaptionClick);
+
 		auto dblClickTime = GetDoubleClickTime();
-		if (duration.count() < dblClickTime)
+		if (duration.count() < dblClickTime / 2)
 			return;
 
 		_lButtonUpMsg = *pMsg;

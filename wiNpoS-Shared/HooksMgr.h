@@ -1,6 +1,7 @@
 #pragma once
 #include "Utils.h"
 #include <map>
+#include <mutex>
 
 #define MT_HOOK_MSG_CREATE_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.CreateTaskToolbar")
 #define MT_HOOK_MSG_DESTROY_TASK_TOOLBAR RegisterWindowMessageA("wiNpoS-Hook.DestroyTaskToolbar")

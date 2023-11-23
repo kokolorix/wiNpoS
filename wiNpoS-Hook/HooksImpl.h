@@ -16,7 +16,7 @@ private:
 	WinPosWnd _winPosWnd;
 	MSG _lButtonUpMsg = { 0 };
 	MSG _ncLButtonUpMsg = { 0 };
-	static std::chrono::system_clock::time_point lastClick;
+	static std::chrono::system_clock::time_point _lastCaptionClick;
 
 
 	POINT _lastLButtonDown = { 0 };
