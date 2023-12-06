@@ -36,4 +36,12 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wiNpoS-Support32.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="wiNpoS-Support64.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

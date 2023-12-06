@@ -38,7 +38,7 @@ INT_PTR CALLBACK		About(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI			NewWindowProc(_In_ LPVOID lpParameter);
 HWND						CreateNewWindow();
 void						AttachToProcess(ULONG processId);
-void						DetachFromProcess(ULONG targetPid, HINSTANCE hInstance);
+void						DetachFromProcess(ULONG targetPid);
 void						DrawWindowBorderForTargeting(_In_ HWND hWnd);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInst,
@@ -443,8 +443,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					case IDM_FILE_DETACH_FROM_WND:
 						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK) to {:#018x}", MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (uint64_t)hTargetingCurrentWnd));
 						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_DESTROY_TASK_TOOLBAR, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
-						PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
+						//PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_WND_THREAD_HOOK, (WPARAM)GetCurrentProcessId(), (LPARAM)GetCurrentThreadId());
+						//PostMessage(hTargetingCurrentWnd, MT_HOOK_MSG_UNREGISTER_SUPPORT_THREAD_HOOK, (WPARAM)hWnd, (LPARAM)GetCurrentThreadId());
+						DetachFromProcess(processId);
 						break;
 					case IDM_FILE_SEND_CREATE_TASK_TOOLBAR:
 						WRITE_DEBUG_LOG(format("Send message {}(MT_HOOK_MSG_CREATE_TASK_TOOLBAR) to {:#018x}", MT_HOOK_MSG_CREATE_TASK_TOOLBAR, (uint64_t)hTargetingCurrentWnd));
@@ -555,7 +556,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 					DWORD wndProcessId = NULL;
 					auto wndThreadId = GetWindowThreadProcessId(hSrcWnd, &wndProcessId);
 					HINSTANCE hInstance = (HINSTANCE)lParam;
-					DetachFromProcess(wndProcessId, hInstance);
+					DetachFromProcess(wndProcessId);
 				}
 			}
 			return DefWindowProc(hWnd, message, wParam, lParam);
@@ -703,21 +704,34 @@ void AttachToProcess(ULONG targetPid)
 	CloseHandle(hProcess);
 }
 
-void DetachFromProcess(ULONG targetPid, HINSTANCE hInstance)
+void DetachFromProcess(ULONG targetPid)
 {
 	// Open the target process with read/write access
 	HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetPid);
 	if (hProcess == NULL)
 		return Utils::ShowLastError("Failed to open process, error {}");
 
-	// Get the address of the LoadLibrary function in the kernel32.dll module
-	HMODULE hKernel32 = GetModuleHandle(_T("kernel32.dll"));
-	if (hKernel32 == NULL)
-		return Utils::ShowLastError("Failed to obtain kernel32.dll handle, error {}");
+	WCHAR path[MAX_PATH];
+	DWORD pathLength = GetModuleFileName(NULL, path, MAX_PATH);
+	PathRemoveFileSpec(path);
+#ifdef _WIN64
+	PathAppend(path, L"wiNpoS-Support64.dll");
+#else
+	PathAppend(path, L"wiNpoS-Support32.dll");
+#endif // _WIN64
 
-	FARPROC pFreeLibrary = GetProcAddress(hKernel32, "FreeLibrary");
-	if (pFreeLibrary == nullptr)
-		return Utils::ShowLastError("Failed to obtain LoadLibraryW adress, error {}");
+	// Get the address of the LoadLibrary function in the kernel32.dll module
+	HMODULE hSupport = LoadLibrary(path);
+	if (hSupport == NULL)
+#ifdef _WIN64
+		return Utils::ShowLastError("Failed to obtain wiNpoS-Support64.dll handle, error {}");
+#else
+		return Utils::ShowLastError("Failed to obtain wiNpoS-Support32.dll handle, error {}");
+#endif // _WIN64
+
+	FARPROC pUnloadWinPos = GetProcAddress(hSupport, "UnloadWinPos");
+	if (pUnloadWinPos == nullptr)
+		return Utils::ShowLastError("Failed to obtain UnloadWinPos adress, error {}");
 
 
 	// Allocate memory in the target process to hold the path to the DLL
@@ -742,7 +756,7 @@ void DetachFromProcess(ULONG targetPid, HINSTANCE hInstance)
 	SYSTEM_INFO si;
 	GetSystemInfo(&si);
 	// Create a remote thread in the target process to call LoadLibrary with the path to the DLL
-	HANDLE hThread = CreateRemoteThread(hProcess, NULL, si.dwPageSize * 32, (LPTHREAD_START_ROUTINE)pFreeLibrary, (LPVOID)hInstance, 0, NULL);
+	HANDLE hThread = CreateRemoteThread(hProcess, NULL, si.dwPageSize * 32, (LPTHREAD_START_ROUTINE)pUnloadWinPos, (LPVOID)hInstance, 0, NULL);
 	if (hThread == NULL)
 	{
 		Utils::ShowLastError("Failed to create remote thread, error {}");

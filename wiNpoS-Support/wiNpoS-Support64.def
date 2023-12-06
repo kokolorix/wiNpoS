@@ -1,0 +1,3 @@
+LIBRARY wiNpoS-Support64
+EXPORTS
+	UnloadWinPos

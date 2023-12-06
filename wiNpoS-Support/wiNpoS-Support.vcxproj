@@ -186,6 +186,10 @@
   <ItemGroup>
     <ResourceCompile Include="wiNpoS-Support.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wiNpoS-Support32.def" />
+    <None Include="wiNpoS-Support64.def" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
