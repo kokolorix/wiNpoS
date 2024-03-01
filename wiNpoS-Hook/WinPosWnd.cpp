@@ -9,6 +9,7 @@
 #include <corecrt_math.h>
 #include <windowsx.h>
 #include <assert.h>
+#include "HooksImpl.h"
 #pragma comment(lib, "Msimg32.lib")
 
 extern HINSTANCE hInstance;
@@ -272,11 +273,13 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 /**
  * @brief destroys every windows
 */
+extern thread_local HooksImpl _hooks;
 void WinPosWnd::destroy()
 {
 	for (HWND hWnd : _hWnds)
 		DestroyWindow(hWnd);
 	_hWnds.clear();
+	_hooks.clear();
 }
 
 /**

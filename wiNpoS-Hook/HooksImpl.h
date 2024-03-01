@@ -12,6 +12,8 @@ public:
 	MSG* getLButtonUpMsg() { return &_lButtonUpMsg; }
 	MSG* getNcLButtonUpMsg() { return &_ncLButtonUpMsg; }
 
+	void clear();
+
 private:
 	WinPosWnd _winPosWnd;
 	MSG _lButtonUpMsg = { 0 };
@@ -19,6 +21,7 @@ private:
 	static std::chrono::system_clock::time_point _lastCaptionClick;
 
 
+	POINT _lastMouseMove = { 0 };
 	POINT _lastLButtonDown = { 0 };
 	RECT _lastRect = { 0 }; // last rect
 	bool hasLastRect()
@@ -33,6 +36,7 @@ private:
 
 
 private:
+	void onNcMouseMove(MSG* pMsg);
 	void onNcLButtonDblClick(MSG* pMsg);
 	void onWindowPosChanged(CWPSTRUCT* pMsg);
 	

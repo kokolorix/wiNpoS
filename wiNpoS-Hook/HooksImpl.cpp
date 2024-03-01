@@ -27,6 +27,7 @@ namespace
 	*/
 	const UINT TI_LBUTTONUP = 0x40;
 	const UINT TI_NCLBUTTONUP = 0x50;
+	const UINT TI_NCMOUSEMOVE = 0x60;
 }
 
 /**
@@ -139,9 +140,10 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 
 				switch (pMsg->message)
 				{
-					//case WM_MOUSEMOVE:
-					//	WRITE_DEBUG_LOG(format("WM_MOUSEMOVE: {:#010x} ", pMsg->message));
-					//	break;
+					case WM_NCMOUSEMOVE:
+						//WRITE_DEBUG_LOG(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message));
+						_hooks.onNcMouseMove(pMsg);
+						break;
 					case WM_SHOWWINDOW:
 						WRITE_DEBUG_LOG(dformat("WM_SHOWWINDOW: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
@@ -194,7 +196,7 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						if (pMsg->wParam == TI_LBUTTONUP)
 						{
 							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-							KillTimer(pMsg->hwnd, TI_LBUTTONUP);
+							KillTimer(pMsg->hwnd, pMsg->wParam);
 							MSG msg = *_hooks.getLButtonUpMsg();
 
 							// extract the exact click point from lParam
@@ -212,8 +214,22 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						else if (pMsg->wParam == TI_NCLBUTTONUP)
 						{
 							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
-							KillTimer(pMsg->hwnd, TI_NCLBUTTONUP);
+							KillTimer(pMsg->hwnd, pMsg->wParam);
 							_hooks.onCaptionClick(_hooks.getNcLButtonUpMsg());
+						}
+						else if (pMsg->wParam == TI_NCMOUSEMOVE)
+						{
+							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+							KillTimer(pMsg->hwnd, pMsg->wParam);
+
+							//POINT pt = { 0 };
+							//GetCursorPos(&pt);
+							//LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+							//if(is_one_of(hitTest, HTMINBUTTON))
+							//{
+								HWND hWnd = _hooks.onShowPosWnd(pMsg, _hooks._lastMouseMove);
+								//_hooks._lastMouseMove = POINT{ 0, 0 };
+							//}
 						}
 						break;
 
@@ -289,8 +305,50 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 
 	return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
+/**
+ * @brief clears all states in hooks
+ */
+void HooksImpl::clear()
+{
+	_lastMouseMove = { 0, 0 };
+}
 
 std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
+
+void HooksImpl::onNcMouseMove(MSG* pMsg)
+{
+	int x = GET_X_LPARAM(pMsg->lParam);
+	int y = GET_Y_LPARAM(pMsg->lParam);
+	POINT pt = { x, y };
+	GetCursorPos(&pt);
+	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+	//LRESULT hitTest = DefWindowProc(pMsg->hwnd, pMsg->message, pMsg->wParam, pMsg->lParam);
+	int yCaption = GetSystemMetrics(SM_CYCAPTION);
+	int xButton = GetSystemMetrics(SM_CXSIZE);
+	RECT rcWindow, rcSymenu, rcCloseButton;
+	GetWindowRect(pMsg->hwnd, &rcWindow);
+	InflateRect(&rcWindow, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
+	rcSymenu = { rcWindow.left, rcWindow.top, rcWindow.left + xButton, rcWindow.top + yCaption };
+	rcCloseButton = { rcWindow.right - xButton, rcWindow.top, rcWindow.right, rcWindow.top + yCaption };
+	bool isOnOpenArea = PtInRect(&rcSymenu, pt) || PtInRect(&rcCloseButton, pt);
+	
+	string msg = format("hitTest: {}, x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}, sys right: {}, close left: {}",
+		hitTest, pt.x, pt.y,
+		rcWindow.left, rcWindow.top, rcWindow.right, rcWindow.bottom,
+		rcSymenu.right, rcCloseButton.left);
+
+	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), msg);
+
+	//if(is_one_of(hitTest, HTMINBUTTON))
+	if(isOnOpenArea)
+	{
+		if (_lastMouseMove != POINT{ 0, 0 })
+			return;
+		_lastMouseMove = pt;
+		auto dblClickTime = GetDoubleClickTime();
+		SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
+	}
+}
 
 /**
  * @brief this procedure handles the double click in non-client area
