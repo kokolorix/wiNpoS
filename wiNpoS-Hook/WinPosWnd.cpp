@@ -217,6 +217,14 @@ WinPosWnd* WinPosWnd::getWinPosWnd(HWND hWnd)
 }
 
 /**
+ * @brief starts the timer, to close the WinPosWnd
+*/
+void WinPosWnd::startCloseTimer()
+{
+	SetTimer(_hWnds.front(), CLOSE_TIMER, _closeTimeout, (TIMERPROC)nullptr);
+}
+
+/**
  * @brief create the required windows for monitor preview and all configured positions
  * @param pt point where the window should displayed 
  * @param hParentWnd the main window handle
@@ -231,6 +239,8 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 		wndClass = initWndClass();
 
 	destroy();
+
+	_hParentWnd = hParentWnd;
 
 	WinPosWndCfg config;
 	config.readConfig();
@@ -261,6 +271,7 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 		HWND hWnd = mp->create(hParentWnd);
 		_hWnds.push_back(hWnd);
 		WinPosWnd::hWndToWinPosMap[hWnd] = this;
+		WinPosWnd::hWndToWinPosMap[hParentWnd] = this;
 	}
 
 	if(!_hWnds.empty())
@@ -276,6 +287,8 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 extern thread_local HooksImpl _hooks;
 void WinPosWnd::destroy()
 {
+	WinPosWnd::hWndToWinPosMap.erase(_hParentWnd);
+	_hParentWnd = NULL;
 	for (HWND hWnd : _hWnds)
 		DestroyWindow(hWnd);
 	_hWnds.clear();

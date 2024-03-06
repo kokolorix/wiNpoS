@@ -19,10 +19,14 @@ public:
 
 	static WinPosWnd* getWinPosWnd(HWND hWnd);
 
+	void startCloseTimer();
+
 private:
 	using PosPreviewCfgs = WinPosWndCfg::PosPreviewCfgs;
 	struct MonitorPreview;
 	using MonitorPreviewPtr = std::shared_ptr<MonitorPreview>;
+
+	HWND _hParentWnd = NULL;
 
 	struct WinPosPreview
 	{

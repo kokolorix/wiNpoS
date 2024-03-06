@@ -29,6 +29,7 @@ HooksCfgPtr _hooksCfg = std::make_unique<HooksCfg>();	///> the hooks config
 HooksMgrPtr _hooksMgr = std::make_unique<HooksMgr>(); ///> the hooks manager
 
 bool _trayIcon = false;
+bool _selfAttach = false;
 
 // Forward declarations of functions included in this code module:
 ATOM						MyRegisterClass(HINSTANCE hInstance);
@@ -140,6 +141,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 	bool showWnd = cmdLine.find("not-hidden") != string::npos;
 	bool trayIcon = cmdLine.find("no-tray") == string::npos;
 	bool noChildProcess = cmdLine.find("no-child") != string::npos;
+	bool selfAttach  = cmdLine.find("self-attach") != string::npos;
 
 	HWND hWnd = CreateNewWindow();
    if (!hWnd)
@@ -150,6 +152,7 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 
 	HMENU hFileMenu = GetSubMenu(GetMenu(hWnd), 0);
 	_trayIcon = trayIcon;
+	_selfAttach = selfAttach;
 	if(trayIcon)
 	{
 		nid = { sizeof(NOTIFYICONDATAA), hWnd, 0 };
@@ -209,6 +212,11 @@ BOOL InitInstance(HINSTANCE hInst, int nCmdShow)
 		BOOL res = ModifyMenuA(hFileMenu, itemIndex, nFlags|MF_BYPOSITION, IDM_START_32_64_BIT, "&Start 64 bit");
 #endif // _WIN64
 		DrawMenuBar(hWnd);
+	}
+
+	if(selfAttach)
+	{
+		AttachToProcess(GetCurrentProcessId());
 	}
 
    return TRUE;
@@ -371,7 +379,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		case WM_SYSCOMMAND:
 		{
-			if(_trayIcon)
+			if(_trayIcon && !_selfAttach)
 			{
 				if (wParam == SC_CLOSE)
 				{
@@ -490,6 +498,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			EndPaint(hWnd, &ps);
 		}
 		break;
+
+		//case WM_NCPAINT:
+		//{
+		//	//PAINTSTRUCT ps;
+		//	//HDC hdc = BeginPaint(hWnd, &ps);
+		//	HDC hdc = GetWindowDC(hWnd);
+		//	RECT rc;
+		//	GetWindowRect(hWnd, &rc);
+		//	//rc.left += 70;
+		//	//rc.right = rc.left + 50;
+		//	rc.bottom = rc.top + GetSystemMetrics(SM_CYCAPTION);
+		//	FillRect(hdc, &rc, GetStockBrush(LTGRAY_BRUSH));
+		//	//DrawFrameControl(hdc, &rc, DFC_BUTTON, 0);
+		//	//Rectangle(hdc, rc.left, rc.top, rc.right - 10, titleBarHeight - 5);
+		//	//EndPaint(hWnd, &ps);
+		//	ReleaseDC(hWnd, hdc);
+		//	LRESULT res = DefWindowProc(hWnd, message, wParam, lParam);
+
+		//	//return res;
+		//}
+		//break;
 
 		case WM_DESTROY:
 			GetWindowRect(hWnd, &_hooksCfg->Rect);

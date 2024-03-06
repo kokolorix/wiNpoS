@@ -99,6 +99,7 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 		case HC_ACTION:
 		{
 			CWPSTRUCT* pMsg = (CWPSTRUCT*)lParam;
+			HWND hWnd = pMsg->hwnd;
 
 			switch (pMsg->message)
 			{
@@ -112,6 +113,53 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
 					_hooks.onWindowPosChanged(pMsg);
 					break;
+
+				//case WM_NCPAINT:
+				//{
+				//	int yCaption = GetSystemMetrics(SM_CYCAPTION);
+				//	int xButton = GetSystemMetrics(SM_CXSIZE);
+
+				//	RECT rcWindow, rcSysmenu, rcCloseButton;
+				//	GetWindowRect(pMsg->hwnd, &rcWindow);
+				//	InflateRect(&rcWindow, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
+				//	rcSysmenu = { rcWindow.left, rcWindow.top, rcWindow.left + xButton, rcWindow.top + yCaption };
+				//	rcCloseButton = { rcWindow.right - xButton, rcWindow.top, rcWindow.right, rcWindow.top + yCaption };
+				//	HDC hdc = GetWindowDC(pMsg->hwnd);
+				//	if (hdc)
+				//	{
+				//		int penWidth = GetSystemMetrics(SM_CXBORDER) * 10;
+				//		RECT rc;
+				//		GetWindowRect(hWnd, &rc);
+				//		int titleBarHeight = GetSystemMetrics(SM_CYCAPTION);
+				//		Rectangle(hdc, rc.right - 50 - 10, 5, rc.right - 10, titleBarHeight - 5);
+
+				//		//int oldDc = SaveDC(hdc);
+
+				//		// Get an inversion effect.
+				//		//SetROP2(hdc, R2_NOT);
+
+				//		//HPEN pen = CreatePen(PS_INSIDEFRAME, penWidth, RGB(0xFF, 0x00, 0x00));
+				//		//SelectPen(hdc, pen);
+
+				//		//HBRUSH brush = GetStockBrush(NULL_BRUSH);
+				//		//SelectBrush(hdc, brush);
+
+				//		// Draw the rectangle.
+				//		RECT& rc = rcSysmenu;
+				//		Rectangle(hdc, rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top);
+				//		//FillRect(hdc, &rcSysmenu, brush);
+
+				//		// Cleanup.
+				//		//DeletePen(pen);
+
+				//		//RestoreDC(hdc, oldDc);
+				//		ReleaseDC(pMsg->hwnd, hdc); 
+				//		return 0;
+
+				//	}
+				//}
+				//break;
+
 				default:
 					break;
 			}
@@ -314,6 +362,10 @@ void HooksImpl::clear()
 }
 
 std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
+#include <Uxtheme.h>
+#include <Vsstyle.h>
+#include <Vssym32.h>
+#pragma comment(lib, "UxTheme.lib")
 
 void HooksImpl::onNcMouseMove(MSG* pMsg)
 {
@@ -322,31 +374,75 @@ void HooksImpl::onNcMouseMove(MSG* pMsg)
 	POINT pt = { x, y };
 	GetCursorPos(&pt);
 	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
-	//LRESULT hitTest = DefWindowProc(pMsg->hwnd, pMsg->message, pMsg->wParam, pMsg->lParam);
-	int yCaption = GetSystemMetrics(SM_CYCAPTION);
-	int xButton = GetSystemMetrics(SM_CXSIZE);
-	RECT rcWindow, rcSymenu, rcCloseButton;
-	GetWindowRect(pMsg->hwnd, &rcWindow);
-	InflateRect(&rcWindow, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
-	rcSymenu = { rcWindow.left, rcWindow.top, rcWindow.left + xButton, rcWindow.top + yCaption };
-	rcCloseButton = { rcWindow.right - xButton, rcWindow.top, rcWindow.right, rcWindow.top + yCaption };
-	bool isOnOpenArea = PtInRect(&rcSymenu, pt) || PtInRect(&rcCloseButton, pt);
 	
-	string msg = format("hitTest: {}, x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}, sys right: {}, close left: {}",
-		hitTest, pt.x, pt.y,
-		rcWindow.left, rcWindow.top, rcWindow.right, rcWindow.bottom,
-		rcSymenu.right, rcCloseButton.left);
+	//NONCLIENTMETRICS ncm;
+	//ncm.cbSize = sizeof(NONCLIENTMETRICS);
+	//// Retrieve the non-client metrics, including the close button size
+	//SystemParametersInfo(SPI_GETNONCLIENTMETRICS, ncm.cbSize, &ncm, 0);
+	//int closeButtonWidth = ncm.iCaptionWidth;
+	//int closeButtonHeight = ncm.iCaptionHeight;
+	
 
-	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), msg);
+	int dpi = GetDpiForSystem();
+	int closeButtonWidth = GetSystemMetricsForDpi(SM_CXSIZE, dpi);
+	int closeButtonHeight = GetSystemMetricsForDpi(SM_CYSIZE, dpi);
+	HTHEME hTheme = OpenThemeData(pMsg->hwnd, L"Window");
+	if (hTheme)
+	{
+		RECT rect = {};
+		SIZE size = {};
+		GetThemePartSize(hTheme, NULL, WP_CLOSEBUTTON, CBS_NORMAL, &rect, TS_TRUE, &size);
 
+		//closeButtonWidth = size.cx;//.right - rect.left;
+		//closeButtonHeight = rect.bottom - rect.top;
+
+		// Now closeButtonWidth and closeButtonHeight contain the size of the close button
+
+		CloseThemeData(hTheme);
+	}
+
+	int yCaption = GetSystemMetrics(SM_CYCAPTION);
+	int xButton = closeButtonWidth;// GetSystemMetrics(SM_CXSIZE);
+	RECT rcWnd, rcSys, rcCls;
+	GetWindowRect(pMsg->hwnd, &rcWnd);
+	InflateRect(&rcWnd, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
+	rcSys = { rcWnd.left, rcWnd.top, rcWnd.left + xButton, rcWnd.top + yCaption };
+	rcCls = { rcWnd.right - xButton, rcWnd.top, rcWnd.right, rcWnd.top + yCaption };
+	bool isOnOpenArea = false; // PtInRect(&rcSysmenu, pt) || PtInRect(&rcCloseButton, pt);
+	
+	//string msg = format("hitTest: {}, x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}, sys right: {}, close left: {}",
+	//	hitTest, pt.x, pt.y,
+	//	rcWindow.left, rcWindow.top, rcWindow.right, rcWindow.bottom,
+	//	rcSysmenu.right, rcCloseButton.left);
+
+	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), msg);
+	//InvalidateRect(pMsg->hwnd, &rcWnd, TRUE);
 	//if(is_one_of(hitTest, HTMINBUTTON))
+	if (PtInRect(&rcSys, pt))
+	{
+		isOnOpenArea = true;
+		WRITE_DEBUG_LOG(format("Hit SysMenu x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}", 
+			pt.x, pt.y, rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
+	}
+	if (PtInRect(&rcCls, pt))
+	{
+		isOnOpenArea = true;
+		WRITE_DEBUG_LOG(format("Hit Close x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}", 
+			pt.x, pt.y, rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
+	}
 	if(isOnOpenArea)
 	{
-		if (_lastMouseMove != POINT{ 0, 0 })
-			return;
-		_lastMouseMove = pt;
-		auto dblClickTime = GetDoubleClickTime();
-		SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
+		auto wnd = WinPosWnd::getWinPosWnd(pMsg->hwnd);
+		if(wnd == nullptr)
+		{
+			_lastMouseMove = pt;
+			auto dblClickTime = GetDoubleClickTime();
+			SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
+		}
+		else
+		{
+			wnd->startCloseTimer();
+		}
 	}
 }
 
