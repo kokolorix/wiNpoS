@@ -24,6 +24,14 @@ private:
 	POINT _lastMouseMove = { 0 };
 	POINT _lastLButtonDown = { 0 };
 	RECT _lastRect = { 0 }; // last rect
+
+	HWND _hFromSysMenu = NULL;
+	HWND _hFromCloseButton = NULL;
+	HWND _hFromMinButton = NULL;
+	HWND _hBarWnd = NULL;
+
+	bool _openWindowTimerRunning = false;
+
 	bool hasLastRect()
 	{
 		return _lastRect.left + _lastRect.right + _lastRect.right + _lastRect.bottom != 0;
@@ -38,6 +46,7 @@ private:
 private:
 	void onNcMouseMove(MSG* pMsg);
 	void onNcLButtonDblClick(MSG* pMsg);
+	void onWindowPosChanging(CWPSTRUCT* pMsg);
 	void onWindowPosChanged(CWPSTRUCT* pMsg);
 	
 	enum struct IncWnd : unsigned char { Left = 0x01, Right = 0x02, Up = 0x04, Down = 0x08, All = Left|Right|Up|Down, Horizontal=Left|Right, Vertical=Up|Down };

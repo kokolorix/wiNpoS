@@ -33,7 +33,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			hhShellHookProc =
 				SetWindowsHookEx(WH_SHELL, ShellHookProc, NULL, GetCurrentThreadId());
 
-			WRITE_DEBUG_LOG(format("Attach {} to {}", Utils::DllName, Utils::ExeName));
+			WRITE_DEBUG_LOG(dformat("Attach {} to {}", Utils::DllName, Utils::ExeName));
 
 			break;
 		}

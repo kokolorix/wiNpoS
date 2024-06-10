@@ -13,6 +13,9 @@
 #include <Shlwapi.h>
 #include "DebugNew.h"
 #include "WinPosWndCfg.h"
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 namespace
 {
@@ -27,10 +30,22 @@ namespace
 	}
 }
 
+std::atomic<std::chrono::time_point<std::chrono::file_clock>> WinPosWndCfg::_lastWriteTimeStamp;
+std::shared_ptr<WinPosWndCfg> WinPosWndCfg::_configCache;
+
 void WinPosWndCfg::readConfig()
 {
 	using std::format;
 	string configPath = getConfigPath();
+	auto ftime = fs::last_write_time(configPath);
+	if (ftime == _lastWriteTimeStamp.load() && _configCache)
+	{
+		*this = *_configCache;
+		return;
+	}
+
+	_lastWriteTimeStamp.store(ftime);
+
 	WRITE_DEBUG_LOG(format("Read config from {}", configPath));
 
 	MonitorInfos monitorInfos;
@@ -59,6 +74,8 @@ void WinPosWndCfg::readConfig()
 				_scale = c["Scale"].GetFloat();
 			if (c.HasMember("CloseTimeout"))
 				_closeTimeout = c["CloseTimeout"].GetUint();
+			if (c.HasMember("OpenTimeout"))
+				_openTimeout = c["OpenTimeout"].GetUint();
 			if (c.HasMember("Monitors"))
 			{
 				LONG xoffset = 0;
@@ -113,6 +130,7 @@ void WinPosWndCfg::readConfig()
 				}
 			}
 
+			_configCache = std::make_shared<WinPosWndCfg>(*this);
 			return;
 		}
 	} 

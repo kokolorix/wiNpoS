@@ -41,7 +41,7 @@ namespace
 		ExpandEnvironmentStringsA(format(R"(%APPDATA%\wiNpoS\{}-debug1.log)", moduleName).c_str(), logPath, MAX_PATH);
 
 		ofstream fs(logPath);
-		fs << "Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tLogSource\tDetail" << std::endl;
+		fs << "Zeit\tProcessName\tProzessId\tThreadId\tMessage\tFunction\tDuration\tLogSource\tDetail" << std::endl;
 
 		return logPath;
 	}

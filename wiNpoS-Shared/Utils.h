@@ -55,10 +55,11 @@ namespace Utils
 //#define __FILE_LINE__ __FILE__ "(" S(__LINE__) ")"
 
 #ifdef _DEBUG
+//	Zeit	ProcessName	ProzessId	ThreadId	Message	Function	Duration	LogSource	Detail
 
-#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(format("{}\t{}({})\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__))
-
-#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(format("{}\t{}\t{}({})\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__, dtl))
+#define WRITE_DEBUG_LOG(msg) Utils::WriteDebugLog(dformat("{}\t{}({})\t\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__))
+//                                                         |1|-|2||3|       |1|  |------------2--------------| |---3--|
+#define WRITE_DEBUG_LOG_DETAIL(msg, dtl) Utils::WriteDebugLog(dformat("{}\t{}({})\t{}\n", msg, __FUNCTION__ "\t\t" __FILE__, __LINE__, dtl))
 
 #define WRITE_DEBUG_LOG_DURATION(msg, methodCall) \
 { \

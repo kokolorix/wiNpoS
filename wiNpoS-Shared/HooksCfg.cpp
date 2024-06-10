@@ -23,6 +23,12 @@
 using namespace rapidjson;
 
 #include "WinPosWndCfg.h"
+#include <filesystem>
+namespace fs = std::filesystem;
+
+std::atomic<std::chrono::time_point<std::chrono::file_clock>> HooksCfg::_lastWriteTimeStamp;
+
+std::shared_ptr<HooksCfg> HooksCfg::_configCache;
 
 /**
  * @brief read a JSON config from given path
@@ -105,6 +111,16 @@ void HooksCfg::readAppConfig()
 */
 void HooksCfg::readConfig()
 {
+	string configPath = getConfigPath();
+	auto ftime = fs::last_write_time(configPath);
+	if (ftime == _lastWriteTimeStamp.load() && _configCache)
+	{
+		*this = *_configCache;
+		return;
+	}
+
+	_lastWriteTimeStamp = ftime;
+
 	if(auto d_ptr = readConfigDocument(getConfigPath()))
 	{
 		Document& d = *d_ptr;

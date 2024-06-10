@@ -81,7 +81,7 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		}
 		case WM_KEYDOWN:
 		{
-			WRITE_DEBUG_LOG_DETAIL("WM_KEYDOWN", format("Hwnd: {:#010x}, wParam: {}", (uint64_t)hWnd, wParam));
+			WRITE_DEBUG_LOG_DETAIL("WM_KEYDOWN", dformat("Hwnd: {:#010x}, wParam: {}", (uint64_t)hWnd, wParam));
 			if (wParam == VK_ESCAPE)
 			{
 				destroy();
@@ -101,6 +101,7 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		}
 		case WM_MOUSEMOVE:
 		{
+			WRITE_DEBUG_LOG_DETAIL("WM_MOUSEMOVE", format("Hwnd: {:#010x}, _hWndes: {}", (uint64_t)hWnd, _hWnds.size()));
 			if (!_hWnds.empty())
 				SetTimer(_hWnds.front(), CLOSE_TIMER, _closeTimeout, (TIMERPROC)nullptr);
 
@@ -570,8 +571,8 @@ void WinPosWnd::WinPosPreview::paint(HWND hWnd, PAINTSTRUCT& ps, HDC hDc) const
 		COLORREF oldColor = SetTextColor(hDc, GetSysColor(COLOR_GRAYTEXT));
 
 		auto mp = monitorPreview.lock();
-		FLOAT scale = mp ? mp->winPosWnd.getScale() : 0.2;
-		int nHight = -MulDiv(40.0 * scale, GetDeviceCaps(hDc, LOGPIXELSY), 72);
+		FLOAT scale = mp ? mp->winPosWnd.getScale() : 0.2f;
+		int nHight = -MulDiv(static_cast<int>(std::ceil(40.0 * scale)), GetDeviceCaps(hDc, LOGPIXELSY), 72);
 		HFONT hFont = CreateFontA(nHight, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, "Arial");
 		HFONT hCurrentFont = (HFONT)SelectObject(hDc, hFont);
 		RECT wr = wndRect;

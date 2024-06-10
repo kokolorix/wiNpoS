@@ -28,6 +28,7 @@ namespace
 	const UINT TI_LBUTTONUP = 0x40;
 	const UINT TI_NCLBUTTONUP = 0x50;
 	const UINT TI_NCMOUSEMOVE = 0x60;
+	const UINT TI_OPEN_WINDOW = 0x70;
 }
 
 /**
@@ -109,6 +110,10 @@ LRESULT CALLBACK HooksImpl::callWndProc(_In_ int nCode, _In_ WPARAM wParam, _In_
 				//case WM_SHOWWINDOW:
 				//	WRITE_DEBUG_LOG(format("WM_SHOWWINDOW: {:#010x} ", pMsg->message));
 				//	break;
+				case WM_WINDOWPOSCHANGING:
+					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
+					_hooks.onWindowPosChanging(pMsg);
+					break;
 				case WM_WINDOWPOSCHANGED:
 					//WRITE_DEBUG_LOG(format("WM_WINDOWPOSCHANGED: {:#010x} ", pMsg->message));
 					_hooks.onWindowPosChanged(pMsg);
@@ -189,9 +194,13 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 				switch (pMsg->message)
 				{
 					case WM_NCMOUSEMOVE:
-						//WRITE_DEBUG_LOG(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message));
+						WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), dformat("x: {}, y: {}", GET_X_LPARAM(pMsg->lParam), GET_Y_LPARAM(pMsg->lParam)));
 						_hooks.onNcMouseMove(pMsg);
 						break;
+					//case WM_MOUSEMOVE:
+					//	WRITE_DEBUG_LOG(format("WM_MOUSEMOVE: {:#010x} ", pMsg->message));
+					//	_hooks.onNcMouseMove(pMsg);
+					//	break;
 					case WM_SHOWWINDOW:
 						WRITE_DEBUG_LOG(dformat("WM_SHOWWINDOW: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
 						break;
@@ -279,6 +288,38 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 								//_hooks._lastMouseMove = POINT{ 0, 0 };
 							//}
 						}
+						else if (pMsg->wParam == TI_OPEN_WINDOW)
+						{
+							WRITE_DEBUG_LOG(dformat("WM_TIMER: {:#010x}, hWnd: {:018x} ", pMsg->message, (uint64_t)pMsg->hwnd));
+							KillTimer(pMsg->hwnd, pMsg->wParam);
+							_hooks._openWindowTimerRunning = false;
+							POINT pt = { 0 };
+							GetCursorPos(&pt);
+							RECT rc = { pt.x - 4, pt.y - 4, pt.x + 4, pt.y + 4 };
+							if (PtInRect(&rc, _hooks._lastMouseMove))
+							{
+								int yBorder = GetSystemMetrics(SM_CYBORDER);
+								int yFrame = GetSystemMetrics(SM_CYFRAME);
+								int yCaption = GetSystemMetrics(SM_CYCAPTION);
+								yCaption = yCaption + (2 * yBorder) + (2 * yFrame);
+
+								int xBorder = GetSystemMetrics(SM_CXBORDER);
+								int xFrame = GetSystemMetrics(SM_CXFRAME);
+								int xButton = GetSystemMetrics(SM_CXSIZE);
+								xButton = xButton + (2 * xBorder) + (2 * xFrame);
+
+								RECT rcWnd;
+								GetWindowRect(pMsg->hwnd, &rcWnd);
+
+								HWND hWnd = _hooks.onShowPosWnd(pMsg, { pt.x, rcWnd.top + yCaption });
+
+								RECT rcMin = { rcWnd.right - (3 * xButton) - xFrame, rcWnd.top, rcWnd.right - (2 * xButton) - xFrame, rcWnd.top + yCaption };
+								if (PtInRect(&rcMin, pt))
+									_hooks._hFromMinButton = hWnd;
+								else
+									_hooks._hFromSysMenu = hWnd;
+							}
+						}
 						break;
 
 					case WM_COMMAND:
@@ -360,89 +401,103 @@ void HooksImpl::clear()
 {
 	_lastMouseMove = { 0, 0 };
 }
+#include <dwmapi.h>
+#pragma comment(lib, "Dwmapi.lib")
 
 std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
-#include <Uxtheme.h>
-#include <Vsstyle.h>
-#include <Vssym32.h>
-#pragma comment(lib, "UxTheme.lib")
-
 void HooksImpl::onNcMouseMove(MSG* pMsg)
 {
 	int x = GET_X_LPARAM(pMsg->lParam);
 	int y = GET_Y_LPARAM(pMsg->lParam);
 	POINT pt = { x, y };
-	GetCursorPos(&pt);
-	LRESULT hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
-	
-	//NONCLIENTMETRICS ncm;
-	//ncm.cbSize = sizeof(NONCLIENTMETRICS);
-	//// Retrieve the non-client metrics, including the close button size
-	//SystemParametersInfo(SPI_GETNONCLIENTMETRICS, ncm.cbSize, &ncm, 0);
-	//int closeButtonWidth = ncm.iCaptionWidth;
-	//int closeButtonHeight = ncm.iCaptionHeight;
-	
+	//GetCursorPos(&pt);
+	LRESULT hitTest = 0;
+	//DwmDefWindowProc(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y), &hitTest);
+	hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
 
-	int dpi = GetDpiForSystem();
-	int closeButtonWidth = GetSystemMetricsForDpi(SM_CXSIZE, dpi);
-	int closeButtonHeight = GetSystemMetricsForDpi(SM_CYSIZE, dpi);
-	HTHEME hTheme = OpenThemeData(pMsg->hwnd, L"Window");
-	if (hTheme)
-	{
-		RECT rect = {};
-		SIZE size = {};
-		GetThemePartSize(hTheme, NULL, WP_CLOSEBUTTON, CBS_NORMAL, &rect, TS_TRUE, &size);
-
-		//closeButtonWidth = size.cx;//.right - rect.left;
-		//closeButtonHeight = rect.bottom - rect.top;
-
-		// Now closeButtonWidth and closeButtonHeight contain the size of the close button
-
-		CloseThemeData(hTheme);
-	}
-
+	int yBorder = GetSystemMetrics(SM_CYBORDER);
+	int yFrame = GetSystemMetrics(SM_CYFRAME);
 	int yCaption = GetSystemMetrics(SM_CYCAPTION);
-	int xButton = closeButtonWidth;// GetSystemMetrics(SM_CXSIZE);
-	RECT rcWnd, rcSys, rcCls;
-	GetWindowRect(pMsg->hwnd, &rcWnd);
-	InflateRect(&rcWnd, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
-	rcSys = { rcWnd.left, rcWnd.top, rcWnd.left + xButton, rcWnd.top + yCaption };
-	rcCls = { rcWnd.right - xButton, rcWnd.top, rcWnd.right, rcWnd.top + yCaption };
-	bool isOnOpenArea = false; // PtInRect(&rcSysmenu, pt) || PtInRect(&rcCloseButton, pt);
-	
-	//string msg = format("hitTest: {}, x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}, sys right: {}, close left: {}",
-	//	hitTest, pt.x, pt.y,
-	//	rcWindow.left, rcWindow.top, rcWindow.right, rcWindow.bottom,
-	//	rcSysmenu.right, rcCloseButton.left);
+	yCaption = yCaption + (2 * yBorder) + (2 * yFrame);
 
-	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), msg);
+	int xBorder = GetSystemMetrics(SM_CXBORDER);
+	int xFrame = GetSystemMetrics(SM_CXFRAME);
+	int xButton = GetSystemMetrics(SM_CXSIZE);
+	xButton = xButton + (2 * xBorder) + (2 * xFrame);
+	
+	RECT rcWnd;
+	GetWindowRect(pMsg->hwnd, &rcWnd);
+	//InflateRect(&rcWnd, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
+
+	RECT rcSys = { rcWnd.left, rcWnd.top, rcWnd.left + xButton, rcWnd.top + yCaption };
+	RECT rcCls = { rcWnd.right - xButton - xFrame, rcWnd.top, rcWnd.right - xFrame, rcWnd.top + yCaption };
+	RECT rcMin = { rcWnd.right - (3 * xButton) - xFrame, rcWnd.top, rcWnd.right - (2 * xButton) - xFrame, rcWnd.top + yCaption };
+
+
+	bool isOnSysMenu = false, isOnCloseButton = false, isOnMinButton = false;
+	
+	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("SysMenu     left: {}, top: {}, right: {}, bottom: {}", rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
+	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("CloseButton left: {}, top: {}, right: {}, bottom: {}", rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
+	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("MinButton left: {}, top: {}, right: {}, bottom: {}", rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
+	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("hitTest: {}, x: {}, y: {}", hitTest, pt.x, pt.y));
 	//InvalidateRect(pMsg->hwnd, &rcWnd, TRUE);
 	//if(is_one_of(hitTest, HTMINBUTTON))
 	if (PtInRect(&rcSys, pt))
 	{
-		isOnOpenArea = true;
+		isOnSysMenu = true;
 		WRITE_DEBUG_LOG(format("Hit SysMenu x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}", 
 			pt.x, pt.y, rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
 	}
 	if (PtInRect(&rcCls, pt))
 	{
-		isOnOpenArea = true;
-		WRITE_DEBUG_LOG(format("Hit Close x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}", 
+		isOnCloseButton = true;
+		WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("Hit Close x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
 			pt.x, pt.y, rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
 	}
-	if(isOnOpenArea)
+	if (PtInRect(&rcMin, pt))
 	{
-		auto wnd = WinPosWnd::getWinPosWnd(pMsg->hwnd);
+		isOnMinButton = true;
+		WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("Hit Min x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
+			pt.x, pt.y, rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
+	}
+
+	auto wnd = WinPosWnd::getWinPosWnd(pMsg->hwnd);
+
+	if(isOnSysMenu  || isOnMinButton/*|| isOnCloseButton*/)
+	{
+		//if (wnd && (isOnSysMenu || isOnMinButton) && wnd->getWndHandle() == _hFromCloseButton)
+		//	wnd = nullptr;
+		//if (wnd && isOnCloseButton && wnd->getWndHandle() == _hFromSysMenu)
+		//	wnd = nullptr;
+
 		if(wnd == nullptr)
 		{
-			_lastMouseMove = pt;
-			auto dblClickTime = GetDoubleClickTime();
-			SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
+			if(!_openWindowTimerRunning)
+			{
+				WinPosWndCfg config;
+				config.readConfig();
+				_lastMouseMove = pt;
+				SetTimer(pMsg->hwnd, TI_OPEN_WINDOW, config.getOpenTimeout(), (TIMERPROC)isOnMinButton);
+				_openWindowTimerRunning = true;
+			}
+			//HWND hWnd = _hooks.onShowPosWnd(pMsg, { pt.x, rcWnd.top + yCaption });
+			//_hFromSysMenu = isOnSysMenu ? hWnd : NULL;
+			//_hFromCloseButton = isOnCloseButton ? hWnd : NULL;
+
+			//_lastMouseMove = pt;
+			//auto dblClickTime = GetDoubleClickTime();
+			//SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
 		}
 		else
 		{
 			wnd->startCloseTimer();
 		}
+	}
+	else
+	{
+		//WinPosWndCfg config;
+		//config.readConfig();
+		//SetTimer(pMsg->hwnd, TI_OPEN_WINDOW, config.getOpenTimeout(), (TIMERPROC)MAKELPARAM(pt.x, pt.y));
 	}
 }
 
@@ -520,6 +575,15 @@ void HooksImpl::onNcLButtonDblClick(MSG* pMsg)
 		}
 	}
 }
+
+void HooksImpl::onWindowPosChanging(CWPSTRUCT* pMsg)
+{
+	if (_hBarWnd)
+	{
+
+	}
+}
+
 /**
  * @brief here we react to position changes of the main window
  * @param pMsg 
@@ -717,8 +781,10 @@ void HooksImpl::onCaptionClick(MSG* pMsg)
 				onIncrementWindow(pMsg, 10, IncWnd::All, &pt, HTCAPTION);
 			else if (lShift)
 				onIncrementWindow(pMsg, -10, IncWnd::All, &pt, HTCAPTION);
+#ifdef _SHOW_ON_CLICK
 			else
 				onShowPosWnd(pMsg, pt);
+#endif // _SHOW_ON_CLICK
 		}
 	}
 }
@@ -760,9 +826,9 @@ void HooksImpl::onIncrementWindow(MSG* pMsg, int diff, IncWnd incDir /*= IncWnd:
 		wr2.bottom += diff;
 	//InflateRect(&wr, diff, diff);
 
-	WRITE_DEBUG_LOG_DETAIL(format("Msg: {:#010x}, diff: {}, dir: {:#06x}", pMsg->message, diff, (unsigned char)incDir),
+	WRITE_DEBUG_LOG_DETAIL(dformat("Msg: {:#010x}, diff: {}, dir: {:#06x}", pMsg->message, diff, (unsigned char)incDir),
 		format("CursorPos: {}, RECT1: {},{},{},{}, RECT2: {},{},{},{}", 
-			pCursorPos ? format("x: {}, y: {}", pCursorPos->x, pCursorPos->y) : string("NULL"),
+			pCursorPos ? dformat("x: {}, y: {}", pCursorPos->x, pCursorPos->y) : string("NULL"),
 		wr1.left, wr1.top, wr1.right, wr1.bottom,
 		wr2.left, wr2.top, wr2.right, wr2.bottom)
 	);

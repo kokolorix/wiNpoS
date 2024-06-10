@@ -2,6 +2,8 @@
 #include <wtypes.h>
 #include <string>
 #include "Utils.h"
+#include <chrono>
+#include <atomic>
 
 /**
  * @brief real complicated forward declaration
@@ -47,6 +49,9 @@ private:
 	string getAppConfigPath();
 	string getConfigPath();
 	string getConfigDir();
+
+	static std::atomic<std::chrono::time_point<std::chrono::file_clock>> _lastWriteTimeStamp;
+	static std::shared_ptr<HooksCfg> _configCache;
 };
 
 using HooksCfgPtr = std::unique_ptr<HooksCfg>;
