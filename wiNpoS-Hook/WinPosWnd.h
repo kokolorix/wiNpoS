@@ -20,6 +20,7 @@ public:
 	static WinPosWnd* getWinPosWnd(HWND hWnd);
 
 	void startCloseTimer();
+	bool isPointOverPreview(POINT pt);
 
 private:
 	using PosPreviewCfgs = WinPosWndCfg::PosPreviewCfgs;

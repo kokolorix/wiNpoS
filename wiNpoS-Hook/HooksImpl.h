@@ -14,6 +14,9 @@ public:
 
 	void clear();
 
+	enum class ActiveElement { nope, winPosWnd, sysMenu, minButton };
+	ActiveElement isCursorOverActiveElement(HWND hWnd);
+
 private:
 	WinPosWnd _winPosWnd;
 	MSG _lButtonUpMsg = { 0 };
@@ -60,3 +63,5 @@ private:
 	bool onClosePosWnd(MSG* pMsg, POINT pt);
 	HWND onShowPosWnd(MSG* pMsg, POINT pt);
 };
+
+using ActiveElement = HooksImpl::ActiveElement;

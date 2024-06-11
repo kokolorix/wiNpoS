@@ -295,26 +295,24 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 							_hooks._openWindowTimerRunning = false;
 							POINT pt = { 0 };
 							GetCursorPos(&pt);
-							RECT rc = { pt.x - 4, pt.y - 4, pt.x + 4, pt.y + 4 };
+
+							int yFrame = GetSystemMetrics(SM_CYFRAME);
+							int xFrame = GetSystemMetrics(SM_CXFRAME);
+
+							RECT rc = { pt.x - xFrame, pt.y - yFrame, pt.x + xFrame, pt.y + yFrame };
 							if (PtInRect(&rc, _hooks._lastMouseMove))
 							{
 								int yBorder = GetSystemMetrics(SM_CYBORDER);
-								int yFrame = GetSystemMetrics(SM_CYFRAME);
 								int yCaption = GetSystemMetrics(SM_CYCAPTION);
 								yCaption = yCaption + (2 * yBorder) + (2 * yFrame);
-
-								int xBorder = GetSystemMetrics(SM_CXBORDER);
-								int xFrame = GetSystemMetrics(SM_CXFRAME);
-								int xButton = GetSystemMetrics(SM_CXSIZE);
-								xButton = xButton + (2 * xBorder) + (2 * xFrame);
 
 								RECT rcWnd;
 								GetWindowRect(pMsg->hwnd, &rcWnd);
 
-								HWND hWnd = _hooks.onShowPosWnd(pMsg, { pt.x, rcWnd.top + yCaption });
+								HWND hWnd = _hooks.onShowPosWnd(pMsg, { pt.x, rcWnd.top + yCaption + (2 * yFrame)});
 
-								RECT rcMin = { rcWnd.right - (3 * xButton) - xFrame, rcWnd.top, rcWnd.right - (2 * xButton) - xFrame, rcWnd.top + yCaption };
-								if (PtInRect(&rcMin, pt))
+								auto activeElement = _hooks.isCursorOverActiveElement(pMsg->hwnd);
+								if (activeElement == ActiveElement::minButton)
 									_hooks._hFromMinButton = hWnd;
 								else
 									_hooks._hFromSysMenu = hWnd;
@@ -401,19 +399,21 @@ void HooksImpl::clear()
 {
 	_lastMouseMove = { 0, 0 };
 }
-#include <dwmapi.h>
-#pragma comment(lib, "Dwmapi.lib")
 
-std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
-void HooksImpl::onNcMouseMove(MSG* pMsg)
+/**
+ * Returns over which element the cursor is located.
+ * 
+ * \return 
+ */
+//#include <dwmapi.h>
+//#pragma comment(lib, "Dwmapi.lib")
+HooksImpl::ActiveElement HooksImpl::isCursorOverActiveElement(HWND hWnd)
 {
-	int x = GET_X_LPARAM(pMsg->lParam);
-	int y = GET_Y_LPARAM(pMsg->lParam);
-	POINT pt = { x, y };
-	//GetCursorPos(&pt);
-	LRESULT hitTest = 0;
-	//DwmDefWindowProc(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y), &hitTest);
-	hitTest = SendMessage(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+	POINT pt = { 0 };
+	GetCursorPos(&pt);
+
+	RECT rcWnd;
+	GetWindowRect(hWnd, &rcWnd);
 
 	int yBorder = GetSystemMetrics(SM_CYBORDER);
 	int yFrame = GetSystemMetrics(SM_CYFRAME);
@@ -424,52 +424,61 @@ void HooksImpl::onNcMouseMove(MSG* pMsg)
 	int xFrame = GetSystemMetrics(SM_CXFRAME);
 	int xButton = GetSystemMetrics(SM_CXSIZE);
 	xButton = xButton + (2 * xBorder) + (2 * xFrame);
+
+	LRESULT hitTest = 0;
+	//DwmDefWindowProc(pMsg->hwnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y), &hitTest);
+	hitTest = SendMessage(hWnd, WM_NCHITTEST, 0, MAKELPARAM(pt.x, pt.y));
+	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("SysMenu     left: {}, top: {}, right: {}, bottom: {}", rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
+	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("CloseButton left: {}, top: {}, right: {}, bottom: {}", rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
+	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("MinButton left: {}, top: {}, right: {}, bottom: {}", rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
+	//WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("hitTest: {}, x: {}, y: {}", hitTest, pt.x, pt.y));
+
+	//RECT rcCls = { rcWnd.right - xButton - xFrame, rcWnd.top, rcWnd.right - xFrame, rcWnd.top + yCaption };
+	//if (PtInRect(&rcCls, pt))
+	//{
+	//  WRITE_DEBUG_LOG(format("Hit CloseButton x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
+	//		pt.x, pt.y, rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
+	//}
+
+	RECT rcSys = { rcWnd.left, rcWnd.top, rcWnd.left + xButton, rcWnd.top + yCaption };	
+	if (PtInRect(&rcSys, pt))
+	{
+		WRITE_DEBUG_LOG(format("Hit SysMenu x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
+			pt.x, pt.y, rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
+		return ActiveElement::sysMenu;
+	}
+
+	RECT rcMin = { rcWnd.right - (3 * xButton) - xFrame, rcWnd.top, rcWnd.right - (2 * xButton) - xFrame, rcWnd.top + yCaption };
+	if (PtInRect(&rcMin, pt))
+	{
+		WRITE_DEBUG_LOG(format("Hit MinButton x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
+			pt.x, pt.y, rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
+		return ActiveElement::minButton;
+	}
+
+	auto wnd = WinPosWnd::getWinPosWnd(hWnd);
+	if (wnd && wnd->isPointOverPreview(pt))
+		return ActiveElement::winPosWnd;
+
+	return ActiveElement::nope;
+}
+
+
+std::chrono::system_clock::time_point HooksImpl::_lastCaptionClick = std::chrono::system_clock::now();
+void HooksImpl::onNcMouseMove(MSG* pMsg)
+{
+	int x = GET_X_LPARAM(pMsg->lParam);
+	int y = GET_Y_LPARAM(pMsg->lParam);
+	POINT pt = { x, y };
 	
 	RECT rcWnd;
 	GetWindowRect(pMsg->hwnd, &rcWnd);
-	//InflateRect(&rcWnd, -GetSystemMetrics(SM_CXBORDER), -GetSystemMetrics(SM_CYBORDER));
-
-	RECT rcSys = { rcWnd.left, rcWnd.top, rcWnd.left + xButton, rcWnd.top + yCaption };
-	RECT rcCls = { rcWnd.right - xButton - xFrame, rcWnd.top, rcWnd.right - xFrame, rcWnd.top + yCaption };
-	RECT rcMin = { rcWnd.right - (3 * xButton) - xFrame, rcWnd.top, rcWnd.right - (2 * xButton) - xFrame, rcWnd.top + yCaption };
-
-
-	bool isOnSysMenu = false, isOnCloseButton = false, isOnMinButton = false;
-	
-	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("SysMenu     left: {}, top: {}, right: {}, bottom: {}", rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
-	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("CloseButton left: {}, top: {}, right: {}, bottom: {}", rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
-	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("MinButton left: {}, top: {}, right: {}, bottom: {}", rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
-	WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("hitTest: {}, x: {}, y: {}", hitTest, pt.x, pt.y));
-	//InvalidateRect(pMsg->hwnd, &rcWnd, TRUE);
-	//if(is_one_of(hitTest, HTMINBUTTON))
-	if (PtInRect(&rcSys, pt))
-	{
-		isOnSysMenu = true;
-		WRITE_DEBUG_LOG(format("Hit SysMenu x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}", 
-			pt.x, pt.y, rcSys.left, rcSys.top, rcSys.right, rcSys.bottom));
-	}
-	if (PtInRect(&rcCls, pt))
-	{
-		isOnCloseButton = true;
-		WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("Hit Close x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
-			pt.x, pt.y, rcCls.left, rcCls.top, rcCls.right, rcCls.bottom));
-	}
-	if (PtInRect(&rcMin, pt))
-	{
-		isOnMinButton = true;
-		WRITE_DEBUG_LOG_DETAIL(format("WM_NCMOUSEMOVE: {:#010x} ", pMsg->message), format("Hit Min x: {}, y: {}, left: {}, top: {}, right: {}, bottom: {}",
-			pt.x, pt.y, rcMin.left, rcMin.top, rcMin.right, rcMin.bottom));
-	}
+	auto activeelement = isCursorOverActiveElement(pMsg->hwnd);
 
 	auto wnd = WinPosWnd::getWinPosWnd(pMsg->hwnd);
 
-	if(isOnSysMenu  || isOnMinButton/*|| isOnCloseButton*/)
+	if(is_one_of(activeelement, ActiveElement::minButton, ActiveElement::sysMenu))
 	{
-		//if (wnd && (isOnSysMenu || isOnMinButton) && wnd->getWndHandle() == _hFromCloseButton)
-		//	wnd = nullptr;
-		//if (wnd && isOnCloseButton && wnd->getWndHandle() == _hFromSysMenu)
-		//	wnd = nullptr;
-
 		if(wnd == nullptr)
 		{
 			if(!_openWindowTimerRunning)
@@ -477,27 +486,14 @@ void HooksImpl::onNcMouseMove(MSG* pMsg)
 				WinPosWndCfg config;
 				config.readConfig();
 				_lastMouseMove = pt;
-				SetTimer(pMsg->hwnd, TI_OPEN_WINDOW, config.getOpenTimeout(), (TIMERPROC)isOnMinButton);
+				SetTimer(pMsg->hwnd, TI_OPEN_WINDOW, config.getOpenTimeout(), (TIMERPROC)nullptr);
 				_openWindowTimerRunning = true;
 			}
-			//HWND hWnd = _hooks.onShowPosWnd(pMsg, { pt.x, rcWnd.top + yCaption });
-			//_hFromSysMenu = isOnSysMenu ? hWnd : NULL;
-			//_hFromCloseButton = isOnCloseButton ? hWnd : NULL;
-
-			//_lastMouseMove = pt;
-			//auto dblClickTime = GetDoubleClickTime();
-			//SetTimer(pMsg->hwnd, TI_NCMOUSEMOVE, dblClickTime, (TIMERPROC)nullptr);
 		}
 		else
 		{
 			wnd->startCloseTimer();
 		}
-	}
-	else
-	{
-		//WinPosWndCfg config;
-		//config.readConfig();
-		//SetTimer(pMsg->hwnd, TI_OPEN_WINDOW, config.getOpenTimeout(), (TIMERPROC)MAKELPARAM(pt.x, pt.y));
 	}
 }
 

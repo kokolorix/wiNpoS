@@ -13,6 +13,7 @@
 #pragma comment(lib, "Msimg32.lib")
 
 extern HINSTANCE hInstance;
+extern thread_local HooksImpl _hooks;
 
 namespace
 {
@@ -71,7 +72,9 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		case WM_TIMER:
 			if (wParam == CLOSE_TIMER)
 			{
-				destroy();
+				
+				if(_hooks.isCursorOverActiveElement(GetParent(hWnd)) == ActiveElement::nope)
+					destroy();
 			}
 			break;
 		case WM_DESTROY:
@@ -103,6 +106,7 @@ LRESULT WinPosWnd::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 		{
 			WRITE_DEBUG_LOG_DETAIL("WM_MOUSEMOVE", format("Hwnd: {:#010x}, _hWndes: {}", (uint64_t)hWnd, _hWnds.size()));
 			if (!_hWnds.empty())
+				//KillTimer(_hWnds.front(), CLOSE_TIMER);
 				SetTimer(_hWnds.front(), CLOSE_TIMER, _closeTimeout, (TIMERPROC)nullptr);
 
 			POINT pt = { 0 };
@@ -226,6 +230,22 @@ void WinPosWnd::startCloseTimer()
 }
 
 /**
+ * @brief \c true if the Point is over one of the previews.
+ * 
+ * \param pt
+ * \return 
+ */
+bool WinPosWnd::isPointOverPreview(POINT pt)
+{
+	for (auto mp : _previews)
+	{
+		if (PtInRect(&mp->prvRect, pt))
+			return true;
+	}
+	return false;
+}
+
+/**
  * @brief create the required windows for monitor preview and all configured positions
  * @param pt point where the window should displayed 
  * @param hParentWnd the main window handle
@@ -285,7 +305,6 @@ void WinPosWnd::create(POINT pt, HWND hParentWnd)
 /**
  * @brief destroys every windows
 */
-extern thread_local HooksImpl _hooks;
 void WinPosWnd::destroy()
 {
 	WinPosWnd::hWndToWinPosMap.erase(_hParentWnd);
