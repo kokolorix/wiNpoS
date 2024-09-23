@@ -11,6 +11,8 @@
 #include <assert.h>
 #include <future>
 #include <chrono>
+//#include <commctrl.h>
+//#pragma comment(lib, "comctl32.lib")
 
 extern HINSTANCE hInstance;
 thread_local HRESULT coInit /*= S_FALSE*/;
@@ -320,7 +322,10 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 						}
 						break;
 
+					case WM_INITMENU:
+						break;
 					case WM_COMMAND:
+					case WM_SYSCOMMAND:
 					{
 						uint16_t type = HIWORD(pMsg->wParam);
 						uint16_t wmId = LOWORD(pMsg->wParam);
@@ -352,6 +357,54 @@ LRESULT CALLBACK HooksImpl::getMsgProc(_In_ int nCode, _In_ WPARAM wParam, _In_ 
 								POINT pt = { 0 };
 								GetCursorPos(&pt);
 								HWND hWnd = _hooks.onShowPosWnd(pMsg, pt);
+								break;
+							}
+							case ID_SYSMENU_SHOW_INFOS:
+							{
+								RECT wr = {};
+								GetWindowRect(pMsg->hwnd, &wr);
+
+								auto vx = GetSystemMetrics(SM_XVIRTUALSCREEN);
+								auto vy = GetSystemMetrics(SM_YVIRTUALSCREEN);
+								auto vw = GetSystemMetrics(SM_CXVIRTUALSCREEN);
+								auto vh = GetSystemMetrics(SM_CYVIRTUALSCREEN);
+								RECT dr = { vx, vy, vx + vw, vy + vh };
+
+								HMONITOR hMon = MonitorFromWindow(pMsg->hwnd, MONITOR_DEFAULTTONEAREST);
+								MONITORINFO mi = { sizeof(MONITORINFO) };
+								GetMonitorInfo(hMon, &mi);
+								auto mr = mi.rcWork;
+
+								auto x1 = (mr.right - mr.left) / 100.0;
+								auto y1 = (mr.bottom - mr.top) / 100.0;
+
+								auto px = std::round((wr.left - mr.left) / x1);
+								auto py = std::round((wr.top - mr.top) / y1);
+								auto pw = std::round((wr.right - wr.left) / x1);
+								auto ph = std::round((wr.bottom - wr.top) / y1);
+
+								std::wstring msg = std::format(
+									L"Window (l, t, w, h) in pixel: {}, {}, {}, {}\r\n"
+									L"Virtual (l, t, w, h) in pixel: {}, {}, {}, {}\r\n"
+									L"Monitor (l, t, w, h) in pixel: {}, {}, {}, {}\r\n"
+									L"Window (l, t, w, h) in percent: {}, {}, {}, {}\r\n"
+									, wr.left, wr.top, wr.right - wr.left, wr.bottom - wr.top
+									, dr.left, dr.top, dr.right - dr.left, dr.bottom - dr.top
+									, mr.left, mr.top, mr.right - mr.left, mr.bottom - mr.top
+									, px, py, pw, ph
+								);
+								MessageBox(NULL, msg.c_str(), L"Window-Size", MB_ICONASTERISK | MB_OK);
+#if 0
+								TaskDialog(pMsg->hwnd,             // Owner window
+									NULL,             // HINSTANCE (module instance)
+									L"wiNpoS Infos",    // Main instruction (title)
+									msg.c_str(), // Content (body text)
+									L"OK to continue",  // Footer (optional)
+									TDCBF_OK_BUTTON,    // Buttons (OK button)
+									TD_INFORMATION_ICON,  // Icon (information icon)
+									NULL);  // Result (optional, we don’t use this in simple example)
+
+#endif
 								break;
 							}
 							default:

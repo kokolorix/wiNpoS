@@ -21,6 +21,10 @@ TaskToolbar::~TaskToolbar()
 
 HRESULT TaskToolbar::initialize(HINSTANCE hInst, HWND hWnd)
 {
+	HMENU hMenuSystem = GetSystemMenu(hWnd, FALSE);
+	InsertMenu(hMenuSystem, SC_CLOSE, MF_BYCOMMAND | MF_STRING, ID_SYSMENU_SHOW_INFOS, L"&Show Infos");
+	InsertMenu(hMenuSystem, SC_CLOSE, MF_SEPARATOR, 0, NULL);
+
 	HRESULT hr = CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&_pTaskbarList));
 	WRITE_DEBUG_LOG(dformat("hWnd: {:#018x}, pTaskbarList: {:#018x}", (uint64_t)hWnd, (uint64_t)_pTaskbarList));
 	if (SUCCEEDED(hr))

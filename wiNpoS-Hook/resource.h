@@ -24,6 +24,7 @@
 #define ID_SYSMENU_SHRINK               40009
 #define ID_SYSMENU_SHRINK_H             40010
 #define ID_SYSMENU_SHRINK_V             40011
+#define ID_SYSMENU_SHOW_INFOS           40012
 
 // Next default values for new objects
 // 

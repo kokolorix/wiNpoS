@@ -14,7 +14,10 @@
 #include <future>
 #include <shellapi.h>
 #include <regex>
+#include <commctrl.h>
+//#include <commctrl.inl>
 #pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "Comctl32.lib")
 
 #define MAX_LOADSTRING 100
 #define MYWM_NOTIFYICON (WM_APP + 1)
@@ -51,7 +54,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
     UNREFERENCED_PARAMETER(lpCmdLine);
 	 _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-    // TODO: Place code here.
+	 // Initialize common controls
+	 INITCOMMONCONTROLSEX icex;
+	 icex.dwSize = sizeof(icex);
+	 icex.dwICC = ICC_STANDARD_CLASSES;
+	 InitCommonControlsEx(&icex);
 
     // Initialize global strings
 #ifdef _WIN64
@@ -72,6 +79,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst,
     }
 
     HACCEL hAccelTable = LoadAccelerators(hInst, MAKEINTRESOURCE(IDC_WINPOSAPP));
+
+#if 0
+
+	 // Call TaskDialog
+	 TaskDialog(NULL,             // Owner window
+		 NULL,             // HINSTANCE (module instance)
+		 L"Task Dialog Title",    // Main instruction (title)
+		 L"This is a TaskDialog message", // Content (body text)
+		 L"OK to continue",  // Footer (optional)
+		 TDCBF_OK_BUTTON,    // Buttons (OK button)
+		 TD_INFORMATION_ICON,  // Icon (information icon)
+		 NULL);  // Result (optional, we don’t use this in simple example)
+#endif
 
     MSG msg;
 
